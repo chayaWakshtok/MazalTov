@@ -1,0 +1,143 @@
+<p>muamad-register works!</p>
+
+<p>shadchanit-register works!</p>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>הרשמה מעומד </h3>
+                <form name="form"  >
+                    <div class="form-group">
+                        <label for="BornDate">תאריך לידה </label>
+                        <input type="date" class="form-control" name="BornDate" [(ngModel)]="model.BornDate" />
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="Status">
+                               סטטוס</label>
+                        <input type="number" class="form-control" name="Status" [(ngModel)]="model.Status"   />
+                      
+                    </div>
+                    <div class="form-group">
+                            <label for="IsPayFood">האם משלם מזונות?</label>
+                            <input type="checkbox" class="form-control" name="IsPayFood" [(ngModel)]="model.IsPayFood"  />
+                           
+                        </div>
+                    <div class="form-group">
+                        <label for="Gender">מין</label>
+                        <input type="number" class="form-control" name="Gender" [(ngModel)]="model.Gender" />
+                        
+                    </div>
+                    <div class="form-group">
+                            <label for="Address">כתובת </label>
+                            <input type="number" class="form-control" name="Address" [(ngModel)]="model.Address"  />
+                            
+                        </div>
+                        <div class="form-group">
+                                <label for="MedicalProblem">בעיה רפואית </label>
+                                <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="model.MedicalProblem"  />
+                                 
+                        </div>
+                    <div class="form-group">
+                        <label for="NameFather"> שם האב </label>
+                        <input type="text" class="form-control" name="NameFather" [(ngModel)]="model.NameFather"   />
+                       
+                    </div>
+                     <div class="form-group">
+                        <label for="FamilyMother">משפחת האם</label>
+                        <input type="text" class="form-control" name="FamilyMother" [(ngModel)]="model.FamilyMother"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="NumChildren">כמה אחים בבית </label>
+                        <input type="number" class="form-control" name="NumChildren" [(ngModel)]="model.NumChildren"  />
+                         
+                    </div> 
+                    <div class="form-group">
+                        <label for="NumMarried">כמה ילדים נשואים</label>
+                        <input type="number" class="form-control" name="NumMarried" [(ngModel)]="model.NumMarried"  />
+                         
+                    </div>   
+                    <div class="form-group">
+                        <label for="NumMatching">ילדים בשידוכים</label>
+                        <input type="number" class="form-control" name="NumMatching" [(ngModel)]="model.NumMatching"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="FatherWork">עיסוק האב</label>
+                        <input type="text" class="form-control" name="FatherWork" [(ngModel)]="model.FatherWork"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="MotherWork">עיסוק האם</label>
+                        <input type="text" class="form-control" name="MotherWork" [(ngModel)]="model.MotherWork"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="CandidateWork">תעסוקת המועמד</label>
+                        <input type="text" class="form-control" name="CandidateWork" [(ngModel)]="model.CandidateWork"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="LastPlaceLearn">מקום לימודים </label>
+                        <input type="number" class="form-control" name="LastPlaceLearn" [(ngModel)]="model.LastPlaceLearn"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Show">מראה חיצוני</label>
+                        <input type="text" class="form-control" name="Show" [(ngModel)]="model.Show"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Clothes"> לבוש </label>
+                        <input type="checkbox" class="form-control" name="Clothes" [(ngModel)]="model.Clothes"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Tell">טלפון</label>
+                        <input type="tel" class="form-control" name="Tell" [(ngModel)]="model.Tell"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Phone">פלאפון</label>
+                        <input type="tel" class="form-control" name="Phone" [(ngModel)]="model.Phone"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Fax">פקס</label>
+                        <input type="tel" class="form-control" name="Fax" [(ngModel)]="model.Fax"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Email">מייל</label>
+                        <input type="email" class="form-control" name="Email" [(ngModel)]="model.Email"  />
+                         
+              
+                    <div class="form-group">
+                        <label for="Remark">הערה </label>
+                        <input type="text" class="form-control" name="Remark" [(ngModel)]="model.Remark"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="SumPay">שולם כסף?</label>
+                        <input type="number" class="form-control" name="SumPay" [(ngModel)]="model.SumPay"  />
+                         
+                    </div>  
+                </div>  
+                <div class="form-group">
+                    <label for="SumPay">שדכנית מטפלת</label>
+                    <input type="number" class="form-control" name="SumPay" [(ngModel)]="model.SumPay"  />
+                     
+                </div> 
+                    <div class="form-group">
+                        <button class="btn btn-primary"> הרשמה</button>
+                 
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

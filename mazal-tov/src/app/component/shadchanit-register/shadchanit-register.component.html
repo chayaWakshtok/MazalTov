@@ -1,0 +1,77 @@
+<p>shadchanit-register works!</p>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>הרשמה שדכנית </h3>
+                <form name="form"  >
+                    <div class="form-group">
+                        <label for="firstName">כתובת </label>
+                        <input type="text" class="form-control" name="Address" [(ngModel)]="model.Address" />
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="name">
+                            בעיה רפואית</label>
+                        <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="model.MedicalProblem"   />
+                      
+                    </div>
+                    <div class="form-group">
+                            <label for="name">חסידות</label>
+                            <input type="text" class="form-control" name="ChasidutId" [(ngModel)]="model.ChasidutId"  />
+                           
+                        </div>
+                    <div class="form-group">
+                        <label for="email">כמה שידוכים בשנה האחרונה</label>
+                        <input type="number" class="form-control" name="NumMatching" [(ngModel)]="model.NumMatching" />
+                        
+                    </div>
+                    <div class="form-group">
+                            <label for="phone">ילדים בשידוכים</label>
+                            <input type="number" class="form-control" name="ChildrenMatchmaking" [(ngModel)]="model.ChildrenMatchmaking"  />
+                            
+                        </div>
+                        <div class="form-group">
+                                <label for="phone">אופן שליחת החוברת: </label>
+                                <input type="text" class="form-control" name="HowSend" [(ngModel)]="model.HowSend"  />
+                                 
+                        </div>
+                    <div class="form-group">
+                        <label for="password">האם קיבלה התחייבות האירגון:   </label>
+                        <input type="checkbox" class="form-control" name="IsCommitment" [(ngModel)]="model.IsCommitment"   />
+                       
+                    </div>
+                     <div class="form-group">
+                        <label for="confirmPassword">האם חתמה על ההסכם:  </label>
+                        <input type="checkbox" class="form-control" name="IsAgreement" [(ngModel)]="model.IsAgreement"  />
+                         
+                    </div>  
+                    <div class="form-group">
+                        <label for="Status">סטטוס </label>
+                        <input type="checkbox" class="form-control" name="Status" [(ngModel)]="model.Status"  />
+                         
+                    </div> 
+                    <div class="form-group">
+                        <label for="CityId">האם חתמה על ההסכם:  </label>
+                        <input type="checkbox" class="form-control" name="CityId" [(ngModel)]="model.CityId"  />
+                         
+                    </div>   
+                    <div class="form-group">
+                        <label for="SectorId">האם חתמה על ההסכם:  </label>
+                        <input type="checkbox" class="form-control" name="SectorId" [(ngModel)]="model.SectorId"  />
+                         
+                    </div>  
+                    
+                     
+                    <div class="form-group">
+                        <button class="btn btn-primary"> הרשמה</button>
+                 
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MazalTovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="askPermssion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="PermssionId" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="permssion" Relationship="Self.FK_85" FromRole="askPermssion" ToRole="permssion" />
+    <NavigationProperty Name="user" Relationship="Self.FK_90" FromRole="askPermssion" ToRole="user" />
+  </EntityType>
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankNumber" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BranchNumber" Type="Int32" Nullable="false" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="workers" Relationship="Self.FK_382" FromRole="bank" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="bus">
+    <Key>
+      <PropertyRef Name="kav" />
+    </Key>
+    <Property Name="kav" Type="Int32" Nullable="false" />
+    <Property Name="driverid" Type="Int32" />
+    <Property Name="time_start" Type="Time" Precision="7" />
+    <Property Name="time_end" Type="Time" Precision="7" />
+    <Property Name="frequncy" Type="Int32" />
+    <Property Name="station_start" Type="Int32" />
+    <Property Name="station_end" Type="Int32" />
+    <NavigationProperty Name="driver" Relationship="Self.FK_bus_driver" FromRole="bus" ToRole="driver" />
+    <NavigationProperty Name="station_bus" Relationship="Self.FK_station_bus_bus" FromRole="bus" ToRole="station_bus" />
+  </EntityType>
+  <EntityType Name="chasidut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="city">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="matchmakers" Relationship="Self.FK_102" FromRole="city" ToRole="matchmaker" />
+    <NavigationProperty Name="helpers" Relationship="Self.FK_316" FromRole="city" ToRole="helper" />
+  </EntityType>
+  <EntityType Name="contactu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="user" Relationship="Self.FK_237" FromRole="contactus" ToRole="user" />
+  </EntityType>
+  <EntityType Name="driver">
+    <Key>
+      <PropertyRef Name="driverid" />
+    </Key>
+    <Property Name="driverid" Type="Int32" Nullable="false" />
+    <Property Name="driver_n" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="TZ" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="buses" Relationship="Self.FK_bus_driver" FromRole="driver" ToRole="bus" />
+    <NavigationProperty Name="T_DriverInTasks" Relationship="Self.FK_T_DriverInTasks_To_driver" FromRole="driver" ToRole="T_DriverInTasks" />
+    <NavigationProperty Name="TESTs" Relationship="Self.FK_TEST_To_driver" FromRole="driver" ToRole="TEST" />
+  </EntityType>
+  <EntityType Name="driver_history">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="dname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="dupdate" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="helper">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="SectorId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="city" Relationship="Self.FK_316" FromRole="helper" ToRole="city" />
+    <NavigationProperty Name="worker" Relationship="Self.FK_313" FromRole="helper" ToRole="worker" />
+    <NavigationProperty Name="sector" Relationship="Self.FK_319" FromRole="helper" ToRole="sector" />
+  </EntityType>
+  <EntityType Name="matchmaker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MedicalProblem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ChasidutId" Type="Int32" />
+    <Property Name="NumMatching" Type="Int32" />
+    <Property Name="ChildremMatchmaking" Type="Int32" />
+    <Property Name="HowSend" Type="Int32" Nullable="false" />
+    <Property Name="IsCommitment" Type="Boolean" Nullable="false" />
+    <Property Name="IsAgreement" Type="Boolean" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <Property Name="SectorId" Type="Int32" Nullable="false" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="city" Relationship="Self.FK_102" FromRole="matchmaker" ToRole="city" />
+    <NavigationProperty Name="sector" Relationship="Self.FK_177" FromRole="matchmaker" ToRole="sector" />
+    <NavigationProperty Name="worker" Relationship="Self.FK_296" FromRole="matchmaker" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FromMonth" Type="Int32" Nullable="false" />
+    <Property Name="FromYear" Type="Int32" Nullable="false" />
+    <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Bonus" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="worker" Relationship="Self.FK_395" FromRole="payment" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="permssion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="askPermssions" Relationship="Self.FK_85" FromRole="permssion" ToRole="askPermssion" />
+    <NavigationProperty Name="roleActions" Relationship="Self.FK_51" FromRole="permssion" ToRole="roleAction" />
+  </EntityType>
+  <EntityType Name="Present">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnterDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExitDate" Type="DateTime" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NumHours" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="worker" Relationship="Self.FK_293" FromRole="Present" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="roleActions" Relationship="Self.FK_48" FromRole="role" ToRole="roleAction" />
+    <NavigationProperty Name="userRoles" Relationship="Self.FK_60" FromRole="role" ToRole="userRole" />
+  </EntityType>
+  <EntityType Name="roleAction">
+    <Key>
+      <PropertyRef Name="PermssionId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="PermssionId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="permssion" Relationship="Self.FK_51" FromRole="roleAction" ToRole="permssion" />
+    <NavigationProperty Name="role" Relationship="Self.FK_48" FromRole="roleAction" ToRole="role" />
+  </EntityType>
+  <EntityType Name="sector">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="helpers" Relationship="Self.FK_319" FromRole="sector" ToRole="helper" />
+    <NavigationProperty Name="matchmakers" Relationship="Self.FK_177" FromRole="sector" ToRole="matchmaker" />
+  </EntityType>
+  <EntityType Name="station">
+    <Key>
+      <PropertyRef Name="stationid" />
+    </Key>
+    <Property Name="stationid" Type="Int32" Nullable="false" />
+    <Property Name="station_n" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="oldstation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="station_bus" Relationship="Self.FK_station_bus_station" FromRole="station" ToRole="station_bus" />
+  </EntityType>
+  <EntityType Name="station_bus">
+    <Key>
+      <PropertyRef Name="kav" />
+      <PropertyRef Name="stationid" />
+    </Key>
+    <Property Name="kav" Type="Int32" Nullable="false" />
+    <Property Name="stationid" Type="Int32" Nullable="false" />
+    <Property Name="orbit" Type="Int32" />
+    <NavigationProperty Name="bus" Relationship="Self.FK_station_bus_bus" FromRole="station_bus" ToRole="bus" />
+    <NavigationProperty Name="station" Relationship="Self.FK_station_bus_station" FromRole="station_bus" ToRole="station" />
+  </EntityType>
+  <EntityType Name="T_DriverInTasks">
+    <Key>
+      <PropertyRef Name="IdDriverInTasks" />
+    </Key>
+    <Property Name="IdDriverInTasks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="LastControlDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="driver" Relationship="Self.FK_T_DriverInTasks_To_driver" FromRole="T_DriverInTasks" ToRole="driver" />
+    <NavigationProperty Name="T_Tasks" Relationship="Self.FK_T_DriverInTasks_To_T_Tasks" FromRole="T_DriverInTasks" ToRole="T_Tasks" />
+    <NavigationProperty Name="T_FilesInDriverTasks" Relationship="Self.FK_T_FilesInDriverTasks_ToT_DriverInTasks" FromRole="T_DriverInTasks" ToRole="T_FilesInDriverTasks" />
+  </EntityType>
+  <EntityType Name="T_FilesInDriverTasks">
+    <Key>
+      <PropertyRef Name="IdFilesInDriverTasks" />
+    </Key>
+    <Property Name="IdFilesInDriverTasks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverInTasksId" Type="Int32" Nullable="false" />
+    <Property Name="FileUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="T_DriverInTasks" Relationship="Self.FK_T_FilesInDriverTasks_ToT_DriverInTasks" FromRole="T_FilesInDriverTasks" ToRole="T_DriverInTasks" />
+  </EntityType>
+  <EntityType Name="T_Tasks">
+    <Key>
+      <PropertyRef Name="IdTask" />
+    </Key>
+    <Property Name="IdTask" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Frequncy" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_DriverInTasks" Relationship="Self.FK_T_DriverInTasks_To_T_Tasks" FromRole="T_Tasks" ToRole="T_DriverInTasks" />
+    <NavigationProperty Name="TESTs" Relationship="Self.FK_TEST_To_T_Tasks" FromRole="T_Tasks" ToRole="TEST" />
+  </EntityType>
+  <EntityType Name="TEST">
+    <Key>
+      <PropertyRef Name="IdDriverInTasks" />
+    </Key>
+    <Property Name="IdDriverInTasks" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="TaskId" Type="Int32" Nullable="false" />
+    <Property Name="LastControlDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="driver" Relationship="Self.FK_TEST_To_driver" FromRole="TEST" ToRole="driver" />
+    <NavigationProperty Name="T_Tasks" Relationship="Self.FK_TEST_To_T_Tasks" FromRole="TEST" ToRole="T_Tasks" />
+  </EntityType>
+  <EntityType Name="travel">
+    <Key>
+      <PropertyRef Name="travelid" />
+    </Key>
+    <Property Name="travelid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="driverid" Type="Int32" />
+    <Property Name="carid" Type="Int32" />
+    <Property Name="cost" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="travelers" Relationship="Self.tt" FromRole="travel" ToRole="traveler" />
+  </EntityType>
+  <EntityType Name="traveler">
+    <Key>
+      <PropertyRef Name="travelerid" />
+    </Key>
+    <Property Name="travelerid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tz" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Name="balance" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="travels" Relationship="Self.tt" FromRole="traveler" ToRole="travel" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tz" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="askPermssions" Relationship="Self.FK_90" FromRole="user" ToRole="askPermssion" />
+    <NavigationProperty Name="contactus" Relationship="Self.FK_237" FromRole="user" ToRole="contactus" />
+    <NavigationProperty Name="workers" Relationship="Self.FK_290" FromRole="user" ToRole="worker" />
+    <NavigationProperty Name="userRoles" Relationship="Self.FK_57" FromRole="user" ToRole="userRole" />
+  </EntityType>
+  <EntityType Name="userRole">
+    <Key>
+      <PropertyRef Name="roleId" />
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="roleId" Type="Int32" Nullable="false" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="role" Relationship="Self.FK_60" FromRole="userRole" ToRole="role" />
+    <NavigationProperty Name="user" Relationship="Self.FK_57" FromRole="userRole" ToRole="user" />
+  </EntityType>
+  <EntityType Name="worker">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Experiance" Type="Int32" />
+    <Property Name="BornDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Tell" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ConfidentComment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="HourPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MonthPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NumHourWork" Type="Double" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="BankId" Type="Int32" />
+    <NavigationProperty Name="bank" Relationship="Self.FK_382" FromRole="worker" ToRole="bank" />
+    <NavigationProperty Name="helpers" Relationship="Self.FK_313" FromRole="worker" ToRole="helper" />
+    <NavigationProperty Name="matchmakers" Relationship="Self.FK_296" FromRole="worker" ToRole="matchmaker" />
+    <NavigationProperty Name="payments" Relationship="Self.FK_395" FromRole="worker" ToRole="payment" />
+    <NavigationProperty Name="Presents" Relationship="Self.FK_293" FromRole="worker" ToRole="Present" />
+    <NavigationProperty Name="user" Relationship="Self.FK_290" FromRole="worker" ToRole="user" />
+    <NavigationProperty Name="workerActions" Relationship="Self.FK_305" FromRole="worker" ToRole="workerAction" />
+  </EntityType>
+  <EntityType Name="workerAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="WorkerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="worker" Relationship="Self.FK_305" FromRole="workerAction" ToRole="worker" />
+  </EntityType>
+  <EntityType Name="MSreplication_options">
+    <Key>
+      <PropertyRef Name="optname" />
+      <PropertyRef Name="value" />
+      <PropertyRef Name="major_version" />
+      <PropertyRef Name="minor_version" />
+      <PropertyRef Name="revision" />
+      <PropertyRef Name="install_failures" />
+    </Key>
+    <Property Name="optname" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="value" Type="Boolean" Nullable="false" />
+    <Property Name="major_version" Type="Int32" Nullable="false" />
+    <Property Name="minor_version" Type="Int32" Nullable="false" />
+    <Property Name="revision" Type="Int32" Nullable="false" />
+    <Property Name="install_failures" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_db">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="dbid" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="version" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_dbid" Type="Int16" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dbid" Type="Int16" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="version" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_dev">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="low" />
+      <PropertyRef Name="high" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="phyname" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_low" Type="Int32" />
+    <Property Name="xfallback_drive" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="low" Type="Int32" Nullable="false" />
+    <Property Name="high" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="phyname" Type="String" MaxLength="127" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_fallback_usg">
+    <Key>
+      <PropertyRef Name="xserver_name" />
+      <PropertyRef Name="xdttm_ins" />
+      <PropertyRef Name="xdttm_last_ins_upd" />
+      <PropertyRef Name="dbid" />
+      <PropertyRef Name="segmap" />
+      <PropertyRef Name="lstart" />
+      <PropertyRef Name="sizepg" />
+      <PropertyRef Name="vstart" />
+    </Key>
+    <Property Name="xserver_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="xdttm_ins" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xdttm_last_ins_upd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="xfallback_vstart" Type="Int32" />
+    <Property Name="dbid" Type="Int16" Nullable="false" />
+    <Property Name="segmap" Type="Int32" Nullable="false" />
+    <Property Name="lstart" Type="Int32" Nullable="false" />
+    <Property Name="sizepg" Type="Int32" Nullable="false" />
+    <Property Name="vstart" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="spt_monitor">
+    <Key>
+      <PropertyRef Name="lastrun" />
+      <PropertyRef Name="cpu_busy" />
+      <PropertyRef Name="io_busy" />
+      <PropertyRef Name="idle" />
+      <PropertyRef Name="pack_received" />
+      <PropertyRef Name="pack_sent" />
+      <PropertyRef Name="connections" />
+      <PropertyRef Name="pack_errors" />
+      <PropertyRef Name="total_read" />
+      <PropertyRef Name="total_write" />
+      <PropertyRef Name="total_errors" />
+    </Key>
+    <Property Name="lastrun" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cpu_busy" Type="Int32" Nullable="false" />
+    <Property Name="io_busy" Type="Int32" Nullable="false" />
+    <Property Name="idle" Type="Int32" Nullable="false" />
+    <Property Name="pack_received" Type="Int32" Nullable="false" />
+    <Property Name="pack_sent" Type="Int32" Nullable="false" />
+    <Property Name="connections" Type="Int32" Nullable="false" />
+    <Property Name="pack_errors" Type="Int32" Nullable="false" />
+    <Property Name="total_read" Type="Int32" Nullable="false" />
+    <Property Name="total_write" Type="Int32" Nullable="false" />
+    <Property Name="total_errors" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_85">
+    <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+    <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permssion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="askPermssion">
+        <PropertyRef Name="PermssionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_90">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="askPermssion">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_382">
+    <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+    <End Role="worker" Type="Self.worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="worker">
+        <PropertyRef Name="BankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bus_driver">
+    <End Role="driver" Type="Self.driver" Multiplicity="0..1" />
+    <End Role="bus" Type="Self.bus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="driverid" />
+      </Principal>
+      <Dependent Role="bus">
+        <PropertyRef Name="driverid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_station_bus_bus">
+    <End Role="bus" Type="Self.bus" Multiplicity="1" />
+    <End Role="station_bus" Type="Self.station_bus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bus">
+        <PropertyRef Name="kav" />
+      </Principal>
+      <Dependent Role="station_bus">
+        <PropertyRef Name="kav" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_102">
+    <End Role="city" Type="Self.city" Multiplicity="1" />
+    <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="matchmaker">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_316">
+    <End Role="city" Type="Self.city" Multiplicity="1" />
+    <End Role="helper" Type="Self.helper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="city">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="helper">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_237">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="contactus" Type="Self.contactu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="contactus">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_DriverInTasks_To_driver">
+    <End Role="driver" Type="Self.driver" Multiplicity="1" />
+    <End Role="T_DriverInTasks" Type="Self.T_DriverInTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="driverid" />
+      </Principal>
+      <Dependent Role="T_DriverInTasks">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEST_To_driver">
+    <End Role="driver" Type="Self.driver" Multiplicity="1" />
+    <End Role="TEST" Type="Self.TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="driver">
+        <PropertyRef Name="driverid" />
+      </Principal>
+      <Dependent Role="TEST">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_313">
+    <End Role="worker" Type="Self.worker" Multiplicity="1" />
+    <End Role="helper" Type="Self.helper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="helper">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_319">
+    <End Role="sector" Type="Self.sector" Multiplicity="1" />
+    <End Role="helper" Type="Self.helper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="helper">
+        <PropertyRef Name="SectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_177">
+    <End Role="sector" Type="Self.sector" Multiplicity="1" />
+    <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="matchmaker">
+        <PropertyRef Name="SectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_296">
+    <End Role="worker" Type="Self.worker" Multiplicity="1" />
+    <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="matchmaker">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_395">
+    <End Role="worker" Type="Self.worker" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_51">
+    <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+    <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permssion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="roleAction">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_293">
+    <End Role="worker" Type="Self.worker" Multiplicity="1" />
+    <End Role="Present" Type="Self.Present" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Present">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_48">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="roleAction">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_60">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userRole">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_station_bus_station">
+    <End Role="station" Type="Self.station" Multiplicity="1" />
+    <End Role="station_bus" Type="Self.station_bus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="station">
+        <PropertyRef Name="stationid" />
+      </Principal>
+      <Dependent Role="station_bus">
+        <PropertyRef Name="stationid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_DriverInTasks_To_T_Tasks">
+    <End Role="T_Tasks" Type="Self.T_Tasks" Multiplicity="1" />
+    <End Role="T_DriverInTasks" Type="Self.T_DriverInTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Tasks">
+        <PropertyRef Name="IdTask" />
+      </Principal>
+      <Dependent Role="T_DriverInTasks">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_FilesInDriverTasks_ToT_DriverInTasks">
+    <End Role="T_DriverInTasks" Type="Self.T_DriverInTasks" Multiplicity="1" />
+    <End Role="T_FilesInDriverTasks" Type="Self.T_FilesInDriverTasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_DriverInTasks">
+        <PropertyRef Name="IdDriverInTasks" />
+      </Principal>
+      <Dependent Role="T_FilesInDriverTasks">
+        <PropertyRef Name="DriverInTasksId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TEST_To_T_Tasks">
+    <End Role="T_Tasks" Type="Self.T_Tasks" Multiplicity="1" />
+    <End Role="TEST" Type="Self.TEST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Tasks">
+        <PropertyRef Name="IdTask" />
+      </Principal>
+      <Dependent Role="TEST">
+        <PropertyRef Name="TaskId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_290">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="worker" Type="Self.worker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="worker">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_57">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userRole">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_305">
+    <End Role="worker" Type="Self.worker" Multiplicity="1" />
+    <End Role="workerAction" Type="Self.workerAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="workerAction">
+        <PropertyRef Name="WorkerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tt">
+    <End Role="travel" Type="Self.travel" Multiplicity="*" />
+    <End Role="traveler" Type="Self.traveler" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="masterEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="askPermssions" EntityType="Self.askPermssion" />
+    <EntitySet Name="banks" EntityType="Self.bank" />
+    <EntitySet Name="buses" EntityType="Self.bus" />
+    <EntitySet Name="chasiduts" EntityType="Self.chasidut" />
+    <EntitySet Name="cities" EntityType="Self.city" />
+    <EntitySet Name="contactus" EntityType="Self.contactu" />
+    <EntitySet Name="drivers" EntityType="Self.driver" />
+    <EntitySet Name="driver_history" EntityType="Self.driver_history" />
+    <EntitySet Name="helpers" EntityType="Self.helper" />
+    <EntitySet Name="matchmakers" EntityType="Self.matchmaker" />
+    <EntitySet Name="payments" EntityType="Self.payment" />
+    <EntitySet Name="permssions" EntityType="Self.permssion" />
+    <EntitySet Name="Presents" EntityType="Self.Present" />
+    <EntitySet Name="roles" EntityType="Self.role" />
+    <EntitySet Name="roleActions" EntityType="Self.roleAction" />
+    <EntitySet Name="sectors" EntityType="Self.sector" />
+    <EntitySet Name="stations" EntityType="Self.station" />
+    <EntitySet Name="station_bus" EntityType="Self.station_bus" />
+    <EntitySet Name="T_DriverInTasks" EntityType="Self.T_DriverInTasks" />
+    <EntitySet Name="T_FilesInDriverTasks" EntityType="Self.T_FilesInDriverTasks" />
+    <EntitySet Name="T_Tasks" EntityType="Self.T_Tasks" />
+    <EntitySet Name="TESTs" EntityType="Self.TEST" />
+    <EntitySet Name="travels" EntityType="Self.travel" />
+    <EntitySet Name="travelers" EntityType="Self.traveler" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="userRoles" EntityType="Self.userRole" />
+    <EntitySet Name="workers" EntityType="Self.worker" />
+    <EntitySet Name="workerActions" EntityType="Self.workerAction" />
+    <EntitySet Name="MSreplication_options" EntityType="Self.MSreplication_options" />
+    <EntitySet Name="spt_fallback_db" EntityType="Self.spt_fallback_db" />
+    <EntitySet Name="spt_fallback_dev" EntityType="Self.spt_fallback_dev" />
+    <EntitySet Name="spt_fallback_usg" EntityType="Self.spt_fallback_usg" />
+    <EntitySet Name="spt_monitor" EntityType="Self.spt_monitor" />
+    <AssociationSet Name="FK_85" Association="Self.FK_85">
+      <End Role="permssion" EntitySet="permssions" />
+      <End Role="askPermssion" EntitySet="askPermssions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_90" Association="Self.FK_90">
+      <End Role="user" EntitySet="users" />
+      <End Role="askPermssion" EntitySet="askPermssions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_382" Association="Self.FK_382">
+      <End Role="bank" EntitySet="banks" />
+      <End Role="worker" EntitySet="workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bus_driver" Association="Self.FK_bus_driver">
+      <End Role="driver" EntitySet="drivers" />
+      <End Role="bus" EntitySet="buses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_station_bus_bus" Association="Self.FK_station_bus_bus">
+      <End Role="bus" EntitySet="buses" />
+      <End Role="station_bus" EntitySet="station_bus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_102" Association="Self.FK_102">
+      <End Role="city" EntitySet="cities" />
+      <End Role="matchmaker" EntitySet="matchmakers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_316" Association="Self.FK_316">
+      <End Role="city" EntitySet="cities" />
+      <End Role="helper" EntitySet="helpers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_237" Association="Self.FK_237">
+      <End Role="user" EntitySet="users" />
+      <End Role="contactus" EntitySet="contactus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_DriverInTasks_To_driver" Association="Self.FK_T_DriverInTasks_To_driver">
+      <End Role="driver" EntitySet="drivers" />
+      <End Role="T_DriverInTasks" EntitySet="T_DriverInTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEST_To_driver" Association="Self.FK_TEST_To_driver">
+      <End Role="driver" EntitySet="drivers" />
+      <End Role="TEST" EntitySet="TESTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_313" Association="Self.FK_313">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="helper" EntitySet="helpers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_319" Association="Self.FK_319">
+      <End Role="sector" EntitySet="sectors" />
+      <End Role="helper" EntitySet="helpers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_177" Association="Self.FK_177">
+      <End Role="sector" EntitySet="sectors" />
+      <End Role="matchmaker" EntitySet="matchmakers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_296" Association="Self.FK_296">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="matchmaker" EntitySet="matchmakers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_395" Association="Self.FK_395">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="payment" EntitySet="payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_51" Association="Self.FK_51">
+      <End Role="permssion" EntitySet="permssions" />
+      <End Role="roleAction" EntitySet="roleActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_293" Association="Self.FK_293">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="Present" EntitySet="Presents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_48" Association="Self.FK_48">
+      <End Role="role" EntitySet="roles" />
+      <End Role="roleAction" EntitySet="roleActions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_60" Association="Self.FK_60">
+      <End Role="role" EntitySet="roles" />
+      <End Role="userRole" EntitySet="userRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_station_bus_station" Association="Self.FK_station_bus_station">
+      <End Role="station" EntitySet="stations" />
+      <End Role="station_bus" EntitySet="station_bus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_DriverInTasks_To_T_Tasks" Association="Self.FK_T_DriverInTasks_To_T_Tasks">
+      <End Role="T_Tasks" EntitySet="T_Tasks" />
+      <End Role="T_DriverInTasks" EntitySet="T_DriverInTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_FilesInDriverTasks_ToT_DriverInTasks" Association="Self.FK_T_FilesInDriverTasks_ToT_DriverInTasks">
+      <End Role="T_DriverInTasks" EntitySet="T_DriverInTasks" />
+      <End Role="T_FilesInDriverTasks" EntitySet="T_FilesInDriverTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TEST_To_T_Tasks" Association="Self.FK_TEST_To_T_Tasks">
+      <End Role="T_Tasks" EntitySet="T_Tasks" />
+      <End Role="TEST" EntitySet="TESTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_290" Association="Self.FK_290">
+      <End Role="user" EntitySet="users" />
+      <End Role="worker" EntitySet="workers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_57" Association="Self.FK_57">
+      <End Role="user" EntitySet="users" />
+      <End Role="userRole" EntitySet="userRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_305" Association="Self.FK_305">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="workerAction" EntitySet="workerActions" />
+    </AssociationSet>
+    <AssociationSet Name="tt" Association="Self.tt">
+      <End Role="travel" EntitySet="travels" />
+      <End Role="traveler" EntitySet="travelers" />
+    </AssociationSet>
+    <FunctionImport Name="sp_MScleanupmergepublisher" />
+    <FunctionImport Name="sp_MSrepl_startup" />
+  </EntityContainer>
+</Schema>

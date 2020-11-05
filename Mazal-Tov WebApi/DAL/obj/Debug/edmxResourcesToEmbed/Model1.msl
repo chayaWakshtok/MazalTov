@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MazalTovModelStoreContainer" CdmEntityContainer="masterEntities">
+    <EntitySetMapping Name="askPermssions">
+      <EntityTypeMapping TypeName="MazalTovModel.askPermssion">
+        <MappingFragment StoreEntitySet="askPermssion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="MazalTovModel.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buses">
+      <EntityTypeMapping TypeName="MazalTovModel.bus">
+        <MappingFragment StoreEntitySet="bus">
+          <ScalarProperty Name="kav" ColumnName="kav" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="time_start" ColumnName="time_start" />
+          <ScalarProperty Name="time_end" ColumnName="time_end" />
+          <ScalarProperty Name="frequncy" ColumnName="frequncy" />
+          <ScalarProperty Name="station_start" ColumnName="station_start" />
+          <ScalarProperty Name="station_end" ColumnName="station_end" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chasiduts">
+      <EntityTypeMapping TypeName="MazalTovModel.chasidut">
+        <MappingFragment StoreEntitySet="chasidut">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="MazalTovModel.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactus">
+      <EntityTypeMapping TypeName="MazalTovModel.contactu">
+        <MappingFragment StoreEntitySet="contactus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drivers">
+      <EntityTypeMapping TypeName="MazalTovModel.driver">
+        <MappingFragment StoreEntitySet="driver">
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="driver_n" ColumnName="driver_n" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="TZ" ColumnName="TZ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="driver_history">
+      <EntityTypeMapping TypeName="MazalTovModel.driver_history">
+        <MappingFragment StoreEntitySet="driver_history">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dname" ColumnName="dname" />
+          <ScalarProperty Name="dupdate" ColumnName="dupdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="helpers">
+      <EntityTypeMapping TypeName="MazalTovModel.helper">
+        <MappingFragment StoreEntitySet="helper">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchmakers">
+      <EntityTypeMapping TypeName="MazalTovModel.matchmaker">
+        <MappingFragment StoreEntitySet="matchmaker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+          <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+          <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+          <ScalarProperty Name="ChildremMatchmaking" ColumnName="ChildremMatchmaking" />
+          <ScalarProperty Name="HowSend" ColumnName="HowSend" />
+          <ScalarProperty Name="IsCommitment" ColumnName="IsCommitment" />
+          <ScalarProperty Name="IsAgreement" ColumnName="IsAgreement" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="MazalTovModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+          <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permssions">
+      <EntityTypeMapping TypeName="MazalTovModel.permssion">
+        <MappingFragment StoreEntitySet="permssion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presents">
+      <EntityTypeMapping TypeName="MazalTovModel.Present">
+        <MappingFragment StoreEntitySet="Present">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="NumHours" ColumnName="NumHours" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="MazalTovModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roleActions">
+      <EntityTypeMapping TypeName="MazalTovModel.roleAction">
+        <MappingFragment StoreEntitySet="roleAction">
+          <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sectors">
+      <EntityTypeMapping TypeName="MazalTovModel.sector">
+        <MappingFragment StoreEntitySet="sector">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stations">
+      <EntityTypeMapping TypeName="MazalTovModel.station">
+        <MappingFragment StoreEntitySet="station">
+          <ScalarProperty Name="stationid" ColumnName="stationid" />
+          <ScalarProperty Name="station_n" ColumnName="station_n" />
+          <ScalarProperty Name="oldstation" ColumnName="oldstation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="station_bus">
+      <EntityTypeMapping TypeName="MazalTovModel.station_bus">
+        <MappingFragment StoreEntitySet="station_bus">
+          <ScalarProperty Name="kav" ColumnName="kav" />
+          <ScalarProperty Name="stationid" ColumnName="stationid" />
+          <ScalarProperty Name="orbit" ColumnName="orbit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DriverInTasks">
+      <EntityTypeMapping TypeName="MazalTovModel.T_DriverInTasks">
+        <MappingFragment StoreEntitySet="T_DriverInTasks">
+          <ScalarProperty Name="IdDriverInTasks" ColumnName="IdDriverInTasks" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="LastControlDate" ColumnName="LastControlDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_FilesInDriverTasks">
+      <EntityTypeMapping TypeName="MazalTovModel.T_FilesInDriverTasks">
+        <MappingFragment StoreEntitySet="T_FilesInDriverTasks">
+          <ScalarProperty Name="IdFilesInDriverTasks" ColumnName="IdFilesInDriverTasks" />
+          <ScalarProperty Name="DriverInTasksId" ColumnName="DriverInTasksId" />
+          <ScalarProperty Name="FileUrl" ColumnName="FileUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Tasks">
+      <EntityTypeMapping TypeName="MazalTovModel.T_Tasks">
+        <MappingFragment StoreEntitySet="T_Tasks">
+          <ScalarProperty Name="IdTask" ColumnName="IdTask" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="Frequncy" ColumnName="Frequncy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TESTs">
+      <EntityTypeMapping TypeName="MazalTovModel.TEST">
+        <MappingFragment StoreEntitySet="TEST">
+          <ScalarProperty Name="IdDriverInTasks" ColumnName="IdDriverInTasks" />
+          <ScalarProperty Name="DriverId" ColumnName="DriverId" />
+          <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+          <ScalarProperty Name="LastControlDate" ColumnName="LastControlDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="travels">
+      <EntityTypeMapping TypeName="MazalTovModel.travel">
+        <MappingFragment StoreEntitySet="travel">
+          <ScalarProperty Name="travelid" ColumnName="travelid" />
+          <ScalarProperty Name="driverid" ColumnName="driverid" />
+          <ScalarProperty Name="carid" ColumnName="carid" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="travelers">
+      <EntityTypeMapping TypeName="MazalTovModel.traveler">
+        <MappingFragment StoreEntitySet="traveler">
+          <ScalarProperty Name="travelerid" ColumnName="travelerid" />
+          <ScalarProperty Name="tz" ColumnName="tz" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MazalTovModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userRoles">
+      <EntityTypeMapping TypeName="MazalTovModel.userRole">
+        <MappingFragment StoreEntitySet="userRole">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workers">
+      <EntityTypeMapping TypeName="MazalTovModel.worker">
+        <MappingFragment StoreEntitySet="worker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Experiance" ColumnName="Experiance" />
+          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ConfidentComment" ColumnName="ConfidentComment" />
+          <ScalarProperty Name="HourPrice" ColumnName="HourPrice" />
+          <ScalarProperty Name="MonthPrice" ColumnName="MonthPrice" />
+          <ScalarProperty Name="NumHourWork" ColumnName="NumHourWork" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workerActions">
+      <EntityTypeMapping TypeName="MazalTovModel.workerAction">
+        <MappingFragment StoreEntitySet="workerAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MSreplication_options">
+      <EntityTypeMapping TypeName="MazalTovModel.MSreplication_options">
+        <MappingFragment StoreEntitySet="MSreplication_options">
+          <ScalarProperty Name="optname" ColumnName="optname" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="major_version" ColumnName="major_version" />
+          <ScalarProperty Name="minor_version" ColumnName="minor_version" />
+          <ScalarProperty Name="revision" ColumnName="revision" />
+          <ScalarProperty Name="install_failures" ColumnName="install_failures" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_db">
+      <EntityTypeMapping TypeName="MazalTovModel.spt_fallback_db">
+        <MappingFragment StoreEntitySet="spt_fallback_db">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_dbid" ColumnName="xfallback_dbid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="version" ColumnName="version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_dev">
+      <EntityTypeMapping TypeName="MazalTovModel.spt_fallback_dev">
+        <MappingFragment StoreEntitySet="spt_fallback_dev">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_low" ColumnName="xfallback_low" />
+          <ScalarProperty Name="xfallback_drive" ColumnName="xfallback_drive" />
+          <ScalarProperty Name="low" ColumnName="low" />
+          <ScalarProperty Name="high" ColumnName="high" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phyname" ColumnName="phyname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_fallback_usg">
+      <EntityTypeMapping TypeName="MazalTovModel.spt_fallback_usg">
+        <MappingFragment StoreEntitySet="spt_fallback_usg">
+          <ScalarProperty Name="xserver_name" ColumnName="xserver_name" />
+          <ScalarProperty Name="xdttm_ins" ColumnName="xdttm_ins" />
+          <ScalarProperty Name="xdttm_last_ins_upd" ColumnName="xdttm_last_ins_upd" />
+          <ScalarProperty Name="xfallback_vstart" ColumnName="xfallback_vstart" />
+          <ScalarProperty Name="dbid" ColumnName="dbid" />
+          <ScalarProperty Name="segmap" ColumnName="segmap" />
+          <ScalarProperty Name="lstart" ColumnName="lstart" />
+          <ScalarProperty Name="sizepg" ColumnName="sizepg" />
+          <ScalarProperty Name="vstart" ColumnName="vstart" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spt_monitor">
+      <EntityTypeMapping TypeName="MazalTovModel.spt_monitor">
+        <MappingFragment StoreEntitySet="spt_monitor">
+          <ScalarProperty Name="lastrun" ColumnName="lastrun" />
+          <ScalarProperty Name="cpu_busy" ColumnName="cpu_busy" />
+          <ScalarProperty Name="io_busy" ColumnName="io_busy" />
+          <ScalarProperty Name="idle" ColumnName="idle" />
+          <ScalarProperty Name="pack_received" ColumnName="pack_received" />
+          <ScalarProperty Name="pack_sent" ColumnName="pack_sent" />
+          <ScalarProperty Name="connections" ColumnName="connections" />
+          <ScalarProperty Name="pack_errors" ColumnName="pack_errors" />
+          <ScalarProperty Name="total_read" ColumnName="total_read" />
+          <ScalarProperty Name="total_write" ColumnName="total_write" />
+          <ScalarProperty Name="total_errors" ColumnName="total_errors" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tt" TypeName="MazalTovModel.tt" StoreEntitySet="tt">
+      <EndProperty Name="travel">
+        <ScalarProperty Name="travelid" ColumnName="travel" />
+      </EndProperty>
+      <EndProperty Name="traveler">
+        <ScalarProperty Name="travelerid" ColumnName="travelerid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_MScleanupmergepublisher" FunctionName="MazalTovModel.Store.sp_MScleanupmergepublisher" />
+    <FunctionImportMapping FunctionImportName="sp_MSrepl_startup" FunctionName="MazalTovModel.Store.sp_MSrepl_startup" />
+  </EntityContainerMapping>
+</Mapping>

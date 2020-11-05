@@ -1,0 +1,17 @@
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\BL.exe.config
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\BL.exe
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\BL.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\AutoMapper.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\DAL.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\DTO.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\EntityFramework.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\DAL.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\DAL.dll.config
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\DTO.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\AutoMapper.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\bin\Debug\EntityFramework.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\obj\Debug\BL.csprojAssemblyReference.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\obj\Debug\BL.csproj.CopyComplete
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\obj\Debug\BL.exe
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\BL\obj\Debug\BL.pdb

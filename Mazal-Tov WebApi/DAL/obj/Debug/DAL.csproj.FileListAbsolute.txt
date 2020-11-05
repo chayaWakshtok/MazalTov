@@ -1,0 +1,14 @@
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\DAL.dll.config
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\DAL.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\DAL.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\AutoMapper.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\EntityFramework.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\AutoMapper.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\EntityFramework.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\obj\Debug\DAL.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DAL\obj\Debug\DAL.pdb

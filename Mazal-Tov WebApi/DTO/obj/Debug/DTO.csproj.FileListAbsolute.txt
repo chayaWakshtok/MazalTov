@@ -1,0 +1,14 @@
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\DTO.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\DTO.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\AutoMapper.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\DAL.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\EntityFramework.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\DAL.pdb
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\DAL.dll.config
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\AutoMapper.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\bin\Debug\EntityFramework.xml
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\obj\Debug\DTO.csproj.CopyComplete
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\obj\Debug\DTO.dll
+D:\Users\User\Desktop\project\27_10_20\project\Mazal-Tov\DTO\obj\Debug\DTO.pdb

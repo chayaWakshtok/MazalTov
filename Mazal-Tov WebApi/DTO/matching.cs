@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-  public  class matching
+  public  class Matching
     {
         public int Id { get; set; }
         public DateTime Createdate { get; set; }

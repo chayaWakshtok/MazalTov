@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 namespace DTO
 {
-  public  class askPermssion
+  public  class AskPermssion
     {
         ////Initialize the mapper
         //var config = new MapperConfiguration(cfg =>

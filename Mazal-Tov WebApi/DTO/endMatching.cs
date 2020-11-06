@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class endMatching
+    public class EndMatching
     {
         public int Id { get; set; }
         public DateTime EndDate { get; set; }

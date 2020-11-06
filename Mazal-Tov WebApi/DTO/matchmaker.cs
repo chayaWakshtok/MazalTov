@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-  public  class matchmaker
+  public  class Matchmaker
     {
         public int Id { get; set; }
         public string Address { get; set; }

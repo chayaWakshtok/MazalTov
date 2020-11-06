@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class helper
+    public class Helper
     {
         public int Id { get; set; }
         public string Address { get; set; }

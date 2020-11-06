@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class roleAction
+   public class RoleAction
     {
         public int PermssionId { get; set; }
         public int RoleId { get; set; }

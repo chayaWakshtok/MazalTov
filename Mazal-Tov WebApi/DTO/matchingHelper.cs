@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-  public  class matchingHelper
+  public  class MatchingHelper
     {
 
         public int Id { get; set; }

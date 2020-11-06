@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a3271341d257461185a38e11dab79f8a" Name="Diagram1" ZoomLevel="119">
+      <Diagram DiagramId="a3271341d257461185a38e11dab79f8a" Name="Diagram1" ZoomLevel="15">
         <EntityTypeShape EntityType="MazalTovModel.askPermssion" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel.bank" Width="1.5" PointX="3.5" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel.bus" Width="1.5" PointX="16" PointY="4.5" IsExpanded="true" />

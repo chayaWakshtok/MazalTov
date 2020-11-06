@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-  public  class permssion
+  public  class Permssion
     {
         public int Id { get; set; }
 

@@ -8,9 +8,9 @@ namespace BL
 {
     public class UserBL
     {
-        public static void Login()
-        {
-           var u= Utils.Converters.Convert(new DAL.user());
-        }
+        //public static void Login()
+        //{
+        //   var u= Utils.Converters.Convert(new DAL.user());
+        //}
     }
 }

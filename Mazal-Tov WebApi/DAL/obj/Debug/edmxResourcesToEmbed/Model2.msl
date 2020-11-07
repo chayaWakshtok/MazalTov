@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MazalTovModel1StoreContainer" CdmEntityContainer="MazalTovEntities">
+    <EntitySetMapping Name="askPermssions">
+      <EntityTypeMapping TypeName="MazalTovModel1.askPermssion">
+        <MappingFragment StoreEntitySet="askPermssion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="banks">
+      <EntityTypeMapping TypeName="MazalTovModel1.bank">
+        <MappingFragment StoreEntitySet="bank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidates">
+      <EntityTypeMapping TypeName="MazalTovModel1.candidate">
+        <MappingFragment StoreEntitySet="candidate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+          <ScalarProperty Name="NameFather" ColumnName="NameFather" />
+          <ScalarProperty Name="NameMother" ColumnName="NameMother" />
+          <ScalarProperty Name="FamilyMother" ColumnName="FamilyMother" />
+          <ScalarProperty Name="NumChildren" ColumnName="NumChildren" />
+          <ScalarProperty Name="NumMarried" ColumnName="NumMarried" />
+          <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+          <ScalarProperty Name="FatherWork" ColumnName="FatherWork" />
+          <ScalarProperty Name="MotherWork" ColumnName="MotherWork" />
+          <ScalarProperty Name="CandidateWork" ColumnName="CandidateWork" />
+          <ScalarProperty Name="LastPlaceLearn" ColumnName="LastPlaceLearn" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="Clothes" ColumnName="Clothes" />
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="EnterBy" ColumnName="EnterBy" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="SumPay" ColumnName="SumPay" />
+          <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+          <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
+          <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidateComments">
+      <EntityTypeMapping TypeName="MazalTovModel1.candidateComment">
+        <MappingFragment StoreEntitySet="candidateComment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Privileged" ColumnName="Privileged" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="WriteUserId" ColumnName="WriteUserId" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chasiduts">
+      <EntityTypeMapping TypeName="MazalTovModel1.chasidut">
+        <MappingFragment StoreEntitySet="chasidut">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="MazalTovModel1.city">
+        <MappingFragment StoreEntitySet="city">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactus">
+      <EntityTypeMapping TypeName="MazalTovModel1.contactu">
+        <MappingFragment StoreEntitySet="contactus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="endMatchings">
+      <EntityTypeMapping TypeName="MazalTovModel1.endMatching">
+        <MappingFragment StoreEntitySet="endMatching">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="WhoPaid" ColumnName="WhoPaid" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="IsCare" ColumnName="IsCare" />
+          <ScalarProperty Name="EndPlace" ColumnName="EndPlace" />
+          <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="helpers">
+      <EntityTypeMapping TypeName="MazalTovModel1.helper">
+        <MappingFragment StoreEntitySet="helper">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="images">
+      <EntityTypeMapping TypeName="MazalTovModel1.image">
+        <MappingFragment StoreEntitySet="image">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="infoCandidates">
+      <EntityTypeMapping TypeName="MazalTovModel1.infoCandidate">
+        <MappingFragment StoreEntitySet="infoCandidate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ConnectLevel" ColumnName="ConnectLevel" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marrieds">
+      <EntityTypeMapping TypeName="MazalTovModel1.married">
+        <MappingFragment StoreEntitySet="married">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchings">
+      <EntityTypeMapping TypeName="MazalTovModel1.matching">
+        <MappingFragment StoreEntitySet="matching">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="ReasonFail" ColumnName="ReasonFail" />
+          <ScalarProperty Name="Precent" ColumnName="Precent" />
+          <ScalarProperty Name="CandidateFailId" ColumnName="CandidateFailId" />
+          <ScalarProperty Name="ReasonCandidateFail" ColumnName="ReasonCandidateFail" />
+          <ScalarProperty Name="ReasonCandidateFeFail" ColumnName="ReasonCandidateFeFail" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="CandidateFemaleId" ColumnName="CandidateFemaleId" />
+          <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchingHelpers">
+      <EntityTypeMapping TypeName="MazalTovModel1.matchingHelper">
+        <MappingFragment StoreEntitySet="matchingHelper">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+          <ScalarProperty Name="NumHour" ColumnName="NumHour" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+          <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+          <ScalarProperty Name="HelperId" ColumnName="HelperId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchmakers">
+      <EntityTypeMapping TypeName="MazalTovModel1.matchmaker">
+        <MappingFragment StoreEntitySet="matchmaker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+          <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+          <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+          <ScalarProperty Name="ChildremMatchmaking" ColumnName="ChildremMatchmaking" />
+          <ScalarProperty Name="HowSend" ColumnName="HowSend" />
+          <ScalarProperty Name="IsCommitment" ColumnName="IsCommitment" />
+          <ScalarProperty Name="IsAgreement" ColumnName="IsAgreement" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="meetings">
+      <EntityTypeMapping TypeName="MazalTovModel1.meeting">
+        <MappingFragment StoreEntitySet="meeting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateMeeting" ColumnName="DateMeeting" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="DuringTime" ColumnName="DuringTime" />
+          <ScalarProperty Name="NumMeeting" ColumnName="NumMeeting" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="MazalTovModel1.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+          <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permssions">
+      <EntityTypeMapping TypeName="MazalTovModel1.permssion">
+        <MappingFragment StoreEntitySet="permssion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Presents">
+      <EntityTypeMapping TypeName="MazalTovModel1.Present">
+        <MappingFragment StoreEntitySet="Present">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="NumHours" ColumnName="NumHours" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="MazalTovModel1.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roleActions">
+      <EntityTypeMapping TypeName="MazalTovModel1.roleAction">
+        <MappingFragment StoreEntitySet="roleAction">
+          <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sectors">
+      <EntityTypeMapping TypeName="MazalTovModel1.sector">
+        <MappingFragment StoreEntitySet="sector">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MazalTovModel1.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userRoles">
+      <EntityTypeMapping TypeName="MazalTovModel1.userRole">
+        <MappingFragment StoreEntitySet="userRole">
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workers">
+      <EntityTypeMapping TypeName="MazalTovModel1.worker">
+        <MappingFragment StoreEntitySet="worker">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Experiance" ColumnName="Experiance" />
+          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ConfidentComment" ColumnName="ConfidentComment" />
+          <ScalarProperty Name="HourPrice" ColumnName="HourPrice" />
+          <ScalarProperty Name="MonthPrice" ColumnName="MonthPrice" />
+          <ScalarProperty Name="NumHourWork" ColumnName="NumHourWork" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BankId" ColumnName="BankId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workerActions">
+      <EntityTypeMapping TypeName="MazalTovModel1.workerAction">
+        <MappingFragment StoreEntitySet="workerAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

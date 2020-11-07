@@ -48,17 +48,17 @@ namespace BL.Utils
               cfg.CreateMap<DAL.married, DTO.Married>();
               cfg.CreateMap<DTO.Married, DAL.married>();
 
-              cfg.CreateMap<DAL.Matching, DTO.Matching>();
-              cfg.CreateMap<DTO.Matching, DAL.Matching>();
+              cfg.CreateMap<DAL.matching, DTO.Matching>();
+              cfg.CreateMap<DTO.Matching, DAL.matching>();
 
-              cfg.CreateMap<DAL.MatchingHelper, DTO.MatchingHelper>();
-              cfg.CreateMap<DTO.MatchingHelper, DAL.MatchingHelper>();
+              cfg.CreateMap<DAL.matchingHelper, DTO.MatchingHelper>();
+              cfg.CreateMap<DTO.MatchingHelper, DAL.matchingHelper>();
 
-              cfg.CreateMap<DAL.Matchmaker, DTO.Matchmaker>();
-              cfg.CreateMap<DTO.Matchmaker, DAL.Matchmaker>();
+              cfg.CreateMap<DAL.matchmaker, DTO.Matchmaker>();
+              cfg.CreateMap<DTO.Matchmaker, DAL.matchmaker>();
 
-              cfg.CreateMap<DAL.Meeting, DTO.Meeting>();
-              cfg.CreateMap<DTO.Meeting, DAL.Meeting>();
+              cfg.CreateMap<DAL.meeting, DTO.Meeting>();
+              cfg.CreateMap<DTO.Meeting, DAL.meeting>();
 
               cfg.CreateMap<DAL.payment, DTO.Payment>();
               cfg.CreateMap<DTO.Payment, DAL.payment>();
@@ -274,82 +274,82 @@ namespace BL.Utils
             return _mapper.Map<List<DTO.Image>>(dto);
         }
         ///////////
-        public static DTO.InfoCandidate Convert(DAL.InfoCandidate dal)
+        public static DTO.InfoCandidate Convert(DAL.infoCandidate dal)
         {
             return _mapper.Map<DTO.InfoCandidate>(dal);
         }
 
-        public static DAL.InfoCandidate Convert(DTO.InfoCandidate dto)
+        public static DAL.infoCandidate Convert(DTO.InfoCandidate dto)
         {
-            return _mapper.Map<DAL.InfoCandidate>(dto);
+            return _mapper.Map<DAL.infoCandidate>(dto);
         }
 
-        public static List<DAL.InfoCandidate> Convert(List<DTO.InfoCandidate> dto)
+        public static List<DAL.infoCandidate> Convert(List<DTO.InfoCandidate> dto)
         {
-            return _mapper.Map<List<DAL.InfoCandidate>>(dto);
+            return _mapper.Map<List<DAL.infoCandidate>>(dto);
         }
 
-        public static List<DTO.InfoCandidate> Convert(List<DAL.InfoCandidate> dto)
+        public static List<DTO.InfoCandidate> Convert(List<DAL.infoCandidate> dto)
         {
             return _mapper.Map<List<DTO.InfoCandidate>>(dto);
         }
         //////////////
-        public static DTO.Married Convert(DAL.Married dal)
+        public static DTO.Married Convert(DAL.married dal)
         {
             return _mapper.Map<DTO.Married>(dal);
         }
 
-        public static DAL.Married Convert(DTO.Married dto)
+        public static DAL.married Convert(DTO.Married dto)
         {
-            return _mapper.Map<DAL.Married>(dto);
+            return _mapper.Map<DAL.married>(dto);
         }
 
-        public static List<DAL.Married> Convert(List<DTO.Married> dto)
+        public static List<DAL.married> Convert(List<DTO.Married> dto)
         {
-            return _mapper.Map<List<DAL.Married>>(dto);
+            return _mapper.Map<List<DAL.married>>(dto);
         }
 
-        public static List<DTO.Married> Convert(List<DAL.Married> dto)
+        public static List<DTO.Married> Convert(List<DAL.married> dto)
         {
             return _mapper.Map<List<DTO.Married>>(dto);
         }
         ///////////////////////
-        public static DTO.Matching Convert(DAL.Matching dal)
+        public static DTO.Matching Convert(DAL.matching dal)
         {
             return _mapper.Map<DTO.Matching>(dal);
         }
 
-        public static DAL.Matching Convert(DTO.Matching dto)
+        public static DAL.matching Convert(DTO.Matching dto)
         {
-            return _mapper.Map<DAL.Matching>(dto);
+            return _mapper.Map<DAL.matching>(dto);
         }
 
-        public static List<DAL.Matching> Convert(List<DTO.Matching> dto)
+        public static List<DAL.matching> Convert(List<DTO.Matching> dto)
         {
-            return _mapper.Map<List<DAL.Matching>>(dto);
+            return _mapper.Map<List<DAL.matching>>(dto);
         }
 
-        public static List<DTO.Matching> Convert(List<DAL.Matching> dto)
+        public static List<DTO.Matching> Convert(List<DAL.matching> dto)
         {
             return _mapper.Map<List<DTO.Matching>>(dto);
         }
         ///////////////////////
-        public static DTO.MatchingHelper Convert(DAL.MatchingHelper dal)
+        public static DTO.MatchingHelper Convert(DAL.matchingHelper dal)
         {
             return _mapper.Map<DTO.MatchingHelper>(dal);
         }
 
-        public static DAL.MatchingHelper Convert(DTO.MatchingHelper dto)
+        public static DAL.matchingHelper Convert(DTO.MatchingHelper dto)
         {
-            return _mapper.Map<DAL.MatchingHelper>(dto);
+            return _mapper.Map<DAL.matchingHelper>(dto);
         }
 
-        public static List<DAL.MatchingHelper> Convert(List<DTO.MatchingHelper> dto)
+        public static List<DAL.matchingHelper> Convert(List<DTO.MatchingHelper> dto)
         {
-            return _mapper.Map<List<DAL.MatchingHelper>>(dto);
+            return _mapper.Map<List<DAL.matchingHelper>>(dto);
         }
 
-        public static List<DTO.MatchingHelper> Convert(List<DAL.MatchingHelper> dto)
+        public static List<DTO.MatchingHelper> Convert(List<DAL.matchingHelper> dto)
         {
             return _mapper.Map<List<DTO.MatchingHelper>>(dto);
         }
@@ -379,17 +379,17 @@ namespace BL.Utils
             return _mapper.Map<DTO.Meeting>(dal);
         }
 
-        public static DAL.Meeting Convert(DTO.Meeting dto)
+        public static DAL.meeting Convert(DTO.Meeting dto)
         {
-            return _mapper.Map<DAL.Meeting>(dto);
+            return _mapper.Map<DAL.meeting>(dto);
         }
 
-        public static List<DAL.Meeting> Convert(List<DTO.Meeting> dto)
+        public static List<DAL.meeting> Convert(List<DTO.Meeting> dto)
         {
-            return _mapper.Map<List<DAL.Meeting>>(dto);
+            return _mapper.Map<List<DAL.meeting>>(dto);
         }
 
-        public static List<DTO.Meeting> Convert(List<DAL.Meeting> dto)
+        public static List<DTO.Meeting> Convert(List<DAL.meeting> dto)
         {
             return _mapper.Map<List<DTO.Meeting>>(dto);
         }

@@ -1,0 +1,2462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MazalTovModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="askPermssion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="PermssionId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankNumber" Type="int" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BranchNumber" Type="int" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BornDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="IsPayFood" Type="bit" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicalProblem" Type="nvarchar" MaxLength="200" />
+          <Property Name="NameFather" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NameMother" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FamilyMother" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumChildren" Type="int" Nullable="false" />
+          <Property Name="NumMarried" Type="int" Nullable="false" />
+          <Property Name="NumMatching" Type="int" />
+          <Property Name="FatherWork" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MotherWork" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CandidateWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastPlaceLearn" Type="int" Nullable="false" />
+          <Property Name="Show" Type="nvarchar" MaxLength="200" />
+          <Property Name="Clothes" Type="int" Nullable="false" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="EnterBy" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="IsOk" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="SumPay" Type="int" />
+          <Property Name="MatchmarkerId" Type="int" />
+          <Property Name="SectorId" Type="int" Nullable="false" />
+          <Property Name="ChasidutId" Type="int" />
+          <Property Name="ChasidutMother" Type="int" />
+          <Property Name="ChasidutFather" Type="int" />
+        </EntityType>
+        <EntityType Name="candidateComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Privileged" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="WriteUserId" Type="int" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chasidut">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contactus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="endMatching">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="WhoPaid" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsCare" Type="bit" Nullable="false" />
+          <Property Name="EndPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatchingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="helper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SectorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="infoCandidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ConnectLevel" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="married">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matching">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Createdate" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="ReasonFail" Type="nvarchar" MaxLength="200" />
+          <Property Name="Precent" Type="int" />
+          <Property Name="CandidateFailId" Type="int" />
+          <Property Name="ReasonCandidateFail" Type="nvarchar" MaxLength="200" />
+          <Property Name="ReasonCandidateFeFail" Type="nvarchar" MaxLength="200" />
+          <Property Name="CandidateId" Type="int" Nullable="false" />
+          <Property Name="CandidateFemaleId" Type="int" Nullable="false" />
+          <Property Name="MatchmarkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matchingHelper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="NumHour" Type="float" />
+          <Property Name="Level" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="MatchingId" Type="int" Nullable="false" />
+          <Property Name="MatchmarkerId" Type="int" Nullable="false" />
+          <Property Name="HelperId" Type="int" />
+        </EntityType>
+        <EntityType Name="matchmaker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MedicalProblem" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChasidutId" Type="int" />
+          <Property Name="NumMatching" Type="int" />
+          <Property Name="ChildremMatchmaking" Type="int" />
+          <Property Name="HowSend" Type="int" Nullable="false" />
+          <Property Name="IsCommitment" Type="bit" Nullable="false" />
+          <Property Name="IsAgreement" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="SectorId" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="meeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateMeeting" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="Place" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DuringTime" Type="time" Precision="7" />
+          <Property Name="NumMeeting" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="MatchingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="FromMonth" Type="int" Nullable="false" />
+          <Property Name="FromYear" Type="int" Nullable="false" />
+          <Property Name="Sum" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Bonus" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="permssion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Present">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterDate" Type="datetime" Nullable="false" />
+          <Property Name="ExitDate" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="NumHours" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roleAction">
+          <Key>
+            <PropertyRef Name="PermssionId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="PermssionId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Tz" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userRole">
+          <Key>
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="roleId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Experiance" Type="int" />
+          <Property Name="BornDate" Type="datetime" Nullable="false" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="ConfidentComment" Type="nvarchar" MaxLength="200" />
+          <Property Name="HourPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MonthPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NumHourWork" Type="float" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BankId" Type="int" />
+        </EntityType>
+        <EntityType Name="workerAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="WorkerId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_102">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_139">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_142">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_145">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_157">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="married" Type="Self.married" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="married">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_160">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="married" Type="Self.married" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="married">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_174">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_177">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_184">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_187">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutMother" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_190">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutFather" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_202">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="candidateComment" Type="Self.candidateComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateComment">
+              <PropertyRef Name="WriteUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_205">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="candidateComment" Type="Self.candidateComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateComment">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_224">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="infoCandidate" Type="Self.infoCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="infoCandidate">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_237">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="contactus" Type="Self.contactus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactus">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_253">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_256">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="CandidateFemaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_290">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="worker" Type="Self.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_293">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="Present" Type="Self.Present" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Present">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_296">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_305">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="workerAction" Type="Self.workerAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="workerAction">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_313">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_316">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_319">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_332">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_335">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="meeting" Type="Self.meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="meeting">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_350">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_353">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_356">
+          <End Role="helper" Type="Self.helper" Multiplicity="0..1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="helper">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="HelperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_370">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="endMatching" Type="Self.endMatching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="endMatching">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_382">
+          <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+          <End Role="worker" Type="Self.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_395">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_48">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roleAction">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_51">
+          <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+          <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permssion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roleAction">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_57">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_60">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_85">
+          <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+          <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permssion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="askPermssion">
+              <PropertyRef Name="PermssionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_90">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="askPermssion">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchmarkerId">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MazalTovModel1StoreContainer">
+          <EntitySet Name="askPermssion" EntityType="Self.askPermssion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="candidate" EntityType="Self.candidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="candidateComment" EntityType="Self.candidateComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chasidut" EntityType="Self.chasidut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactus" EntityType="Self.contactus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="endMatching" EntityType="Self.endMatching" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="helper" EntityType="Self.helper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="image" EntityType="Self.image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="infoCandidate" EntityType="Self.infoCandidate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="married" EntityType="Self.married" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matching" EntityType="Self.matching" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matchingHelper" EntityType="Self.matchingHelper" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matchmaker" EntityType="Self.matchmaker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="permssion" EntityType="Self.permssion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Present" EntityType="Self.Present" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roleAction" EntityType="Self.roleAction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userRole" EntityType="Self.userRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="worker" EntityType="Self.worker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workerAction" EntityType="Self.workerAction" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_102" Association="Self.FK_102">
+            <End Role="city" EntitySet="city" />
+            <End Role="matchmaker" EntitySet="matchmaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_139" Association="Self.FK_139">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="image" EntitySet="image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_142" Association="Self.FK_142">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_145" Association="Self.FK_145">
+            <End Role="city" EntitySet="city" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_157" Association="Self.FK_157">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="married" EntitySet="married" />
+          </AssociationSet>
+          <AssociationSet Name="FK_160" Association="Self.FK_160">
+            <End Role="city" EntitySet="city" />
+            <End Role="married" EntitySet="married" />
+          </AssociationSet>
+          <AssociationSet Name="FK_174" Association="Self.FK_174">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_177" Association="Self.FK_177">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="matchmaker" EntitySet="matchmaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_184" Association="Self.FK_184">
+            <End Role="chasidut" EntitySet="chasidut" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_187" Association="Self.FK_187">
+            <End Role="chasidut" EntitySet="chasidut" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_190" Association="Self.FK_190">
+            <End Role="chasidut" EntitySet="chasidut" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_202" Association="Self.FK_202">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidateComment" EntitySet="candidateComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_205" Association="Self.FK_205">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="candidateComment" EntitySet="candidateComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_224" Association="Self.FK_224">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="infoCandidate" EntitySet="infoCandidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_237" Association="Self.FK_237">
+            <End Role="user" EntitySet="user" />
+            <End Role="contactus" EntitySet="contactus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_253" Association="Self.FK_253">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="matching" EntitySet="matching" />
+          </AssociationSet>
+          <AssociationSet Name="FK_256" Association="Self.FK_256">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="matching" EntitySet="matching" />
+          </AssociationSet>
+          <AssociationSet Name="FK_290" Association="Self.FK_290">
+            <End Role="user" EntitySet="user" />
+            <End Role="worker" EntitySet="worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_293" Association="Self.FK_293">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="Present" EntitySet="Present" />
+          </AssociationSet>
+          <AssociationSet Name="FK_296" Association="Self.FK_296">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="matchmaker" EntitySet="matchmaker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_305" Association="Self.FK_305">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="workerAction" EntitySet="workerAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_313" Association="Self.FK_313">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="helper" EntitySet="helper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_316" Association="Self.FK_316">
+            <End Role="city" EntitySet="city" />
+            <End Role="helper" EntitySet="helper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_319" Association="Self.FK_319">
+            <End Role="sector" EntitySet="sector" />
+            <End Role="helper" EntitySet="helper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_332" Association="Self.FK_332">
+            <End Role="matchmaker" EntitySet="matchmaker" />
+            <End Role="matching" EntitySet="matching" />
+          </AssociationSet>
+          <AssociationSet Name="FK_335" Association="Self.FK_335">
+            <End Role="matching" EntitySet="matching" />
+            <End Role="meeting" EntitySet="meeting" />
+          </AssociationSet>
+          <AssociationSet Name="FK_350" Association="Self.FK_350">
+            <End Role="matching" EntitySet="matching" />
+            <End Role="matchingHelper" EntitySet="matchingHelper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_353" Association="Self.FK_353">
+            <End Role="matchmaker" EntitySet="matchmaker" />
+            <End Role="matchingHelper" EntitySet="matchingHelper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_356" Association="Self.FK_356">
+            <End Role="helper" EntitySet="helper" />
+            <End Role="matchingHelper" EntitySet="matchingHelper" />
+          </AssociationSet>
+          <AssociationSet Name="FK_370" Association="Self.FK_370">
+            <End Role="matching" EntitySet="matching" />
+            <End Role="endMatching" EntitySet="endMatching" />
+          </AssociationSet>
+          <AssociationSet Name="FK_382" Association="Self.FK_382">
+            <End Role="bank" EntitySet="bank" />
+            <End Role="worker" EntitySet="worker" />
+          </AssociationSet>
+          <AssociationSet Name="FK_395" Association="Self.FK_395">
+            <End Role="worker" EntitySet="worker" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_48" Association="Self.FK_48">
+            <End Role="role" EntitySet="role" />
+            <End Role="roleAction" EntitySet="roleAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_51" Association="Self.FK_51">
+            <End Role="permssion" EntitySet="permssion" />
+            <End Role="roleAction" EntitySet="roleAction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_57" Association="Self.FK_57">
+            <End Role="user" EntitySet="user" />
+            <End Role="userRole" EntitySet="userRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_60" Association="Self.FK_60">
+            <End Role="role" EntitySet="role" />
+            <End Role="userRole" EntitySet="userRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_85" Association="Self.FK_85">
+            <End Role="permssion" EntitySet="permssion" />
+            <End Role="askPermssion" EntitySet="askPermssion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_90" Association="Self.FK_90">
+            <End Role="user" EntitySet="user" />
+            <End Role="askPermssion" EntitySet="askPermssion" />
+          </AssociationSet>
+          <AssociationSet Name="MatchmarkerId" Association="Self.MatchmarkerId">
+            <End Role="matchmaker" EntitySet="matchmaker" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MazalTovModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="askPermssion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="PermssionId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="permssion" Relationship="Self.FK_85" FromRole="askPermssion" ToRole="permssion" />
+          <NavigationProperty Name="user" Relationship="Self.FK_90" FromRole="askPermssion" ToRole="user" />
+        </EntityType>
+        <EntityType Name="bank">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankNumber" Type="Int32" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BranchNumber" Type="Int32" Nullable="false" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="workers" Relationship="Self.FK_382" FromRole="bank" ToRole="worker" />
+        </EntityType>
+        <EntityType Name="candidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BornDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="IsPayFood" Type="Boolean" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MedicalProblem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NameFather" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameMother" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FamilyMother" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumChildren" Type="Int32" Nullable="false" />
+          <Property Name="NumMarried" Type="Int32" Nullable="false" />
+          <Property Name="NumMatching" Type="Int32" />
+          <Property Name="FatherWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MotherWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CandidateWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastPlaceLearn" Type="Int32" Nullable="false" />
+          <Property Name="Show" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Clothes" Type="Int32" Nullable="false" />
+          <Property Name="Tell" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EnterBy" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="IsOk" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SumPay" Type="Int32" />
+          <Property Name="MatchmarkerId" Type="Int32" />
+          <Property Name="SectorId" Type="Int32" Nullable="false" />
+          <Property Name="ChasidutId" Type="Int32" />
+          <Property Name="ChasidutMother" Type="Int32" />
+          <Property Name="ChasidutFather" Type="Int32" />
+          <NavigationProperty Name="images" Relationship="Self.FK_139" FromRole="candidate" ToRole="image" />
+          <NavigationProperty Name="user" Relationship="Self.FK_142" FromRole="candidate" ToRole="user" />
+          <NavigationProperty Name="city" Relationship="Self.FK_145" FromRole="candidate" ToRole="city" />
+          <NavigationProperty Name="marrieds" Relationship="Self.FK_157" FromRole="candidate" ToRole="married" />
+          <NavigationProperty Name="sector" Relationship="Self.FK_174" FromRole="candidate" ToRole="sector" />
+          <NavigationProperty Name="chasidut" Relationship="Self.FK_184" FromRole="candidate" ToRole="chasidut" />
+          <NavigationProperty Name="chasidut1" Relationship="Self.FK_187" FromRole="candidate" ToRole="chasidut" />
+          <NavigationProperty Name="chasidut2" Relationship="Self.FK_190" FromRole="candidate" ToRole="chasidut" />
+          <NavigationProperty Name="candidateComments" Relationship="Self.FK_205" FromRole="candidate" ToRole="candidateComment" />
+          <NavigationProperty Name="infoCandidates" Relationship="Self.FK_224" FromRole="candidate" ToRole="infoCandidate" />
+          <NavigationProperty Name="matchings" Relationship="Self.FK_253" FromRole="candidate" ToRole="matching" />
+          <NavigationProperty Name="matchings1" Relationship="Self.FK_256" FromRole="candidate" ToRole="matching" />
+          <NavigationProperty Name="matchmaker" Relationship="Self.MatchmarkerId" FromRole="candidate" ToRole="matchmaker" />
+        </EntityType>
+        <EntityType Name="candidateComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Privileged" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WriteUserId" Type="Int32" Nullable="false" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_205" FromRole="candidateComment" ToRole="candidate" />
+          <NavigationProperty Name="user" Relationship="Self.FK_202" FromRole="candidateComment" ToRole="user" />
+        </EntityType>
+        <EntityType Name="chasidut">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="candidates" Relationship="Self.FK_184" FromRole="chasidut" ToRole="candidate" />
+          <NavigationProperty Name="candidates1" Relationship="Self.FK_187" FromRole="chasidut" ToRole="candidate" />
+          <NavigationProperty Name="candidates2" Relationship="Self.FK_190" FromRole="chasidut" ToRole="candidate" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="candidates" Relationship="Self.FK_145" FromRole="city" ToRole="candidate" />
+          <NavigationProperty Name="matchmakers" Relationship="Self.FK_102" FromRole="city" ToRole="matchmaker" />
+          <NavigationProperty Name="marrieds" Relationship="Self.FK_160" FromRole="city" ToRole="married" />
+          <NavigationProperty Name="helpers" Relationship="Self.FK_316" FromRole="city" ToRole="helper" />
+        </EntityType>
+        <EntityType Name="contactu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="Self.FK_237" FromRole="contactus" ToRole="user" />
+        </EntityType>
+        <EntityType Name="endMatching">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="WhoPaid" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsCare" Type="Boolean" Nullable="false" />
+          <Property Name="EndPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatchingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matching" Relationship="Self.FK_370" FromRole="endMatching" ToRole="matching" />
+        </EntityType>
+        <EntityType Name="helper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SectorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="city" Relationship="Self.FK_316" FromRole="helper" ToRole="city" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_313" FromRole="helper" ToRole="worker" />
+          <NavigationProperty Name="sector" Relationship="Self.FK_319" FromRole="helper" ToRole="sector" />
+          <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_356" FromRole="helper" ToRole="matchingHelper" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Url" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_139" FromRole="image" ToRole="candidate" />
+        </EntityType>
+        <EntityType Name="infoCandidate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConnectLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_224" FromRole="infoCandidate" ToRole="candidate" />
+        </EntityType>
+        <EntityType Name="married">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_157" FromRole="married" ToRole="candidate" />
+          <NavigationProperty Name="city" Relationship="Self.FK_160" FromRole="married" ToRole="city" />
+        </EntityType>
+        <EntityType Name="matching">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="ReasonFail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Precent" Type="Int32" />
+          <Property Name="CandidateFailId" Type="Int32" />
+          <Property Name="ReasonCandidateFail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonCandidateFeFail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="CandidateFemaleId" Type="Int32" Nullable="false" />
+          <Property Name="MatchmarkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidate" Relationship="Self.FK_253" FromRole="matching" ToRole="candidate" />
+          <NavigationProperty Name="candidate1" Relationship="Self.FK_256" FromRole="matching" ToRole="candidate" />
+          <NavigationProperty Name="endMatchings" Relationship="Self.FK_370" FromRole="matching" ToRole="endMatching" />
+          <NavigationProperty Name="matchmaker" Relationship="Self.FK_332" FromRole="matching" ToRole="matchmaker" />
+          <NavigationProperty Name="meetings" Relationship="Self.FK_335" FromRole="matching" ToRole="meeting" />
+          <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_350" FromRole="matching" ToRole="matchingHelper" />
+        </EntityType>
+        <EntityType Name="matchingHelper">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="NumHour" Type="Double" />
+          <Property Name="Level" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="MatchingId" Type="Int32" Nullable="false" />
+          <Property Name="MatchmarkerId" Type="Int32" Nullable="false" />
+          <Property Name="HelperId" Type="Int32" />
+          <NavigationProperty Name="helper" Relationship="Self.FK_356" FromRole="matchingHelper" ToRole="helper" />
+          <NavigationProperty Name="matching" Relationship="Self.FK_350" FromRole="matchingHelper" ToRole="matching" />
+          <NavigationProperty Name="matchmaker" Relationship="Self.FK_353" FromRole="matchingHelper" ToRole="matchmaker" />
+        </EntityType>
+        <EntityType Name="matchmaker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MedicalProblem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChasidutId" Type="Int32" />
+          <Property Name="NumMatching" Type="Int32" />
+          <Property Name="ChildremMatchmaking" Type="Int32" />
+          <Property Name="HowSend" Type="Int32" Nullable="false" />
+          <Property Name="IsCommitment" Type="Boolean" Nullable="false" />
+          <Property Name="IsAgreement" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="SectorId" Type="Int32" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="candidates" Relationship="Self.MatchmarkerId" FromRole="matchmaker" ToRole="candidate" />
+          <NavigationProperty Name="city" Relationship="Self.FK_102" FromRole="matchmaker" ToRole="city" />
+          <NavigationProperty Name="matchings" Relationship="Self.FK_332" FromRole="matchmaker" ToRole="matching" />
+          <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_353" FromRole="matchmaker" ToRole="matchingHelper" />
+          <NavigationProperty Name="sector" Relationship="Self.FK_177" FromRole="matchmaker" ToRole="sector" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_296" FromRole="matchmaker" ToRole="worker" />
+        </EntityType>
+        <EntityType Name="meeting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateMeeting" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DuringTime" Type="Time" Precision="7" />
+          <Property Name="NumMeeting" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MatchingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matching" Relationship="Self.FK_335" FromRole="meeting" ToRole="matching" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FromMonth" Type="Int32" Nullable="false" />
+          <Property Name="FromYear" Type="Int32" Nullable="false" />
+          <Property Name="Sum" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Bonus" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_395" FromRole="payment" ToRole="worker" />
+        </EntityType>
+        <EntityType Name="permssion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="askPermssions" Relationship="Self.FK_85" FromRole="permssion" ToRole="askPermssion" />
+          <NavigationProperty Name="roleActions" Relationship="Self.FK_51" FromRole="permssion" ToRole="roleAction" />
+        </EntityType>
+        <EntityType Name="Present">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExitDate" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NumHours" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_293" FromRole="Present" ToRole="worker" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="roleActions" Relationship="Self.FK_48" FromRole="role" ToRole="roleAction" />
+          <NavigationProperty Name="userRoles" Relationship="Self.FK_60" FromRole="role" ToRole="userRole" />
+        </EntityType>
+        <EntityType Name="roleAction">
+          <Key>
+            <PropertyRef Name="PermssionId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="PermssionId" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="permssion" Relationship="Self.FK_51" FromRole="roleAction" ToRole="permssion" />
+          <NavigationProperty Name="role" Relationship="Self.FK_48" FromRole="roleAction" ToRole="role" />
+        </EntityType>
+        <EntityType Name="sector">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="candidates" Relationship="Self.FK_174" FromRole="sector" ToRole="candidate" />
+          <NavigationProperty Name="helpers" Relationship="Self.FK_319" FromRole="sector" ToRole="helper" />
+          <NavigationProperty Name="matchmakers" Relationship="Self.FK_177" FromRole="sector" ToRole="matchmaker" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tz" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="askPermssions" Relationship="Self.FK_90" FromRole="user" ToRole="askPermssion" />
+          <NavigationProperty Name="candidates" Relationship="Self.FK_142" FromRole="user" ToRole="candidate" />
+          <NavigationProperty Name="candidateComments" Relationship="Self.FK_202" FromRole="user" ToRole="candidateComment" />
+          <NavigationProperty Name="contactus" Relationship="Self.FK_237" FromRole="user" ToRole="contactus" />
+          <NavigationProperty Name="workers" Relationship="Self.FK_290" FromRole="user" ToRole="worker" />
+          <NavigationProperty Name="userRoles" Relationship="Self.FK_57" FromRole="user" ToRole="userRole" />
+        </EntityType>
+        <EntityType Name="userRole">
+          <Key>
+            <PropertyRef Name="roleId" />
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="roleId" Type="Int32" Nullable="false" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_60" FromRole="userRole" ToRole="role" />
+          <NavigationProperty Name="user" Relationship="Self.FK_57" FromRole="userRole" ToRole="user" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Experiance" Type="Int32" />
+          <Property Name="BornDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Tell" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConfidentComment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HourPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MonthPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NumHourWork" Type="Double" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BankId" Type="Int32" />
+          <NavigationProperty Name="bank" Relationship="Self.FK_382" FromRole="worker" ToRole="bank" />
+          <NavigationProperty Name="helpers" Relationship="Self.FK_313" FromRole="worker" ToRole="helper" />
+          <NavigationProperty Name="matchmakers" Relationship="Self.FK_296" FromRole="worker" ToRole="matchmaker" />
+          <NavigationProperty Name="payments" Relationship="Self.FK_395" FromRole="worker" ToRole="payment" />
+          <NavigationProperty Name="Presents" Relationship="Self.FK_293" FromRole="worker" ToRole="Present" />
+          <NavigationProperty Name="user" Relationship="Self.FK_290" FromRole="worker" ToRole="user" />
+          <NavigationProperty Name="workerActions" Relationship="Self.FK_305" FromRole="worker" ToRole="workerAction" />
+        </EntityType>
+        <EntityType Name="workerAction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WorkerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_305" FromRole="workerAction" ToRole="worker" />
+        </EntityType>
+        <Association Name="FK_85">
+          <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+          <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permssion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="askPermssion">
+              <PropertyRef Name="PermssionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_90">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="askPermssion">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_382">
+          <End Role="bank" Type="Self.bank" Multiplicity="0..1" />
+          <End Role="worker" Type="Self.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_139">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_142">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_145">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_157">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="married" Type="Self.married" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="married">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_174">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_184">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_187">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutMother" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_190">
+          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="chasidut">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="ChasidutFather" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_205">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="candidateComment" Type="Self.candidateComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateComment">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_224">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="infoCandidate" Type="Self.infoCandidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="infoCandidate">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_253">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_256">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="CandidateFemaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MatchmarkerId">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_202">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="candidateComment" Type="Self.candidateComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateComment">
+              <PropertyRef Name="WriteUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_102">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_160">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="married" Type="Self.married" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="married">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_316">
+          <End Role="city" Type="Self.city" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="city">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_237">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="contactus" Type="Self.contactu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="contactus">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_370">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="endMatching" Type="Self.endMatching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="endMatching">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_313">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_319">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="helper" Type="Self.helper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="helper">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_356">
+          <End Role="helper" Type="Self.helper" Multiplicity="0..1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="helper">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="HelperId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_332">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="1" />
+          <End Role="matching" Type="Self.matching" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matching">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_335">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="meeting" Type="Self.meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="meeting">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_350">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_353">
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="1" />
+          <End Role="matchingHelper" Type="Self.matchingHelper" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matchmaker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingHelper">
+              <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_177">
+          <End Role="sector" Type="Self.sector" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sector">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="SectorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_296">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchmaker">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_395">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_51">
+          <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
+          <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="permssion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roleAction">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_293">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="Present" Type="Self.Present" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Present">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_48">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="roleAction" Type="Self.roleAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="roleAction">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_60">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_290">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="worker" Type="Self.worker" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="worker">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_57">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_305">
+          <End Role="worker" Type="Self.worker" Multiplicity="1" />
+          <End Role="workerAction" Type="Self.workerAction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="worker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="workerAction">
+              <PropertyRef Name="WorkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MazalTovEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="askPermssions" EntityType="Self.askPermssion" />
+          <EntitySet Name="banks" EntityType="Self.bank" />
+          <EntitySet Name="candidates" EntityType="Self.candidate" />
+          <EntitySet Name="candidateComments" EntityType="Self.candidateComment" />
+          <EntitySet Name="chasiduts" EntityType="Self.chasidut" />
+          <EntitySet Name="cities" EntityType="Self.city" />
+          <EntitySet Name="contactus" EntityType="Self.contactu" />
+          <EntitySet Name="endMatchings" EntityType="Self.endMatching" />
+          <EntitySet Name="helpers" EntityType="Self.helper" />
+          <EntitySet Name="images" EntityType="Self.image" />
+          <EntitySet Name="infoCandidates" EntityType="Self.infoCandidate" />
+          <EntitySet Name="marrieds" EntityType="Self.married" />
+          <EntitySet Name="matchings" EntityType="Self.matching" />
+          <EntitySet Name="matchingHelpers" EntityType="Self.matchingHelper" />
+          <EntitySet Name="matchmakers" EntityType="Self.matchmaker" />
+          <EntitySet Name="meetings" EntityType="Self.meeting" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="permssions" EntityType="Self.permssion" />
+          <EntitySet Name="Presents" EntityType="Self.Present" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="roleActions" EntityType="Self.roleAction" />
+          <EntitySet Name="sectors" EntityType="Self.sector" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="userRoles" EntityType="Self.userRole" />
+          <EntitySet Name="workers" EntityType="Self.worker" />
+          <EntitySet Name="workerActions" EntityType="Self.workerAction" />
+          <AssociationSet Name="FK_85" Association="Self.FK_85">
+            <End Role="permssion" EntitySet="permssions" />
+            <End Role="askPermssion" EntitySet="askPermssions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_90" Association="Self.FK_90">
+            <End Role="user" EntitySet="users" />
+            <End Role="askPermssion" EntitySet="askPermssions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_382" Association="Self.FK_382">
+            <End Role="bank" EntitySet="banks" />
+            <End Role="worker" EntitySet="workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_139" Association="Self.FK_139">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="image" EntitySet="images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_142" Association="Self.FK_142">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_145" Association="Self.FK_145">
+            <End Role="city" EntitySet="cities" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_157" Association="Self.FK_157">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="married" EntitySet="marrieds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_174" Association="Self.FK_174">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_184" Association="Self.FK_184">
+            <End Role="chasidut" EntitySet="chasiduts" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_187" Association="Self.FK_187">
+            <End Role="chasidut" EntitySet="chasiduts" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_190" Association="Self.FK_190">
+            <End Role="chasidut" EntitySet="chasiduts" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_205" Association="Self.FK_205">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="candidateComment" EntitySet="candidateComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_224" Association="Self.FK_224">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="infoCandidate" EntitySet="infoCandidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_253" Association="Self.FK_253">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="matching" EntitySet="matchings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_256" Association="Self.FK_256">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="matching" EntitySet="matchings" />
+          </AssociationSet>
+          <AssociationSet Name="MatchmarkerId" Association="Self.MatchmarkerId">
+            <End Role="matchmaker" EntitySet="matchmakers" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_202" Association="Self.FK_202">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidateComment" EntitySet="candidateComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_102" Association="Self.FK_102">
+            <End Role="city" EntitySet="cities" />
+            <End Role="matchmaker" EntitySet="matchmakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_160" Association="Self.FK_160">
+            <End Role="city" EntitySet="cities" />
+            <End Role="married" EntitySet="marrieds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_316" Association="Self.FK_316">
+            <End Role="city" EntitySet="cities" />
+            <End Role="helper" EntitySet="helpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_237" Association="Self.FK_237">
+            <End Role="user" EntitySet="users" />
+            <End Role="contactus" EntitySet="contactus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_370" Association="Self.FK_370">
+            <End Role="matching" EntitySet="matchings" />
+            <End Role="endMatching" EntitySet="endMatchings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_313" Association="Self.FK_313">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="helper" EntitySet="helpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_319" Association="Self.FK_319">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="helper" EntitySet="helpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_356" Association="Self.FK_356">
+            <End Role="helper" EntitySet="helpers" />
+            <End Role="matchingHelper" EntitySet="matchingHelpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_332" Association="Self.FK_332">
+            <End Role="matchmaker" EntitySet="matchmakers" />
+            <End Role="matching" EntitySet="matchings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_335" Association="Self.FK_335">
+            <End Role="matching" EntitySet="matchings" />
+            <End Role="meeting" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_350" Association="Self.FK_350">
+            <End Role="matching" EntitySet="matchings" />
+            <End Role="matchingHelper" EntitySet="matchingHelpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_353" Association="Self.FK_353">
+            <End Role="matchmaker" EntitySet="matchmakers" />
+            <End Role="matchingHelper" EntitySet="matchingHelpers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_177" Association="Self.FK_177">
+            <End Role="sector" EntitySet="sectors" />
+            <End Role="matchmaker" EntitySet="matchmakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_296" Association="Self.FK_296">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="matchmaker" EntitySet="matchmakers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_395" Association="Self.FK_395">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="payment" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_51" Association="Self.FK_51">
+            <End Role="permssion" EntitySet="permssions" />
+            <End Role="roleAction" EntitySet="roleActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_293" Association="Self.FK_293">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="Present" EntitySet="Presents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_48" Association="Self.FK_48">
+            <End Role="role" EntitySet="roles" />
+            <End Role="roleAction" EntitySet="roleActions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_60" Association="Self.FK_60">
+            <End Role="role" EntitySet="roles" />
+            <End Role="userRole" EntitySet="userRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_290" Association="Self.FK_290">
+            <End Role="user" EntitySet="users" />
+            <End Role="worker" EntitySet="workers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_57" Association="Self.FK_57">
+            <End Role="user" EntitySet="users" />
+            <End Role="userRole" EntitySet="userRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_305" Association="Self.FK_305">
+            <End Role="worker" EntitySet="workers" />
+            <End Role="workerAction" EntitySet="workerActions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MazalTovModel1StoreContainer" CdmEntityContainer="MazalTovEntities">
+          <EntitySetMapping Name="askPermssions">
+            <EntityTypeMapping TypeName="MazalTovModel1.askPermssion">
+              <MappingFragment StoreEntitySet="askPermssion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="banks">
+            <EntityTypeMapping TypeName="MazalTovModel1.bank">
+              <MappingFragment StoreEntitySet="bank">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BankNumber" ColumnName="BankNumber" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidates">
+            <EntityTypeMapping TypeName="MazalTovModel1.candidate">
+              <MappingFragment StoreEntitySet="candidate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+                <ScalarProperty Name="NameFather" ColumnName="NameFather" />
+                <ScalarProperty Name="NameMother" ColumnName="NameMother" />
+                <ScalarProperty Name="FamilyMother" ColumnName="FamilyMother" />
+                <ScalarProperty Name="NumChildren" ColumnName="NumChildren" />
+                <ScalarProperty Name="NumMarried" ColumnName="NumMarried" />
+                <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+                <ScalarProperty Name="FatherWork" ColumnName="FatherWork" />
+                <ScalarProperty Name="MotherWork" ColumnName="MotherWork" />
+                <ScalarProperty Name="CandidateWork" ColumnName="CandidateWork" />
+                <ScalarProperty Name="LastPlaceLearn" ColumnName="LastPlaceLearn" />
+                <ScalarProperty Name="Show" ColumnName="Show" />
+                <ScalarProperty Name="Clothes" ColumnName="Clothes" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="EnterBy" ColumnName="EnterBy" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="SumPay" ColumnName="SumPay" />
+                <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+                <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+                <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
+                <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidateComments">
+            <EntityTypeMapping TypeName="MazalTovModel1.candidateComment">
+              <MappingFragment StoreEntitySet="candidateComment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Privileged" ColumnName="Privileged" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="WriteUserId" ColumnName="WriteUserId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chasiduts">
+            <EntityTypeMapping TypeName="MazalTovModel1.chasidut">
+              <MappingFragment StoreEntitySet="chasidut">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="MazalTovModel1.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactus">
+            <EntityTypeMapping TypeName="MazalTovModel1.contactu">
+              <MappingFragment StoreEntitySet="contactus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="endMatchings">
+            <EntityTypeMapping TypeName="MazalTovModel1.endMatching">
+              <MappingFragment StoreEntitySet="endMatching">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="WhoPaid" ColumnName="WhoPaid" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="IsCare" ColumnName="IsCare" />
+                <ScalarProperty Name="EndPlace" ColumnName="EndPlace" />
+                <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="helpers">
+            <EntityTypeMapping TypeName="MazalTovModel1.helper">
+              <MappingFragment StoreEntitySet="helper">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="MazalTovModel1.image">
+              <MappingFragment StoreEntitySet="image">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="infoCandidates">
+            <EntityTypeMapping TypeName="MazalTovModel1.infoCandidate">
+              <MappingFragment StoreEntitySet="infoCandidate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ConnectLevel" ColumnName="ConnectLevel" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marrieds">
+            <EntityTypeMapping TypeName="MazalTovModel1.married">
+              <MappingFragment StoreEntitySet="married">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matchings">
+            <EntityTypeMapping TypeName="MazalTovModel1.matching">
+              <MappingFragment StoreEntitySet="matching">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="ReasonFail" ColumnName="ReasonFail" />
+                <ScalarProperty Name="Precent" ColumnName="Precent" />
+                <ScalarProperty Name="CandidateFailId" ColumnName="CandidateFailId" />
+                <ScalarProperty Name="ReasonCandidateFail" ColumnName="ReasonCandidateFail" />
+                <ScalarProperty Name="ReasonCandidateFeFail" ColumnName="ReasonCandidateFeFail" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="CandidateFemaleId" ColumnName="CandidateFemaleId" />
+                <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matchingHelpers">
+            <EntityTypeMapping TypeName="MazalTovModel1.matchingHelper">
+              <MappingFragment StoreEntitySet="matchingHelper">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="NumHour" ColumnName="NumHour" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+                <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+                <ScalarProperty Name="HelperId" ColumnName="HelperId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matchmakers">
+            <EntityTypeMapping TypeName="MazalTovModel1.matchmaker">
+              <MappingFragment StoreEntitySet="matchmaker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+                <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+                <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+                <ScalarProperty Name="ChildremMatchmaking" ColumnName="ChildremMatchmaking" />
+                <ScalarProperty Name="HowSend" ColumnName="HowSend" />
+                <ScalarProperty Name="IsCommitment" ColumnName="IsCommitment" />
+                <ScalarProperty Name="IsAgreement" ColumnName="IsAgreement" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings">
+            <EntityTypeMapping TypeName="MazalTovModel1.meeting">
+              <MappingFragment StoreEntitySet="meeting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateMeeting" ColumnName="DateMeeting" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="DuringTime" ColumnName="DuringTime" />
+                <ScalarProperty Name="NumMeeting" ColumnName="NumMeeting" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="MazalTovModel1.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="FromMonth" ColumnName="FromMonth" />
+                <ScalarProperty Name="FromYear" ColumnName="FromYear" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permssions">
+            <EntityTypeMapping TypeName="MazalTovModel1.permssion">
+              <MappingFragment StoreEntitySet="permssion">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presents">
+            <EntityTypeMapping TypeName="MazalTovModel1.Present">
+              <MappingFragment StoreEntitySet="Present">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+                <ScalarProperty Name="ExitDate" ColumnName="ExitDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="NumHours" ColumnName="NumHours" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="MazalTovModel1.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roleActions">
+            <EntityTypeMapping TypeName="MazalTovModel1.roleAction">
+              <MappingFragment StoreEntitySet="roleAction">
+                <ScalarProperty Name="PermssionId" ColumnName="PermssionId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sectors">
+            <EntityTypeMapping TypeName="MazalTovModel1.sector">
+              <MappingFragment StoreEntitySet="sector">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="MazalTovModel1.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Tz" ColumnName="Tz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userRoles">
+            <EntityTypeMapping TypeName="MazalTovModel1.userRole">
+              <MappingFragment StoreEntitySet="userRole">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workers">
+            <EntityTypeMapping TypeName="MazalTovModel1.worker">
+              <MappingFragment StoreEntitySet="worker">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Experiance" ColumnName="Experiance" />
+                <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="ConfidentComment" ColumnName="ConfidentComment" />
+                <ScalarProperty Name="HourPrice" ColumnName="HourPrice" />
+                <ScalarProperty Name="MonthPrice" ColumnName="MonthPrice" />
+                <ScalarProperty Name="NumHourWork" ColumnName="NumHourWork" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workerActions">
+            <EntityTypeMapping TypeName="MazalTovModel1.workerAction">
+              <MappingFragment StoreEntitySet="workerAction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

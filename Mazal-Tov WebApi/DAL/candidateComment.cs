@@ -12,13 +12,17 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class station_bus
+    public partial class candidateComment
     {
-        public int kav { get; set; }
-        public int stationid { get; set; }
-        public Nullable<int> orbit { get; set; }
+        public int Id { get; set; }
+        public string Remark { get; set; }
+        public bool Privileged { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime UpdateDate { get; set; }
+        public int WriteUserId { get; set; }
+        public int CandidateId { get; set; }
     
-        public virtual bus bus { get; set; }
-        public virtual station station { get; set; }
+        public virtual candidate candidate { get; set; }
+        public virtual user user { get; set; }
     }
 }

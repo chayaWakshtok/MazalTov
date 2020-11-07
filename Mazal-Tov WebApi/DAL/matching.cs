@@ -12,38 +12,39 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class matchmaker
+    public partial class matching
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public matchmaker()
+        public matching()
         {
-            this.candidates = new HashSet<candidate>();
-            this.matchings = new HashSet<matching>();
+            this.endMatchings = new HashSet<endMatching>();
+            this.meetings = new HashSet<meeting>();
             this.matchingHelpers = new HashSet<matchingHelper>();
         }
     
         public int Id { get; set; }
-        public string Address { get; set; }
-        public string MedicalProblem { get; set; }
-        public Nullable<int> ChasidutId { get; set; }
-        public Nullable<int> NumMatching { get; set; }
-        public Nullable<int> ChildremMatchmaking { get; set; }
-        public int HowSend { get; set; }
-        public bool IsCommitment { get; set; }
-        public bool IsAgreement { get; set; }
+        public System.DateTime Createdate { get; set; }
+        public string Remark { get; set; }
+        public System.DateTime UpdateDate { get; set; }
         public int Status { get; set; }
-        public int CityId { get; set; }
-        public int SectorId { get; set; }
-        public int WorkerId { get; set; }
+        public int Level { get; set; }
+        public string ReasonFail { get; set; }
+        public Nullable<int> Precent { get; set; }
+        public Nullable<int> CandidateFailId { get; set; }
+        public string ReasonCandidateFail { get; set; }
+        public string ReasonCandidateFeFail { get; set; }
+        public int CandidateId { get; set; }
+        public int CandidateFemaleId { get; set; }
+        public int MatchmarkerId { get; set; }
     
+        public virtual candidate candidate { get; set; }
+        public virtual candidate candidate1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<candidate> candidates { get; set; }
-        public virtual city city { get; set; }
+        public virtual ICollection<endMatching> endMatchings { get; set; }
+        public virtual matchmaker matchmaker { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<matching> matchings { get; set; }
+        public virtual ICollection<meeting> meetings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matchingHelper> matchingHelpers { get; set; }
-        public virtual sector sector { get; set; }
-        public virtual worker worker { get; set; }
     }
 }

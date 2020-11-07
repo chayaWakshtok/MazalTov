@@ -12,12 +12,13 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class T_FilesInDriverTasks
+    public partial class image
     {
-        public int IdFilesInDriverTasks { get; set; }
-        public int DriverInTasksId { get; set; }
-        public string FileUrl { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Url { get; set; }
+        public int CandidateId { get; set; }
     
-        public virtual T_DriverInTasks T_DriverInTasks { get; set; }
+        public virtual candidate candidate { get; set; }
     }
 }

@@ -12,10 +12,17 @@ namespace DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class driver_history
+    public partial class married
     {
-        public int id { get; set; }
-        public string dname { get; set; }
-        public string dupdate { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+        public string Remark { get; set; }
+        public int CandidateId { get; set; }
+        public int CityId { get; set; }
+    
+        public virtual candidate candidate { get; set; }
+        public virtual city city { get; set; }
     }
 }

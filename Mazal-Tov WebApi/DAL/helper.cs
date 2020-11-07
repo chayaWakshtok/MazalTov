@@ -14,6 +14,12 @@ namespace DAL
     
     public partial class helper
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public helper()
+        {
+            this.matchingHelpers = new HashSet<matchingHelper>();
+        }
+    
         public int Id { get; set; }
         public string Address { get; set; }
         public int Type { get; set; }
@@ -24,5 +30,7 @@ namespace DAL
         public virtual city city { get; set; }
         public virtual worker worker { get; set; }
         public virtual sector sector { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<matchingHelper> matchingHelpers { get; set; }
     }
 }

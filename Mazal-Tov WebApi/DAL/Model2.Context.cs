@@ -12,13 +12,11 @@ namespace DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
-    public partial class masterEntities : DbContext
+    public partial class MazalTovEntities : DbContext
     {
-        public masterEntities()
-            : base("name=masterEntities")
+        public MazalTovEntities()
+            : base("name=MazalTovEntities")
         {
         }
     
@@ -29,46 +27,29 @@ namespace DAL
     
         public virtual DbSet<askPermssion> askPermssions { get; set; }
         public virtual DbSet<bank> banks { get; set; }
-        public virtual DbSet<bus> buses { get; set; }
+        public virtual DbSet<candidate> candidates { get; set; }
+        public virtual DbSet<candidateComment> candidateComments { get; set; }
         public virtual DbSet<chasidut> chasiduts { get; set; }
         public virtual DbSet<city> cities { get; set; }
         public virtual DbSet<contactu> contactus { get; set; }
-        public virtual DbSet<driver> drivers { get; set; }
-        public virtual DbSet<driver_history> driver_history { get; set; }
+        public virtual DbSet<endMatching> endMatchings { get; set; }
         public virtual DbSet<helper> helpers { get; set; }
+        public virtual DbSet<image> images { get; set; }
+        public virtual DbSet<infoCandidate> infoCandidates { get; set; }
+        public virtual DbSet<married> marrieds { get; set; }
+        public virtual DbSet<matching> matchings { get; set; }
+        public virtual DbSet<matchingHelper> matchingHelpers { get; set; }
         public virtual DbSet<matchmaker> matchmakers { get; set; }
+        public virtual DbSet<meeting> meetings { get; set; }
         public virtual DbSet<payment> payments { get; set; }
         public virtual DbSet<permssion> permssions { get; set; }
         public virtual DbSet<Present> Presents { get; set; }
         public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<roleAction> roleActions { get; set; }
         public virtual DbSet<sector> sectors { get; set; }
-        public virtual DbSet<station> stations { get; set; }
-        public virtual DbSet<station_bus> station_bus { get; set; }
-        public virtual DbSet<T_DriverInTasks> T_DriverInTasks { get; set; }
-        public virtual DbSet<T_FilesInDriverTasks> T_FilesInDriverTasks { get; set; }
-        public virtual DbSet<T_Tasks> T_Tasks { get; set; }
-        public virtual DbSet<TEST> TESTs { get; set; }
-        public virtual DbSet<travel> travels { get; set; }
-        public virtual DbSet<traveler> travelers { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<userRole> userRoles { get; set; }
         public virtual DbSet<worker> workers { get; set; }
         public virtual DbSet<workerAction> workerActions { get; set; }
-        public virtual DbSet<MSreplication_options> MSreplication_options { get; set; }
-        public virtual DbSet<spt_fallback_db> spt_fallback_db { get; set; }
-        public virtual DbSet<spt_fallback_dev> spt_fallback_dev { get; set; }
-        public virtual DbSet<spt_fallback_usg> spt_fallback_usg { get; set; }
-        public virtual DbSet<spt_monitor> spt_monitor { get; set; }
-    
-        public virtual int sp_MScleanupmergepublisher()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MScleanupmergepublisher");
-        }
-    
-        public virtual int sp_MSrepl_startup()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_MSrepl_startup");
-        }
     }
 }

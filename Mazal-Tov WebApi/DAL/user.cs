@@ -18,6 +18,8 @@ namespace DAL
         public user()
         {
             this.askPermssions = new HashSet<askPermssion>();
+            this.candidates = new HashSet<candidate>();
+            this.candidateComments = new HashSet<candidateComment>();
             this.contactus = new HashSet<contactu>();
             this.workers = new HashSet<worker>();
             this.userRoles = new HashSet<userRole>();
@@ -32,6 +34,10 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<askPermssion> askPermssions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<candidate> candidates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<candidateComment> candidateComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<contactu> contactus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

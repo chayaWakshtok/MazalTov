@@ -1,5 +1,5 @@
 export class permssion{
-      Id:number;  
+      id:number;  
 
-     Name:string;
+     name:string;
 }

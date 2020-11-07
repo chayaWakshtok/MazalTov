@@ -1,5 +1,5 @@
 export class chasidut{
      id:number;
-     Name:string;
+     name:string;
 
 }

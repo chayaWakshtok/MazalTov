@@ -1,16 +1,16 @@
 export class matchmaker{
-     Id:number;  
-    Address:string;  
-     MedicalProblem:string;  
-      ChasidutId:number;  
-     NumMatching:number;  
-      ChildrenMatchmaking:number;  
-     HowSend:number;  
-      IsCommitment:boolean    
-     IsAgreement:boolean;  
-     Status:number;  
-    CityId :number; 
-     SectorId:number;  
-      WorkerId:number;
+     id:number;  
+    address:string;  
+     medicalProblem:string;  
+      chasidutId:number;  
+     numMatching:number;  
+      childrenMatchmaking:number;  
+     howSend:number;  
+      isCommitment:boolean    
+     isAgreement:boolean;  
+     status:number;  
+    cityId :number; 
+     sectorId:number;  
+      workerId:number;
 
 }

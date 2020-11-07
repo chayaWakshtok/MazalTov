@@ -1,37 +1,37 @@
 export class candidate{
-     Id:number;
-      BornDate:Date;
-  Status:number ;
-   IsPayFood:boolean ;
-     Gender:number ;
-    Address:string ;
-    MedicalProblem:string ;
-    NameFather:string ;
-    FamilyMother:string ;
-     NumChildren:number ;
-    NumMarried:number ;
-     NumMatching:number ;
-    FatherWork:string ;
-    MotherWork:string ;
-  CandidateWork:string ;
-   LastPlaceLearn:number ;
-     Show:string ;
-    Clothes:number ;
-   Tell:string;
-   Phone:string ;
-   Fax:string ;
-    Email:string ;
-   Remark:string ;
-    EnterBy:number ;
-  UserId:number ;
-    CityId:number ;
-    IsOk:number ;
-  CreateDate:Date ;
-    UpdateDate:Date ;
-    SumPay:number;
-    MatchmarkerId:number ;
-     SectorId :number
-    ChasidutId :number
-    ChasidutMother:number 
-   ChasidutFather:number; 
+     id:number;
+      bornDate:Date;
+  status:number ;
+   isPayFood:boolean ;
+     gender:number ;
+    address:string ;
+    medicalProblem:string ;
+    nameFather:string ;
+    familyMother:string ;
+     numChildren:number ;
+    numMarried:number ;
+     numMatching:number ;
+    fatherWork:string ;
+    motherWork:string ;
+  candidateWork:string ;
+   lastPlaceLearn:number ;
+     show:string ;
+    clothes:number ;
+   tell:string;
+   phone:string ;
+   fax:string ;
+    email:string ;
+   remark:string ;
+    enterBy:number ;
+  userId:number ;
+    cityId:number ;
+    isOk:number ;
+  createDate:Date ;
+    uUpdateDate:Date ;
+    sumPay:number;
+    matchmarkerId:number ;
+     sectorId :number
+    chasidutId :number
+    chasidutMother:number 
+   chasidutFather:number; 
 }

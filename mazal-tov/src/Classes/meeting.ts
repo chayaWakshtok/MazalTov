@@ -3,14 +3,14 @@ import { TimeInterval } from 'rxjs';
 
 export class meeting{
 
-     Id:number;  
-   DateMeeting:Date;  
-      CreateDate:Date; 
-     UpdateDate:Date; 
-     Place:string; 
+     id:number;  
+   dateMeeting:Date;  
+      createDate:Date; 
+     updateDate:Date; 
+     place:string; 
      //לבדוק שזה סוג נכון 
-     DuringTime:TimeRanges;
-    NumMeeting:number; 
-     Remark:string; 
-      MatchingId:number;
+     duringTime:TimeRanges;
+    numMeeting:number; 
+     remark:string; 
+      matchingId:number;
 }

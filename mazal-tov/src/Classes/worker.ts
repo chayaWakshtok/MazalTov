@@ -1,23 +1,23 @@
 import { DecimalPipe } from '@angular/common';
 
 export class worker {
-    Id: number;
-    Experiance: number;
-    BornDate: Date;
-    Tell: string;
-    Phone: string;
-    Fax: string;
-    Email: string;
-    Remark: string;
-    Gender: number;
-    CreateDate: Date;
-    UpdateDate: Date;
-    ConfidentComment: string;
-    HourPrice: DecimalPipe;
-    MonthPrice: DecimalPipe;
+    id: number;
+    experiance: number;
+    bornDate: Date;
+    tell: string;
+    phone: string;
+    fax: string;
+    email: string;
+    remark: string;
+    gender: number;
+    createDate: Date;
+    updateDate: Date;
+    confidentComment: string;
+    hourPrice: DecimalPipe;
+    monthPrice: DecimalPipe;
     //לברר אם זה סוג טוב
-    NumHourWork: Float32Array;
-    UserId: number;
-    BankId: number;
+    numHourWork: Float32Array;
+    userId: number;
+    bankId: number;
 
 }

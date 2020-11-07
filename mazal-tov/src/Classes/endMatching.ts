@@ -1,16 +1,16 @@
 import { DecimalPipe } from '@angular/common';
 export class endMatching{
-     Id:number ;
-     EndDate:Date ;
-   UpdateDate:Date ;
-  IsPaid:boolean ;
-   WhoPaid :number;
+     id:number ;
+     endDate:Date ;
+   updateDate:Date ;
+  isPaid:boolean ;
+   whoPaid :number;
    //לברר אם זה סוג טוב:
-   Price:DecimalPipe; 
- Remark :string;
-   IsCare:boolean ;
-   EndPlace:string ;
- MatchingId:number ;
+   price:DecimalPipe; 
+ remark :string;
+   isCare:boolean ;
+   endPlace:string ;
+ matchingId:number ;
    
 
 }

@@ -1,7 +1,7 @@
 export class image{
 
-   Id :number;
-    Name:string ;
-      Url:string ;
-     CandidateId :number;
+   id :number;
+    name:string ;
+      url:string ;
+     candidateId :number;
 }

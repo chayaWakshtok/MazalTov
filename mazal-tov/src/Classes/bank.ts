@@ -1,9 +1,9 @@
 export class bank{
-      Id:number;
-      Name:string;
-    BankNumber:number;
-     BranchName:string;
-     BranchNumber:number;
-    AccountName:string; 
-     AccountNumber:string; 
+      id:number;
+      name:string;
+    bankNumber:number;
+     branchName:string;
+     branchNumber:number;
+    accountName:string; 
+     accountNumber:string; 
 }

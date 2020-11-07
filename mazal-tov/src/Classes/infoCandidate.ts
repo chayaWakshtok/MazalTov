@@ -1,9 +1,9 @@
 export class infoCandidate{
 
-     Id:number; 
-     Name:string ;
-      ConnectLevel:string ;
-    Phone:string ;
-  Remark :string;
-    CandidateId:number; 
+     id:number; 
+     name:string ;
+      connectLevel:string ;
+    phone:string ;
+  remark :string;
+    candidateId:number; 
 }

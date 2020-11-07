@@ -3,13 +3,13 @@ import { decimalDigest } from '@angular/compiler/src/i18n/digest';
 
 export class payment {
 
-    Id: number;
-    CreateDate: Date;
-    FromMonth: number;
-    FromYear: number;
-    Sum: DecimalPipe;
-    Bonus: DecimalPipe;
-    TotalPrice: DecimalPipe;
-    Status: number;
-    WorkerId: number;
+    id: number;
+    createDate: Date;
+    fromMonth: number;
+    fromYear: number;
+    sum: DecimalPipe;
+    bonus: DecimalPipe;
+    totalPrice: DecimalPipe;
+    status: number;
+    workerId: number;
 }

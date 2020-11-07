@@ -1,12 +1,12 @@
 export class contactus{
 
-   Id:number;
-   Name:string ;
-  Email:string;
-   Message:string;
- CreateDate:Date;
-   UpdateDate:Date;
-  Status:number;
- UserId:number;
+   id:number;
+   name:string ;
+  email:string;
+   message:string;
+ createDate:Date;
+   updateDate:Date;
+  status:number;
+ userId:number;
 
 }

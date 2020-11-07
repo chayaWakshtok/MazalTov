@@ -2,11 +2,11 @@ import { DecimalPipe } from '@angular/common';
 
 export class Present{
 
-      Id:number ;
-     EnterDate:Date; 
-    ExitDate:Date;  
-    Remark:string;  
-     NumHours:DecimalPipe;  
-     Subject:string;  
-       WorkerId:number;
+      id:number ;
+     enterDate:Date; 
+    exitDate:Date;  
+    remark:string;  
+     numHours:DecimalPipe;  
+     subject:string;  
+       workerId:number;
 }

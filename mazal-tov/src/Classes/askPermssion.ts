@@ -1,8 +1,8 @@
  export class askPermssion{
- Id :number
-Remark :string
-  CreateDate:Date;
-  Status:number;
-  PermssionId :number;
-  UserId:number;
+ id :number
+remark :string
+  createDate:Date;
+  status:number;
+  permssionId :number;
+  userId:number;
  }

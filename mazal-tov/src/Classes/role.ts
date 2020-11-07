@@ -1,4 +1,4 @@
 export class role{
-     Id:number;  
-     Name:string;
+     id:number;  
+     name:string;
 }

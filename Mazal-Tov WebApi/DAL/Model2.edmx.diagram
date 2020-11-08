@@ -28,7 +28,6 @@
         <EntityTypeShape EntityType="MazalTovModel1.roleAction" Width="1.5" PointX="9" PointY="23" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.sector" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.user" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MazalTovModel1.userRole" Width="1.5" PointX="3" PointY="26" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.worker" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.workerAction" Width="1.5" PointX="5.25" PointY="46.5" IsExpanded="true" />
         <AssociationConnector Association="MazalTovModel1.FK_85" ManuallyRouted="false" />
@@ -66,10 +65,12 @@
         <AssociationConnector Association="MazalTovModel1.FK_51" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_293" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_48" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_60" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_290" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_57" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_305" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MazalTovModel1.matchingComment" Width="1.5" PointX="13.5" PointY="25.875" />
+        <AssociationConnector Association="MazalTovModel1.FK_2580" />
+        <AssociationConnector Association="MazalTovModel1.FK_2050" />
+        <AssociationConnector Association="MazalTovModel1.userRole1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

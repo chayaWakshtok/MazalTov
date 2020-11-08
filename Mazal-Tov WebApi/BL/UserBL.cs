@@ -8,9 +8,13 @@ namespace BL
 {
     public class UserBL
     {
-        //public static void Login()
-        //{
-        //   var u= Utils.Converters.Convert(new DAL.user());
-        //}
+        public static DAL.MazalTovEntities db = new DAL.MazalTovEntities();
+        public static DTO.User Login(string username, string password)
+        {
+            var user = db.users.FirstOrDefault(p => p.Username == username && p.Password == password);
+            if (user != null)
+                return Utils.Converters.Convert(user);
+            else return null;
+        }
     }
 }

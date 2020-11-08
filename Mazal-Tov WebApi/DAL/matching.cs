@@ -20,6 +20,7 @@ namespace DAL
             this.endMatchings = new HashSet<endMatching>();
             this.meetings = new HashSet<meeting>();
             this.matchingHelpers = new HashSet<matchingHelper>();
+            this.matchingComments = new HashSet<matchingComment>();
         }
     
         public int Id { get; set; }
@@ -46,5 +47,7 @@ namespace DAL
         public virtual ICollection<meeting> meetings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matchingHelper> matchingHelpers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<matchingComment> matchingComments { get; set; }
     }
 }

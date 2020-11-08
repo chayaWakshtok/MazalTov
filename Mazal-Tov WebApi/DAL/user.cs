@@ -22,7 +22,8 @@ namespace DAL
             this.candidateComments = new HashSet<candidateComment>();
             this.contactus = new HashSet<contactu>();
             this.workers = new HashSet<worker>();
-            this.userRoles = new HashSet<userRole>();
+            this.matchingComments = new HashSet<matchingComment>();
+            this.roles = new HashSet<role>();
         }
     
         public int Id { get; set; }
@@ -43,6 +44,8 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<worker> workers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userRole> userRoles { get; set; }
+        public virtual ICollection<matchingComment> matchingComments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<role> roles { get; set; }
     }
 }

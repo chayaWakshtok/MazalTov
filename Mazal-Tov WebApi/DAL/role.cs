@@ -18,7 +18,7 @@ namespace DAL
         public role()
         {
             this.roleActions = new HashSet<roleAction>();
-            this.userRoles = new HashSet<userRole>();
+            this.users = new HashSet<user>();
         }
     
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<roleAction> roleActions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<userRole> userRoles { get; set; }
+        public virtual ICollection<user> users { get; set; }
     }
 }

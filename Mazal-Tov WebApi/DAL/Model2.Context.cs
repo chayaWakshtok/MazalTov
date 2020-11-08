@@ -48,8 +48,8 @@ namespace DAL
         public virtual DbSet<roleAction> roleActions { get; set; }
         public virtual DbSet<sector> sectors { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<userRole> userRoles { get; set; }
         public virtual DbSet<worker> workers { get; set; }
         public virtual DbSet<workerAction> workerActions { get; set; }
+        public virtual DbSet<matchingComment> matchingComments { get; set; }
     }
 }

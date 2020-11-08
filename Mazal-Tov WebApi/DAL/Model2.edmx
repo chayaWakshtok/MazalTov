@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MazalTovModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MazalTovModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="askPermssion">
           <Key>
             <PropertyRef Name="Id" />
@@ -185,6 +185,18 @@
           <Property Name="CandidateFemaleId" Type="int" Nullable="false" />
           <Property Name="MatchmarkerId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="matchingComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Privileged" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="WriteUserId" Type="int" Nullable="false" />
+          <Property Name="MatchingId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="matchingHelper">
           <Key>
             <PropertyRef Name="Id" />
@@ -309,7 +321,6 @@
           </Key>
           <Property Name="roleId" Type="int" Nullable="false" />
           <Property Name="userId" Type="int" Nullable="false" />
-          <Property Name="Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="worker">
           <Key>
@@ -499,6 +510,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_2050">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="matchingComment" Type="Self.matchingComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingComment">
+              <PropertyRef Name="WriteUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_224">
           <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
           <End Role="infoCandidate" Type="Self.infoCandidate" Multiplicity="*" />
@@ -544,6 +567,18 @@
             </Principal>
             <Dependent Role="matching">
               <PropertyRef Name="CandidateFemaleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_2580">
+          <End Role="matching" Type="Self.matching" Multiplicity="1" />
+          <End Role="matchingComment" Type="Self.matchingComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingComment">
+              <PropertyRef Name="MatchingId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -751,30 +786,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_57">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="userRole">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_60">
-          <End Role="role" Type="Self.role" Multiplicity="1" />
-          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="userRole">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_85">
           <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
           <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
@@ -796,6 +807,30 @@
             </Principal>
             <Dependent Role="askPermssion">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userRole_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="roleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userRole_user">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="userRole">
+              <PropertyRef Name="userId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -825,6 +860,7 @@
           <EntitySet Name="infoCandidate" EntityType="Self.infoCandidate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="married" EntityType="Self.married" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="matching" EntityType="Self.matching" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="matchingComment" EntityType="Self.matchingComment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="matchingHelper" EntityType="Self.matchingHelper" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="matchmaker" EntityType="Self.matchmaker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
@@ -890,6 +926,10 @@
             <End Role="candidate" EntitySet="candidate" />
             <End Role="candidateComment" EntitySet="candidateComment" />
           </AssociationSet>
+          <AssociationSet Name="FK_2050" Association="Self.FK_2050">
+            <End Role="user" EntitySet="user" />
+            <End Role="matchingComment" EntitySet="matchingComment" />
+          </AssociationSet>
           <AssociationSet Name="FK_224" Association="Self.FK_224">
             <End Role="candidate" EntitySet="candidate" />
             <End Role="infoCandidate" EntitySet="infoCandidate" />
@@ -905,6 +945,10 @@
           <AssociationSet Name="FK_256" Association="Self.FK_256">
             <End Role="candidate" EntitySet="candidate" />
             <End Role="matching" EntitySet="matching" />
+          </AssociationSet>
+          <AssociationSet Name="FK_2580" Association="Self.FK_2580">
+            <End Role="matching" EntitySet="matching" />
+            <End Role="matchingComment" EntitySet="matchingComment" />
           </AssociationSet>
           <AssociationSet Name="FK_290" Association="Self.FK_290">
             <End Role="user" EntitySet="user" />
@@ -974,14 +1018,6 @@
             <End Role="permssion" EntitySet="permssion" />
             <End Role="roleAction" EntitySet="roleAction" />
           </AssociationSet>
-          <AssociationSet Name="FK_57" Association="Self.FK_57">
-            <End Role="user" EntitySet="user" />
-            <End Role="userRole" EntitySet="userRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_60" Association="Self.FK_60">
-            <End Role="role" EntitySet="role" />
-            <End Role="userRole" EntitySet="userRole" />
-          </AssociationSet>
           <AssociationSet Name="FK_85" Association="Self.FK_85">
             <End Role="permssion" EntitySet="permssion" />
             <End Role="askPermssion" EntitySet="askPermssion" />
@@ -990,13 +1026,20 @@
             <End Role="user" EntitySet="user" />
             <End Role="askPermssion" EntitySet="askPermssion" />
           </AssociationSet>
+          <AssociationSet Name="FK_userRole_role" Association="Self.FK_userRole_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="userRole" EntitySet="userRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userRole_user" Association="Self.FK_userRole_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="userRole" EntitySet="userRole" />
+          </AssociationSet>
           <AssociationSet Name="MatchmarkerId" Association="Self.MatchmarkerId">
             <End Role="matchmaker" EntitySet="matchmaker" />
             <End Role="candidate" EntitySet="candidate" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MazalTovModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1220,6 +1263,7 @@
           <NavigationProperty Name="matchmaker" Relationship="Self.FK_332" FromRole="matching" ToRole="matchmaker" />
           <NavigationProperty Name="meetings" Relationship="Self.FK_335" FromRole="matching" ToRole="meeting" />
           <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_350" FromRole="matching" ToRole="matchingHelper" />
+          <NavigationProperty Name="matchingComments" Relationship="MazalTovModel1.FK_2580" FromRole="matching" ToRole="matchingComment" />
         </EntityType>
         <EntityType Name="matchingHelper">
           <Key>
@@ -1325,7 +1369,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="roleActions" Relationship="Self.FK_48" FromRole="role" ToRole="roleAction" />
-          <NavigationProperty Name="userRoles" Relationship="Self.FK_60" FromRole="role" ToRole="userRole" />
+          <NavigationProperty Name="users" Relationship="MazalTovModel1.userRole1" FromRole="role" ToRole="user" />
         </EntityType>
         <EntityType Name="roleAction">
           <Key>
@@ -1363,18 +1407,8 @@
           <NavigationProperty Name="candidateComments" Relationship="Self.FK_202" FromRole="user" ToRole="candidateComment" />
           <NavigationProperty Name="contactus" Relationship="Self.FK_237" FromRole="user" ToRole="contactus" />
           <NavigationProperty Name="workers" Relationship="Self.FK_290" FromRole="user" ToRole="worker" />
-          <NavigationProperty Name="userRoles" Relationship="Self.FK_57" FromRole="user" ToRole="userRole" />
-        </EntityType>
-        <EntityType Name="userRole">
-          <Key>
-            <PropertyRef Name="roleId" />
-            <PropertyRef Name="userId" />
-          </Key>
-          <Property Name="roleId" Type="Int32" Nullable="false" />
-          <Property Name="userId" Type="Int32" Nullable="false" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="role" Relationship="Self.FK_60" FromRole="userRole" ToRole="role" />
-          <NavigationProperty Name="user" Relationship="Self.FK_57" FromRole="userRole" ToRole="user" />
+          <NavigationProperty Name="matchingComments" Relationship="MazalTovModel1.FK_2050" FromRole="user" ToRole="matchingComment" />
+          <NavigationProperty Name="roles" Relationship="MazalTovModel1.userRole1" FromRole="user" ToRole="role" />
         </EntityType>
         <EntityType Name="worker">
           <Key>
@@ -1836,18 +1870,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_60">
-          <End Role="role" Type="Self.role" Multiplicity="1" />
-          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="userRole">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_290">
           <End Role="user" Type="Self.user" Multiplicity="1" />
           <End Role="worker" Type="Self.worker" Multiplicity="*" />
@@ -1857,18 +1879,6 @@
             </Principal>
             <Dependent Role="worker">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_57">
-          <End Role="user" Type="Self.user" Multiplicity="1" />
-          <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="user">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="userRole">
-              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1908,7 +1918,6 @@
           <EntitySet Name="roleActions" EntityType="Self.roleAction" />
           <EntitySet Name="sectors" EntityType="Self.sector" />
           <EntitySet Name="users" EntityType="Self.user" />
-          <EntitySet Name="userRoles" EntityType="Self.userRole" />
           <EntitySet Name="workers" EntityType="Self.worker" />
           <EntitySet Name="workerActions" EntityType="Self.workerAction" />
           <AssociationSet Name="FK_85" Association="Self.FK_85">
@@ -2051,23 +2060,70 @@
             <End Role="role" EntitySet="roles" />
             <End Role="roleAction" EntitySet="roleActions" />
           </AssociationSet>
-          <AssociationSet Name="FK_60" Association="Self.FK_60">
-            <End Role="role" EntitySet="roles" />
-            <End Role="userRole" EntitySet="userRoles" />
-          </AssociationSet>
           <AssociationSet Name="FK_290" Association="Self.FK_290">
             <End Role="user" EntitySet="users" />
             <End Role="worker" EntitySet="workers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_57" Association="Self.FK_57">
-            <End Role="user" EntitySet="users" />
-            <End Role="userRole" EntitySet="userRoles" />
           </AssociationSet>
           <AssociationSet Name="FK_305" Association="Self.FK_305">
             <End Role="worker" EntitySet="workers" />
             <End Role="workerAction" EntitySet="workerActions" />
           </AssociationSet>
+          <EntitySet Name="matchingComments" EntityType="MazalTovModel1.matchingComment" />
+          <AssociationSet Name="FK_2580" Association="MazalTovModel1.FK_2580">
+            <End Role="matching" EntitySet="matchings" />
+            <End Role="matchingComment" EntitySet="matchingComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_2050" Association="MazalTovModel1.FK_2050">
+            <End Role="user" EntitySet="users" />
+            <End Role="matchingComment" EntitySet="matchingComments" />
+          </AssociationSet>
+          <AssociationSet Name="userRole1" Association="MazalTovModel1.userRole1">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="matchingComment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Remark" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Privileged" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WriteUserId" Type="Int32" Nullable="false" />
+          <Property Name="MatchingId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="matching" Relationship="MazalTovModel1.FK_2580" FromRole="matchingComment" ToRole="matching" />
+          <NavigationProperty Name="user" Relationship="MazalTovModel1.FK_2050" FromRole="matchingComment" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_2580">
+          <End Type="MazalTovModel1.matching" Role="matching" Multiplicity="1" />
+          <End Type="MazalTovModel1.matchingComment" Role="matchingComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="matching">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingComment">
+              <PropertyRef Name="MatchingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_2050">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="1" />
+          <End Type="MazalTovModel1.matchingComment" Role="matchingComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="matchingComment">
+              <PropertyRef Name="WriteUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userRole1">
+          <End Type="MazalTovModel1.role" Role="role" Multiplicity="*" />
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2393,15 +2449,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="userRoles">
-            <EntityTypeMapping TypeName="MazalTovModel1.userRole">
-              <MappingFragment StoreEntitySet="userRole">
-                <ScalarProperty Name="roleId" ColumnName="roleId" />
-                <ScalarProperty Name="userId" ColumnName="userId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="workers">
             <EntityTypeMapping TypeName="MazalTovModel1.worker">
               <MappingFragment StoreEntitySet="worker">
@@ -2436,6 +2483,27 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="matchingComments">
+            <EntityTypeMapping TypeName="MazalTovModel1.matchingComment">
+              <MappingFragment StoreEntitySet="matchingComment">
+                <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+                <ScalarProperty Name="WriteUserId" ColumnName="WriteUserId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Privileged" ColumnName="Privileged" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="userRole1" TypeName="MazalTovModel1.userRole1" StoreEntitySet="userRole">
+            <EndProperty Name="user">
+              <ScalarProperty Name="Id" ColumnName="userId" />
+            </EndProperty>
+            <EndProperty Name="role">
+              <ScalarProperty Name="Id" ColumnName="roleId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

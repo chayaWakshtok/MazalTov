@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace Mazal_Tov.Controllers
@@ -12,6 +13,11 @@ namespace Mazal_Tov.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            //var identity = (ClaimsIdentity)User.Identity;
+            //var Email = identity.Claims
+            //          .FirstOrDefault(c => c.Type == "Email").Value;
+            //var UserName = identity.Name;
+
             return new string[] { "value1", "value2" };
         }
 

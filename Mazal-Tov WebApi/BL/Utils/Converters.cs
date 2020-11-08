@@ -81,9 +81,6 @@ namespace BL.Utils
               cfg.CreateMap<DAL.user, DTO.User>();
               cfg.CreateMap<DTO.User, DAL.user>();
 
-              cfg.CreateMap<DAL.userRole, DTO.UserRole>();
-              cfg.CreateMap<DTO.UserRole, DAL.userRole>();
-
               cfg.CreateMap<DAL.worker, DTO.Worker>();
               cfg.CreateMap<DTO.Worker, DAL.worker>();
 
@@ -534,27 +531,7 @@ namespace BL.Utils
         {
             return _mapper.Map<List<DTO.User>>(dto);
         }
-        ///////////////////////
-        public static DTO.UserRole Convert(DAL.userRole dal)
-        {
-            return _mapper.Map<DTO.UserRole>(dal);
-        }
 
-        public static DAL.userRole Convert(DTO.UserRole dto)
-        {
-            return _mapper.Map<DAL.userRole>(dto);
-        }
-
-        public static List<DAL.userRole> Convert(List<DTO.UserRole> dto)
-        {
-            return _mapper.Map<List<DAL.userRole>>(dto);
-        }
-
-        public static List<DTO.UserRole> Convert(List<DAL.userRole> dto)
-        {
-            return _mapper.Map<List<DTO.UserRole>>(dto);
-        }
-        ///////////////////////
         public static DTO.Worker Convert(DAL.worker dal)
         {
             return _mapper.Map<DTO.Worker>(dal);

@@ -129,6 +129,9 @@
     <Compile Include="matching.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="matchingComment.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="matchingHelper.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -173,9 +176,6 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="user.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="userRole.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="worker.cs">

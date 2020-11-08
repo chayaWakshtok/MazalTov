@@ -12,9 +12,10 @@ namespace DTO
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Username { get; set; }
+        public byte[] PasswordHash { get; set; }
         public string Password { get; set; }
-
         public string Tz { get; set; }
+        public byte[] PasswordSalt { get; set; }
         public List<Role> Roles { get; set; }
 
     }

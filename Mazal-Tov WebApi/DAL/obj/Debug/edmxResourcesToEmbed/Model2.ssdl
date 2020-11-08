@@ -180,6 +180,18 @@
     <Property Name="CandidateFemaleId" Type="int" Nullable="false" />
     <Property Name="MatchmarkerId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="matchingComment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Privileged" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="WriteUserId" Type="int" Nullable="false" />
+    <Property Name="MatchingId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="matchingHelper">
     <Key>
       <PropertyRef Name="Id" />
@@ -294,8 +306,9 @@
     <Property Name="Firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
     <Property Name="Tz" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PasswordSalt" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="userRole">
     <Key>
@@ -304,7 +317,6 @@
     </Key>
     <Property Name="roleId" Type="int" Nullable="false" />
     <Property Name="userId" Type="int" Nullable="false" />
-    <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="worker">
     <Key>
@@ -494,6 +506,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_2050">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="matchingComment" Type="Self.matchingComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="matchingComment">
+        <PropertyRef Name="WriteUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_224">
     <End Role="candidate" Type="Self.candidate" Multiplicity="1" />
     <End Role="infoCandidate" Type="Self.infoCandidate" Multiplicity="*" />
@@ -539,6 +563,18 @@
       </Principal>
       <Dependent Role="matching">
         <PropertyRef Name="CandidateFemaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_2580">
+    <End Role="matching" Type="Self.matching" Multiplicity="1" />
+    <End Role="matchingComment" Type="Self.matchingComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="matching">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="matchingComment">
+        <PropertyRef Name="MatchingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -746,30 +782,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_57">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="userRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_60">
-    <End Role="role" Type="Self.role" Multiplicity="1" />
-    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="role">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="userRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_85">
     <End Role="permssion" Type="Self.permssion" Multiplicity="1" />
     <End Role="askPermssion" Type="Self.askPermssion" Multiplicity="*" />
@@ -791,6 +803,30 @@
       </Principal>
       <Dependent Role="askPermssion">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userRole_role">
+    <End Role="role" Type="Self.role" Multiplicity="1" />
+    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userRole">
+        <PropertyRef Name="roleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_userRole_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="userRole">
+        <PropertyRef Name="userId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -820,6 +856,7 @@
     <EntitySet Name="infoCandidate" EntityType="Self.infoCandidate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="married" EntityType="Self.married" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="matching" EntityType="Self.matching" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="matchingComment" EntityType="Self.matchingComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="matchingHelper" EntityType="Self.matchingHelper" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="matchmaker" EntityType="Self.matchmaker" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="meeting" EntityType="Self.meeting" Schema="dbo" store:Type="Tables" />
@@ -885,6 +922,10 @@
       <End Role="candidate" EntitySet="candidate" />
       <End Role="candidateComment" EntitySet="candidateComment" />
     </AssociationSet>
+    <AssociationSet Name="FK_2050" Association="Self.FK_2050">
+      <End Role="user" EntitySet="user" />
+      <End Role="matchingComment" EntitySet="matchingComment" />
+    </AssociationSet>
     <AssociationSet Name="FK_224" Association="Self.FK_224">
       <End Role="candidate" EntitySet="candidate" />
       <End Role="infoCandidate" EntitySet="infoCandidate" />
@@ -900,6 +941,10 @@
     <AssociationSet Name="FK_256" Association="Self.FK_256">
       <End Role="candidate" EntitySet="candidate" />
       <End Role="matching" EntitySet="matching" />
+    </AssociationSet>
+    <AssociationSet Name="FK_2580" Association="Self.FK_2580">
+      <End Role="matching" EntitySet="matching" />
+      <End Role="matchingComment" EntitySet="matchingComment" />
     </AssociationSet>
     <AssociationSet Name="FK_290" Association="Self.FK_290">
       <End Role="user" EntitySet="user" />
@@ -969,14 +1014,6 @@
       <End Role="permssion" EntitySet="permssion" />
       <End Role="roleAction" EntitySet="roleAction" />
     </AssociationSet>
-    <AssociationSet Name="FK_57" Association="Self.FK_57">
-      <End Role="user" EntitySet="user" />
-      <End Role="userRole" EntitySet="userRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_60" Association="Self.FK_60">
-      <End Role="role" EntitySet="role" />
-      <End Role="userRole" EntitySet="userRole" />
-    </AssociationSet>
     <AssociationSet Name="FK_85" Association="Self.FK_85">
       <End Role="permssion" EntitySet="permssion" />
       <End Role="askPermssion" EntitySet="askPermssion" />
@@ -984,6 +1021,14 @@
     <AssociationSet Name="FK_90" Association="Self.FK_90">
       <End Role="user" EntitySet="user" />
       <End Role="askPermssion" EntitySet="askPermssion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userRole_role" Association="Self.FK_userRole_role">
+      <End Role="role" EntitySet="role" />
+      <End Role="userRole" EntitySet="userRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_userRole_user" Association="Self.FK_userRole_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="userRole" EntitySet="userRole" />
     </AssociationSet>
     <AssociationSet Name="MatchmarkerId" Association="Self.MatchmarkerId">
       <End Role="matchmaker" EntitySet="matchmaker" />

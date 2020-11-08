@@ -21,8 +21,8 @@ namespace DAL
             this.candidates = new HashSet<candidate>();
             this.candidateComments = new HashSet<candidateComment>();
             this.contactus = new HashSet<contactu>();
-            this.workers = new HashSet<worker>();
             this.matchingComments = new HashSet<matchingComment>();
+            this.workers = new HashSet<worker>();
             this.roles = new HashSet<role>();
         }
     
@@ -30,8 +30,9 @@ namespace DAL
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public byte[] PasswordHash { get; set; }
         public string Tz { get; set; }
+        public byte[] PasswordSalt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<askPermssion> askPermssions { get; set; }
@@ -42,9 +43,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<contactu> contactus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<worker> workers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matchingComment> matchingComments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<worker> workers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<role> roles { get; set; }
     }

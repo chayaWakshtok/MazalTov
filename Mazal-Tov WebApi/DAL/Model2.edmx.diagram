@@ -27,14 +27,11 @@
         <EntityTypeShape EntityType="MazalTovModel1.role" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.roleAction" Width="1.5" PointX="9" PointY="23" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.sector" Width="1.5" PointX="3.75" PointY="16.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MazalTovModel1.user" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.worker" Width="1.5" PointX="3" PointY="32.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MazalTovModel1.workerAction" Width="1.5" PointX="5.25" PointY="46.5" IsExpanded="true" />
         <AssociationConnector Association="MazalTovModel1.FK_85" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_90" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_382" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_139" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_142" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_145" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_157" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_174" ManuallyRouted="false" />
@@ -46,11 +43,9 @@
         <AssociationConnector Association="MazalTovModel1.FK_253" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_256" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.MatchmarkerId" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_202" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_102" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_160" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_316" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_237" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_370" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_313" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_319" ManuallyRouted="false" />
@@ -65,12 +60,17 @@
         <AssociationConnector Association="MazalTovModel1.FK_51" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_293" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_48" ManuallyRouted="false" />
-        <AssociationConnector Association="MazalTovModel1.FK_290" ManuallyRouted="false" />
         <AssociationConnector Association="MazalTovModel1.FK_305" ManuallyRouted="false" />
         <EntityTypeShape EntityType="MazalTovModel1.matchingComment" Width="1.5" PointX="13.5" PointY="25.875" />
         <AssociationConnector Association="MazalTovModel1.FK_2580" />
+        <EntityTypeShape EntityType="MazalTovModel1.user" Width="1.5" PointX="3" PointY="11.125" />
+        <AssociationConnector Association="MazalTovModel1.FK_90" />
+        <AssociationConnector Association="MazalTovModel1.FK_142" />
+        <AssociationConnector Association="MazalTovModel1.FK_202" />
+        <AssociationConnector Association="MazalTovModel1.FK_237" />
         <AssociationConnector Association="MazalTovModel1.FK_2050" />
-        <AssociationConnector Association="MazalTovModel1.userRole1" />
+        <AssociationConnector Association="MazalTovModel1.FK_290" />
+        <AssociationConnector Association="MazalTovModel1.userRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

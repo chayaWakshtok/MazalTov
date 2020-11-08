@@ -308,27 +308,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="MazalTovModel1.user">
-        <MappingFragment StoreEntitySet="user">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Tz" ColumnName="Tz" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="userRoles">
-      <EntityTypeMapping TypeName="MazalTovModel1.userRole">
-        <MappingFragment StoreEntitySet="userRole">
-          <ScalarProperty Name="roleId" ColumnName="roleId" />
-          <ScalarProperty Name="userId" ColumnName="userId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="workers">
       <EntityTypeMapping TypeName="MazalTovModel1.worker">
         <MappingFragment StoreEntitySet="worker">
@@ -363,5 +342,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="matchingComments">
+      <EntityTypeMapping TypeName="MazalTovModel1.matchingComment">
+        <MappingFragment StoreEntitySet="matchingComment">
+          <ScalarProperty Name="MatchingId" ColumnName="MatchingId" />
+          <ScalarProperty Name="WriteUserId" ColumnName="WriteUserId" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Privileged" ColumnName="Privileged" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MazalTovModel1.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="Tz" ColumnName="Tz" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="userRole" TypeName="MazalTovModel1.userRole" StoreEntitySet="userRole">
+      <EndProperty Name="user">
+        <ScalarProperty Name="Id" ColumnName="userId" />
+      </EndProperty>
+      <EndProperty Name="role">
+        <ScalarProperty Name="Id" ColumnName="roleId" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

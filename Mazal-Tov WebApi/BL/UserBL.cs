@@ -11,7 +11,6 @@ namespace BL
     public class UserBL
     {
         public static DAL.MazalTovEntities db = new DAL.MazalTovEntities();
-        const string PasswordSalt = "mazaltovproject";
         public static DTO.User Login(string username, string password)
         {
             var user = db.users.FirstOrDefault(p => p.Username == username );
@@ -63,8 +62,6 @@ namespace BL
                 return true;
             }
         }
-
-
 
         private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {

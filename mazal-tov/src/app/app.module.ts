@@ -9,6 +9,7 @@ import { ShadchanitRegisterComponent } from './component/shadchanit-register/sha
 import { FormsModule } from '@angular/forms';
 import { MuamadRegisterComponent } from './component/muamad-register/muamad-register.component';
 import { HomeComponent } from './component/home/home.component';
+import { authInterceptorProviders } from './shared/auth/auth-interceptor.service';
  
 
 @NgModule({
@@ -26,7 +27,7 @@ import { HomeComponent } from './component/home/home.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

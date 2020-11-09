@@ -7,50 +7,52 @@
             <div class="col-md-8 offset-md-2">
                 <h3>הרשמה שדכנית </h3>
                 <form name="form"  >
+                  <div *ngFor="let matchmaker of model.matchmaker">  
+                     
                     <div class="form-group">
                         <label for="firstName">כתובת </label>
-                        <input type="text" class="form-control" name="Address" [(ngModel)]="model.address" />
+                        <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.address" />
                         
                     </div>
                     <div class="form-group">
                         <label for="name">
                             בעיה רפואית</label>
-                        <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="model.medicalProblem"   />
+                        <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="matchmaker.medicalProblem"   />
                       
                     </div>
                     <div class="form-group">
                             <label for="name">חסידות</label>
-                            <input type="text" class="form-control" name="ChasidutId" [(ngModel)]="model.chasidutId"  />
+                            <input type="text" class="form-control" name="ChasidutId" [(ngModel)]=" matchmaker.chasidutId"  />
                            
                         </div>
                     <div class="form-group">
                         <label for="email">?כמה שידוכים בשנה האחרונה</label>
-                        <input type="number" class="form-control" name="NumMatching" [(ngModel)]="model.numMatching" />
+                        <input type="number" class="form-control" name="NumMatching" [(ngModel)]=" matchmaker.numMatching" />
                         
                     </div>
                     <div class="form-group">
                             <label for="phone">ילדים בשידוכים</label>
-                            <input type="number" class="form-control" name="ChildrenMatchmaking" [(ngModel)]="model.childrenMatchmaking"  />
+                            <input type="number" class="form-control" name="ChildrenMatchmaking" [(ngModel)]=" matchmaker.childrenMatchmaking"  />
                             
                         </div>
                         <div class="form-group">
-                                <label for="phone">אופן שליחת החוברת: </label>
-                                <input type="text" class="form-control" name="HowSend" [(ngModel)]="model.howSend"  />
+                                <label for="HowSend">אופן שליחת החוברת: </label>
+                                <input type="text" class="form-control" name="HowSend" [(ngModel)]=" matchmaker.howSend"  />
                                  
                         </div>
                     <div class="form-group">
-                        <label for="password">האם קיבלה התחייבות האירגון:   </label>
-                        <input type="checkbox" class="form-control" name="IsCommitment" [(ngModel)]="model.isCommitment"   />
+                        <label for="IsCommitment">האם קיבלה התחייבות האירגון:   </label>
+                        <input type="checkbox" class="form-control" name="IsCommitment" [(ngModel)]=" matchmaker.isCommitment"   />
                        
                     </div>
                      <div class="form-group">
-                        <label for="confirmPassword">האם חתמה על ההסכם:  </label>
-                        <input type="checkbox" class="form-control" name="IsAgreement" [(ngModel)]="model.isAgreement"  />
+                        <label for="IsAgreement">האם חתמה על ההסכם:  </label>
+                        <input type="checkbox" class="form-control" name="IsAgreement" [(ngModel)]="matchmaker.isAgreement"  />
                          
                     </div>  
                     <div class="form-group">
                         <label for="Status">סטטוס </label>
-                        <input type="checkbox" class="form-control" name="Status" [(ngModel)]="model.status"  />
+                        <input type="checkbox" class="form-control" name="Status" [(ngModel)]="matchmaker.status"  />
                          
                     </div> 
                     <!-- <div class="form-group">
@@ -70,7 +72,7 @@
                         <button class="btn btn-primary"> הרשמה</button>
                  
                     </div>
-                    
+                </div>   
                 </form>
             </div>
         </div>

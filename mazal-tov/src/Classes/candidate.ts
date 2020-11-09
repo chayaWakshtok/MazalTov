@@ -34,4 +34,6 @@ export class candidate{
     chasidutId :number
     chasidutMother:number 
    chasidutFather:number; 
+
+
 }

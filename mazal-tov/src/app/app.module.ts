@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { MuamadRegisterComponent } from './component/muamad-register/muamad-register.component';
 import { HomeComponent } from './component/home/home.component';
 import { authInterceptorProviders } from './shared/auth/auth-interceptor.service';
+import { LoginComponent } from './component/login/login.component';
  
 
 @NgModule({
@@ -20,7 +21,8 @@ import { authInterceptorProviders } from './shared/auth/auth-interceptor.service
     UserComponent,
     ShadchanitRegisterComponent,
     MuamadRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule  ,

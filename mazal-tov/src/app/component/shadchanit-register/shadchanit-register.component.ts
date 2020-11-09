@@ -11,7 +11,7 @@ import { user } from 'src/Classes/user';
   styleUrls: ['./shadchanit-register.component.scss']
 })
 export class ShadchanitRegisterComponent implements OnInit {
-    // matchmaker: matchmaker = new matchmaker();
+     matchmaker: matchmaker = new matchmaker();
   model: user = new user();
   // matchmaker:matchmaker;
    

@@ -1,3 +1,5 @@
+import { user } from './user';
+
 export class matchmaker{
      id:number;  
     address:string;  
@@ -12,5 +14,6 @@ export class matchmaker{
     cityId :number; 
      sectorId:number;  
       workerId:number;
-
+     user:user=new user();
+      // user:user[]=[];
 }

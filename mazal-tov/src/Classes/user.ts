@@ -9,8 +9,7 @@ export class user {
     password: string;
     tz: string;
 
-   candidate: candidate[] = [];
-   matchmaker:matchmaker[]=[];
-   
+
+
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { candidate } from 'src/Classes/candidate';
+import { user } from 'src/Classes/user';
 
 @Component({
   selector: 'app-muamad-register',
@@ -7,8 +8,10 @@ import { candidate } from 'src/Classes/candidate';
   styleUrls: ['./muamad-register.component.scss']
 })
 export class MuamadRegisterComponent implements OnInit {
+  user:user = new user();
+ 
   model: candidate = new candidate();
-  matchmaker:candidate;
+ 
   constructor() { }
 
   ngOnInit(): void {

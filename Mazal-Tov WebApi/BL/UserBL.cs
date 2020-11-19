@@ -36,9 +36,9 @@ namespace BL
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
                 var userDB = Converters.Convert(user);
-                db.users.Add(userDB);
+                var userInter=db.users.Add(userDB);
                 db.SaveChanges();
-                return user;
+                return Converters.Convert(userInter);
             }
             catch (Exception ex)
             {

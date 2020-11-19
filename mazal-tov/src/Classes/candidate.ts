@@ -1,3 +1,5 @@
+import { user } from './user';
+
 export class candidate{
      id:number;
       bornDate:Date;
@@ -34,6 +36,7 @@ export class candidate{
     chasidutId :number
     chasidutMother:number 
    chasidutFather:number; 
+   user:user=new user();
 
 
 }

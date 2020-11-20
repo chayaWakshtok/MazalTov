@@ -12,6 +12,14 @@ namespace Mazal_Tov.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
+        [Route("token")]
+        [AllowAnonymous]
+        public User Register([FromBody]User user)
+        {
+            return UserBL.Login(user.Username,user.Password);
+        }
+
+
         // GET: api/User
         public IEnumerable<string> Get()
         {

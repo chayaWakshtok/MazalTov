@@ -3,13 +3,14 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { TokenStorageService } from '../auth/token-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(public httpClient: HttpClient,
+  constructor(public httpClient: HttpClient,private router:Router,
     public tokenStorage: TokenStorageService) { }
 
   getToken(data): any {
@@ -26,4 +27,8 @@ export class UserService {
   register() {
 
   }
+ 
+  
+
+
 }

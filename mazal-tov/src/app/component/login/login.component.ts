@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/services/user.service';
 import { user } from 'src/Classes/user';
 
 @Component({
@@ -8,7 +10,7 @@ import { user } from 'src/Classes/user';
 })
 export class LoginComponent implements OnInit {
 user:user=new user();
-  constructor() { }
+  constructor(public userService:UserService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,20 +29,20 @@ user:user=new user();
   //   });
     
   //   }
-    validlogin(): void  {
+    validlogin():void{
       console.log("login");
       
-    // this.TeacherService.login(user.la, user.password).subscribe(res => {
-    //   if (res == null)
-    //     alert("error");    
-    //   else {
-    //    localStorage.setItem("teacher", JSON.stringify(res));
-    //     this.route.navigate(['course']);
-    //   }
-    // }, err => {
-    //   alert("error")
-    // }
-    // )
+    this.userService.getToken(this.user).subscribe(res => {
+      if (res == null)
+        alert("error");    
+      // else {
+      //  localStorage.setItem("teacher", JSON.stringify(res));
+      //   this.router.navigate(['course']);
+      // }
+    }, err => {
+      alert("error")
+    }
+    )
     
 
 //   }

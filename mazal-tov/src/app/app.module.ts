@@ -11,12 +11,14 @@ import { MuamadRegisterComponent } from './component/muamad-register/muamad-regi
 import { HomeComponent } from './component/home/home.component';
 import { authInterceptorProviders } from './shared/auth/auth-interceptor.service';
 import { LoginComponent } from './component/login/login.component';
- 
+// import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
  
      
   declarations: [
+   
     AppComponent,
     UserComponent,
     ShadchanitRegisterComponent,
@@ -27,6 +29,8 @@ import { LoginComponent } from './component/login/login.component';
   imports: [
     FormsModule  ,
     BrowserModule,
+    HttpClientModule,
+    // HttpModule,
     AppRoutingModule
   ],
   providers: [authInterceptorProviders],

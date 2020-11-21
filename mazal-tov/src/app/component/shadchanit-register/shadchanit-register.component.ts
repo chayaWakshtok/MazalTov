@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { matchmaker } from 'src/Classes/matchmaker';
- 
+import { UserService } from 'src/app/shared/services/user.service';
 
 import { NgModule }      from '@angular/core';
 import { user } from 'src/Classes/user';
@@ -11,13 +11,24 @@ import { user } from 'src/Classes/user';
   styleUrls: ['./shadchanit-register.component.scss']
 })
 export class ShadchanitRegisterComponent implements OnInit {
-     user:user = new user();
      matchmaker: matchmaker = new matchmaker();
-  // matchmaker:matchmaker;
+ 
    
-  constructor(public router:Router) { }
+  constructor(public router:Router,public userService:UserService,) { }
 
   ngOnInit(): void {
   }
-
+  registerMatchmaker():void{
+ 
+    this.userService.registerMatchmaker(this.matchmaker ).subscribe(res => {
+      if (res == null)
+          alert("error");    
+       else {
+          //  this.router.navigate(['app-muamad-register']);
+        }
+    }, err => {
+      alert("error")
+    }
+    )
+  }
 }

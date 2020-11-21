@@ -12,6 +12,7 @@ namespace Mazal_Tov.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
+        [HttpPost]
         [Route("token")]
         [AllowAnonymous]
         public User Register([FromBody]User user)
@@ -35,10 +36,10 @@ namespace Mazal_Tov.Controllers
         // POST: api/User
         [Route("Register")]
         [AllowAnonymous]
-        public User Register([FromBody]User value)
-        {
-            return UserBL.Register(value);
-        }
+        //public User Register([FromBody]User value)
+        //{
+        //    return UserBL.Register(value);
+        //}
 
         // PUT: api/User/5
         public void Put(int id, [FromBody]string value)

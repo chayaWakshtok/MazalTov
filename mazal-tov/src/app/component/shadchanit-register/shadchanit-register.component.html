@@ -52,38 +52,20 @@
 
                     <div class="form-group">
                         <label for="sector">מגזר </label>
-                        
-                        <label for="female">זכר</label>
-                        <!-- (click)="gender(0)" -->
-                        <input type="radio" class="form-control" name="female" [value]="0" [(ngModel)]="worker.gender"  />
-                         <br>
-                        <div  *ngFor="let item of sector" class="item-trns" color="none"  >
-                            <label>
-                                <input type="radio" [(ngModel)]="matchmaker.sectorId" value="item.id">
-                                {{item.name}}
-                              </label><br/>
-                              </div>
-                            <!-- <label> {{item.AdresseName}} </label>
-                            <radio slot="start" value="griff" class="button" name="k" [(ngModel)]="item.IdAdresse"
-                              (click)="details2(item.IdAdresse)">
-                            </radio> -->
-
-                        
-                     </div>
-                 <!-- <app-worker></app-worker> -->
- 
-
-                    <div class="form-group">
-                        <label for="medicalProblem">
-                            בעיה רפואית</label>
-                        <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="matchmaker.medicalProblem"   />
-                      
-                    </div>
-                    <div class="form-group">
-                            <label for="ChasidutId">חסידות</label>
-                            <input type="text" class="form-control" name="ChasidutId" [(ngModel)]=" matchmaker.chasidutId"  />
-                           
+                        <div  *ngFor="let item of sector">
+                            <label>{{item.name}}</label>
+                            <input type="radio" name="sector"  (click)="Idsector(item.id)">
                         </div>
+                     </div>
+                     <div class="form-group" *ngIf="matchmaker.sectorId==1">
+                        <label for="chsidut">חסידות </label>
+                        <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
+                        <select (change)="onChange($event.target.value)">
+                            <option *ngFor="let i of chasidut"> {{i.name}} </option>
+                        </select>
+                    </div>
+               <app-worker></app-worker>  
+                    
                     <div class="form-group">
                         <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
                         <input type="number" class="form-control" name="NumMatching" [(ngModel)]=" matchmaker.numMatching" />
@@ -96,8 +78,20 @@
                         </div>
                         <div class="form-group">
                                 <label for="HowSend">אופן שליחת החוברת: </label>
-                                <input type="text" class="form-control" name="HowSend" [(ngModel)]=" matchmaker.howSend"  />
+                                <br>
+                                <label>  מייל</label>
+                                <input type="radio" name="HowSend"     >
+                                <label>  פקס</label>
+                                <input type="radio" name="HowSend"     >
+                                <label>  דואר</label>
+                                <input type="radio" name="HowSend"  [(ngModel)]="matchmaker.howSend" >
                                  
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalProblem">
+                                בעיה רפואית</label>
+                            <input type="text" class="form-control" name="MedicalProblem" [(ngModel)]="matchmaker.medicalProblem"   />
+                          
                         </div>
                     <div class="form-group">
                         <label for="IsCommitment">האם קיבלה התחייבות האירגון:   </label>

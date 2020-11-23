@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { candidate } from 'src/Classes/candidate';
 import { city } from 'src/Classes/city';
 import { sector } from 'src/Classes/sector';
+import { chasidut } from 'src/Classes/chasidut';
 
 @Injectable({
   providedIn: 'root'
@@ -41,15 +42,18 @@ export class UserService {
 
 
         getCity() :Observable<city[]>{
-             debugger;
+             
             return this.httpClient.get<city[]>(environment.apiUrl+"api/User/City");
 
         }
         getSector() :Observable<sector[]>{
-          debugger;
-         return this.httpClient.get<sector[]>(environment.apiUrl+"api/User/Cector");
-
+           
+         return this.httpClient.get<sector[]>(environment.apiUrl+"api/User/Sector");
      }
+     getChasiut() :Observable<chasidut[]>{
+       
+     return this.httpClient.get<chasidut[]>(environment.apiUrl+"api/User/Chasidut");
+ }
 
  
   

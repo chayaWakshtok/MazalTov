@@ -7,6 +7,7 @@ import { NgModule }      from '@angular/core';
 import { user } from 'src/Classes/user';
 import { city } from 'src/Classes/city';
 import { sector } from 'src/Classes/sector';
+import { chasidut } from 'src/Classes/chasidut';
 @Component({
   selector: 'app-shadchanit-register',
   templateUrl: './shadchanit-register.component.html',
@@ -16,7 +17,7 @@ export class ShadchanitRegisterComponent implements OnInit {
      matchmaker: matchmaker = new matchmaker();
      cities: city[] = [];
      sector:sector[]=[];
-   
+     chasidut:chasidut[]=[];
   constructor(public router:Router,public userService:UserService,) { }
 
   ngOnInit(): void {
@@ -24,6 +25,7 @@ export class ShadchanitRegisterComponent implements OnInit {
   
     this.userService.getCity().subscribe(l => { this.cities = l });
     this.userService.getSector().subscribe(l => { this.sector = l });
+    this.userService.getChasiut().subscribe(l => { this.chasidut = l });
   }
   onChange(deviceValue) {
     this.matchmaker.cityId=deviceValue;
@@ -40,5 +42,10 @@ export class ShadchanitRegisterComponent implements OnInit {
       alert("error")
     }
     )
+  }
+
+  Idsector(id:number){
+    this.matchmaker.sectorId=id;
+    
   }
 }

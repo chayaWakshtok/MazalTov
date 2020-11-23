@@ -87,6 +87,14 @@ namespace Mazal_Tov.Controllers
 
             return UserBL.GetSector();
         }
+        [HttpGet]
+        [Route("Chasidut")]
+        [AllowAnonymous]
+        public List<Chasidut> GetChasidut()
+        {
+
+            return UserBL.Getchasidut();
+        }
 
     }
 }

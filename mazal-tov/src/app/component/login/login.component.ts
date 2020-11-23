@@ -30,14 +30,16 @@ user:user=new user();
     
   //   }
     validlogin():void{
+  
       console.log("login");
-      
+      debugger;
     this.userService.getToken(this.user).subscribe(res => {
-      if (res == null)
-        alert("error");    
+      // if (res == null)
+      //   alert("error");    
       // else {
       //  localStorage.setItem("teacher", JSON.stringify(res));
-      //   this.router.navigate(['course']);
+         this.router.navigate(['app-muamad-register']);
+         alert("cxvbnm");
       // }
     }, err => {
       alert("error")

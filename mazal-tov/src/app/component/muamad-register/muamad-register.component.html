@@ -10,28 +10,28 @@
                 <h3>הרשמה מעומד </h3>
                 <div class="form-group">
                     <label for="username">שם משתמש:</label>
-                    <input type="checkbox" class="form-control" name="username" [(ngModel)]="model.user.username"  />
+                    <input type="text" class="form-control" name="username" [(ngModel)]="model.user.username"  />
                      
                 </div>
                 <div class="form-group">
                     <label for="password">סיסמא:</label>
-                    <input type="checkbox" class="form-control" name="password" [(ngModel)]="model.user.password"  />
+                    <input type="password" class="form-control" name="password" [(ngModel)]="model.user.password"  />
                      
                 </div> 
                 <div class="form-group">
                     <label for="tz">תעודת זהות:</label>
-                    <input type="checkbox" class="form-control" name="tz" [(ngModel)]="model.user.tz"  />
+                    <input type="text" class="form-control" name="tz" [(ngModel)]="model.user.tz"  />
                      
                 </div> 
                 <div class="form-group">
                     <label for="firstname">שם פרטי:</label>
-                    <input type="checkbox" class="form-control" name="firstname" [(ngModel)]="model.user.firstname"  />
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="model.user.firstname"  />
                      
                 </div>    
 
                  <div class="form-group">
                     <label for="lastname">משפחה:</label>
-                    <input type="checkbox" class="form-control" name="lastname" [(ngModel)]="model.user.lastname"  />
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="model.user.lastname"  />
                      
                 </div> 
 
@@ -61,6 +61,16 @@
                             <label for="Address">כתובת </label>
                             <input type="number" class="form-control" name="Address" [(ngModel)]="model.address"  />
                             
+                        </div>
+                        <div class="form-group">
+                            <label for="Address">עיר </label>
+                            <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
+                            <select (change)="onChange($event.target.value)">
+                                <option *ngFor="let i of cities"> {{i.name}} </option>
+                            </select>
+                            
+                           
+                             
                         </div>
                         <div class="form-group">
                                 <label for="MedicalProblem">בעיה רפואית </label>
@@ -159,7 +169,7 @@
                      
                 </div>  -->
                     <div class="form-group">
-                        <button class="btn btn-primary"> הרשמה</button>
+                        <button class="btn btn-primary" (click)="registerCandidate()"> הרשמה</button>
                  
                     </div>
                     

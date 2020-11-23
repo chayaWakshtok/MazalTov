@@ -11,23 +11,31 @@ import { MuamadRegisterComponent } from './component/muamad-register/muamad-regi
 import { HomeComponent } from './component/home/home.component';
 import { authInterceptorProviders } from './shared/auth/auth-interceptor.service';
 import { LoginComponent } from './component/login/login.component';
- 
+// import { HttpModule } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { WorkerComponent } from './component/worker/worker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
  
      
   declarations: [
+   
     AppComponent,
     UserComponent,
     ShadchanitRegisterComponent,
     MuamadRegisterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    WorkerComponent
   ],
   imports: [
     FormsModule  ,
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    // HttpModule,
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

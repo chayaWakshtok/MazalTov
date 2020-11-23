@@ -43,6 +43,8 @@ namespace DTO
         public int ChasidutId { get; set; }
         public int ChasidutMother { get; set; }
         public int ChasidutFather { get; set; }
+        public User User { get; set; }
+
 
     }
 }

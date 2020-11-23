@@ -1,4 +1,5 @@
 import { DecimalPipe } from '@angular/common';
+import { user } from './user';
 
 export class worker {
     id: number;
@@ -19,5 +20,6 @@ export class worker {
     numHourWork: Float32Array;
     userId: number;
     bankId: number;
+    user:user=new user();
 
 }

@@ -14,7 +14,7 @@ namespace Mazal_Tov.Controllers
     {
         [Route("token")]
         [AllowAnonymous]
-        public User Register([FromBody]User user)
+        public User Token([FromBody]User user)
         {
             return UserBL.Login(user.Username,user.Password);
         }

@@ -8,6 +8,7 @@ namespace DTO
 {
    public class City
     {
+        public static object Converters { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
 

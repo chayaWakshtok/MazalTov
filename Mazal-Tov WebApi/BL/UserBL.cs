@@ -113,5 +113,24 @@ namespace BL
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
-    }
+
+
+        public static List<City> GetCity()
+        {
+            
+                List<City> c = new List<City>();
+
+                foreach (var item in db.cities)
+                {
+                var cityDB = Converters.Convert(item);
+                
+                c.Add(cityDB);
+                }
+                return c;
+            }
+
+
+
+
+        }
 }

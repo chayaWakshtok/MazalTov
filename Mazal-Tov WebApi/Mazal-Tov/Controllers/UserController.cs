@@ -68,5 +68,16 @@ namespace Mazal_Tov.Controllers
         public void Delete(int id)
         {
         }
+
+       
+        [HttpGet]
+        [Route("City")]
+        [AllowAnonymous]
+        public List<City> Getcity()
+        {
+
+            return UserBL.GetCity();
+        }
+
     }
 }

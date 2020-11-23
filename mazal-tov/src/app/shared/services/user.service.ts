@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { matchmaker } from 'src/Classes/matchmaker';
 import { Observable } from 'rxjs';
 import { candidate } from 'src/Classes/candidate';
+import { city } from 'src/Classes/city';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,17 @@ export class UserService {
       }
     registerMatchmaker(model:matchmaker):Observable<matchmaker>{
         return this.httpClient.post<matchmaker>(environment.apiUrl+"api/User/RegisterMatchmaker",model)
+        }
+
+
+        getCity() :Observable<city[]>{
+           
+ 
+           {
+             debugger;
+            return this.httpClient.get<city[]>(environment.apiUrl+"api/User/City");
+
+          }
         }
    
  

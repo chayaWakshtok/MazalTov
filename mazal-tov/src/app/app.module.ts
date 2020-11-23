@@ -13,6 +13,8 @@ import { authInterceptorProviders } from './shared/auth/auth-interceptor.service
 import { LoginComponent } from './component/login/login.component';
 // import { HttpModule } from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { WorkerComponent } from './component/worker/worker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
  
@@ -24,14 +26,16 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     ShadchanitRegisterComponent,
     MuamadRegisterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    WorkerComponent
   ],
   imports: [
     FormsModule  ,
     BrowserModule,
     HttpClientModule,
     // HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ import { matchmaker } from 'src/Classes/matchmaker';
 import { Observable } from 'rxjs';
 import { candidate } from 'src/Classes/candidate';
 import { city } from 'src/Classes/city';
+import { sector } from 'src/Classes/sector';
 
 @Injectable({
   providedIn: 'root'
@@ -40,15 +41,16 @@ export class UserService {
 
 
         getCity() :Observable<city[]>{
-           
- 
-           {
              debugger;
             return this.httpClient.get<city[]>(environment.apiUrl+"api/User/City");
 
-          }
         }
-   
+        getSector() :Observable<sector[]>{
+          debugger;
+         return this.httpClient.get<sector[]>(environment.apiUrl+"api/User/Cector");
+
+     }
+
  
   
 

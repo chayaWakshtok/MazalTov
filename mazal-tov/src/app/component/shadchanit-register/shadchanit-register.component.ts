@@ -6,6 +6,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { NgModule }      from '@angular/core';
 import { user } from 'src/Classes/user';
 import { city } from 'src/Classes/city';
+import { sector } from 'src/Classes/sector';
 @Component({
   selector: 'app-shadchanit-register',
   templateUrl: './shadchanit-register.component.html',
@@ -14,6 +15,7 @@ import { city } from 'src/Classes/city';
 export class ShadchanitRegisterComponent implements OnInit {
      matchmaker: matchmaker = new matchmaker();
      cities: city[] = [];
+     sector:sector[]=[];
    
   constructor(public router:Router,public userService:UserService,) { }
 
@@ -21,7 +23,7 @@ export class ShadchanitRegisterComponent implements OnInit {
 
   
     this.userService.getCity().subscribe(l => { this.cities = l });
-
+    this.userService.getSector().subscribe(l => { this.sector = l });
   }
   onChange(deviceValue) {
     this.matchmaker.cityId=deviceValue;

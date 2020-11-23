@@ -50,11 +50,8 @@ namespace BL
         //{
         //    try
         //    {
-
-        //        CreatePasswordHash(candidate.User.Password, out byte[] passwordHash, out byte[] passwordSalt);
-        //        candidate.User.PasswordHash = passwordHash;
-        //        candidate.User.PasswordSalt = passwordSalt;
-
+        //        var user = Register(candidate.User);
+        //        candidate.Id = user.Id;
         //        var candidateDB = Converters.Convert(candidate);
         //        var candidateInter = db.candidates.Add(candidateDB);
         //        db.SaveChanges();
@@ -71,10 +68,8 @@ namespace BL
             try
             {
 
-                //CreatePasswordHash(matchmaker.User.Password, out byte[] passwordHash, out byte[] passwordSalt);
-                //matchmaker.User.PasswordHash = passwordHash;
-                //matchmaker.User.PasswordSalt = passwordSalt;
-     
+                var user=Register(matchmaker.User);
+                matchmaker.Id = user.Id;
                 var matchmakerDB = Converters.Convert(matchmaker);
                 var matchmakerInter = db.matchmakers.Add(matchmakerDB);
                 db.SaveChanges();
@@ -117,20 +112,45 @@ namespace BL
 
         public static List<City> GetCity()
         {
-            
+            try
+            {
                 List<City> c = new List<City>();
 
                 foreach (var item in db.cities)
                 {
-                var cityDB = Converters.Convert(item);
-                
-                c.Add(cityDB);
+                    var cityDB = Converters.Convert(item);
+
+                    c.Add(cityDB);
                 }
                 return c;
+
             }
-
-
-
-
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
+
+        public static List<Sector> GetSector()
+        {
+            try
+            {
+                List<Sector> c = new List<Sector>();
+
+                foreach (var item in db.sectors)
+                {
+                    var sectorDB = Converters.Convert(item);
+
+                    c.Add(sectorDB);
+                }
+                return c;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+    }
 }

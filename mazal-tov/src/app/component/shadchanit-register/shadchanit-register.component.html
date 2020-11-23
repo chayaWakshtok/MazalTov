@@ -48,10 +48,31 @@
                         <select (change)="onChange($event.target.value)">
                             <option *ngFor="let i of cities"> {{i.name}} </option>
                         </select>
-                        
-                       
-                         
                     </div>
+
+                    <div class="form-group">
+                        <label for="sector">מגזר </label>
+                        
+                        <label for="female">זכר</label>
+                        <!-- (click)="gender(0)" -->
+                        <input type="radio" class="form-control" name="female" [value]="0" [(ngModel)]="worker.gender"  />
+                         <br>
+                        <div  *ngFor="let item of sector" class="item-trns" color="none"  >
+                            <label>
+                                <input type="radio" [(ngModel)]="matchmaker.sectorId" value="item.id">
+                                {{item.name}}
+                              </label><br/>
+                              </div>
+                            <!-- <label> {{item.AdresseName}} </label>
+                            <radio slot="start" value="griff" class="button" name="k" [(ngModel)]="item.IdAdresse"
+                              (click)="details2(item.IdAdresse)">
+                            </radio> -->
+
+                        
+                     </div>
+                 <!-- <app-worker></app-worker> -->
+ 
+
                     <div class="form-group">
                         <label for="medicalProblem">
                             בעיה רפואית</label>

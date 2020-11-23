@@ -79,5 +79,14 @@ namespace Mazal_Tov.Controllers
             return UserBL.GetCity();
         }
 
+        [HttpGet]
+        [Route("Sector")]
+        [AllowAnonymous]
+        public List<Sector> Getsector()
+        {
+
+            return UserBL.GetSector();
+        }
+
     }
 }

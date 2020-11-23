@@ -15,7 +15,7 @@ namespace Mazal_Tov.Controllers
         [HttpPost]
         [Route("token")]
         [AllowAnonymous]
-        public User Register([FromBody]User user)
+        public User Login([FromBody]User user)
         {
             return UserBL.Login(user.Username,user.Password);
         }
@@ -34,13 +34,31 @@ namespace Mazal_Tov.Controllers
         }
 
         // POST: api/User
+        [HttpPost]
         [Route("Register")]
         [AllowAnonymous]
-        //public User Register([FromBody]User value)
+        public User Register([FromBody]User value)
+        {
+            return UserBL.Register(value);
+        }
+        // POST: api/User
+
+        //[HttpPost]
+        //[Route("RegisterCandidate")]
+        //[AllowAnonymous]
+        //public Candidate RegisterCandidate([FromBody]Candidate value)
         //{
-        //    return UserBL.Register(value);
+        //   // return UserBL.RegisterCandidate(value);
         //}
 
+        // POST: api/User
+        [HttpPost]
+        [Route("RegisterMatchmaker")]
+        [AllowAnonymous]
+        public Matchmaker RegisterMatchmaker([FromBody]Matchmaker value)
+        {
+            return UserBL.RegisterMatchmaker(value);
+        }
         // PUT: api/User/5
         public void Put(int id, [FromBody]string value)
         {

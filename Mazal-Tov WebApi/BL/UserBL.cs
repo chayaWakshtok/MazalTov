@@ -46,6 +46,48 @@ namespace BL
             }
           
         }
+        //public static Candidate RegisterCandidate(Candidate candidate)
+        //{
+        //    try
+        //    {
+
+        //        CreatePasswordHash(candidate.User.Password, out byte[] passwordHash, out byte[] passwordSalt);
+        //        candidate.User.PasswordHash = passwordHash;
+        //        candidate.User.PasswordSalt = passwordSalt;
+
+        //        var candidateDB = Converters.Convert(candidate);
+        //        var candidateInter = db.candidates.Add(candidateDB);
+        //        db.SaveChanges();
+        //        return Converters.Convert(candidateInter);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+
+        //}
+        public static Matchmaker RegisterMatchmaker(Matchmaker matchmaker)
+        {
+            try
+            {
+
+                //CreatePasswordHash(matchmaker.User.Password, out byte[] passwordHash, out byte[] passwordSalt);
+                //matchmaker.User.PasswordHash = passwordHash;
+                //matchmaker.User.PasswordSalt = passwordSalt;
+     
+                var matchmakerDB = Converters.Convert(matchmaker);
+                var matchmakerInter = db.matchmakers.Add(matchmakerDB);
+                db.SaveChanges();
+                return Converters.Convert(matchmakerInter);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+         
 
         private static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {

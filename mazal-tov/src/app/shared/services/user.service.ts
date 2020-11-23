@@ -31,10 +31,10 @@ export class UserService {
  
 
   registerCandidate(model:candidate):Observable<candidate>{
-      return this.httpClient.post<candidate>(environment.apiUrl+"api/User/Register",model)
+      return this.httpClient.post<candidate>(environment.apiUrl+"api/User/RegisterCandidate",model)
       }
     registerMatchmaker(model:matchmaker):Observable<matchmaker>{
-        return this.httpClient.post<matchmaker>(environment.apiUrl+"api/User/Register",model)
+        return this.httpClient.post<matchmaker>(environment.apiUrl+"api/User/RegisterMatchmaker",model)
         }
    
  

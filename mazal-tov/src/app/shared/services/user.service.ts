@@ -5,12 +5,10 @@ import { map } from 'rxjs/operators';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
-import { User } from 'src/Classes/user';
-import { Candidate } from 'src/Classes/candidate';
-import { Matchmaker } from 'src/Classes/matchmaker';
-import { City } from 'src/Classes/city';
-import { Sector } from 'src/Classes/sector';
-import { Chasidut } from 'src/Classes/chasidut';
+import { Candidate } from 'src/app/classes/candidate';
+import { Matchmaker } from 'src/app/classes/matchmaker';
+import { User } from 'src/app/classes/user';
+
 
 const URL = environment.apiUrl + "api/User/"
 

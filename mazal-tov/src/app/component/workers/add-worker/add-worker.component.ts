@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
-import { Worker } from 'src/Classes/worker';
+import { Worker } from 'src/app/classes/worker';
 
 @Component({
   selector: 'app-add-worker',

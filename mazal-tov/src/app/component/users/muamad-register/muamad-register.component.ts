@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Candidate } from 'src/app/classes/candidate';
+import { Chasidut } from 'src/app/classes/chasidut';
+import { City } from 'src/app/classes/city';
+import { Sector } from 'src/app/classes/sector';
 import { ChasidutService } from 'src/app/shared/services/chasidut.service';
 import { CityService } from 'src/app/shared/services/city.service';
 import { SectorService } from 'src/app/shared/services/sector.service';
 import { UserService } from 'src/app/shared/services/user.service';
-import { Candidate } from 'src/Classes/candidate';
-import { Chasidut } from 'src/Classes/chasidut';
-import { City } from 'src/Classes/city';
-import { Sector } from 'src/Classes/sector';
+
 
 
 @Component({

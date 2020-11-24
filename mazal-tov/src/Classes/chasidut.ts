@@ -1,4 +1,4 @@
-export class chasidut{
+export class Chasidut{
      id:number;
      name:string;
 

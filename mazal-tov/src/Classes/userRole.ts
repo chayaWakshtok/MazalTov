@@ -1,6 +1,6 @@
-export class userRole{
-     roleId:number;  
-     userId:number;  
-    id:number; 
+export class UserRole {
+    roleId: number;
+    userId: number;
+    id: number;
 
 }

@@ -12,13 +12,13 @@ namespace Mazal_Tov.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
-        [HttpPost]
-        [Route("token")]
-        [AllowAnonymous]
-        public User Token([FromBody]User user)
-        {
-            return UserBL.Login(user.Username,user.Password);
-        }
+        //[HttpPost]
+        //[Route("token")]
+        //[AllowAnonymous]
+        //public User Token([FromBody]User user)
+        //{
+        //    return UserBL.Login(user.Username,user.Password);
+        //}
 
 
         // GET: api/User

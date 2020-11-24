@@ -1,4 +1,4 @@
-export class married {
+export class Married {
 
     id: number;
     name: string;

@@ -1,4 +1,4 @@
-export class candidateComment{
+export class CandidateComment{
     id:number ;
    remark:string;
     privileged:boolean;

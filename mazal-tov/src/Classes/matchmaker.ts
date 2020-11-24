@@ -9,7 +9,7 @@ export class Matchmaker {
       numMatching: number;
       childrenMatchmaking: number;
       howSend: number;
-      isCommitment: boolean
+      isCommitment: boolean;
       isAgreement: boolean;
       status: number;
       cityId: number;

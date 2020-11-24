@@ -1,0 +1,43 @@
+<p>helper works!</p>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h3>הרשמה יועץ \מטפל </h3>
+                <form name="form">
+
+<app-worker></app-worker>
+
+<div class="form-group">
+    <label for="Address">כתובת </label>
+    <input type="text" class="form-control" name="Address" [(ngModel)]="helper.address" />
+
+</div>
+<div class="form-group">
+    <label for="Address">עיר </label>
+    <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
+    <select (change)="onChangeCity($event.target.value)">
+        <!-- (change)="onChangeCity($event.target.value)" -->
+        <option *ngFor="let i of cities" [(ngModel)]="helper.cityId"> {{i.name}} </option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="sector">מגזר </label>
+    <div *ngFor="let item of sector">
+        <label>{{item.name}}</label>
+        <input type="radio" name="sector" (click)="Idsector(item.id)">
+    </div>
+</div>
+<!--צריך להוסיף
+1 סוג המטפל
+2 IDWORKER
+  -->
+
+</form>
+</div>
+</div>
+</div>
+</div>
+ 
+

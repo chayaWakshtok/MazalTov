@@ -21,11 +21,12 @@ import { SectorService } from 'src/app/shared/services/sector.service';
   styleUrls: ['./shadchanit-register.component.scss']
 })
 export class ShadchanitRegisterComponent implements OnInit {
+
      matchmaker: Matchmaker = new Matchmaker();
      cities: City[] = [];
      sector:Sector[]=[];
      chasidut:Chasidut[]=[];
-     HowSend:any[]=["דואר","פקס","מייל"];
+    KindSend:any[]=["דואר","פקס","מייל"];
   constructor(public router:Router,public userService:UserService,public cityService:CityService
     ,public chasidutService:ChasidutService,public sectorService:SectorService ) { }
 
@@ -63,7 +64,8 @@ export class ShadchanitRegisterComponent implements OnInit {
     this.matchmaker.sectorId=id;
     
   }
-  HowSend(send:string){
-    this.matchmaker.howSend=send;
-  }
+//   HowSend(send:string){
+//     this.matchmaker.howSend=send;
+// }
+
 }

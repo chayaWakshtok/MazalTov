@@ -11,6 +11,7 @@ import { MuamadRegisterComponent } from './component/users/muamad-register/muama
 import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { WorkerComponent } from './component/workers/worker/worker.component';
+import { HelperComponent } from './component/workers/helper/helper.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { WorkerComponent } from './component/workers/worker/worker.component';
     MuamadRegisterComponent,
     HomeComponent,
     LoginComponent,
-    WorkerComponent
+    WorkerComponent,
+    HelperComponent
   ],
   imports: [
     FormsModule  ,

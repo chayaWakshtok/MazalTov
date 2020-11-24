@@ -7,40 +7,9 @@
             <div class="col-md-8 offset-md-2">
                 <h3>הרשמה שדכנית </h3>
                 <form name="form">
-                    <!-- <div *ngFor="let matchmaker of model.matchmaker">   -->
-                    <div class="form-group">
-                        <label for="username">שם משתמש:</label>
-                        <input type="text" class="form-control" name="username"
-                            [(ngModel)]="matchmaker.user.username" />
+                  
 
-                    </div>
-                    <div class="form-group">
-                        <label for="password">סיסמא:</label>
-                        <input type="text" class="form-control" name="password"
-                            [(ngModel)]="matchmaker.user.password" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="tz">תעודת זהות:</label>
-                        <input type="text" class="form-control" name="tz" [(ngModel)]="matchmaker.user.tz" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="firstname">שם פרטי:</label>
-                        <input type="text" class="form-control" name="firstname"
-                            [(ngModel)]="matchmaker.user.firstname" />
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="lastname">משפחה:</label>
-                        <input type="text" class="form-control" name="lastname"
-                            [(ngModel)]="matchmaker.user.lastname" />
-
-                    </div>
-
-
-
+                    <app-worker></app-worker>
                     <div class="form-group">
                         <label for="Address">כתובת </label>
                         <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.address" />
@@ -68,7 +37,7 @@
                             <option *ngFor="let i of chasidut"> {{i.name}} </option>
                         </select>
                     </div>
-                    <app-worker></app-worker>
+                   
 
                     <div class="form-group">
                         <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
@@ -85,16 +54,17 @@
                     <div class="form-group">
                         <label for="HowSend">אופן שליחת החוברת: </label>
                         <br>
-                        <div *ngFor="let item of HowSend">
+                        <!-- <div *ngFor="let item of KindSend">
                             <label>{{item}}</label>
                             <input type="radio" name="HowSend" (click)="HowSend(item)"  >
-                        </div>
-                        <!-- <label> מייל</label>
+                        </div> -->
+                        <!-- צריך לסדר לעשות ENUM בC# -->
+                        <label> מייל</label>
                         <input type="radio" name="HowSend">
                         <label> פקס</label>
                         <input type="radio" name="HowSend">
                         <label> דואר</label>
-                        <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend"> -->
+                        <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend">
                     </div>
                     <div class="form-group">
                         <label for="medicalProblem">

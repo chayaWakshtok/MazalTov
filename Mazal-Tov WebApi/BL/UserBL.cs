@@ -151,11 +151,15 @@ namespace BL
                 return null;
             }
         }
+<<<<<<< Updated upstream
         public static List<Chasidut> Getchasidut()
         {
             try
             {
                 List<Chasidut> c = new List<Chasidut>();
+=======
+        
+>>>>>>> Stashed changes
 
                 foreach (var item in db.chasiduts)
                 {

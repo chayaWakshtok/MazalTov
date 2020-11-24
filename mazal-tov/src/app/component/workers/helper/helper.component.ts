@@ -23,18 +23,36 @@ export class HelperComponent implements OnInit {
     ,public sectorService:SectorService ) { }
 
   ngOnInit(): void {
+ 
     this.cityService.getCity().subscribe(l => { this.cities = l });
     this.sectorService.getSector().subscribe(l => { this.sector = l });
   
   }
   onChangeCity(deviceValue:number) {
-    alert("fl");
+    
    this.helper.cityId=deviceValue;
-   console.log(deviceValue);}
+   console.log(deviceValue);
+  }
    Idsector(id:number){
  
     console.log(this.helper);
+    console.log(this.helper.worker);
     this.helper.sectorId=id;
     
   }
+
+  registerHelper():void{
+ 
+    this.userService.registerHelper(this.helper ).subscribe(res => {
+      if (res == null)
+          alert("error");    
+       else {
+          //  this.router.navigate(['app-muamad-register']);
+        }
+    }, err => {
+      alert("error")
+    }
+    )
+  }
+  
 }

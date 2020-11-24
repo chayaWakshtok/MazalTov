@@ -11,6 +11,7 @@ import { Matchmaker } from 'src/Classes/matchmaker';
 import { City } from 'src/Classes/city';
 import { Sector } from 'src/Classes/sector';
 import { Chasidut } from 'src/Classes/chasidut';
+import { Helper } from 'src/Classes/helper';
 
 
 @Injectable({
@@ -50,7 +51,9 @@ export class UserService {
   }
 
    
-
+  registerHelper(model: Helper): Observable<Helper> {
+    return this.httpClient.post<Helper>(environment.apiUrl + "api/User/RegisterHelper", model)
+  }
  
 
 }

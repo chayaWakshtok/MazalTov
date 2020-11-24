@@ -25,6 +25,7 @@ namespace DTO
         public float NumHourWork { get; set; }
         public int UserId { get; set; }
         public int BankId { get; set; }
+        public User User { get; set; }
 
        
 

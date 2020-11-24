@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    class HelperBL
+    public class HelperBL
     {
         public static DAL.MazalTovEntities db = new DAL.MazalTovEntities();
         public static Helper RegisterHelper(Helper helper)
@@ -17,12 +17,12 @@ namespace BL
             try
             {
 
-                var user = UserBL.Register(helper);
+                var user = UserBL.Register(helper.Worker.User);
                 helper.Id = user.Id;
                 var helperDB = Converters.Convert(helper);
-                var matchmakerInter = db.matchmakers.Add(helperDB);
+                var helperInter = db.helpers.Add(helperDB);
                 db.SaveChanges();
-                return Converters.Convert(matchmakerInter);
+                return Converters.Convert(helperInter);
             }
             catch (Exception ex)
             {

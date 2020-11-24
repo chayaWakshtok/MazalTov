@@ -16,9 +16,9 @@ namespace Mazal_Tov.Controllers
         [HttpPost]
         [Route("RegisterHelper")]
         [AllowAnonymous]
-        public Helper RegisterMatchmaker([FromBody]Helper value)
+        public Helper RegisterMatchmaker([FromBody]Helper helper)
         {
-            return UserBL.RegisterHelper(value);
+            return HelperBL.RegisterHelper(helper);
         }
     }
 }

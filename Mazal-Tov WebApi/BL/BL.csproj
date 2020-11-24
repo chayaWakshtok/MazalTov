@@ -95,7 +95,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CandidateBL.cs" />
+    <Compile Include="CityBL.cs" />
     <Compile Include="HelperBL.cs" />
+    <Compile Include="MatchmakerBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserBL.cs" />
     <Compile Include="Utils\Converters.cs" />

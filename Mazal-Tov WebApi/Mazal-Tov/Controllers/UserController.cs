@@ -41,24 +41,8 @@ namespace Mazal_Tov.Controllers
         {
             return UserBL.Register(value);
         }
-        // POST: api/User
-
-        //[HttpPost]
-        //[Route("RegisterCandidate")]
-        //[AllowAnonymous]
-        //public Candidate RegisterCandidate([FromBody]Candidate value)
-        //{
-        //   // return UserBL.RegisterCandidate(value);
-        //}
-
-        // POST: api/User
-        [HttpPost]
-        [Route("RegisterMatchmaker")]
-        [AllowAnonymous]
-        public Matchmaker RegisterMatchmaker([FromBody]Matchmaker value)
-        {
-            return UserBL.RegisterMatchmaker(value);
-        }
+        
+        
         // PUT: api/User/5
         public void Put(int id, [FromBody]string value)
         {
@@ -70,14 +54,7 @@ namespace Mazal_Tov.Controllers
         }
 
        
-        [HttpGet]
-        [Route("City")]
-        [AllowAnonymous]
-        public List<City> Getcity()
-        {
-
-            return UserBL.GetCity();
-        }
+        
 
         [HttpGet]
         [Route("Sector")]

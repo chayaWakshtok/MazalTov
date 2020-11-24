@@ -59,41 +59,8 @@ namespace BL
             }
           
         }
-        //public static Candidate RegisterCandidate(Candidate candidate)
-        //{
-        //    try
-        //    {
-        //        var user = Register(candidate.User);
-        //        candidate.Id = user.Id;
-        //        var candidateDB = Converters.Convert(candidate);
-        //        var candidateInter = db.candidates.Add(candidateDB);
-        //        db.SaveChanges();
-        //        return Converters.Convert(candidateInter);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return null;
-        //    }
-
-        //}
-        public static Matchmaker RegisterMatchmaker(Matchmaker matchmaker)
-        {
-            try
-            {
-
-                var user=Register(matchmaker.User);
-                matchmaker.Id = user.Id;
-                var matchmakerDB = Converters.Convert(matchmaker);
-                var matchmakerInter = db.matchmakers.Add(matchmakerDB);
-                db.SaveChanges();
-                return Converters.Convert(matchmakerInter);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-
-        }
+       
+      
 
          
 
@@ -123,27 +90,7 @@ namespace BL
         }
 
 
-        public static List<City> GetCity()
-        {
-            try
-            {
-                List<City> c = new List<City>();
-
-                foreach (var item in db.cities)
-                {
-                    var cityDB = Converters.Convert(item);
-
-                    c.Add(cityDB);
-                }
-                return c;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
+       
         public static List<Sector> GetSector()
         {
             try
@@ -164,21 +111,13 @@ namespace BL
                 return null;
             }
         }
-<<<<<<< HEAD
-//// Updated upstream
-=======
->>>>>>> 09df4f2a0b95af8dde4e3b19926f18eb59f161d2
+ 
         public static List<Chasidut> Getchasidut()
         {
             try
             {
                 List<Chasidut> c = new List<Chasidut>();
-<<<<<<< HEAD
-  
-        
-//// Stashed changes
-=======
->>>>>>> 09df4f2a0b95af8dde4e3b19926f18eb59f161d2
+ 
 
                 foreach (var item in db.chasiduts)
                 {

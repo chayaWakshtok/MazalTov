@@ -49,16 +49,8 @@ export class UserService {
     return this.httpClient.post<Matchmaker>(environment.apiUrl + "api/User/RegisterMatchmaker", model)
   }
 
-  getCity(): Observable<City[]> {
-    return this.httpClient.get<City[]>(environment.apiUrl + "api/User/City");
-  }
+   
 
-  getSector(): Observable<Sector[]> {
-    return this.httpClient.get<Sector[]>(environment.apiUrl + "api/User/Sector");
-  }
-
-  getChasiut(): Observable<Chasidut[]> {
-    return this.httpClient.get<Chasidut[]>(environment.apiUrl + "api/User/Chasidut");
-  }
+ 
 
 }

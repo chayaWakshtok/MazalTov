@@ -85,12 +85,16 @@
                     <div class="form-group">
                         <label for="HowSend">אופן שליחת החוברת: </label>
                         <br>
-                        <label> מייל</label>
+                        <div *ngFor="let item of HowSend">
+                            <label>{{item}}</label>
+                            <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend">
+                        </div>
+                        <!-- <label> מייל</label>
                         <input type="radio" name="HowSend">
                         <label> פקס</label>
                         <input type="radio" name="HowSend">
                         <label> דואר</label>
-                        <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend">
+                        <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend"> -->
                     </div>
                     <div class="form-group">
                         <label for="medicalProblem">

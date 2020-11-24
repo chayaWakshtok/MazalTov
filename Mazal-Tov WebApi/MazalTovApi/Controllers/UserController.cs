@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace Mazal_Tov.Controllers
@@ -12,13 +13,13 @@ namespace Mazal_Tov.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
-        //[HttpPost]
-        //[Route("token")]
-        //[AllowAnonymous]
-        //public User Token([FromBody]User user)
-        //{
-        //    return UserBL.Login(user.Username,user.Password);
-        //}
+        [Authorize]
+        [Route("GetInfo")]
+        public User GetInfo()
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            return BL.UserBL.GetInfoByUserName(identity.Name);
+        }
 
 
         // GET: api/User

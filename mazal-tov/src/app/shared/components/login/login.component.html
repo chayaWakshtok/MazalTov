@@ -1,0 +1,31 @@
+<p>login works!</p>
+
+<div class="container">
+  <div class="row">
+    <div class="pen-title">
+      <h1>Login </h1>
+    </div>
+    <div class="container">
+      <div class="card"></div>
+      <div class="card">
+        <h1 class="title">Login</h1>
+        <form>
+          <div class="input-container">
+            <input type="text" [(ngModel)]="user.username" name="username" id="Username" required />
+            <label for="Username">שם משתמש</label>
+            <div class="bar"></div>
+          </div>
+          <div class="input-container">
+            <input type="password" [(ngModel)]="user.password" name="password" id="Password" required />
+            <label for="Password">סיסמה</label>
+            <div class="bar"></div>
+          </div>
+          <div class="button-container">
+            <button (click)="validlogin()"><span>כניסה</span></button>
+          </div>
+          <div class="footer"><a href="#">Forgot your password?</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

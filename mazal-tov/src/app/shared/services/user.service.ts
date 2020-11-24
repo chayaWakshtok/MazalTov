@@ -4,59 +4,61 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Router } from '@angular/router';
-import { matchmaker } from 'src/Classes/matchmaker';
-import { Observable } from 'rxjs';
-import { candidate } from 'src/Classes/candidate';
-import { city } from 'src/Classes/city';
-import { sector } from 'src/Classes/sector';
-import { chasidut } from 'src/Classes/chasidut';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { User } from 'src/Classes/user';
+import { Candidate } from 'src/Classes/candidate';
+import { Matchmaker } from 'src/Classes/matchmaker';
+import { City } from 'src/Classes/city';
+import { Sector } from 'src/Classes/sector';
+import { Chasidut } from 'src/Classes/chasidut';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(public httpClient: HttpClient,private router:Router,
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
+  constructor(public httpClient: HttpClient, private router: Router,
     public tokenStorage: TokenStorageService) { }
 
-  getToken(data): any {
+  getToken(data: User): any {
     debugger;
     const body = new HttpParams()
-      .set('grant_type', data.grant_type)
+      .set('grant_type', "password")
       .set('username', data.username)
       .set('password', data.password)
-    return this.httpClient.post(environment.apiUrl + 'api/User/token', body.toString(), {
+    return this.httpClient.post<any>(environment.apiUrl + 'token', body.toString(), {
       observe: 'response',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    });
+    }).pipe(map((data: any) => {
+      // store user details and jwt token in local storage to keep user logged in between page refreshes
+      this.tokenStorage.saveToken(data);
+      this.currentUserSubject.next(data);
+      return data;
+    }));;
   }
 
- 
+  registerCandidate(model: Candidate): Observable<Candidate> {
+    return this.httpClient.post<Candidate>(environment.apiUrl + "api/User/RegisterCandidate", model)
+  }
 
-  registerCandidate(model:candidate):Observable<candidate>{
-      return this.httpClient.post<candidate>(environment.apiUrl+"api/User/RegisterCandidate",model)
-      }
-    registerMatchmaker(model:matchmaker):Observable<matchmaker>{
-        return this.httpClient.post<matchmaker>(environment.apiUrl+"api/User/RegisterMatchmaker",model)
-        }
+  registerMatchmaker(model: Matchmaker): Observable<Matchmaker> {
+    return this.httpClient.post<Matchmaker>(environment.apiUrl + "api/User/RegisterMatchmaker", model)
+  }
 
+  getCity(): Observable<City[]> {
+    return this.httpClient.get<City[]>(environment.apiUrl + "api/User/City");
+  }
 
-        getCity() :Observable<city[]>{
-             
-            return this.httpClient.get<city[]>(environment.apiUrl+"api/User/City");
+  getSector(): Observable<Sector[]> {
+    return this.httpClient.get<Sector[]>(environment.apiUrl + "api/User/Sector");
+  }
 
-        }
-        getSector() :Observable<sector[]>{
-           
-         return this.httpClient.get<sector[]>(environment.apiUrl+"api/User/Sector");
-     }
-     getChasiut() :Observable<chasidut[]>{
-       
-     return this.httpClient.get<chasidut[]>(environment.apiUrl+"api/User/Chasidut");
- }
-
- 
-  
-
+  getChasiut(): Observable<Chasidut[]> {
+    return this.httpClient.get<Chasidut[]>(environment.apiUrl + "api/User/Chasidut");
+  }
 
 }

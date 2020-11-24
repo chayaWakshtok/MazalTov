@@ -1,4 +1,4 @@
-export class sector{
-        id :number; 
-         name :string;
+export class Sector {
+        id: number;
+        name: string;
 }

@@ -1,15 +1,8 @@
-import { candidate } from './candidate';
-import { matchmaker } from './matchmaker';
-
-export class user {
+export class User {
     id: number;
     firstname: string;
     lastname: string;
     username: string;
     password: string;
     tz: string;
-
-
-
-
 }

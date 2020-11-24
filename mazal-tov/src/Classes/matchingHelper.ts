@@ -1,6 +1,4 @@
-export class matchingHelper {
-
-
+export class MatchingHelper {
     id: number;
     question: string;
     remark: string;

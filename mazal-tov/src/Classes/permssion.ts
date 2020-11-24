@@ -1,5 +1,4 @@
-export class permssion{
-      id:number;  
-
-     name:string;
+export class Permssion {
+      id: number;
+      name: string;
 }

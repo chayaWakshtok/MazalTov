@@ -87,7 +87,7 @@
                         <br>
                         <div *ngFor="let item of HowSend">
                             <label>{{item}}</label>
-                            <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend">
+                            <input type="radio" name="HowSend" (click)="HowSend(item)"  >
                         </div>
                         <!-- <label> מייל</label>
                         <input type="radio" name="HowSend">

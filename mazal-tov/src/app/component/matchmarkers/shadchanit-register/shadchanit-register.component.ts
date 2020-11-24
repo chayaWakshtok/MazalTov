@@ -63,4 +63,7 @@ export class ShadchanitRegisterComponent implements OnInit {
     this.matchmaker.sectorId=id;
     
   }
+  HowSend(send:string){
+    this.matchmaker.howSend=send;
+  }
 }

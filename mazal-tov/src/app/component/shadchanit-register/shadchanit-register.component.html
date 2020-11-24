@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <label for="Address">עיר </label>
                         <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select (change)="onChange($event.target.value)">
+                        <select (change)="onChangeCity($event.target.value)">
                             <option *ngFor="let i of cities"> {{i.name}} </option>
                         </select>
                     </div>
@@ -56,15 +56,16 @@
                             <label>{{item.name}}</label>
                             <input type="radio" name="sector"  (click)="Idsector(item.id)">
                         </div>
+ 
                      </div>
                      <div class="form-group" *ngIf="matchmaker.sectorId==1">
                         <label for="chsidut">חסידות </label>
                         <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select (change)="onChange($event.target.value)">
+                        <select  (change)="onChangeChasidut($event.target.value)">
                             <option *ngFor="let i of chasidut"> {{i.name}} </option>
                         </select>
                     </div>
-               <app-worker></app-worker>  
+               <!-- <app-worker></app-worker>   -->
                     
                     <div class="form-group">
                         <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
@@ -79,12 +80,16 @@
                         <div class="form-group">
                                 <label for="HowSend">אופן שליחת החוברת: </label>
                                 <br>
-                                <label>  מייל</label>
+                                <div  *ngFor="let item of HowSend">
+                                    <label>{{item}}</label>
+                                    <input type="radio" name="sector">
+                                </div>
+                                <!-- <label>  מייל</label>
                                 <input type="radio" name="HowSend"     >
                                 <label>  פקס</label>
                                 <input type="radio" name="HowSend"     >
                                 <label>  דואר</label>
-                                <input type="radio" name="HowSend"  [(ngModel)]="matchmaker.howSend" >
+                                <input type="radio" name="HowSend"  [(ngModel)]="matchmaker.howSend" > -->
                                  
                         </div>
                         <div class="form-group">

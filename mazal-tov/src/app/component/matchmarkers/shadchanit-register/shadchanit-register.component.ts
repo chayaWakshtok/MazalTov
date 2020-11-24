@@ -18,18 +18,23 @@ export class ShadchanitRegisterComponent implements OnInit {
      cities: city[] = [];
      sector:sector[]=[];
      chasidut:chasidut[]=[];
+     HowSend:any[]=["דואר","פקס","מייל"];
   constructor(public router:Router,public userService:UserService,) { }
 
   ngOnInit(): void {
 
-  
     this.userService.getCity().subscribe(l => { this.cities = l });
     this.userService.getSector().subscribe(l => { this.sector = l });
     this.userService.getChasiut().subscribe(l => { this.chasidut = l });
   }
-  onChange(deviceValue) {
+  onChangeCity(deviceValue:number) {
+     alert("fl");
     this.matchmaker.cityId=deviceValue;
     console.log(deviceValue);}
+    onChangeChasidut(deviceValue) {
+     
+      this.matchmaker.chasidutId=deviceValue;
+      console.log(deviceValue);}
   registerMatchmaker():void{
  
     this.userService.registerMatchmaker(this.matchmaker ).subscribe(res => {
@@ -45,6 +50,8 @@ export class ShadchanitRegisterComponent implements OnInit {
   }
 
   Idsector(id:number){
+ 
+    console.log(this.matchmaker);
     this.matchmaker.sectorId=id;
     
   }

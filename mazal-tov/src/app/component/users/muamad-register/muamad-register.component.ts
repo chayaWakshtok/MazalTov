@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChasidutService } from 'src/app/shared/services/chasidut.service';
+import { CityService } from 'src/app/shared/services/city.service';
+import { SectorService } from 'src/app/shared/services/sector.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Candidate } from 'src/Classes/candidate';
+import { Chasidut } from 'src/Classes/chasidut';
 import { City } from 'src/Classes/city';
+import { Sector } from 'src/Classes/sector';
 
 
 @Component({
@@ -15,9 +20,15 @@ export class MuamadRegisterComponent implements OnInit {
  
   model: Candidate = new Candidate();
   cities: City[] = [];
-  constructor(public userService:UserService,private router:Router) { }
+  sector:Sector[]=[];
+  chasidut:Chasidut[]=[];
+  constructor(public router:Router,public userService:UserService,public cityService:CityService
+    ,public chasidutService:ChasidutService,public sectorService:SectorService ) { }
 
   ngOnInit(): void {
+    this.cityService.getCity().subscribe(l => { this.cities = l });
+    this.sectorService.getSector().subscribe(l => { this.sector = l });
+    this.chasidutService.getChasiut().subscribe(l => { this.chasidut = l });
   }
   onChange(deviceValue) {
     this.model.cityId=deviceValue;
@@ -37,4 +48,28 @@ export class MuamadRegisterComponent implements OnInit {
   }
   )
 }
+
+onChangeCity(deviceValue:number) {
+  alert("fl");
+ this.model.cityId=deviceValue;
+ console.log(deviceValue);}
+ onChangeChasidut(deviceValue) {
+  
+   this.model.chasidutId=deviceValue;
+   console.log(deviceValue);}
+   onChangeChasidutFather(deviceValue) {
+  
+    this.model.chasidutFather=deviceValue;
+    console.log(deviceValue);}
+    onChangeChasidutMather(deviceValue) {
+  
+      this.model.chasidutMother=deviceValue;
+      console.log(deviceValue);}
+    
+   Idsector(id:number){
+ 
+    console.log(this.model);
+    this.model.sectorId=id;
+    
+  }
 }

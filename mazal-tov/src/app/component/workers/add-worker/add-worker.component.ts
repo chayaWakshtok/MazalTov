@@ -2,29 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Worker } from 'src/Classes/worker';
-import { NgModule }      from '@angular/core';
+
 @Component({
-  selector: 'app-worker',
-  templateUrl: './worker.component.html',
-  styleUrls: ['./worker.component.scss']
+  selector: 'app-add-worker',
+  templateUrl: './add-worker.component.html',
+  styleUrls: ['./add-worker.component.scss']
 })
-export class WorkerComponent implements OnInit {
+export class AddWorkerComponent implements OnInit {
 
   worker: Worker = new Worker();
- 
-   
-  constructor(public router:Router,public userService:UserService,) { }
+
+  constructor(public router: Router, public userService: UserService,) { }
 
   ngOnInit(): void {
   }
-  
-  gender(a:number){
-    this.worker.gender=a;
+
+  gender(a: number) {
+    this.worker.gender = a;
   }
 
-  registerWorker(){}
+  registerWorker() { }
   // registerMatchmaker():void{
- 
+
   //   this.userService.registerWorker(this.worke).subscribe(res => {
   //     if (res == null)
   //         alert("error");    

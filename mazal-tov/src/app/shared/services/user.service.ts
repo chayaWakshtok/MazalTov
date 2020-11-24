@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Router } from '@angular/router';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { User } from 'src/Classes/user';
 import { Candidate } from 'src/Classes/candidate';
 import { Matchmaker } from 'src/Classes/matchmaker';
@@ -12,19 +12,20 @@ import { City } from 'src/Classes/city';
 import { Sector } from 'src/Classes/sector';
 import { Chasidut } from 'src/Classes/chasidut';
 
+const URL = environment.apiUrl + "api/User/"
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private currentUserSubject: BehaviorSubject<User>;
+  private currentUserSubject: Subject<User>=new Subject();
   public currentUser: Observable<User>;
 
   constructor(public httpClient: HttpClient, private router: Router,
     public tokenStorage: TokenStorageService) { }
 
-  getToken(data: User): any {
+  getToken(data: User): Observable<any> {
     debugger;
     const body = new HttpParams()
       .set('grant_type', "password")
@@ -34,23 +35,32 @@ export class UserService {
       observe: 'response',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     }).pipe(map((data: any) => {
+      debugger;
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      this.tokenStorage.saveToken(data);
-      this.currentUserSubject.next(data);
+      this.tokenStorage.saveToken(data.body.access_token);
       return data;
     }));;
   }
 
+  getInfo() {
+    return this.httpClient.get<User>(URL + "GetInfo")
+      .pipe(map((data: any) => {
+        this.tokenStorage.saveUser(data);
+        this.currentUserSubject.next(data);
+        return data;
+      }))
+  }
+
   registerCandidate(model: Candidate): Observable<Candidate> {
-    return this.httpClient.post<Candidate>(environment.apiUrl + "api/User/RegisterCandidate", model)
+    return this.httpClient.post<Candidate>(URL + "RegisterCandidate", model)
   }
 
   registerMatchmaker(model: Matchmaker): Observable<Matchmaker> {
-    return this.httpClient.post<Matchmaker>(environment.apiUrl + "api/User/RegisterMatchmaker", model)
+    return this.httpClient.post<Matchmaker>(URL + "RegisterMatchmaker", model)
   }
 
-   
 
- 
+
+
 
 }

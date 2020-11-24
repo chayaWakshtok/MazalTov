@@ -28,6 +28,19 @@ namespace BL
             }
         }
 
+        public static DTO.User GetInfoByUserName(string username)
+        {
+            var user = db.users.FirstOrDefault(p => p.Username == username);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                return Utils.Converters.Convert(user);
+            }
+        }
+
         public static User Register(User user)
         {
             try
@@ -151,15 +164,11 @@ namespace BL
                 return null;
             }
         }
-<<<<<<< Updated upstream
         public static List<Chasidut> Getchasidut()
         {
             try
             {
                 List<Chasidut> c = new List<Chasidut>();
-=======
-        
->>>>>>> Stashed changes
 
                 foreach (var item in db.chasiduts)
                 {

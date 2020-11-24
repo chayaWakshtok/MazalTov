@@ -64,11 +64,11 @@
                     <div class="form-group" *ngIf="matchmaker.sectorId==1">
                         <label for="chsidut">חסידות </label>
                         <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select  (change)="onChangeChasidut($event.target.value)">
+                        <select (change)="onChangeChasidut($event.target.value)">
                             <option *ngFor="let i of chasidut"> {{i.name}} </option>
                         </select>
                     </div>
-                    <app-worker></app-worker>
+                    <app-add-worker></app-add-worker>
 
                     <div class="form-group">
                         <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
@@ -87,7 +87,7 @@
                         <br>
                         <div *ngFor="let item of HowSend">
                             <label>{{item}}</label>
-                            <input type="radio" name="HowSend" (click)="HowSend(item)"  >
+                            <input type="radio" name="HowSend" (click)="HowSendFunc(item)">
                         </div>
                         <!-- <label> מייל</label>
                         <input type="radio" name="HowSend">

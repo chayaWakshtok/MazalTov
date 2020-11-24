@@ -8,6 +8,7 @@ import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { Candidate } from 'src/app/classes/candidate';
 import { Matchmaker } from 'src/app/classes/matchmaker';
 import { User } from 'src/app/classes/user';
+import { Helper } from 'src/app/classes/helper';
 
 
 const URL = environment.apiUrl + "api/User/"
@@ -57,8 +58,9 @@ export class UserService {
     return this.httpClient.post<Matchmaker>(URL + "RegisterMatchmaker", model)
   }
 
-
-
-
+  registerHelper(model: Helper): Observable<Helper> {
+    return this.httpClient.post<Helper>(environment.apiUrl + "api/User/RegisterHelper", model)
+  }
+ 
 
 }

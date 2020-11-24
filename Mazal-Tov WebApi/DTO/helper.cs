@@ -14,6 +14,7 @@ namespace DTO
         public int WorkerId { get; set; }
         public int CityId { get; set; }
         public int SectorId { get; set; }
+        public Worker Worker { get; set; }
 
     }
 }

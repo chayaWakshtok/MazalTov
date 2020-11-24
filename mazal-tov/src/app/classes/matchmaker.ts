@@ -1,4 +1,5 @@
 import { User } from './user';
+import { Worker } from './worker';
 
 
 export class Matchmaker {
@@ -16,4 +17,5 @@ export class Matchmaker {
       sectorId: number;
       workerId: number;
       user: User = new User();
+      worker: Worker = new Worker();
 }

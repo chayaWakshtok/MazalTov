@@ -13,7 +13,7 @@ namespace Mazal_Tov.Controllers
     public class CityController : ApiController
     {
         [HttpGet]
-        [Route("City")]
+        [Route("GetCity")]
         [AllowAnonymous]
         public List<City> Getcity()
         {

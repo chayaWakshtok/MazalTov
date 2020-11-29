@@ -6,6 +6,7 @@ import { Helper } from 'src/app/classes/helper';
 import { Sector } from 'src/app/classes/sector';
 import { ChasidutService } from 'src/app/shared/services/chasidut.service';
 import { CityService } from 'src/app/shared/services/city.service';
+import { HelperService } from 'src/app/shared/services/helper.service';
 import { SectorService } from 'src/app/shared/services/sector.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -21,7 +22,7 @@ export class HelperComponent implements OnInit {
   sector:Sector[]=[];
   chasidut:Chasidut[]=[];
   constructor(public router:Router,public userService:UserService,public cityService:CityService
-    ,public sectorService:SectorService ) { }
+    ,public sectorService:SectorService,public helperService:HelperService ) { }
 
   ngOnInit(): void {
  
@@ -44,7 +45,7 @@ export class HelperComponent implements OnInit {
 
   registerHelper():void{
  
-    this.userService.registerHelper(this.helper ).subscribe(res => {
+    this.helperService.registerHelper(this.helper ).subscribe(res => {
       if (res == null)
           alert("error");    
        else {

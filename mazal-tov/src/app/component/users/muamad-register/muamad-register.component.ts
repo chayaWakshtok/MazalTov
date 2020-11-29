@@ -4,6 +4,7 @@ import { Candidate } from 'src/app/classes/candidate';
 import { Chasidut } from 'src/app/classes/chasidut';
 import { City } from 'src/app/classes/city';
 import { Sector } from 'src/app/classes/sector';
+import { CandidateService } from 'src/app/shared/services/candidate.service';
 import { ChasidutService } from 'src/app/shared/services/chasidut.service';
 import { CityService } from 'src/app/shared/services/city.service';
 import { SectorService } from 'src/app/shared/services/sector.service';
@@ -24,7 +25,7 @@ export class MuamadRegisterComponent implements OnInit {
   sector:Sector[]=[];
   chasidut:Chasidut[]=[];
   constructor(public router:Router,public userService:UserService,public cityService:CityService
-    ,public chasidutService:ChasidutService,public sectorService:SectorService ) { }
+    ,public chasidutService:ChasidutService,public sectorService:SectorService,public candidateService:CandidateService ) { }
 
   ngOnInit(): void {
     this.cityService.getCity().subscribe(l => { this.cities = l });
@@ -36,7 +37,7 @@ export class MuamadRegisterComponent implements OnInit {
     console.log(deviceValue);}
 
   registerCandidate():void{
-  this.userService.registerCandidate(this.model).subscribe(res => {
+  this.candidateService.registerCandidate(this.model).subscribe(res => {
     if (res == null)
         alert("error");    
      else {

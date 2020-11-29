@@ -14,7 +14,7 @@ import { Chasidut } from 'src/app/classes/chasidut';
     constructor(public httpClient: HttpClient, private router: Router,) { }
   
     getChasiut(): Observable<Chasidut[]> {
-        return this.httpClient.get<Chasidut[]>(environment.apiUrl + "api/User/Chasidut");
+        return this.httpClient.get<Chasidut[]>(environment.apiUrl + "api/Chasidut/GetChasidut");
       }
     
   }

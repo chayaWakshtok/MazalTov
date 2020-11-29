@@ -50,17 +50,9 @@ export class UserService {
       }))
   }
 
-  registerCandidate(model: Candidate): Observable<Candidate> {
-    return this.httpClient.post<Candidate>(URL + "RegisterCandidate", model)
-  }
+  
 
-  registerMatchmaker(model: Matchmaker): Observable<Matchmaker> {
-    return this.httpClient.post<Matchmaker>(URL + "RegisterMatchmaker", model)
-  }
 
-  registerHelper(model: Helper): Observable<Helper> {
-    return this.httpClient.post<Helper>(environment.apiUrl + "api/User/RegisterHelper", model)
-  }
  
 
 }

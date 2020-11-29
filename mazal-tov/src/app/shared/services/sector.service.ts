@@ -14,7 +14,7 @@ export class SectorService {
   constructor(public httpClient: HttpClient, private router: Router,) { }
 
   getSector(): Observable<Sector[]> {
-    return this.httpClient.get<Sector[]>(environment.apiUrl + "api/User/Sector");
+    return this.httpClient.get<Sector[]>(environment.apiUrl + "api/Sector/GetSector");
   }
 }
 

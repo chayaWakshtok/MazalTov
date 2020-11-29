@@ -8,6 +8,7 @@ import { Chasidut } from 'src/app/classes/chasidut';
 import { City } from 'src/app/classes/city';
 import { Matchmaker } from 'src/app/classes/matchmaker';
 import { Sector } from 'src/app/classes/sector';
+import { MatchmakerService } from 'src/app/shared/services/matchmaker.service';
 
 @Component({
   selector: 'app-shadchanit-register',
@@ -21,7 +22,7 @@ export class ShadchanitRegisterComponent implements OnInit {
   chasidut: Chasidut[] = [];
   HowSend: any[] = ["דואר", "פקס", "מייל"];
   constructor(public router: Router, public userService: UserService, public cityService: CityService
-    , public chasidutService: ChasidutService, public sectorService: SectorService) { }
+    , public chasidutService: ChasidutService, public sectorService: SectorService,public matchmakerService:MatchmakerService) { }
 
   ngOnInit(): void {
     this.cityService.getCity().subscribe(l => { this.cities = l });
@@ -41,7 +42,7 @@ export class ShadchanitRegisterComponent implements OnInit {
   }
 
   registerMatchmaker(): void {
-    this.userService.registerMatchmaker(this.matchmaker).subscribe(res => {
+    this.matchmakerService.registerMatchmaker(this.matchmaker).subscribe(res => {
       if (res == null)
         alert("error");
       else {

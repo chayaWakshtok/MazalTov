@@ -14,7 +14,7 @@ import { City } from 'src/app/classes/city';
     constructor(public httpClient: HttpClient, private router: Router,) { }
 
     getCity(): Observable<City[]> {
-      return this.httpClient.get<City[]>(environment.apiUrl + "api/User/City");
+      return this.httpClient.get<City[]>(environment.apiUrl + "api/City/GetCity");
     }
     
   }

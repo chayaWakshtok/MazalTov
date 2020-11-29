@@ -91,48 +91,7 @@ namespace BL
 
 
        
-        public static List<Sector> GetSector()
-        {
-            try
-          {
-                List<Sector> c = new List<Sector>();
-
-                foreach (var item in db.sectors)
-                {
-                    var sectorDB = Converters.Convert(item);
-
-                    c.Add(sectorDB);
-                }
-                return c;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
- 
-        public static List<Chasidut> Getchasidut()
-        {
-            try
-            {
-                List<Chasidut> c = new List<Chasidut>();
- 
-
-                foreach (var item in db.chasiduts)
-                {
-                    var chasidutDB = Converters.Convert(item);
-
-                    c.Add(chasidutDB);
-                }
-                return c;
-
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        
+       
+       
     }
 }

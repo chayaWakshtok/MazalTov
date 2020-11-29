@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace Mazal_Tov.Controllers
 {
+    [RoutePrefix("api/Candidate")]
     public class CandidateController : ApiController
     {
 

@@ -25,7 +25,6 @@ export class UserService {
     public tokenStorage: TokenStorageService) { }
 
   getToken(data: User): Observable<any> {
-    debugger;
     const body = new HttpParams()
       .set('grant_type', "password")
       .set('username', data.username)
@@ -49,10 +48,4 @@ export class UserService {
         return data;
       }))
   }
-
-  
-
-
- 
-
 }

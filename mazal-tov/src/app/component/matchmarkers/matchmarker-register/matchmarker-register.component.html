@@ -16,26 +16,24 @@
                     <div class="form-group">
                         <label for="Address">עיר </label>
                         <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select (change)="onChangeCity($event.target.value)">
-                            <option *ngFor="let i of cities"> {{i.name}} </option>
+                        <select name="city" [(ngModel)]="matchmaker.cityId">
+                            <option *ngFor="let i of cities" [value]="i.id"> {{i.name}} </option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label for="sector">מגזר </label>
-                        <div *ngFor="let item of sector">
-                            <label>{{item.name}}</label>
-                            <input type="radio" name="sector" (click)="Idsector(item.id)">
-                        </div>
+                        <select name="sector" [(ngModel)]="matchmaker.sectorId">
+                            <option *ngFor="let i of sector" [value]="i.id"> {{i.name}} </option>
+                        </select>
                     </div>
                     <div class="form-group" *ngIf="matchmaker.sectorId==1">
                         <label for="chsidut">חסידות </label>
                         <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select (change)="onChangeChasidut($event.target.value)">
+                        <select name="chasidut" [(ngModel)]="matchmaker.chasidutId">
                             <option *ngFor="let i of chasidut"> {{i.name}} </option>
                         </select>
                     </div>
-
 
                     <div class="form-group">
                         <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
@@ -57,12 +55,17 @@
                             <input type="radio" name="HowSend" (click)="HowSend(item)"  >
                         </div> -->
                         <!-- צריך לסדר לעשות ENUM בC# -->
+
+
                         <label> מייל</label>
-                        <input type="radio" name="HowSend">
+                        <input type="radio" name="HowSend" value="1" [(ngModel)]="radioSelected"
+                            (change)="onItemChange(1)">
                         <label> פקס</label>
-                        <input type="radio" name="HowSend">
+                        <input type="radio" name="HowSend" value="2" [(ngModel)]="radioSelected"
+                            (change)="onItemChange(2)">
                         <label> דואר</label>
-                        <input type="radio" name="HowSend" [(ngModel)]="matchmaker.howSend">
+                        <input type="radio" name="HowSend" value="3" [(ngModel)]="radioSelected"
+                            (change)="onItemChange(3)">
                     </div>
                     <div class="form-group">
                         <label for="medicalProblem">
@@ -83,14 +86,6 @@
                             [(ngModel)]="matchmaker.isAgreement" />
 
                     </div>
-                    <div class="form-group">
-                        <label for="Status">סטטוס </label>
-                        <input type="checkbox" class="form-control" name="Status" [(ngModel)]="matchmaker.status" />
-
-                    </div>
-
-
-
                     <div class="form-group">
                         <button class="btn btn-primary" (click)="registerMatchmaker()"> הרשמה</button>
 

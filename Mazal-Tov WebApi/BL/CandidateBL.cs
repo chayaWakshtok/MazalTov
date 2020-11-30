@@ -16,6 +16,10 @@ namespace BL
         {
             try
             {
+                candidate.User.Roles = new List<Role>();
+                var role=db.roles.First(p => p.Name == "User");
+                var roleDto= Converters.Convert(role);
+                candidate.User.Roles.Add(roleDto);
                 var user = UserBL.Register(candidate.User);
                 candidate.Id = user.Id;
                 var candidateDB = Converters.Convert(candidate);

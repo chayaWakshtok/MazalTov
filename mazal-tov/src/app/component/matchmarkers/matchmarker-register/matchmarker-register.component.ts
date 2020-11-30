@@ -11,18 +11,21 @@ import { Sector } from 'src/app/classes/sector';
 import { MatchmakerService } from 'src/app/shared/services/matchmaker.service';
 
 @Component({
-  selector: 'app-shadchanit-register',
-  templateUrl: './shadchanit-register.component.html',
-  styleUrls: ['./shadchanit-register.component.scss']
+  selector: 'app-matchmarker-register',
+  templateUrl: './matchmarker-register.component.html',
+  styleUrls: ['./matchmarker-register.component.scss']
 })
-export class ShadchanitRegisterComponent implements OnInit {
+export class MatchmarkerRegisterComponent implements OnInit {
+
   matchmaker: Matchmaker = new Matchmaker();
   cities: City[] = [];
   sector: Sector[] = [];
   chasidut: Chasidut[] = [];
   HowSend: any[] = ["דואר", "פקס", "מייל"];
+  radioSelected:number=1;
+
   constructor(public router: Router, public userService: UserService, public cityService: CityService
-    , public chasidutService: ChasidutService, public sectorService: SectorService,public matchmakerService:MatchmakerService) { }
+    , public chasidutService: ChasidutService, public sectorService: SectorService, public matchmakerService: MatchmakerService) { }
 
   ngOnInit(): void {
     this.cityService.getCity().subscribe(l => { this.cities = l });
@@ -30,18 +33,8 @@ export class ShadchanitRegisterComponent implements OnInit {
     this.chasidutService.getChasiut().subscribe(l => { this.chasidut = l });
   }
 
-  onChangeCity(deviceValue: number) {
-    alert("fl");
-    this.matchmaker.cityId = deviceValue;
-    console.log(deviceValue);
-  }
-
-  onChangeChasidut(deviceValue) {
-    this.matchmaker.chasidutId = deviceValue;
-    console.log(deviceValue);
-  }
-
   registerMatchmaker(): void {
+    this.matchmaker.status=1;
     this.matchmakerService.registerMatchmaker(this.matchmaker).subscribe(res => {
       if (res == null)
         alert("error");
@@ -54,12 +47,8 @@ export class ShadchanitRegisterComponent implements OnInit {
     )
   }
 
-  Idsector(id: number) {
-    console.log(this.matchmaker);
-    this.matchmaker.sectorId = id;
+  onItemChange(index){
+    this.matchmaker.howSend=index;
   }
-  //   HowSend(send:string){
-  //     this.matchmaker.howSend=send;
-  // }
 
 }

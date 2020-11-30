@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { authInterceptorProviders } from './shared/auth/auth-interceptor.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { ShadchanitRegisterComponent } from './component/matchmarkers/shadchanit-register/shadchanit-register.component';
 import { MuamadRegisterComponent } from './component/users/muamad-register/muamad-register.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';

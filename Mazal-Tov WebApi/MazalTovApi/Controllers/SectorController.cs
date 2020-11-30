@@ -7,19 +7,17 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Mazal_Tov.Controllers
+namespace MazalTovApi.Controllers
 {
     [RoutePrefix("api/Sector")]
     public class SectorController : ApiController
     {
-
         [HttpGet]
         [Route("GetSector")]
         [AllowAnonymous]
         public List<Sector> Getsector()
         {
-
-            return UserBL.GetSector();
+            return SectorBL.GetSector();
         }
     }
 }

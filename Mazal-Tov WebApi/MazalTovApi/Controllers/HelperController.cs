@@ -7,16 +7,15 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Mazal_Tov.Controllers
+namespace MazalTovApi.Controllers
 {
     [RoutePrefix("api/Helper")]
     public class HelperController : ApiController
-    {  
-        // POST: api/Helper
+    {
         [HttpPost]
         [Route("RegisterHelper")]
         [AllowAnonymous]
-        public Helper RegisterMatchmaker([FromBody]Helper helper)
+        public Helper RegisterMatchmaker([FromBody] Helper helper)
         {
             return HelperBL.RegisterHelper(helper);
         }

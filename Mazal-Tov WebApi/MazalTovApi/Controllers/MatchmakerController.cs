@@ -6,20 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-namespace Mazal_Tov.Controllers
+
+namespace MazalTovApi.Controllers
 {
     [RoutePrefix("api/Matchmaker")]
     public class MatchmakerController : ApiController
     {
-
-        // POST: api/User
         [HttpPost]
         [Route("RegisterMatchmaker")]
         [AllowAnonymous]
-        public Matchmaker RegisterMatchmaker([FromBody]Matchmaker value)
+        public Matchmaker RegisterMatchmaker([FromBody] Matchmaker value)
         {
             return MatchmakerBL.RegisterMatchmaker(value);
         }
-        
     }
 }

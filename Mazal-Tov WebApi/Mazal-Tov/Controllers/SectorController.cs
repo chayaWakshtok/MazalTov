@@ -19,7 +19,7 @@ namespace Mazal_Tov.Controllers
         public List<Sector> Getsector()
         {
 
-            return UserBL.GetSector();
+            return SectorBL.GetSector();
         }
     }
 }

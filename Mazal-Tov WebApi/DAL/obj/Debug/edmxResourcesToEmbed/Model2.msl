@@ -29,6 +29,7 @@
     <EntitySetMapping Name="candidates">
       <EntityTypeMapping TypeName="MazalTovModel1.candidate">
         <MappingFragment StoreEntitySet="candidate">
+          <ScalarProperty Name="IsPay" ColumnName="IsPay" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BornDate" ColumnName="BornDate" />
           <ScalarProperty Name="Status" ColumnName="Status" />

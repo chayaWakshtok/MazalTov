@@ -79,6 +79,7 @@
     <NavigationProperty Name="matchings1" Relationship="Self.FK_256" FromRole="candidate" ToRole="matching" />
     <NavigationProperty Name="matchmaker" Relationship="Self.MatchmarkerId" FromRole="candidate" ToRole="matchmaker" />
     <NavigationProperty Name="user" Relationship="MazalTovModel1.FK_142" FromRole="candidate" ToRole="user" />
+    <Property Name="IsPay" Type="Boolean" />
   </EntityType>
   <EntityType Name="candidateComment">
     <Key>

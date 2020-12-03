@@ -21,9 +21,12 @@ namespace BL
                 var roleDto= Converters.Convert(role);
                 candidate.User.Roles.Add(roleDto);
                 var user = UserBL.Register(candidate.User);
-                candidate.Id = user.Id;
+                candidate.UserId = user.Id;
+                candidate.CreateDate = DateTime.Now;
+                candidate.UpdateDate = DateTime.Now;
                 var candidateDB = Converters.Convert(candidate);
                 var candidateInter = db.candidates.Add(candidateDB);
+                
                 db.SaveChanges();
                 return Converters.Convert(candidateInter);
             }

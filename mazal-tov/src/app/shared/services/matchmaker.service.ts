@@ -19,7 +19,7 @@ import { Matchmaker } from 'src/app/classes/matchmaker';
   
       
       registerMatchmaker(model: Matchmaker): Observable<Matchmaker> {
-        return this.httpClient.post<Matchmaker>(URL + "RegisterMatchmaker", model)
+        return this.httpClient.post<Matchmaker>(environment.apiUrl  + "api/RegisterMatchmaker", model)
       }
       
     }

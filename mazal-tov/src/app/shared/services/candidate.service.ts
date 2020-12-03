@@ -6,18 +6,19 @@ import { Candidate } from 'src/app/classes/candidate';
 import { City } from 'src/app/classes/city';
 import { Helper } from 'src/app/classes/helper';
 import { Matchmaker } from 'src/app/classes/matchmaker';
- 
+import { environment } from 'src/environments/environment';
 
+const url = environment.apiUrl + "api/Candidate/"
 @Injectable({
-    providedIn: 'root'
-  })
-  export class CandidateService {
+  providedIn: 'root'
+})
+export class CandidateService {
 
-    constructor(public httpClient: HttpClient, private router: Router,) { }
+  constructor(public httpClient: HttpClient, private router: Router,) { }
 
-    
-    registerCandidate(model: Candidate): Observable<Candidate> {
-        return this.httpClient.post<Candidate>(URL + "RegisterCandidate", model)
-      }
-    
+
+  registerCandidate(model: Candidate): Observable<Candidate> {
+    return this.httpClient.post<Candidate>(url + "RegisterCandidate", model)
   }
+
+}

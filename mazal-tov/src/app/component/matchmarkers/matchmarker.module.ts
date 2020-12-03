@@ -5,14 +5,11 @@ import { SecretaryHomeComponent } from '../secretary/secretary-home/secretary-ho
 import { AddWorkerComponent } from '../workers/add-worker/add-worker.component';
 import { WorkerHomeComponent } from '../workers/worker-home/worker-home.component';
 import { MatchmarkerHomeComponent } from './matchmarker-home/matchmarker-home.component';
-import { MuamadRegisterComponent } from '../users/muamad-register/muamad-register.component';
 import { UserComponent } from '../users/user/user.component';
 import { FormsModule } from '@angular/forms';
 import { WorkerModule } from '../workers/worker.module';
 import { MatchMarkerRoutingModule } from './matchmarker.routing.module';
 import { MatchmarkerRegisterComponent } from './matchmarker-register/matchmarker-register.component';
-
-
 
 @NgModule({
   declarations: [

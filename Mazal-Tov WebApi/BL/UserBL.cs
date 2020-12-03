@@ -49,6 +49,9 @@ namespace BL
                 user.PasswordHash = passwordHash;
                 user.PasswordSalt = passwordSalt;
                 var userDB = Converters.Convert(user);
+                var role = db.roles.Find(userDB.roles.FirstOrDefault().Id);
+                userDB.roles = new List<DAL.role>();
+                userDB.roles.Add(role);
                 var userInter=db.users.Add(userDB);
                 db.SaveChanges();
                 return Converters.Convert(userInter);

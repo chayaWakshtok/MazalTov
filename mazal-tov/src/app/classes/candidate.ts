@@ -1,3 +1,4 @@
+import { Married } from './married';
 import { User } from './user';
 
 export class Candidate {
@@ -9,6 +10,7 @@ export class Candidate {
   address: string;
   medicalProblem: string;
   nameFather: string;
+  nameMother:string;
   familyMother: string;
   numChildren: number;
   numMarried: number;
@@ -37,6 +39,6 @@ export class Candidate {
   chasidutMother: number
   chasidutFather: number;
   user: User = new User();
-
-
+  isPay: boolean = false;
+  marrieds: Married[] = [];
 }

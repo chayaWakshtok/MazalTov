@@ -16,6 +16,7 @@ namespace DTO
         public string Address { get; set; }
         public string MedicalProblem { get; set; }
         public string NameFather { get; set; }
+        public string NameMother { get; set; }
         public string FamilyMother { get; set; }
         public int NumChildren { get; set; }
         public int NumMarried { get; set; }
@@ -44,6 +45,10 @@ namespace DTO
         public int ChasidutMother { get; set; }
         public int ChasidutFather { get; set; }
         public User User { get; set; }
+        public Nullable<bool> IsPay { get; set; }
+
+        public  List<Married> Marrieds { get; set; }
+
 
 
     }

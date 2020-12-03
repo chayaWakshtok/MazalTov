@@ -63,6 +63,7 @@
     <Property Name="ChasidutId" Type="int" />
     <Property Name="ChasidutMother" Type="int" />
     <Property Name="ChasidutFather" Type="int" />
+    <Property Name="IsPay" Type="bit" />
   </EntityType>
   <EntityType Name="candidateComment">
     <Key>

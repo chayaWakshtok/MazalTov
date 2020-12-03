@@ -1,8 +1,3 @@
-<p>muamad-register works!</p>
-
-<p>shadchanit-register works!</p>
-
-
 <div class="jumbotron">
     <div class="container">
         <div class="row">
@@ -64,53 +59,52 @@
 
                     <div class="form-group">
                         <label for="Address">כתובת </label>
-                        <input type="number" class="form-control" name="Address" [(ngModel)]="model.address" />
+                        <input type="text" class="form-control" name="Address" [(ngModel)]="model.address" />
 
                     </div>
                     <div class="form-group">
                         <label for="Address">עיר </label>
-                        <select (change)="onChange($event.target.value)">
-                            <option *ngFor="let i of cities"> {{i.name}} </option>
+                        <select [(ngModel)]="model.cityId" name="city">
+                            <option *ngFor="let i of cities" [value]="i.id"> {{i.name}} </option>
                         </select>
 
                     </div>
                     <div class="form-group">
                         <label for="sector">מגזר </label>
-                        <div *ngFor="let item of sector">
-                            <label>{{item.name}}</label>
-                            <input type="radio" name="sector" (click)="Idsector(item.id)">
-                        </div>
+                        <select [(ngModel)]="model.sectorId" name="sector">
+                            <option *ngFor="let item of sector" [value]="item.id">{{item.name}}</option>
+                        </select>
                     </div>
 
                     <div class="form-group" *ngIf="model.sectorId==1">
                         <label for="chsidut">חסידות </label>
-                        <select (change)="onChangeChasidut($event.target.value)">
-                            <option *ngFor="let i of chasidut"> {{i.name}} </option>
+                        <select  [(ngModel)]="model.chasidutId" name="chasidut">
+                            <option *ngFor="let i of chasidut" [value]="i.id"> {{i.name}} </option>
                         </select>
 
                         <label for="chsidut"> חסידות האב</label>
-                        <select>
-                            <!-- (change)="onChangeChasidutFather($event.target.value)" -->
-                            <option *ngFor="let i of chasidut" [(ngModel)]="model.chasidutFather"> {{i.name}} </option>
+                        <select [(ngModel)]="model.chasidutFather" name="chasidutF">
+                            <option *ngFor="let i of chasidut" [value]="i.id"> {{i.name}} </option>
                         </select>
 
                         <label for="chsidut">חסידות האם</label>
-                        <select (change)="onChangeChasidutMather($event.target.value)">
-                            <option *ngFor="let i of chasidut"> {{i.name}} </option>
+                        <select [(ngModel)]="model.chasidutMother" name="chasidutM">
+                            <option *ngFor="let i of chasidut" [value]="i.id"> {{i.name}} </option>
                         </select>
-
 
                     </div>
                     <div class="form-group">
                         <label for="MedicalProblem">בעיה רפואית </label>
                         <input type="text" class="form-control" name="MedicalProblem"
                             [(ngModel)]="model.medicalProblem" />
-
                     </div>
                     <div class="form-group">
                         <label for="NameFather"> שם האב </label>
                         <input type="text" class="form-control" name="NameFather" [(ngModel)]="model.nameFather" />
-
+                    </div>
+                    <div class="form-group">
+                        <label for="NameFather"> שם האם </label>
+                        <input type="text" class="form-control" name="NameFather" [(ngModel)]="model.nameMother" />
                     </div>
                     <div class="form-group">
                         <label for="FamilyMother">משפחת האם</label>
@@ -124,9 +118,12 @@
                     </div>
                     <div class="form-group">
                         <label for="NumMarried">כמה ילדים נשואים</label>
-                        <input type="number" class="form-control" name="NumMarried" [(ngModel)]="model.numMarried" />
-
+                        <input type="number" class="form-control" name="NumMarried" (input)="changeNumMarried()"
+                            [(ngModel)]="model.numMarried" />
                     </div>
+                    <ng-container *ngFor="let law of model.marrieds;let index=index">
+                        <app-law [index]="index" [married]="law"></app-law>
+                    </ng-container>
                     <div class="form-group">
                         <label for="NumMatching">ילדים בשידוכים</label>
                         <input type="number" class="form-control" name="NumMatching" [(ngModel)]="model.numMatching" />
@@ -161,7 +158,7 @@
                     </div>
                     <div class="form-group">
                         <label for="Clothes"> לבוש </label>
-                        <input type="checkbox" class="form-control" name="Clothes" [(ngModel)]="model.clothes" />
+                        <!-- <input type="checkbox" class="form-control" name="Clothes" [(ngModel)]="model.clothes" /> -->
 
                     </div>
                     <div class="form-group">
@@ -187,11 +184,15 @@
                     <div class="form-group">
                         <label for="Remark">הערה </label>
                         <input type="text" class="form-control" name="Remark" [(ngModel)]="model.remark" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Remark">סכום התחיבות </label>
+                        <input type="number" class="form-control" name="SumPay" [(ngModel)]="model.sumPay" />
 
                     </div>
                     <div class="form-group">
                         <label for="SumPay">שולם כסף?</label>
-                        <input type="checkbox" class="form-control" name="SumPay" [(ngModel)]="model.sumPay" />
+                        <input type="checkbox" class="form-control" name="SumPay" [(ngModel)]="model.isPay" />
 
                     </div>
 

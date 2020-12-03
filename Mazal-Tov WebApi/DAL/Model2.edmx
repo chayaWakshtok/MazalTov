@@ -68,6 +68,7 @@
           <Property Name="ChasidutId" Type="int" />
           <Property Name="ChasidutMother" Type="int" />
           <Property Name="ChasidutFather" Type="int" />
+          <Property Name="IsPay" Type="bit" />
         </EntityType>
         <EntityType Name="candidateComment">
           <Key>
@@ -1123,6 +1124,7 @@
           <NavigationProperty Name="matchings1" Relationship="Self.FK_256" FromRole="candidate" ToRole="matching" />
           <NavigationProperty Name="matchmaker" Relationship="Self.MatchmarkerId" FromRole="candidate" ToRole="matchmaker" />
           <NavigationProperty Name="user" Relationship="MazalTovModel1.FK_142" FromRole="candidate" ToRole="user" />
+          <Property Name="IsPay" Type="Boolean" />
         </EntityType>
         <EntityType Name="candidateComment">
           <Key>
@@ -2160,6 +2162,7 @@
           <EntitySetMapping Name="candidates">
             <EntityTypeMapping TypeName="MazalTovModel1.candidate">
               <MappingFragment StoreEntitySet="candidate">
+                <ScalarProperty Name="IsPay" ColumnName="IsPay" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BornDate" ColumnName="BornDate" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

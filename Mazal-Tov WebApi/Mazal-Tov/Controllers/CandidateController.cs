@@ -15,13 +15,13 @@ namespace Mazal_Tov.Controllers
 
         //POST: api/Candidate
 
-        [HttpPost]
-       [Route("RegisterCandidate")]
-       [AllowAnonymous]
-        //public Candidate RegisterCandidate([FromBody]Candidate value)
-        //{
-        //      //return CandidateBL.RegisterCandidate(value);
-        //}
+       // [HttpPost]
+       //[Route("RegisterCandidate")]
+       //[AllowAnonymous]
+       // public Candidate RegisterCandidate([FromBody] Candidate value)
+       // {
+       //     return CandidateBL.RegisterCandidate(value);
+       // }
 
     }
 }

@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Mazal_Tov.Controllers
+namespace MazalTovApi.Controllers
 {
     [RoutePrefix("api/City")]
     public class CityController : ApiController
@@ -17,8 +17,8 @@ namespace Mazal_Tov.Controllers
         [AllowAnonymous]
         public List<City> Getcity()
         {
-
             return CityBL.GetCity();
         }
+
     }
 }

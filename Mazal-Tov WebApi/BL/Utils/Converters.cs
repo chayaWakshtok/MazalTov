@@ -21,6 +21,7 @@ namespace BL.Utils
               cfg.CreateMap<DAL.candidate, DTO.Candidate>();
               cfg.CreateMap<DTO.Candidate, DAL.candidate>();
 
+
               cfg.CreateMap<DAL.candidateComment, DTO.CandidateComment>();
               cfg.CreateMap<DTO.CandidateComment, DAL.candidateComment>();
 
@@ -99,6 +100,16 @@ namespace BL.Utils
         public static DAL.askPermssion Convert(DTO.AskPermssion dto)
         {
             return _mapper.Map<DAL.askPermssion>(dto);
+        }
+
+        public static DTO.Candidate Convert(DAL.candidate dal)
+        {
+            return _mapper.Map<DTO.Candidate>(dal);
+        }
+
+        public static DAL.candidate Convert(DTO.Candidate dto)
+        {
+            return _mapper.Map<DAL.candidate>(dto);
         }
 
         public static List< DAL.askPermssion> Convert(List< DTO.AskPermssion> dto)

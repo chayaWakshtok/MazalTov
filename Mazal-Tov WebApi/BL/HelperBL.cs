@@ -16,7 +16,9 @@ namespace BL
         {
             try
             {
-
+                var role = db.roles.First(p => p.Name == "Worker");
+                var roleDto = Converters.Convert(role);
+                helper.Worker.User.Roles.Add(roleDto);
                 var user = UserBL.Register(helper.Worker.User);
                 helper.Id = user.Id;
                 var helperDB = Converters.Convert(helper);

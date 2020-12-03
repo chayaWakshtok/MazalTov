@@ -43,7 +43,7 @@ const routes: Routes = [
   {
     path: "secretary",
     loadChildren: () => SecretaryRoutingModule,
-  }
+  },
 ];
 
 @NgModule({

@@ -16,7 +16,9 @@ namespace BL
         {
             try
             {
-
+                var role = db.roles.First(p => p.Name == "MatchMarker");
+                var roleDto = Converters.Convert(role);
+                matchmaker.User.Roles.Add(roleDto);
                 var user = UserBL.Register(matchmaker.User);
                 matchmaker.Id = user.Id;
                 var matchmakerDB = Converters.Convert(matchmaker);

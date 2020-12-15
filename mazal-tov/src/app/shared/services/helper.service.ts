@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { City } from 'src/app/classes/city';
 import { Helper } from 'src/app/classes/helper';
+import { MatchingHelper } from 'src/app/classes/matchingHelper';
  
 
 @Injectable({
@@ -18,7 +19,14 @@ import { Helper } from 'src/app/classes/helper';
   registerHelper(model: Helper): Observable<Helper> {
     return this.httpClient.post<Helper>(environment.apiUrl + "api/Helper/RegisterHelper", model)
   }
-    
+
+
+  getAllMatchingHelper(id:number): Observable<MatchingHelper[]> {
+    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/AllMatchingHelper/AllGetMatchingHelper/"+id);
+  }
+  getMatchingHelper(id:number): Observable<MatchingHelper[]> {
+    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/MatchingHelper/GetMatchingHelper/"+id);
+  }
   }
 
  

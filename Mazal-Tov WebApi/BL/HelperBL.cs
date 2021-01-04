@@ -32,5 +32,19 @@ namespace BL
             }
 
         }
+        public static List<DTO.MatchingHelper> GetAllMatching(int userId)
+        {
+           
+                List<MatchingHelper> listMatchingHelper = new List<MatchingHelper>();
+                var e = db.helpers.Where(m => m.worker.user.Id == userId);
+
+                //foreach (var item in e)
+                //{
+                //    if (item.IsDelete == true)
+                //    listMatchingHelper.Add(MatchingHelper.CourseConvertDTO(item));
+                //}
+                return listMatchingHelper;
+            }
+        
     }
 }

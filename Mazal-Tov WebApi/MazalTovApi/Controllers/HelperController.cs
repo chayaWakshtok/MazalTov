@@ -19,5 +19,15 @@ namespace MazalTovApi.Controllers
         {
             return HelperBL.RegisterHelper(helper);
         }
+
+        [HttpGet]
+        [Route("GetMatchingHelper/{helperId}")]
+  
+        public List<DTO.MatchingHelper> GetAllMatchingHelper(int helperId)
+        {
+            return HelperBL.GetAllMatching(helperId);
+        }
+
+
     }
 }

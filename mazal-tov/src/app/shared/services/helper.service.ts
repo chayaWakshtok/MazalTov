@@ -22,10 +22,10 @@ import { MatchingHelper } from 'src/app/classes/matchingHelper';
 
 
   getAllMatchingHelper(id:number): Observable<MatchingHelper[]> {
-    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/AllMatchingHelper/AllGetMatchingHelper/"+id);
+    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/Helper/AllGetMatchingHelper/"+id);
   }
   getMatchingHelper(id:number): Observable<MatchingHelper[]> {
-    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/MatchingHelper/GetMatchingHelper/"+id);
+    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/Helper/GetMatchingHelper/"+id);
   }
   }
 

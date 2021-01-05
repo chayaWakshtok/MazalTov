@@ -13,12 +13,13 @@ namespace Mazal_Tov.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
+        //[Authorize(Roles = "Manager")]
         [Authorize]
         [Route("GetInfo")]
         public User GetInfo()
         {
             var identity = (ClaimsIdentity)User.Identity;
-            return BL.UserBL.GetInfoByUserName(identity.Name);
+            return BL.UserBL.GetInfoById(identity.Name);
         }
 
 

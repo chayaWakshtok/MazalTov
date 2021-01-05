@@ -340,3 +340,5 @@ ASALocalRun/
 healthchecksdb
 Mazal-Tov WebApi/.vs/Mazal-Tov/v16/.suo
 Mazal-Tov WebApi/Mazal-Tov/obj/Debug/Mazal-Tov.csprojAssemblyReference.cache
+Mazal-Tov WebApi/DAL/obj/Debug/DAL.pdb
+*.pdb

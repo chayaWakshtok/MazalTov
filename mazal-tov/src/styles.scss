@@ -25,3 +25,20 @@ button {
     border: none;
     margin: 10px;
 }
+.form-input {
+    form {
+        margin: auto;
+        padding-top: 5vh;
+        padding-right: 8vw;
+    }
+    label {
+        display: block;
+        margin: 0px;
+    }
+    input {
+        border: 2px solid #000000;
+        margin-bottom: 3vh;
+        width: 20vw;
+        height: 40px;
+    }
+}

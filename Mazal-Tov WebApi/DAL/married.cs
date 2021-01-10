@@ -22,7 +22,7 @@ namespace DAL
         public int CandidateId { get; set; }
         public int CityId { get; set; }
     
-        public virtual candidate candidate { get; set; }
         public virtual city city { get; set; }
+        public virtual candidate candidate { get; set; }
     }
 }

@@ -13,19 +13,16 @@ import { MatchingHelper } from 'src/app/classes/matchingHelper';
   })
   export class HelperService {
 
-    constructor(public httpClient: HttpClient, private router: Router,) { }
-
-    
+  constructor(public httpClient: HttpClient, private router: Router,) { }
+ 
   registerHelper(model: Helper): Observable<Helper> {
     return this.httpClient.post<Helper>(environment.apiUrl + "api/Helper/RegisterHelper", model)
-  }
-
-
-  getAllMatchingHelper(id:number): Observable<MatchingHelper[]> {
-    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/Helper/AllGetMatchingHelper/"+id);
-  }
+  } 
+  // getAllMatchingHelper(id:number): Observable<MatchingHelper[]> {
+  //   return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/Helper/AllGetMatchingHelper/"+id);
+  // }
   getMatchingHelper(id:number): Observable<MatchingHelper[]> {
-    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl + "api/Helper/GetMatchingHelper/"+id);
+    return this.httpClient.get<MatchingHelper[]>(environment.apiUrl +"api/Helper/GetMatchingHelper/"+id);
   }
   }
 

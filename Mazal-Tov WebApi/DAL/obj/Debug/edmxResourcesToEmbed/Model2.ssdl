@@ -63,7 +63,6 @@
     <Property Name="ChasidutId" Type="int" />
     <Property Name="ChasidutMother" Type="int" />
     <Property Name="ChasidutFather" Type="int" />
-    <Property Name="IsPay" Type="bit" />
   </EntityType>
   <EntityType Name="candidateComment">
     <Key>
@@ -308,7 +307,7 @@
     <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
-    <Property Name="Tz" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Tz" Type="nvarchar" MaxLength="10" />
     <Property Name="PasswordSalt" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="userRole">

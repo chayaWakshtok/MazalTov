@@ -53,18 +53,18 @@ namespace DAL
         public int UserId { get; set; }
         public int CityId { get; set; }
         public int IsOk { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime UpdateDate { get; set; }
         public Nullable<int> SumPay { get; set; }
         public Nullable<int> MatchmarkerId { get; set; }
         public int SectorId { get; set; }
         public Nullable<int> ChasidutId { get; set; }
         public Nullable<int> ChasidutMother { get; set; }
         public Nullable<int> ChasidutFather { get; set; }
-        public Nullable<bool> IsPay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<image> images { get; set; }
+        public virtual user user { get; set; }
         public virtual city city { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<married> marrieds { get; set; }
@@ -81,6 +81,5 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matching> matchings1 { get; set; }
         public virtual matchmaker matchmaker { get; set; }
-        public virtual user user { get; set; }
     }
 }

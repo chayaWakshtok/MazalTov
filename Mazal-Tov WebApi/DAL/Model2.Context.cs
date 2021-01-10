@@ -27,7 +27,6 @@ namespace DAL
     
         public virtual DbSet<askPermssion> askPermssions { get; set; }
         public virtual DbSet<bank> banks { get; set; }
-        public virtual DbSet<candidate> candidates { get; set; }
         public virtual DbSet<candidateComment> candidateComments { get; set; }
         public virtual DbSet<chasidut> chasiduts { get; set; }
         public virtual DbSet<city> cities { get; set; }
@@ -51,5 +50,6 @@ namespace DAL
         public virtual DbSet<workerAction> workerActions { get; set; }
         public virtual DbSet<matchingComment> matchingComments { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<candidate> candidates { get; set; }
     }
 }

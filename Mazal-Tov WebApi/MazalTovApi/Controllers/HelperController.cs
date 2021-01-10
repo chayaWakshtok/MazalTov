@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace MazalTovApi.Controllers
@@ -21,11 +22,13 @@ namespace MazalTovApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetMatchingHelper/{helperId}")]
+        [Authorize(Roles = "Worker")]
+        [Route("GetMatchingHelper")]
   
-        public List<DTO.MatchingHelper> GetAllMatchingHelper(int helperId)
+        public List<DTO.MatchingHelper> GetAllMatchingHelper()
         {
-            return HelperBL.GetAllMatching(helperId);
+            var identity = (ClaimsIdentity)User.Identity;
+            return HelperBL.GetAllMatching(int.Parse( identity.Name));
         }
 
 

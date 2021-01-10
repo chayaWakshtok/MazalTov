@@ -41,6 +41,20 @@ namespace BL
             }
         }
 
+        public static DTO.User GetInfoById(string id)
+        {
+            var intId = int.Parse(id);
+            var user = db.users.FirstOrDefault(p => p.Id == intId);
+            if (user == null)
+            {
+                return null;
+            }
+            else
+            {
+                return Utils.Converters.Convert(user);
+            }
+        }
+
         public static User Register(User user)
         {
             try

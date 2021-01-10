@@ -27,7 +27,7 @@ namespace Mazal_Tov.App_Start
             if (userdata != null)
             {
                 identity.AddClaim(new Claim(ClaimTypes.Role, string.Join(",", userdata.Roles.Select(p => p.Name))));
-                identity.AddClaim(new Claim(ClaimTypes.Name, userdata.Username));
+                identity.AddClaim(new Claim(ClaimTypes.Name, userdata.Id.ToString()));
                 //roles example
                 var rolesTechnicalNamesUser = new List<string>();
 

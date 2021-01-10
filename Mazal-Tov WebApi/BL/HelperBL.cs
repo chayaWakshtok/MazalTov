@@ -22,7 +22,7 @@ namespace BL
                 var roleDto = Converters.Convert(role);
                 helper.Worker.User.Roles.Add(roleDto);
                 var user = UserBL.Register(helper.Worker.User);
-                helper.Id = user.Id;
+                helper.Worker.UserId = user.Id;
                 var helperDB = Converters.Convert(helper);
                 var helperInter = db.helpers.Add(helperDB);
                 db.SaveChanges();

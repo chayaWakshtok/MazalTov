@@ -30,6 +30,5 @@ export class HomeComponent implements OnInit {
       else if (this.user.roles.findIndex(p => p.name == RoleEnum.Secretary) >= 0)
         this.router.navigate(["secretary"]);
     }
-
   }
 }

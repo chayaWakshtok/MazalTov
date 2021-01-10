@@ -1,0 +1,43 @@
+@import "../../../../assets/variables.scss";
+
+#header-top {
+    height: 120px;
+    background-color: $black;
+}
+#sub-header {
+    height: 59px;
+    background: transparent
+        linear-gradient(
+            90deg,
+            #876427 0%,
+            #9c7f43 4%,
+            #baa36a 10%,
+            #d2c18a 17%,
+            #e5d9a3 24%,
+            #f2e9b5 31%,
+            #faf3bf 39%,
+            #fdf7c3 48%,
+            #faf3bf 57%,
+            #f1e8b4 65%,
+            #e1d5a1 73%,
+            #ccbb87 81%,
+            #b19965 88%,
+            #90703c 96%,
+            #7b5622 100%
+        )
+        0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+a {
+    color: $black !important;
+    cursor: pointer;
+}
+#links {
+    padding: 20px;
+    text-align: left;
+    margin-left: 10vw;
+}
+img {
+    height: 120px;
+    margin-right: 10vw;
+}

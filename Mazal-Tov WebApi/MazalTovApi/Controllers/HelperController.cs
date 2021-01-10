@@ -22,7 +22,7 @@ namespace MazalTovApi.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Worker")]
+        [Authorize(Roles = "Worker,Admin")]
         [Route("GetMatchingHelper")]
   
         public List<DTO.MatchingHelper> GetAllMatchingHelper()

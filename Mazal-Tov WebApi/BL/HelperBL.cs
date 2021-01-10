@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+ 
+
 
 namespace BL
 {
@@ -34,17 +36,20 @@ namespace BL
         }
         public static List<DTO.MatchingHelper> GetAllMatching(int userId)
         {
-           
-                List<MatchingHelper> listMatchingHelper = new List<MatchingHelper>();
-                var e = db.helpers.Where(m => m.worker.user.Id == userId);
+            List<MatchingHelper> listMatchingHelper = new List<MatchingHelper>();
+            var e = db.users.First(m => m.Id == userId);
+            //var e = db.workers.First(m => m.UserId == userId);
+          var e1 = Converters.Convert(e);
+              //Where(db.matchingHelpers.Where(m => m.Id = e.Id));
 
-                //foreach (var item in e)
-                //{
-                //    if (item.IsDelete == true)
-                //    listMatchingHelper.Add(MatchingHelper.CourseConvertDTO(item));
-                //}
-                return listMatchingHelper;
-            }
-        
+            //var s = db.matchingHelpers.Where(m => m.HelperId == e.Id)
+            //foreach (var item in e)
+            //{
+
+            //    listMatchingHelper.Add(c);
+            //}
+            return listMatchingHelper;
+        }
+    } 
     }
-}
+ 

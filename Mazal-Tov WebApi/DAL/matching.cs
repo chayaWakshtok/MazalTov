@@ -38,8 +38,6 @@ namespace DAL
         public int CandidateFemaleId { get; set; }
         public int MatchmarkerId { get; set; }
     
-        public virtual candidate candidate { get; set; }
-        public virtual candidate candidate1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<endMatching> endMatchings { get; set; }
         public virtual matchmaker matchmaker { get; set; }
@@ -49,5 +47,7 @@ namespace DAL
         public virtual ICollection<matchingHelper> matchingHelpers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matchingComment> matchingComments { get; set; }
+        public virtual candidate candidate { get; set; }
+        public virtual candidate candidate1 { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace DAL
         public int WriteUserId { get; set; }
         public int CandidateId { get; set; }
     
-        public virtual candidate candidate { get; set; }
         public virtual user user { get; set; }
+        public virtual candidate candidate { get; set; }
     }
 }

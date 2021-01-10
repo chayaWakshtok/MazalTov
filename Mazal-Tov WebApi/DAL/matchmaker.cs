@@ -17,9 +17,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public matchmaker()
         {
-            this.candidates = new HashSet<candidate>();
             this.matchings = new HashSet<matching>();
             this.matchingHelpers = new HashSet<matchingHelper>();
+            this.candidates = new HashSet<candidate>();
         }
     
         public int Id { get; set; }
@@ -36,8 +36,6 @@ namespace DAL
         public int SectorId { get; set; }
         public int WorkerId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<candidate> candidates { get; set; }
         public virtual city city { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matching> matchings { get; set; }
@@ -45,5 +43,7 @@ namespace DAL
         public virtual ICollection<matchingHelper> matchingHelpers { get; set; }
         public virtual sector sector { get; set; }
         public virtual worker worker { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<candidate> candidates { get; set; }
     }
 }

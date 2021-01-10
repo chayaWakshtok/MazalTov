@@ -26,49 +26,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="candidates">
-      <EntityTypeMapping TypeName="MazalTovModel1.candidate">
-        <MappingFragment StoreEntitySet="candidate">
-          <ScalarProperty Name="IsPay" ColumnName="IsPay" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
-          <ScalarProperty Name="NameFather" ColumnName="NameFather" />
-          <ScalarProperty Name="NameMother" ColumnName="NameMother" />
-          <ScalarProperty Name="FamilyMother" ColumnName="FamilyMother" />
-          <ScalarProperty Name="NumChildren" ColumnName="NumChildren" />
-          <ScalarProperty Name="NumMarried" ColumnName="NumMarried" />
-          <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
-          <ScalarProperty Name="FatherWork" ColumnName="FatherWork" />
-          <ScalarProperty Name="MotherWork" ColumnName="MotherWork" />
-          <ScalarProperty Name="CandidateWork" ColumnName="CandidateWork" />
-          <ScalarProperty Name="LastPlaceLearn" ColumnName="LastPlaceLearn" />
-          <ScalarProperty Name="Show" ColumnName="Show" />
-          <ScalarProperty Name="Clothes" ColumnName="Clothes" />
-          <ScalarProperty Name="Tell" ColumnName="Tell" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Fax" ColumnName="Fax" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="EnterBy" ColumnName="EnterBy" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-          <ScalarProperty Name="IsOk" ColumnName="IsOk" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-          <ScalarProperty Name="SumPay" ColumnName="SumPay" />
-          <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
-          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
-          <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
-          <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
-          <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="candidateComments">
       <EntityTypeMapping TypeName="MazalTovModel1.candidateComment">
         <MappingFragment StoreEntitySet="candidateComment">
@@ -377,5 +334,47 @@
         <ScalarProperty Name="Id" ColumnName="roleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="candidates">
+      <EntityTypeMapping TypeName="MazalTovModel1.candidate">
+        <MappingFragment StoreEntitySet="candidate">
+          <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
+          <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
+          <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+          <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
+          <ScalarProperty Name="SumPay" ColumnName="SumPay" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EnterBy" ColumnName="EnterBy" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
+          <ScalarProperty Name="Clothes" ColumnName="Clothes" />
+          <ScalarProperty Name="Show" ColumnName="Show" />
+          <ScalarProperty Name="LastPlaceLearn" ColumnName="LastPlaceLearn" />
+          <ScalarProperty Name="CandidateWork" ColumnName="CandidateWork" />
+          <ScalarProperty Name="MotherWork" ColumnName="MotherWork" />
+          <ScalarProperty Name="FatherWork" ColumnName="FatherWork" />
+          <ScalarProperty Name="NumMatching" ColumnName="NumMatching" />
+          <ScalarProperty Name="NumMarried" ColumnName="NumMarried" />
+          <ScalarProperty Name="NumChildren" ColumnName="NumChildren" />
+          <ScalarProperty Name="FamilyMother" ColumnName="FamilyMother" />
+          <ScalarProperty Name="NameMother" ColumnName="NameMother" />
+          <ScalarProperty Name="NameFather" ColumnName="NameFather" />
+          <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

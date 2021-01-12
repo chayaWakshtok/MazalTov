@@ -21,16 +21,25 @@ namespace MazalTovApi.Controllers
             return HelperBL.RegisterHelper(helper);
         }
 
-        [HttpGet]
-        [Authorize(Roles = "Worker")]
-        [Route("GetMatchingHelper")]
+        //[HttpGet]
+        //[Authorize(Roles = "Worker")]
+        //[Route("GetMatchingHelper")]
   
-        public List<DTO.MatchingHelper> GetAllMatchingHelper()
-        {
-            var identity = (ClaimsIdentity)User.Identity;
-            return HelperBL.GetAllMatching(int.Parse( identity.Name));
-        }
+        //public List<DTO.MatchingHelper> GetAllMatchingHelper()
+        //{
+        //    var identity = (ClaimsIdentity)User.Identity;
+        //    return HelperBL.GetAllMatching(int.Parse( identity.Name));
+        //}
 
+        [HttpGet]
+       
+        [Route("GetMatchingHelper/{id}")]
+
+        public List<DTO.MatchingHelper> GetAllMatchingHelper( int id)
+        {
+             
+            return HelperBL.GetAllMatching(id);
+        }
 
     }
 }

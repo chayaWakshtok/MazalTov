@@ -37,19 +37,40 @@ namespace BL
         public static List<DTO.MatchingHelper> GetAllMatching(int userId)
         {
             List<MatchingHelper> listMatchingHelper = new List<MatchingHelper>();
-            var e = db.users.First(m => m.Id == userId);
-            //var e = db.workers.First(m => m.UserId == userId);
-          var e1 = Converters.Convert(e);
-              //Where(db.matchingHelpers.Where(m => m.Id = e.Id));
+ 
+            var helper = db.helpers.First(m => m.worker.UserId == userId);
+            var matchinghelper = db.matchingHelpers.Where(m => m.HelperId == helper.Id);
+            
 
-            //var s = db.matchingHelpers.Where(m => m.HelperId == e.Id)
-            //foreach (var item in e)
-            //{
 
-            //    listMatchingHelper.Add(c);
-            //}
+            foreach (var item in matchinghelper)
+            {
+                var matchinghelperconvert = Converters.Convert(item);
+                listMatchingHelper.Add(matchinghelperconvert);
+            }
             return listMatchingHelper;
         }
+
+
+        public static List<DTO.MatchingHelper> GetImportentMatching(int userId)
+        {
+            List<MatchingHelper> listImportentMatchingHelper = new List<MatchingHelper>();
+
+            var helper = db.helpers.First(m => m.worker.UserId == userId);
+            var matchinghelper = db.matchingHelpers.Where(m => m.HelperId == helper.Id);
+
+
+
+            foreach (var item in matchinghelper)
+            {
+                var matchinghelperconvert = Converters.Convert(item);
+                listImportentMatchingHelper.Add(matchinghelperconvert);
+            }
+        listImportentMatchingHelper.Sort((x, y) => y.UpdateDate.CompareTo(x.UpdateDate));
+
+            return listImportentMatchingHelper;
+        }
+
     } 
     }
  

@@ -1,4 +1,4 @@
-<p>login works!</p>
+<!-- <p>login works!</p>
 
 <div class="container">
   <div class="row">
@@ -27,5 +27,27 @@
         </form>
       </div>
     </div>
+  </div>
+</div> -->
+
+<div id="login">
+  <div id="login-form">
+    <form>
+      <div class="form-input">
+        <label for="Username">שם משתמש</label>
+        <input type="text" [(ngModel)]="user.username" name="username" id="Username" required>
+      </div>
+      <div class="form-input">
+        <label for="pass">סיסמה</label>
+        <input type="password" [(ngModel)]="user.password" name="password" id="pass" required>
+      </div>
+      <div>
+        <input class="red-button" id="submit" (click)="validlogin()" type="submit" value="כניסה">
+      </div>
+      <div id="links">
+        <a>משתמש חדש</a>
+        <a style="padding-right: 50px;">שכחתי סיסמה</a>
+      </div>
+    </form>
   </div>
 </div>

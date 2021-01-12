@@ -1,4 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+p,
+a,
+div {
+    // font-family: "Varela Round", sans-serif;
+    font-family: "Segoe UI";
+}
+a,
+button {
+    cursor: pointer;
+}
+@font-face {
+    font-family: "Segoe UI";
+    src: local("Segoe UI"), url("./assets/fonts/Segoe\ UI.ttf") format("truetype");
+}
+.red-button {
+    background: #750f2f 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin: 10px;
+}
+.form-input {
+    form {
+        margin: auto;
+        padding-top: 5vh;
+        padding-right: 8vw;
+    }
+    label {
+        display: block;
+        margin: 0px;
+    }
+    input {
+        border: 2px solid #000000;
+        margin-bottom: 3vh;
+        width: 20vw;
+        height: 40px;
+    }
+}

@@ -1,0 +1,67 @@
+@import "../../../../assets/variables.scss";
+
+#home {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: 127vw 800px;
+
+    background-image: url("../../../../assets/stock-photo-broken-plate-or-broken-water-glass-and-dishes-on-black-background-concept-of-accidents-in-the-1698003907.png");
+}
+#mazal {
+    height: 400px;
+    display: inline-block;
+    background-color: $black;
+    width: 18vw;
+    color: $white;
+    margin-right: 10vw;
+    text-align: center;
+}
+#img-mazal {
+    float: left;
+    width: 300px;
+    margin-left: 8vw;
+    margin-top: 2vh;
+}
+.circle {
+    background-image: url("../../../../assets/Ellipse\ 1.svg");
+    background-repeat: no-repeat;
+    background-size: 160px 160px;
+    height: 30vh;
+    p {
+        text-align: center;
+        top: 5vh;
+        right: 1.1vw;
+        position: relative;
+        color: #750f2f;
+        font-weight: bold;
+        font-family: "Segoe UI";
+    }
+    .top-p {
+        margin-bottom: 0px;
+        font-size: 40px;
+        font-weight: bold;
+    }
+}
+.row-circle {
+    margin-right: 10vw !important;
+    margin-top: 30px !important;
+}
+#content {
+    padding-top: 5vh;
+    margin-right: 25vw;
+    margin-left: 25vw;
+    text-align: center;
+    color: $white;
+}
+#botton-content {
+    background-color: $black;
+}
+h3,h2{
+    font-weight: bold;
+}
+.red-button
+{
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+

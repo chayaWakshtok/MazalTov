@@ -34,7 +34,16 @@ namespace BL
             {
                 return null;
             }
+        }
 
+        public static List<Candidate> GetAllCandidate()
+        {
+            List<DTO.Candidate> AllCandidate = new List<Candidate>();
+            foreach (var item in db.candidates)
+            {
+                AllCandidate.Add(Converters.Convert(item));
+            }
+            return AllCandidate;
         }
     }
 }

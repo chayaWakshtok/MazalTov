@@ -19,5 +19,44 @@ namespace MazalTovApi.Controllers
         {
             return CandidateBL.RegisterCandidate(value);
         }
+
+        [HttpGet]
+        [Route("GetAllCandidate")]
+        public List<DTO.Candidate> GetAllCandidate()
+        {
+
+            return CandidateBL.GetAllCandidate();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                   
     }
 }

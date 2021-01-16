@@ -2,6 +2,7 @@
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
+@import "./assets/variables.scss";
 
 p,
 a,
@@ -18,7 +19,7 @@ button {
     src: local("Segoe UI"), url("./assets/fonts/Segoe\ UI.ttf") format("truetype");
 }
 .red-button {
-    background: #750f2f 0% 0% no-repeat padding-box;
+    background: $bordo 0% 0% no-repeat padding-box;
     border-radius: 5px;
     color: white;
     padding: 10px;
@@ -36,9 +37,30 @@ button {
         margin: 0px;
     }
     input {
-        border: 2px solid #000000;
+        border: 2px solid $black;
         margin-bottom: 3vh;
         width: 20vw;
         height: 40px;
     }
+}
+.color-bordo {
+    color: $bordo;
+}
+.font-30 {
+    font-size: 30px;
+}
+.weight-600 {
+    font-weight: 600;
+}
+.font-35 {
+    font-size: 35px;
+}
+.bold {
+    font-weight: bold;
+}
+.background-bordo {
+    background-color: $bordo;
+}
+.pointer {
+    cursor: pointer;
 }

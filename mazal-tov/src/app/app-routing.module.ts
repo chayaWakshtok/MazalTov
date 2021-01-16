@@ -13,6 +13,7 @@ import { WorkerModule } from './component/workers/worker.module';
 import { AuthGuard } from './shared/auth/auth.guard';
 import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';
+import { RegisterComponent } from './shared/components/register/register.component';
 
 const routes: Routes = [
  {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "register",
+    component: RegisterComponent
   },
   {
     path: "admin",

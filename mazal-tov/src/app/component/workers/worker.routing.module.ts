@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RoleEnum } from 'src/app/classes/role';
 import { AuthGuard } from 'src/app/shared/auth/auth.guard';
+import { AddWorkerComponent } from './add-worker/add-worker.component';
 import { WorkerHomeComponent } from './worker-home/worker-home.component';
 
 const routes: Routes = [
@@ -12,6 +13,10 @@ const routes: Routes = [
         data: {
             role: RoleEnum.User
         }
+    },
+    {
+        path: "new",
+        component: AddWorkerComponent,
     }
 ];
 

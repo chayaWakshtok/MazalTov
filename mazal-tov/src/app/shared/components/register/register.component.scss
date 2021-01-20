@@ -1,0 +1,26 @@
+#section {
+    height: 40vh;
+}
+.circle {
+    height: 20vh;
+    display: flex;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../../../assets/עיגול\ מעבר\ צבע.png");
+}
+.circles {
+    padding-top: 50px;
+    padding-left: 15vw;
+    padding-right: 15vw;
+}
+img {
+    margin: auto;
+    padding-right: 3.5vw;
+}
+.type{
+    position: relative;
+    top: 20vh;
+    left: 6vw;
+    color: #FCFBF9;
+    text-align: center;
+}

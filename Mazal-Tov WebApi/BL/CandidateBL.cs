@@ -46,7 +46,13 @@ namespace BL
             return AllCandidate;
         }
 
-
+        public static List<Candidate> CandidatesPersonalCare( int IdMatchmaker)
+        {
+            List<DTO.Candidate> AllCandidate = new List<Candidate>();
+            
+            return AllCandidate;
+        }
+        
 
         public static List<Candidate> GetAllSearchCandidate(Candidate candidate)
         {

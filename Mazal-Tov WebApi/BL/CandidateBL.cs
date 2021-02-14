@@ -49,8 +49,22 @@ namespace BL
         public static List<Candidate> CandidatesPersonalCare( int IdMatchmaker)
         {
             List<DTO.Candidate> AllCandidate = new List<Candidate>();
-            
+            List<DTO.Candidate> CandidatesPersonalCare = new List<Candidate>();
 
+            foreach (var item in db.candidates) { 
+            //{if(item.matchings.candidateid==)
+                AllCandidate.Add(Converters.Convert(item));
+            }
+
+
+            foreach (var item in AllCandidate)
+            {
+                Random rnd = new Random();
+            int num = rnd.Next(AllCandidate.Count);
+            CandidatesPersonalCare.Add(AllCandidate[num]);
+            AllCandidate[num].Status = 1;
+            }
+           
             return AllCandidate;
         }
         
@@ -73,6 +87,13 @@ namespace BL
                 list = list.Where(r => r.Clothes == candidate.Clothes).ToList();
             if (candidate.MedicalProblem != null)
                 list = list.Where(r => r.MedicalProblem == candidate.MedicalProblem).ToList();
+            if (candidate.WhoMoneyAnother != null)
+                list = list.Where(r => r.WhoMoneyAnother <= candidate.WhoMoneyAnother).ToList();
+            if (candidate.WhoMoneyGive != null)
+                list = list.Where(r => r.WhoMoneyGive <= candidate.WhoMoneyGive).ToList();
+            if (candidate.Heigth != null)
+                list = list.Where(r => r.Heigth <= candidate.Heigth).ToList();
+             
             return list;
         }
     }

@@ -22,6 +22,8 @@ namespace DTO
         public int CandidateId { get; set; }
         public int CandidateFemaleId { get; set; }
         public int MatchmarkerId { get; set; }
+        public string ReasonMatchmaker { get; set; }
+
 
     }
 }

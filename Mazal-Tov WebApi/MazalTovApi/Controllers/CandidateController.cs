@@ -28,6 +28,19 @@ namespace MazalTovApi.Controllers
             return CandidateBL.GetAllCandidate();
         }
 
+        [HttpGet]
+        [Route("GetAllCandidate/{IdMatchmaker}")]
+        public List<DTO.Candidate> CandidatesPersonalCare( int IdMatchmaker)
+        {
+
+            return CandidateBL.CandidatesPersonalCare(IdMatchmaker);
+        }
+
+
+
+
+
+        
 
 
 
@@ -52,11 +65,5 @@ namespace MazalTovApi.Controllers
 
 
 
-
-
-
-
-
-                                   
     }
 }

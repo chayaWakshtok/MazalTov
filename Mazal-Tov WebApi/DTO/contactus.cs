@@ -16,6 +16,7 @@ namespace DTO
         public DateTime UpdateDate { get; set; }
         public int Status { get; set; }
         public int UserId { get; set; }
+        public string Tell { get; set; }
 
 
 

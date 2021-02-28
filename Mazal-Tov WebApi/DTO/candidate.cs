@@ -44,6 +44,19 @@ namespace DTO
         public int ChasidutId { get; set; }
         public int ChasidutMother { get; set; }
         public int ChasidutFather { get; set; }
+        public float Heigth { get; set; }
+        public int WhoMoneyGive { get; set; }
+        public int WhoMoneyAnother { get; set; }
+        public string KeepOn { get; set; }
+        public string TellFather { get; set; }
+        public string TellMother { get; set; }
+        public string ReasonCubeA { get; set; }
+        public int ReasonCube { get; set; }
+        public bool IsCube  { get; set; }
+  
+
+
+
         public User User { get; set; }
         public Nullable<bool> IsPay { get; set; }
 

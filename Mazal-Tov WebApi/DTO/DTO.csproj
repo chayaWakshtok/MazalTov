@@ -95,6 +95,7 @@
     <Compile Include="City.cs" />
     <Compile Include="Contactus.cs" />
     <Compile Include="EndMatching.cs" />
+    <Compile Include="halachot.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="InfoCandidate.cs" />

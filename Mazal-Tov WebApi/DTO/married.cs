@@ -15,6 +15,8 @@ namespace DTO
         public string Remark { get; set; }
         public int CandidateId { get; set; }
         public int CityId { get; set; }
+        public string PlaceLearn { get; set; }
+
 
     }
 }

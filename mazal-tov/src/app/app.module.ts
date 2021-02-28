@@ -17,6 +17,7 @@ import { TreatmentConsultantComponent } from './component/workers/treatment-cons
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { RegisterComponent } from './shared/components/register/register.component';
+import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RegisterComponent } from './shared/components/register/register.compone
     TreatmentConsultantComponent,
     HeaderComponent,
     RegisterComponent,
+    ContactUsComponent,
 
   ],
   imports: [

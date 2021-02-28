@@ -36,11 +36,12 @@ button {
         display: block;
         margin: 0px;
     }
-    input {
+    input,
+    textarea {
         border: 2px solid $black;
         margin-bottom: 3vh;
         width: 20vw;
-        height: 40px;
+        height: 48px;
     }
 }
 .color-bordo {
@@ -63,4 +64,7 @@ button {
 }
 .pointer {
     cursor: pointer;
+}
+.row {
+    margin: 0 !important;
 }

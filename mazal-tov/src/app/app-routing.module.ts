@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Contactus } from './classes/contactus';
 import { AdminHomeComponent } from './component/admin/admin-home/admin-home.component';
 import { AdminModule } from './component/admin/admin.module';
 import { MatchmarkerHomeComponent } from './component/matchmarkers/matchmarker-home/matchmarker-home.component';
@@ -11,6 +12,7 @@ import { UserComponent } from './component/users/user/user.component';
 import { WorkerHomeComponent } from './component/workers/worker-home/worker-home.component';
 import { WorkerModule } from './component/workers/worker.module';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
 import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { RegisterComponent } from './shared/components/register/register.component';
@@ -24,6 +26,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "contact-us",
+    component: ContactUsComponent
   },
   {
     path: "register",

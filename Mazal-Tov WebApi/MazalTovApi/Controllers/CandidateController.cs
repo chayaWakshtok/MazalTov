@@ -15,9 +15,9 @@ namespace MazalTovApi.Controllers
         [HttpPost]
         [Route("RegisterCandidate")]
         [AllowAnonymous]
-        public Candidate RegisterCandidate([FromBody] Candidate value)
+        public bool RegisterCandidate([FromBody] Candidate value)
         {
-            return CandidateBL.RegisterCandidate(value);
+            return CandidateBL.RegisterCandidate(value) != null ? true : false;
         }
 
         [HttpGet]
@@ -30,7 +30,7 @@ namespace MazalTovApi.Controllers
 
         [HttpGet]
         [Route("GetAllCandidate/{IdMatchmaker}")]
-        public List<DTO.Candidate> CandidatesPersonalCare( int IdMatchmaker)
+        public List<DTO.Candidate> CandidatesPersonalCare(int IdMatchmaker)
         {
 
             return CandidateBL.CandidatesPersonalCare(IdMatchmaker);
@@ -40,7 +40,7 @@ namespace MazalTovApi.Controllers
 
 
 
-        
+
 
 
 

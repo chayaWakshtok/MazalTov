@@ -1,0 +1,220 @@
+<div class="row">
+    <div class="col">
+        <label>שם פרטי</label>
+        <p>{{candidate.user?.firstname}}</p>
+    </div>
+    <div class="col">
+        <label>שם משפחה</label>
+        <p> {{candidate.user?.lastname}}</p>
+    </div>
+    <div class="col">
+        <label>כתובת</label>
+        <p>{{candidate.address}}</p>
+    </div>
+    <div class="col">
+        <label>עיר</label>
+        <p>{{candidate.city}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label>פלאפון</label>
+        <p>{{candidate.phone}}</p>
+    </div>
+    <div class="col">
+        <label>ת.ז</label>
+        <p> {{candidate.user?.tz}}</p>
+    </div>
+    <div class="col">
+        <label>תאריך לידה</label>
+        <p>
+            {{candidate.user?.bornDate|date :'dd/M/yyyy'}}
+        </p>
+    </div>
+    <div class="col">
+        <label>גיל</label>
+        <p>
+            {{yearNow-candidate.user?.bornDate?.getFullYear()}}
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label>עדה</label>
+        <p>{{candidate.sector}}</p>
+    </div>
+    <div class="col">
+        <label>קהילה/חסידות</label>
+        <p> {{candidate.chasidut}}</p>
+    </div>
+    <div class="col">
+        <label>מין</label>
+        <p>{{candidate.user?.gender==1?'זכר':'נקבה'}}</p>
+    </div>
+    <div class="col">
+        <label>בעיה רפואית</label>
+        <p>{{candidate.medicalProblem==1?'כן':'לא'}}</p>
+    </div>
+</div>
+<div class="row" *ngIf="candidate.medicalProblem==1">
+    <div class="col">
+        <label>תאור הבעיה</label>
+        <p> {{candidate.medicalProblem}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label>מצב אישי</label>
+        <p>{{candidate.status==1?'רווקה':candidate.status==3?'אלמן\ה':'גרוש\ה'}}</p>
+    </div>
+    <div class="col">
+        <label>מעוכב/ת שידוך?</label>
+        <p> {{candidate.isCube==true?'כן':'לא'}}</p>
+    </div>
+    <div class="col">
+        <label>סיבת העיכוב</label>
+        <p>{{candidate.reasonCube}}</p>
+    </div>
+    <div class="col">
+        <label>אחר:</label>
+        <p>{{candidate.reasonCubeA}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label> מסגרת</label>
+        <p>{{candidate.lastPlaceLearn}}</p>
+    </div>
+    <div class="col">
+        <label>שם המקום</label>
+        <p> {{candidate.candidateWork}}</p>
+    </div>
+    <div class="col">
+        <label>דרישות כספיות</label>
+        <p>{{candidate.whoMoneyAnother}}</p>
+    </div>
+    <div class="col">
+        <label>התחיבויות כספיות</label>
+        <p>{{candidate.whoMoneyGive}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label> גובה</label>
+        <p>{{candidate.heigth}}</p>
+    </div>
+    <div class="col">
+        <label>סגנון לבוש</label>
+        <p> {{candidate.clothes}}</p>
+    </div>
+    <div class="col">
+        <label>מקפידים על</label>
+        <p>{{candidate.keepOn}}</p>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label> תאור</label>
+        <p>{{candidate.show}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label> שם האב</label>
+        <p>{{candidate.nameFather}}</p>
+    </div>
+    <div class="col">
+        <label>פלאפון</label>
+        <p> {{candidate.tellFather}}</p>
+    </div>
+    <div class="col">
+        <label>שם האם</label>
+        <p>{{candidate.nameMother}}</p>
+    </div>
+    <div class="col">
+        <label>פלאפון</label>
+        <p>{{candidate.tellMother}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label>משפחת האם</label>
+        <p>{{candidate.familyMother}}</p>
+    </div>
+    <div class="col">
+        <label>מייל</label>
+        <p> {{candidate.email}}</p>
+    </div>
+    <div class="col">
+        <label>עיסוק האב</label>
+        <p>{{candidate.fatherWork}}</p>
+    </div>
+    <div class="col">
+        <label>עיסוק האם</label>
+        <p>{{candidate.motherWork}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <label>אחים בבית</label>
+        <p>{{candidate.numChildren}}</p>
+    </div>
+    <div class="col">
+        <label>אחים נשואים</label>
+        <p>{{candidate.numMarried}}</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="row" *ngFor="let f of candidate.candidateFamilies">
+            <div class="col">
+                <p><span>שם:</span> {{f.name}}</p>
+            </div>
+            <div class="col">
+                <p><span>גיל:</span> {{f.age}}</p>
+            </div>
+            <div class="col">
+                <p><span>עיסוק:</span> {{f.placeLearn}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row" *ngFor="let m of candidate.marrieds">
+            <div class="col">
+                <p><span>שם:</span> {{m.name}}</p>
+            </div>
+            <div class="col">
+                <p><span>כתובת:</span> {{m.address}}</p>
+            </div>
+            <div class="col">
+                <p><span>טלפון:</span> {{m.phone}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="font-size: 20px;font-weight: 700;">
+    טלפון לברורים
+</div>
+<div class="row" *ngFor="let c of candidate.infoCandidates">
+    <div class="col">
+        <label> שם</label>
+        <p>{{c.name}}</p>
+    </div>
+    <div class="col">
+        <label>טלפון</label>
+        <p> {{c.phone}}</p>
+    </div>
+    <div class="col">
+        <label>הקשר למועמד</label>
+        <p>{{c.connectLevel}}</p>
+    </div>
+    <div class="col">
+        <label>אחר</label>
+        <p>{{c.remark}}</p>
+    </div>
+</div>
+<div style="font-size: 20px;font-weight: 700;"><span>הערות:</span> {{candidate.remark}}</div>
+<div ><span style="font-size: 20px;font-weight: 700;">חסוי:</span> {{candidate.remarkSecure}} </div>

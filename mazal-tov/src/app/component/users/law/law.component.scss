@@ -1,0 +1,13 @@
+.input-family{
+    border: none;
+    border-bottom: solid 1px;
+}
+.input-family:focus-visible{
+    border: none;
+    border-bottom: solid 1px;
+    outline:transparent !important;
+}
+.box{
+    border: #750f2f solid 2px;
+    margin-left: 8%;
+}

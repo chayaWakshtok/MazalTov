@@ -87,7 +87,13 @@ namespace BL.Utils
 
               cfg.CreateMap<DAL.workerAction, DTO.WorkerAction>();
               cfg.CreateMap<DTO.WorkerAction, DAL.workerAction>();
-               
+
+              cfg.CreateMap<DAL.candidateFamily, DTO.CandidateFamily>();
+              cfg.CreateMap<DTO.CandidateFamily, DAL.candidateFamily>();
+
+              cfg.CreateMap<DAL.infoCandidate, DTO.InfoCandidate>();
+              cfg.CreateMap<DTO.InfoCandidate, DAL.infoCandidate>();
+
           });
 
         private static IMapper _mapper = _conffiguration.CreateMapper();
@@ -110,6 +116,16 @@ namespace BL.Utils
         public static DAL.candidate Convert(DTO.Candidate dto)
         {
             return _mapper.Map<DAL.candidate>(dto);
+        }
+
+        public static DTO.InfoCandidate Convert(DAL.infoCandidate dal)
+        {
+            return _mapper.Map<DTO.InfoCandidate>(dal);
+        }
+
+        public static DAL.infoCandidate Convert(DTO.InfoCandidate dto)
+        {
+            return _mapper.Map<DAL.infoCandidate>(dto);
         }
 
         public static List< DAL.askPermssion> Convert(List< DTO.AskPermssion> dto)
@@ -140,6 +156,16 @@ namespace BL.Utils
         public static List<DTO.Candidate> Convert(List<DAL.candidate> dto)
         {
             return _mapper.Map<List<DTO.Candidate>>(dto);
+        }
+
+        public static DTO.CandidateFamily Convert(DAL.candidateFamily dal)
+        {
+            return _mapper.Map<DTO.CandidateFamily>(dal);
+        }
+
+        public static DAL.candidateFamily Convert(DTO.CandidateFamily dto)
+        {
+            return _mapper.Map<DAL.candidateFamily>(dto);
         }
         /////////////
         public static DTO.CandidateComment Convert(DAL.candidateComment dal)
@@ -282,15 +308,7 @@ namespace BL.Utils
             return _mapper.Map<List<DTO.Image>>(dto);
         }
         ///////////
-        public static DTO.InfoCandidate Convert(DAL.infoCandidate dal)
-        {
-            return _mapper.Map<DTO.InfoCandidate>(dal);
-        }
 
-        public static DAL.infoCandidate Convert(DTO.InfoCandidate dto)
-        {
-            return _mapper.Map<DAL.infoCandidate>(dto);
-        }
 
         public static List<DAL.infoCandidate> Convert(List<DTO.InfoCandidate> dto)
         {

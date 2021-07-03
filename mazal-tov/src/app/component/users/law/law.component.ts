@@ -12,14 +12,11 @@ export class LawComponent implements OnInit {
 
   @Input() index: number;
   @Input() married: Married = new Married();
-  cities: City[] = [];
 
-  constructor(public cityService: CityService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.cityService.getCity().subscribe(res => {
-      this.cities = res;
-    })
+  
   }
 
 }

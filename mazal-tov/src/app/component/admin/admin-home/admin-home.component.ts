@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  date: Date = new Date();
+
+  constructor(public rouetr: Router) { }
 
   ngOnInit(): void {
+  }
+
+  routePage(page) {
+    this.rouetr.navigate([page]);
   }
 
 }

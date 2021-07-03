@@ -1,4 +1,4 @@
 export class Sector {
-        id: number;
+        _id: string;
         name: string;
 }

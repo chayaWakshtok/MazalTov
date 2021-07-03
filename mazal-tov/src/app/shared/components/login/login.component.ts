@@ -24,25 +24,27 @@ export class LoginComponent implements OnInit {
   validlogin(): void {
     this.userService.getToken(this.user)
       .pipe(
-        switchMap(() => {
-          return this.userService.getInfo();
-        })).subscribe((res: User) => {
-          var url = this.activeRouter.snapshot.queryParams["returnUrl"];
-          if (url)
-            this.router.navigate([url]);
-          else {
-            if (res.roles.findIndex(p => p.name == RoleEnum.Admin) >= 0)
-              this.router.navigate(["admin"]);
-            else if (res.roles.findIndex(p => p.name == RoleEnum.MatchMarker) >= 0)
-              this.router.navigate(["matchMarker"]);
-            else if (res.roles.findIndex(p => p.name == RoleEnum.Worker) >= 0)
-              this.router.navigate(["worker"]);
-            else if (res.roles.findIndex(p => p.name == RoleEnum.User) >= 0)
-              this.router.navigate(["user"]);
-            else if (res.roles.findIndex(p => p.name == RoleEnum.Secretary) >= 0)
-              this.router.navigate(["secretary"]);
-          }
-        })
+        // switchMap(() => {
+        //   return null;
+        //   //return this.userService.getInfo();
+        // })
+      ).subscribe((res: User) => {
+        var url = this.activeRouter.snapshot.queryParams["returnUrl"];
+        if (url)
+          this.router.navigate([url]);
+        else {
+          if (res.role == RoleEnum.Admin)
+            this.router.navigate(["admin"]);
+          else if (res.role == RoleEnum.MatchMarker)
+            this.router.navigate(["matchmaker"]);
+          else if (res.role == RoleEnum.Worker)
+            this.router.navigate(["worker"]);
+          else if (res.role == RoleEnum.User)
+            this.router.navigate(["user"]);
+          else if (res.role == RoleEnum.Secretary)
+            this.router.navigate(["secretary"]);
+        }
+      })
   }
 
   register() {

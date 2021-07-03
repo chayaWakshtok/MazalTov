@@ -35,6 +35,7 @@ namespace DAL
         public int CityId { get; set; }
         public int SectorId { get; set; }
         public int WorkerId { get; set; }
+        public string AnotherWorker { get; set; }
     
         public virtual city city { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -18,8 +18,5 @@ namespace DTO
         public int UserId { get; set; }
         public string Tell { get; set; }
 
-
-
-
     }
 }

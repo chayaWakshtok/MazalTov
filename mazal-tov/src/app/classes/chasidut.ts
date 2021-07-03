@@ -1,5 +1,5 @@
-export class Chasidut{
-     id:number;
-     name:string;
+export class Chasidut {
+     _id: string;
+     name: string;
 
 }

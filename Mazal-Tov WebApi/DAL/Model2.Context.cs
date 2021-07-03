@@ -35,7 +35,6 @@ namespace DAL
         public virtual DbSet<helper> helpers { get; set; }
         public virtual DbSet<image> images { get; set; }
         public virtual DbSet<infoCandidate> infoCandidates { get; set; }
-        public virtual DbSet<married> marrieds { get; set; }
         public virtual DbSet<matching> matchings { get; set; }
         public virtual DbSet<matchingHelper> matchingHelpers { get; set; }
         public virtual DbSet<matchmaker> matchmakers { get; set; }
@@ -50,6 +49,11 @@ namespace DAL
         public virtual DbSet<workerAction> workerActions { get; set; }
         public virtual DbSet<matchingComment> matchingComments { get; set; }
         public virtual DbSet<user> users { get; set; }
+        public virtual DbSet<halachot> halachots { get; set; }
+        public virtual DbSet<remark> remarks { get; set; }
+        public virtual DbSet<request> requests { get; set; }
+        public virtual DbSet<candidateFamily> candidateFamilies { get; set; }
         public virtual DbSet<candidate> candidates { get; set; }
+        public virtual DbSet<married> marrieds { get; set; }
     }
 }

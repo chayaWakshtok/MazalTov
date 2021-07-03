@@ -18,8 +18,6 @@ namespace DAL
         public chasidut()
         {
             this.candidates = new HashSet<candidate>();
-            this.candidates1 = new HashSet<candidate>();
-            this.candidates2 = new HashSet<candidate>();
         }
     
         public int Id { get; set; }
@@ -27,9 +25,5 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<candidate> candidates { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<candidate> candidates1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<candidate> candidates2 { get; set; }
     }
 }

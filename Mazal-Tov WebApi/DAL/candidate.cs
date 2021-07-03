@@ -17,12 +17,15 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public candidate()
         {
+            this.requests = new HashSet<request>();
+            this.requests1 = new HashSet<request>();
             this.images = new HashSet<image>();
-            this.marrieds = new HashSet<married>();
             this.candidateComments = new HashSet<candidateComment>();
             this.infoCandidates = new HashSet<infoCandidate>();
             this.matchings = new HashSet<matching>();
             this.matchings1 = new HashSet<matching>();
+            this.candidateFamilies = new HashSet<candidateFamily>();
+            this.marrieds = new HashSet<married>();
         }
     
         public int Id { get; set; }
@@ -43,7 +46,7 @@ namespace DAL
         public string CandidateWork { get; set; }
         public int LastPlaceLearn { get; set; }
         public string Show { get; set; }
-        public int Clothes { get; set; }
+        public string Clothes { get; set; }
         public string Tell { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
@@ -59,19 +62,29 @@ namespace DAL
         public Nullable<int> MatchmarkerId { get; set; }
         public int SectorId { get; set; }
         public Nullable<int> ChasidutId { get; set; }
-        public Nullable<int> ChasidutMother { get; set; }
-        public Nullable<int> ChasidutFather { get; set; }
+        public Nullable<bool> IsCube { get; set; }
+        public Nullable<int> ReasonCube { get; set; }
+        public string ReasonCubeA { get; set; }
+        public string TellMother { get; set; }
+        public string TellFather { get; set; }
+        public string KeepOn { get; set; }
+        public Nullable<int> WhoMoneyAnother { get; set; }
+        public Nullable<int> WhoMoneyGive { get; set; }
+        public Nullable<double> Heigth { get; set; }
+        public string MedicalProblemRemark { get; set; }
+        public Nullable<int> EntryByUser { get; set; }
+        public string RemarkSecure { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<request> requests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<request> requests1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<image> images { get; set; }
         public virtual user user { get; set; }
         public virtual city city { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<married> marrieds { get; set; }
         public virtual sector sector { get; set; }
         public virtual chasidut chasidut { get; set; }
-        public virtual chasidut chasidut1 { get; set; }
-        public virtual chasidut chasidut2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<candidateComment> candidateComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -80,6 +93,11 @@ namespace DAL
         public virtual ICollection<matching> matchings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<matching> matchings1 { get; set; }
+        public virtual user user1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<candidateFamily> candidateFamilies { get; set; }
         public virtual matchmaker matchmaker { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<married> marrieds { get; set; }
     }
 }

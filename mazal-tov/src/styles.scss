@@ -35,14 +35,79 @@ button {
     label {
         display: block;
         margin: 0px;
+        font-weight: bold;
     }
     input,
+    select,
     textarea {
-        border: 2px solid $black;
+        border: 2px solid #000000;
         margin-bottom: 3vh;
-        width: 20vw;
         height: 48px;
+        max-width: 83.3333333333%;
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        border-color: #750f2f;
     }
+    input[type="radio"]:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: 14px;
+        left: 1px;
+        position: relative;
+        background-color: white;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #d1d3d1;
+    }
+
+    input[type="radio"]:checked:after {
+        width: 20px;
+        height: 20px;
+        border-radius: 15px;
+        top: 14px;
+        left: 1px;
+        position: relative;
+        background-color: #750f2f;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #d1d3d1;
+    }
+    input[type="checkbox"]:after {
+        width: 30px;
+        height: 30px;
+        top: -1px;
+        left: 1px;
+        position: relative;
+        background-color: white;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #d1d3d1;
+    }
+
+    input[type="checkbox"]:checked:after {
+        width: 30px;
+        height: 30px;
+        top: -1px;
+        left: 1px;
+        position: relative;
+        background-color: #750f2f;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #d1d3d1;
+    }
+}
+.btn-primary:hover,
+.btn-primary:active {
+    color: white !important;
+    background-color: #750f2f !important;
+    border-color: #750f2f !important;
 }
 .color-bordo {
     color: $bordo;
@@ -50,11 +115,17 @@ button {
 .font-30 {
     font-size: 30px;
 }
+.font-20 {
+    font-size: 20px;
+}
+.font-25 {
+    font-size: 25px;
+}
 .weight-600 {
     font-weight: 600;
 }
 .font-35 {
-    font-size: 35px;
+    font-size: 40px;
 }
 .bold {
     font-weight: bold;
@@ -68,3 +139,169 @@ button {
 .row {
     margin: 0 !important;
 }
+.bar1 {
+    width: 100vw;
+    height: 49px;
+    background-color: black;
+    color: white;
+    padding-right: 11vw;
+    padding-top: 9px;
+}
+
+.top-main-black {
+    width: 100vw;
+    height: 120px;
+    background-color: black;
+}
+.top-main-image {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    display: block;
+    top: -5vh;
+}
+
+.header-page {
+    color: #750f2f;
+    text-align: center;
+    font-weight: bolder;
+}
+.sub-header {
+    color: black;
+    text-align: center;
+}
+.font-header-color {
+    color: #750f2f;
+}
+.font-white {
+    color: white;
+}
+
+.box-main {
+    border: 2px solid #750f2f;
+    border-radius: 5px;
+    .p1 {
+        margin-bottom: 2px !important;
+        color: #750f2f;
+        text-align: center;
+        font-size: 29px;
+        font-weight: 600;
+    }
+    .p2 {
+        color: #750f2f;
+        text-align: center;
+        font-size: 20;
+    }
+}
+table {
+    border-collapse: collapse;
+    width: 80vw;
+    margin: auto !important;
+}
+
+table td,
+table th {
+    border: 1px solid #707070;
+    padding: 8px;
+    text-align: center;
+}
+table th {
+    color: #750f2f;
+    border: 1px solid #750f2f;
+    font-weight: bold;
+}
+
+table tr:hover {
+    font-weight: 800;
+}
+/* Importing Bootstrap SCSS file. */
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12,
+.col,
+.col-auto,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm,
+.col-sm-auto,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md,
+.col-md-auto,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg,
+.col-lg-auto,
+.col-xl-1,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl,
+.col-xl-auto {
+    padding: 0 !important;
+}
+.card-top {
+    width: 100vw;
+    height: 43vh;
+    margin-top: 6vh;
+    background: #750f2f 0% 0% no-repeat padding-box;
+    text-align: center;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    p {
+        font-size: 35px;
+        font-weight: 700;
+    }
+    img {
+        margin-top: 3vh;
+        margin-left: 100px;
+    }
+}
+@import "~bootstrap/scss/bootstrap";

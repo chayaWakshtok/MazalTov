@@ -58,6 +58,7 @@
     <EntitySetMapping Name="contactus">
       <EntityTypeMapping TypeName="MazalTovModel1.contactu">
         <MappingFragment StoreEntitySet="contactus">
+          <ScalarProperty Name="Tell" ColumnName="Tell" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -119,22 +120,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="marrieds">
-      <EntityTypeMapping TypeName="MazalTovModel1.married">
-        <MappingFragment StoreEntitySet="married">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="Remark" ColumnName="Remark" />
-          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="matchings">
       <EntityTypeMapping TypeName="MazalTovModel1.matching">
         <MappingFragment StoreEntitySet="matching">
+          <ScalarProperty Name="ReasonMatchmarker" ColumnName="ReasonMatchmarker" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Createdate" ColumnName="Createdate" />
           <ScalarProperty Name="Remark" ColumnName="Remark" />
@@ -174,6 +163,7 @@
     <EntitySetMapping Name="matchmakers">
       <EntityTypeMapping TypeName="MazalTovModel1.matchmaker">
         <MappingFragment StoreEntitySet="matchmaker">
+          <ScalarProperty Name="AnotherWorker" ColumnName="AnotherWorker" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
@@ -316,6 +306,9 @@
     <EntitySetMapping Name="users">
       <EntityTypeMapping TypeName="MazalTovModel1.user">
         <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="Classification" ColumnName="Classification" />
+          <ScalarProperty Name="IsOk" ColumnName="IsOk" />
           <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
           <ScalarProperty Name="Tz" ColumnName="Tz" />
           <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
@@ -334,11 +327,76 @@
         <ScalarProperty Name="Id" ColumnName="roleId" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="halachots">
+      <EntityTypeMapping TypeName="MazalTovModel1.halachot">
+        <MappingFragment StoreEntitySet="halachot">
+          <ScalarProperty Name="IsTaken" ColumnName="IsTaken" />
+          <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Halacha" ColumnName="Halacha" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="remarks">
+      <EntityTypeMapping TypeName="MazalTovModel1.remark">
+        <MappingFragment StoreEntitySet="remark">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Remark1" ColumnName="Remark" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requests">
+      <EntityTypeMapping TypeName="MazalTovModel1.request">
+        <MappingFragment StoreEntitySet="request">
+          <ScalarProperty Name="DateAnswer" ColumnName="DateAnswer" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="IsCanFeSecretMark" ColumnName="IsCanFeSecretMark" />
+          <ScalarProperty Name="IsCanSecretMark" ColumnName="IsCanSecretMark" />
+          <ScalarProperty Name="IsCanFeWithMark" ColumnName="IsCanFeWithMark" />
+          <ScalarProperty Name="IsCanWithMark" ColumnName="IsCanWithMark" />
+          <ScalarProperty Name="CandidateFeId" ColumnName="CandidateFeId" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="candidateFamilies">
+      <EntityTypeMapping TypeName="MazalTovModel1.candidateFamily">
+        <MappingFragment StoreEntitySet="candidateFamily">
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="PlaceLearn" ColumnName="PlaceLearn" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="candidates">
       <EntityTypeMapping TypeName="MazalTovModel1.candidate">
         <MappingFragment StoreEntitySet="candidate">
-          <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
-          <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
+          <ScalarProperty Name="RemarkSecure" ColumnName="RemarkSecure" />
+          <ScalarProperty Name="EntryByUser" ColumnName="EntryByUser" />
+          <ScalarProperty Name="MedicalProblemRemark" ColumnName="MedicalProblemRemark" />
+          <ScalarProperty Name="Heigth" ColumnName="Heigth" />
+          <ScalarProperty Name="WhoMoneyGive" ColumnName="WhoMoneyGive" />
+          <ScalarProperty Name="WhoMoneyAnother" ColumnName="WhoMoneyAnother" />
+          <ScalarProperty Name="KeepOn" ColumnName="KeepOn" />
+          <ScalarProperty Name="TellFather" ColumnName="TellFather" />
+          <ScalarProperty Name="TellMother" ColumnName="TellMother" />
+          <ScalarProperty Name="ReasonCubeA" ColumnName="ReasonCubeA" />
+          <ScalarProperty Name="ReasonCube" ColumnName="ReasonCube" />
+          <ScalarProperty Name="IsCube" ColumnName="IsCube" />
           <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
           <ScalarProperty Name="SectorId" ColumnName="SectorId" />
           <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
@@ -372,6 +430,19 @@
           <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marrieds">
+      <EntityTypeMapping TypeName="MazalTovModel1.married">
+        <MappingFragment StoreEntitySet="married">
+          <ScalarProperty Name="PlaceLearn" ColumnName="PlaceLearn" />
+          <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

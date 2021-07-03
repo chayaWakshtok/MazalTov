@@ -1,14 +1,14 @@
 @import "../../../../assets/variables.scss";
 
 #home {
-    height: 400px;
+    height: 415px;
     background-repeat: no-repeat;
-    background-size: 127vw 800px;
+    background-size: 127vw 900px;
 
     background-image: url("../../../../assets/stock-photo-broken-plate-or-broken-water-glass-and-dishes-on-black-background-concept-of-accidents-in-the-1698003907.png");
 }
 #mazal {
-    height: 400px;
+    height: 415px;
     display: inline-block;
     background-color: $black;
     width: 18vw;
@@ -23,14 +23,16 @@
     margin-top: 2vh;
 }
 .circle {
+    height: 20vh;
+    margin-top: 2vh;
     background-image: url("../../../../assets/Ellipse\ 1.svg");
     background-repeat: no-repeat;
     background-size: 160px 160px;
-    height: 30vh;
+    height: 20vh;
     p {
         text-align: center;
-        top: 5vh;
-        right: 1.1vw;
+        top: 3vh;
+        right: 3.1vw;
         position: relative;
         color: #750f2f;
         font-weight: bold;

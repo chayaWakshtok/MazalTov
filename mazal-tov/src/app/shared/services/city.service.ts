@@ -4,19 +4,22 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { City } from 'src/app/classes/city';
- 
+
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class CityService {
+  providedIn: 'root'
+})
+export class CityService {
 
-    constructor(public httpClient: HttpClient, private router: Router,) { }
+  url: string;
 
-    getCity(): Observable<City[]> {
-      return this.httpClient.get<City[]>(environment.apiUrl + "api/City/GetCity");
-    }
-    
+  constructor(public httpClient: HttpClient, private router: Router,) {                                                                                                                                                                                                                                                                                       
+    this.url = environment.apiUrl + "city";
   }
 
- 
+  getCity(): Observable<City[]> {
+    return this.httpClient.get<City[]>(this.url + "/all");
+  }
+
+}
+

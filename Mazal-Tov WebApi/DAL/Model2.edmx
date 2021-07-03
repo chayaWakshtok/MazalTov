@@ -50,8 +50,8 @@
           <Property Name="CandidateWork" Type="nvarchar" MaxLength="50" />
           <Property Name="LastPlaceLearn" Type="int" Nullable="false" />
           <Property Name="Show" Type="nvarchar" MaxLength="200" />
-          <Property Name="Clothes" Type="int" Nullable="false" />
-          <Property Name="Tell" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Clothes" Type="nvarchar" MaxLength="200" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="10" />
           <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Fax" Type="nvarchar" MaxLength="10" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -66,8 +66,18 @@
           <Property Name="MatchmarkerId" Type="int" />
           <Property Name="SectorId" Type="int" Nullable="false" />
           <Property Name="ChasidutId" Type="int" />
-          <Property Name="ChasidutMother" Type="int" />
-          <Property Name="ChasidutFather" Type="int" />
+          <Property Name="IsCube" Type="bit" />
+          <Property Name="ReasonCube" Type="int" />
+          <Property Name="ReasonCubeA" Type="nvarchar(max)" />
+          <Property Name="TellMother" Type="nvarchar" MaxLength="12" />
+          <Property Name="TellFather" Type="nvarchar" MaxLength="12" />
+          <Property Name="KeepOn" Type="nvarchar(max)" />
+          <Property Name="WhoMoneyAnother" Type="int" />
+          <Property Name="WhoMoneyGive" Type="int" />
+          <Property Name="Heigth" Type="float" />
+          <Property Name="MedicalProblemRemark" Type="nvarchar(max)" />
+          <Property Name="EntryByUser" Type="int" />
+          <Property Name="RemarkSecure" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="candidateComment">
           <Key>
@@ -80,6 +90,17 @@
           <Property Name="UpdateDate" Type="datetime" Nullable="false" />
           <Property Name="WriteUserId" Type="int" Nullable="false" />
           <Property Name="CandidateId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="candidateFamily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="PlaceLearn" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CandidateId" Type="int" />
         </EntityType>
         <EntityType Name="chasidut">
           <Key>
@@ -107,6 +128,7 @@
           <Property Name="UpdateDate" Type="datetime" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="11" />
         </EntityType>
         <EntityType Name="endMatching">
           <Key>
@@ -122,6 +144,20 @@
           <Property Name="IsCare" Type="bit" Nullable="false" />
           <Property Name="EndPlace" Type="nvarchar" MaxLength="50" />
           <Property Name="MatchingId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="halachot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Halacha" Type="nvarchar(max)" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="int" />
+          <Property Name="IsOk" Type="bit" />
+          <Property Name="IsTaken" Type="bit" />
         </EntityType>
         <EntityType Name="helper">
           <Key>
@@ -149,8 +185,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ConnectLevel" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ConnectLevel" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="10" />
           <Property Name="Remark" Type="nvarchar" MaxLength="200" />
           <Property Name="CandidateId" Type="int" Nullable="false" />
         </EntityType>
@@ -164,7 +200,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Remark" Type="nvarchar" MaxLength="200" />
           <Property Name="CandidateId" Type="int" Nullable="false" />
-          <Property Name="CityId" Type="int" Nullable="false" />
+          <Property Name="PlaceLearn" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="matching">
           <Key>
@@ -184,6 +220,7 @@
           <Property Name="CandidateId" Type="int" Nullable="false" />
           <Property Name="CandidateFemaleId" Type="int" Nullable="false" />
           <Property Name="MatchmarkerId" Type="int" Nullable="false" />
+          <Property Name="ReasonMatchmarker" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="matchingComment">
           <Key>
@@ -232,6 +269,7 @@
           <Property Name="CityId" Type="int" Nullable="false" />
           <Property Name="SectorId" Type="int" Nullable="false" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
+          <Property Name="AnotherWorker" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="meeting">
           <Key>
@@ -280,6 +318,32 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="remark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ToUserId" Type="int" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="CandidateId" Type="int" />
+          <Property Name="CandidateFeId" Type="int" />
+          <Property Name="IsCanWithMark" Type="bit" />
+          <Property Name="IsCanFeWithMark" Type="bit" />
+          <Property Name="IsCanSecretMark" Type="bit" />
+          <Property Name="IsCanFeSecretMark" Type="bit" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="DateAnswer" Type="datetime" />
+        </EntityType>
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="Id" />
@@ -310,10 +374,13 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" />
           <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
-          <Property Name="Tz" Type="nvarchar" MaxLength="10" />
+          <Property Name="Tz" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="PasswordSalt" Type="varbinary(max)" />
+          <Property Name="IsOk" Type="bit" />
+          <Property Name="Classification" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
         </EntityType>
         <EntityType Name="userRole">
           <Key>
@@ -355,6 +422,78 @@
           <Property Name="Remark" Type="nvarchar" MaxLength="200" />
           <Property Name="WorkerId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK__halachot__UserId__4F47C5E3">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="halachot" Type="Self.halachot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="halachot">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__remark__UserId__57DD0BE4">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="remark" Type="Self.remark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="remark">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__Candida__55F4C372">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+          <End Role="request" Type="Self.request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="CandidateFeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__Candida__56E8E7AB">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+          <End Role="request" Type="Self.request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__ToUserI__55009F39">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="request" Type="Self.request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="ToUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__UserId__540C7B00">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="request" Type="Self.request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_102">
           <End Role="city" Type="Self.city" Multiplicity="1" />
           <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
@@ -415,18 +554,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_160">
-          <End Role="city" Type="Self.city" Multiplicity="1" />
-          <End Role="married" Type="Self.married" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="married">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_174">
           <End Role="sector" Type="Self.sector" Multiplicity="1" />
           <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
@@ -460,30 +587,6 @@
             </Principal>
             <Dependent Role="candidate">
               <PropertyRef Name="ChasidutId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_187">
-          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
-          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chasidut">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="candidate">
-              <PropertyRef Name="ChasidutMother" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_190">
-          <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
-          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chasidut">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="candidate">
-              <PropertyRef Name="ChasidutFather" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -811,6 +914,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_candidate_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="EntryByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_candidateFamily_candidate">
+          <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+          <End Role="candidateFamily" Type="Self.candidateFamily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateFamily">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_userRole_role">
           <End Role="role" Type="Self.role" Multiplicity="1" />
           <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
@@ -852,10 +979,12 @@
           <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="candidate" EntityType="Self.candidate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="candidateComment" EntityType="Self.candidateComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="candidateFamily" EntityType="Self.candidateFamily" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="chasidut" EntityType="Self.chasidut" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="contactus" EntityType="Self.contactus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="endMatching" EntityType="Self.endMatching" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="halachot" EntityType="Self.halachot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="helper" EntityType="Self.helper" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="image" EntityType="Self.image" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="infoCandidate" EntityType="Self.infoCandidate" Schema="dbo" store:Type="Tables" />
@@ -868,6 +997,8 @@
           <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="permssion" EntityType="Self.permssion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Present" EntityType="Self.Present" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="remark" EntityType="Self.remark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="roleAction" EntityType="Self.roleAction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
@@ -875,6 +1006,30 @@
           <EntitySet Name="userRole" EntityType="Self.userRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="worker" EntityType="Self.worker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="workerAction" EntityType="Self.workerAction" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__halachot__UserId__4F47C5E3" Association="Self.FK__halachot__UserId__4F47C5E3">
+            <End Role="user" EntitySet="user" />
+            <End Role="halachot" EntitySet="halachot" />
+          </AssociationSet>
+          <AssociationSet Name="FK__remark__UserId__57DD0BE4" Association="Self.FK__remark__UserId__57DD0BE4">
+            <End Role="user" EntitySet="user" />
+            <End Role="remark" EntitySet="remark" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__Candida__55F4C372" Association="Self.FK__request__Candida__55F4C372">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="request" EntitySet="request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__Candida__56E8E7AB" Association="Self.FK__request__Candida__56E8E7AB">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="request" EntitySet="request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__ToUserI__55009F39" Association="Self.FK__request__ToUserI__55009F39">
+            <End Role="user" EntitySet="user" />
+            <End Role="request" EntitySet="request" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__UserId__540C7B00" Association="Self.FK__request__UserId__540C7B00">
+            <End Role="user" EntitySet="user" />
+            <End Role="request" EntitySet="request" />
+          </AssociationSet>
           <AssociationSet Name="FK_102" Association="Self.FK_102">
             <End Role="city" EntitySet="city" />
             <End Role="matchmaker" EntitySet="matchmaker" />
@@ -895,10 +1050,6 @@
             <End Role="candidate" EntitySet="candidate" />
             <End Role="married" EntitySet="married" />
           </AssociationSet>
-          <AssociationSet Name="FK_160" Association="Self.FK_160">
-            <End Role="city" EntitySet="city" />
-            <End Role="married" EntitySet="married" />
-          </AssociationSet>
           <AssociationSet Name="FK_174" Association="Self.FK_174">
             <End Role="sector" EntitySet="sector" />
             <End Role="candidate" EntitySet="candidate" />
@@ -908,14 +1059,6 @@
             <End Role="matchmaker" EntitySet="matchmaker" />
           </AssociationSet>
           <AssociationSet Name="FK_184" Association="Self.FK_184">
-            <End Role="chasidut" EntitySet="chasidut" />
-            <End Role="candidate" EntitySet="candidate" />
-          </AssociationSet>
-          <AssociationSet Name="FK_187" Association="Self.FK_187">
-            <End Role="chasidut" EntitySet="chasidut" />
-            <End Role="candidate" EntitySet="candidate" />
-          </AssociationSet>
-          <AssociationSet Name="FK_190" Association="Self.FK_190">
             <End Role="chasidut" EntitySet="chasidut" />
             <End Role="candidate" EntitySet="candidate" />
           </AssociationSet>
@@ -1027,6 +1170,14 @@
             <End Role="user" EntitySet="user" />
             <End Role="askPermssion" EntitySet="askPermssion" />
           </AssociationSet>
+          <AssociationSet Name="FK_candidate_user" Association="Self.FK_candidate_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="candidate" EntitySet="candidate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_candidateFamily_candidate" Association="Self.FK_candidateFamily_candidate">
+            <End Role="candidate" EntitySet="candidate" />
+            <End Role="candidateFamily" EntitySet="candidateFamily" />
+          </AssociationSet>
           <AssociationSet Name="FK_userRole_role" Association="Self.FK_userRole_role">
             <End Role="role" EntitySet="role" />
             <End Role="userRole" EntitySet="userRole" />
@@ -1091,8 +1242,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="candidates" Relationship="MazalTovModel1.FK_184" FromRole="chasidut" ToRole="candidate" />
-          <NavigationProperty Name="candidates1" Relationship="MazalTovModel1.FK_187" FromRole="chasidut" ToRole="candidate" />
-          <NavigationProperty Name="candidates2" Relationship="MazalTovModel1.FK_190" FromRole="chasidut" ToRole="candidate" />
           </EntityType>
         <EntityType Name="city">
           <Key>
@@ -1101,7 +1250,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="matchmakers" Relationship="Self.FK_102" FromRole="city" ToRole="matchmaker" />
-          <NavigationProperty Name="marrieds" Relationship="Self.FK_160" FromRole="city" ToRole="married" />
           <NavigationProperty Name="helpers" Relationship="Self.FK_316" FromRole="city" ToRole="helper" />
           <NavigationProperty Name="candidates" Relationship="MazalTovModel1.FK_145" FromRole="city" ToRole="candidate" />
         </EntityType>
@@ -1118,6 +1266,7 @@
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" />
           <NavigationProperty Name="user" Relationship="MazalTovModel1.FK_237" FromRole="contactu" ToRole="user" />
+          <Property Name="Tell" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="endMatching">
           <Key>
@@ -1166,25 +1315,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ConnectLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ConnectLevel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CandidateId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK_224" FromRole="infoCandidate" ToRole="candidate" />
-        </EntityType>
-        <EntityType Name="married">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CandidateId" Type="Int32" Nullable="false" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="city" Relationship="Self.FK_160" FromRole="married" ToRole="city" />
-          <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK_157" FromRole="married" ToRole="candidate" />
         </EntityType>
         <EntityType Name="matching">
           <Key>
@@ -1209,9 +1344,10 @@
           <NavigationProperty Name="meetings" Relationship="Self.FK_335" FromRole="matching" ToRole="meeting" />
           <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_350" FromRole="matching" ToRole="matchingHelper" />
           <NavigationProperty Name="matchingComments" Relationship="MazalTovModel1.FK_2580" FromRole="matching" ToRole="matchingComment" />
+          <Property Name="ReasonMatchmarker" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK_253" FromRole="matching" ToRole="candidate" />
           <NavigationProperty Name="candidate1" Relationship="MazalTovModel1.FK_256" FromRole="matching" ToRole="candidate" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="matchingHelper">
           <Key>
             <PropertyRef Name="Id" />
@@ -1255,6 +1391,7 @@
           <NavigationProperty Name="matchingHelpers" Relationship="Self.FK_353" FromRole="matchmaker" ToRole="matchingHelper" />
           <NavigationProperty Name="sector" Relationship="Self.FK_177" FromRole="matchmaker" ToRole="sector" />
           <NavigationProperty Name="worker" Relationship="Self.FK_296" FromRole="matchmaker" ToRole="worker" />
+          <Property Name="AnotherWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="candidates" Relationship="MazalTovModel1.MatchmarkerId" FromRole="matchmaker" ToRole="candidate" />
         </EntityType>
         <EntityType Name="meeting">
@@ -1411,18 +1548,6 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="matchmaker">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_160">
-          <End Role="city" Type="Self.city" Multiplicity="1" />
-          <End Role="married" Type="Self.married" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="city">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="married">
               <PropertyRef Name="CityId" />
             </Dependent>
           </ReferentialConstraint>
@@ -1630,7 +1755,6 @@
           <EntitySet Name="helpers" EntityType="Self.helper" />
           <EntitySet Name="images" EntityType="Self.image" />
           <EntitySet Name="infoCandidates" EntityType="Self.infoCandidate" />
-          <EntitySet Name="marrieds" EntityType="Self.married" />
           <EntitySet Name="matchings" EntityType="Self.matching" />
           <EntitySet Name="matchingHelpers" EntityType="Self.matchingHelper" />
           <EntitySet Name="matchmakers" EntityType="Self.matchmaker" />
@@ -1654,10 +1778,6 @@
           <AssociationSet Name="FK_102" Association="Self.FK_102">
             <End Role="city" EntitySet="cities" />
             <End Role="matchmaker" EntitySet="matchmakers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_160" Association="Self.FK_160">
-            <End Role="city" EntitySet="cities" />
-            <End Role="married" EntitySet="marrieds" />
           </AssociationSet>
           <AssociationSet Name="FK_316" Association="Self.FK_316">
             <End Role="city" EntitySet="cities" />
@@ -1753,7 +1873,35 @@
             <End Role="role" EntitySet="roles" />
             <End Role="user" EntitySet="users" />
           </AssociationSet>
+          <EntitySet Name="halachots" EntityType="MazalTovModel1.halachot" />
+          <EntitySet Name="remarks" EntityType="MazalTovModel1.remark" />
+          <EntitySet Name="requests" EntityType="MazalTovModel1.request" />
+          <AssociationSet Name="FK__halachot__UserId__4F47C5E3" Association="MazalTovModel1.FK__halachot__UserId__4F47C5E3">
+            <End Role="user" EntitySet="users" />
+            <End Role="halachot" EntitySet="halachots" />
+          </AssociationSet>
+          <AssociationSet Name="FK__remark__UserId__57DD0BE4" Association="MazalTovModel1.FK__remark__UserId__57DD0BE4">
+            <End Role="user" EntitySet="users" />
+            <End Role="remark" EntitySet="remarks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__ToUserI__55009F39" Association="MazalTovModel1.FK__request__ToUserI__55009F39">
+            <End Role="user" EntitySet="users" />
+            <End Role="request" EntitySet="requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__UserId__540C7B00" Association="MazalTovModel1.FK__request__UserId__540C7B00">
+            <End Role="user" EntitySet="users" />
+            <End Role="request" EntitySet="requests" />
+          </AssociationSet>
+          <EntitySet Name="candidateFamilies" EntityType="MazalTovModel1.candidateFamily" />
           <EntitySet Name="candidates" EntityType="MazalTovModel1.candidate" />
+          <AssociationSet Name="FK__request__Candida__55F4C372" Association="MazalTovModel1.FK__request__Candida__55F4C372">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="request" EntitySet="requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__request__Candida__56E8E7AB" Association="MazalTovModel1.FK__request__Candida__56E8E7AB">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="request" EntitySet="requests" />
+          </AssociationSet>
           <AssociationSet Name="FK_139" Association="MazalTovModel1.FK_139">
             <End Role="candidate" EntitySet="candidates" />
             <End Role="image" EntitySet="images" />
@@ -1766,23 +1914,11 @@
             <End Role="city" EntitySet="cities" />
             <End Role="candidate" EntitySet="candidates" />
           </AssociationSet>
-          <AssociationSet Name="FK_157" Association="MazalTovModel1.FK_157">
-            <End Role="candidate" EntitySet="candidates" />
-            <End Role="married" EntitySet="marrieds" />
-          </AssociationSet>
           <AssociationSet Name="FK_174" Association="MazalTovModel1.FK_174">
             <End Role="sector" EntitySet="sectors" />
             <End Role="candidate" EntitySet="candidates" />
           </AssociationSet>
           <AssociationSet Name="FK_184" Association="MazalTovModel1.FK_184">
-            <End Role="chasidut" EntitySet="chasiduts" />
-            <End Role="candidate" EntitySet="candidates" />
-          </AssociationSet>
-          <AssociationSet Name="FK_187" Association="MazalTovModel1.FK_187">
-            <End Role="chasidut" EntitySet="chasiduts" />
-            <End Role="candidate" EntitySet="candidates" />
-          </AssociationSet>
-          <AssociationSet Name="FK_190" Association="MazalTovModel1.FK_190">
             <End Role="chasidut" EntitySet="chasiduts" />
             <End Role="candidate" EntitySet="candidates" />
           </AssociationSet>
@@ -1802,9 +1938,22 @@
             <End Role="candidate" EntitySet="candidates" />
             <End Role="matching" EntitySet="matchings" />
           </AssociationSet>
+          <AssociationSet Name="FK_candidate_user" Association="MazalTovModel1.FK_candidate_user">
+            <End Role="user" EntitySet="users" />
+            <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_candidateFamily_candidate" Association="MazalTovModel1.FK_candidateFamily_candidate">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="candidateFamily" EntitySet="candidateFamilies" />
+          </AssociationSet>
           <AssociationSet Name="MatchmarkerId" Association="MazalTovModel1.MatchmarkerId">
             <End Role="matchmaker" EntitySet="matchmakers" />
             <End Role="candidate" EntitySet="candidates" />
+          </AssociationSet>
+          <EntitySet Name="marrieds" EntityType="MazalTovModel1.married" />
+          <AssociationSet Name="FK_157" Association="MazalTovModel1.FK_157">
+            <End Role="candidate" EntitySet="candidates" />
+            <End Role="married" EntitySet="marrieds" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="matchingComment">
@@ -1840,9 +1989,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Firstname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Lastname" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="PasswordHash" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="Tz" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Tz" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PasswordSalt" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="askPermssions" Relationship="MazalTovModel1.FK_90" FromRole="user" ToRole="askPermssion" />
           <NavigationProperty Name="candidateComments" Relationship="MazalTovModel1.FK_202" FromRole="user" ToRole="candidateComment" />
@@ -1850,7 +1999,15 @@
           <NavigationProperty Name="matchingComments" Relationship="MazalTovModel1.FK_2050" FromRole="user" ToRole="matchingComment" />
           <NavigationProperty Name="workers" Relationship="MazalTovModel1.FK_290" FromRole="user" ToRole="worker" />
           <NavigationProperty Name="roles" Relationship="MazalTovModel1.userRole" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="halachots" Relationship="MazalTovModel1.FK__halachot__UserId__4F47C5E3" FromRole="user" ToRole="halachot" />
+          <NavigationProperty Name="remarks" Relationship="MazalTovModel1.FK__remark__UserId__57DD0BE4" FromRole="user" ToRole="remark" />
+          <NavigationProperty Name="requests" Relationship="MazalTovModel1.FK__request__ToUserI__55009F39" FromRole="user" ToRole="request" />
+          <NavigationProperty Name="requests1" Relationship="MazalTovModel1.FK__request__UserId__540C7B00" FromRole="user" ToRole="request" />
           <NavigationProperty Name="candidates" Relationship="MazalTovModel1.FK_142" FromRole="user" ToRole="candidate" />
+          <NavigationProperty Name="candidates1" Relationship="MazalTovModel1.FK_candidate_user" FromRole="user" ToRole="candidate" />
+          <Property Name="IsOk" Type="Boolean" />
+          <Property Name="Classification" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_90">
           <End Type="MazalTovModel1.user" Role="user" Multiplicity="1" />
@@ -1916,6 +2073,112 @@
           <End Type="MazalTovModel1.role" Role="role" Multiplicity="*" />
           <End Type="MazalTovModel1.user" Role="user" Multiplicity="*" />
         </Association>
+        <EntityType Name="halachot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Halacha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="Int32" />
+          <Property Name="IsOk" Type="Boolean" />
+          <Property Name="IsTaken" Type="Boolean" />
+          <NavigationProperty Name="user" Relationship="MazalTovModel1.FK__halachot__UserId__4F47C5E3" FromRole="halachot" ToRole="user" />
+        </EntityType>
+        <EntityType Name="remark">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Remark1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="user" Relationship="MazalTovModel1.FK__remark__UserId__57DD0BE4" FromRole="remark" ToRole="user" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ToUserId" Type="Int32" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="CandidateId" Type="Int32" />
+          <Property Name="CandidateFeId" Type="Int32" />
+          <Property Name="IsCanWithMark" Type="Boolean" />
+          <Property Name="IsCanFeWithMark" Type="Boolean" />
+          <Property Name="IsCanSecretMark" Type="Boolean" />
+          <Property Name="IsCanFeSecretMark" Type="Boolean" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateAnswer" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="user" Relationship="MazalTovModel1.FK__request__ToUserI__55009F39" FromRole="request" ToRole="user" />
+          <NavigationProperty Name="user1" Relationship="MazalTovModel1.FK__request__UserId__540C7B00" FromRole="request" ToRole="user" />
+          <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK__request__Candida__55F4C372" FromRole="request" ToRole="candidate" />
+          <NavigationProperty Name="candidate1" Relationship="MazalTovModel1.FK__request__Candida__56E8E7AB" FromRole="request" ToRole="candidate" />
+          </EntityType>
+        <Association Name="FK__halachot__UserId__4F47C5E3">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.halachot" Role="halachot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="halachot">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__remark__UserId__57DD0BE4">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.remark" Role="remark" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="remark">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__ToUserI__55009F39">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.request" Role="request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="ToUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__UserId__540C7B00">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.request" Role="request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="candidateFamily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="PlaceLearn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CandidateId" Type="Int32" />
+          <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK_candidateFamily_candidate" FromRole="candidateFamily" ToRole="candidate" />
+        </EntityType>
         <EntityType Name="candidate">
           <Key>
             <PropertyRef Name="Id" />
@@ -1938,8 +2201,8 @@
           <Property Name="CandidateWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastPlaceLearn" Type="Int32" Nullable="false" />
           <Property Name="Show" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Clothes" Type="Int32" Nullable="false" />
-          <Property Name="Tell" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Clothes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Tell" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1954,22 +2217,58 @@
           <Property Name="MatchmarkerId" Type="Int32" />
           <Property Name="SectorId" Type="Int32" Nullable="false" />
           <Property Name="ChasidutId" Type="Int32" />
-          <Property Name="ChasidutMother" Type="Int32" />
-          <Property Name="ChasidutFather" Type="Int32" />
+          <Property Name="IsCube" Type="Boolean" />
+          <Property Name="ReasonCube" Type="Int32" />
+          <Property Name="ReasonCubeA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TellMother" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="TellFather" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="KeepOn" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WhoMoneyAnother" Type="Int32" />
+          <Property Name="WhoMoneyGive" Type="Int32" />
+          <Property Name="Heigth" Type="Double" />
+          <Property Name="MedicalProblemRemark" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EntryByUser" Type="Int32" />
+          <Property Name="RemarkSecure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="requests" Relationship="MazalTovModel1.FK__request__Candida__55F4C372" FromRole="candidate" ToRole="request" />
+          <NavigationProperty Name="requests1" Relationship="MazalTovModel1.FK__request__Candida__56E8E7AB" FromRole="candidate" ToRole="request" />
           <NavigationProperty Name="images" Relationship="MazalTovModel1.FK_139" FromRole="candidate" ToRole="image" />
           <NavigationProperty Name="user" Relationship="MazalTovModel1.FK_142" FromRole="candidate" ToRole="user" />
           <NavigationProperty Name="city" Relationship="MazalTovModel1.FK_145" FromRole="candidate" ToRole="city" />
-          <NavigationProperty Name="marrieds" Relationship="MazalTovModel1.FK_157" FromRole="candidate" ToRole="married" />
           <NavigationProperty Name="sector" Relationship="MazalTovModel1.FK_174" FromRole="candidate" ToRole="sector" />
           <NavigationProperty Name="chasidut" Relationship="MazalTovModel1.FK_184" FromRole="candidate" ToRole="chasidut" />
-          <NavigationProperty Name="chasidut1" Relationship="MazalTovModel1.FK_187" FromRole="candidate" ToRole="chasidut" />
-          <NavigationProperty Name="chasidut2" Relationship="MazalTovModel1.FK_190" FromRole="candidate" ToRole="chasidut" />
           <NavigationProperty Name="candidateComments" Relationship="MazalTovModel1.FK_205" FromRole="candidate" ToRole="candidateComment" />
           <NavigationProperty Name="infoCandidates" Relationship="MazalTovModel1.FK_224" FromRole="candidate" ToRole="infoCandidate" />
           <NavigationProperty Name="matchings" Relationship="MazalTovModel1.FK_253" FromRole="candidate" ToRole="matching" />
           <NavigationProperty Name="matchings1" Relationship="MazalTovModel1.FK_256" FromRole="candidate" ToRole="matching" />
+          <NavigationProperty Name="user1" Relationship="MazalTovModel1.FK_candidate_user" FromRole="candidate" ToRole="user" />
+          <NavigationProperty Name="candidateFamilies" Relationship="MazalTovModel1.FK_candidateFamily_candidate" FromRole="candidate" ToRole="candidateFamily" />
           <NavigationProperty Name="matchmaker" Relationship="MazalTovModel1.MatchmarkerId" FromRole="candidate" ToRole="matchmaker" />
+          <NavigationProperty Name="marrieds" Relationship="MazalTovModel1.FK_157" FromRole="candidate" ToRole="married" />
         </EntityType>
+        <Association Name="FK__request__Candida__55F4C372">
+          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.request" Role="request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="CandidateFeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__request__Candida__56E8E7AB">
+          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.request" Role="request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="request">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_139">
           <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="1" />
           <End Type="MazalTovModel1.image" Role="image" Multiplicity="*" />
@@ -2006,18 +2305,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_157">
-          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="1" />
-          <End Type="MazalTovModel1.married" Role="married" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="candidate">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="married">
-              <PropertyRef Name="CandidateId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_174">
           <End Type="MazalTovModel1.sector" Role="sector" Multiplicity="1" />
           <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="*" />
@@ -2039,30 +2326,6 @@
             </Principal>
             <Dependent Role="candidate">
               <PropertyRef Name="ChasidutId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_187">
-          <End Type="MazalTovModel1.chasidut" Role="chasidut" Multiplicity="0..1" />
-          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chasidut">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="candidate">
-              <PropertyRef Name="ChasidutMother" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_190">
-          <End Type="MazalTovModel1.chasidut" Role="chasidut" Multiplicity="0..1" />
-          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="chasidut">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="candidate">
-              <PropertyRef Name="ChasidutFather" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2114,6 +2377,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_candidate_user">
+          <End Type="MazalTovModel1.user" Role="user" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidate">
+              <PropertyRef Name="EntryByUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_candidateFamily_candidate">
+          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="0..1" />
+          <End Type="MazalTovModel1.candidateFamily" Role="candidateFamily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="candidateFamily">
+              <PropertyRef Name="CandidateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="MatchmarkerId">
           <End Type="MazalTovModel1.matchmaker" Role="matchmaker" Multiplicity="0..1" />
           <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="*" />
@@ -2123,6 +2410,31 @@
             </Principal>
             <Dependent Role="candidate">
               <PropertyRef Name="MatchmarkerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="married">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CandidateId" Type="Int32" Nullable="false" />
+          <Property Name="PlaceLearn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="candidate" Relationship="MazalTovModel1.FK_157" FromRole="married" ToRole="candidate" />
+        </EntityType>
+        <Association Name="FK_157">
+          <End Type="MazalTovModel1.candidate" Role="candidate" Multiplicity="1" />
+          <End Type="MazalTovModel1.married" Role="married" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="candidate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="married">
+              <PropertyRef Name="CandidateId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2189,6 +2501,7 @@
           <EntitySetMapping Name="contactus">
             <EntityTypeMapping TypeName="MazalTovModel1.contactu">
               <MappingFragment StoreEntitySet="contactus">
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
@@ -2250,22 +2563,10 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="marrieds">
-            <EntityTypeMapping TypeName="MazalTovModel1.married">
-              <MappingFragment StoreEntitySet="married">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="matchings">
             <EntityTypeMapping TypeName="MazalTovModel1.matching">
               <MappingFragment StoreEntitySet="matching">
+                <ScalarProperty Name="ReasonMatchmarker" ColumnName="ReasonMatchmarker" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Createdate" ColumnName="Createdate" />
                 <ScalarProperty Name="Remark" ColumnName="Remark" />
@@ -2305,6 +2606,7 @@
           <EntitySetMapping Name="matchmakers">
             <EntityTypeMapping TypeName="MazalTovModel1.matchmaker">
               <MappingFragment StoreEntitySet="matchmaker">
+                <ScalarProperty Name="AnotherWorker" ColumnName="AnotherWorker" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="MedicalProblem" ColumnName="MedicalProblem" />
@@ -2447,6 +2749,9 @@
           <EntitySetMapping Name="users">
             <EntityTypeMapping TypeName="MazalTovModel1.user">
               <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Classification" ColumnName="Classification" />
+                <ScalarProperty Name="IsOk" ColumnName="IsOk" />
                 <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
                 <ScalarProperty Name="Tz" ColumnName="Tz" />
                 <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
@@ -2465,11 +2770,76 @@
               <ScalarProperty Name="Id" ColumnName="roleId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="halachots">
+            <EntityTypeMapping TypeName="MazalTovModel1.halachot">
+              <MappingFragment StoreEntitySet="halachot">
+                <ScalarProperty Name="IsTaken" ColumnName="IsTaken" />
+                <ScalarProperty Name="IsOk" ColumnName="IsOk" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Halacha" ColumnName="Halacha" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="remarks">
+            <EntityTypeMapping TypeName="MazalTovModel1.remark">
+              <MappingFragment StoreEntitySet="remark">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Remark1" ColumnName="Remark" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requests">
+            <EntityTypeMapping TypeName="MazalTovModel1.request">
+              <MappingFragment StoreEntitySet="request">
+                <ScalarProperty Name="DateAnswer" ColumnName="DateAnswer" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="IsCanFeSecretMark" ColumnName="IsCanFeSecretMark" />
+                <ScalarProperty Name="IsCanSecretMark" ColumnName="IsCanSecretMark" />
+                <ScalarProperty Name="IsCanFeWithMark" ColumnName="IsCanFeWithMark" />
+                <ScalarProperty Name="IsCanWithMark" ColumnName="IsCanWithMark" />
+                <ScalarProperty Name="CandidateFeId" ColumnName="CandidateFeId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ToUserId" ColumnName="ToUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="candidateFamilies">
+            <EntityTypeMapping TypeName="MazalTovModel1.candidateFamily">
+              <MappingFragment StoreEntitySet="candidateFamily">
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="PlaceLearn" ColumnName="PlaceLearn" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="candidates">
             <EntityTypeMapping TypeName="MazalTovModel1.candidate">
               <MappingFragment StoreEntitySet="candidate">
-                <ScalarProperty Name="ChasidutFather" ColumnName="ChasidutFather" />
-                <ScalarProperty Name="ChasidutMother" ColumnName="ChasidutMother" />
+                <ScalarProperty Name="RemarkSecure" ColumnName="RemarkSecure" />
+                <ScalarProperty Name="EntryByUser" ColumnName="EntryByUser" />
+                <ScalarProperty Name="MedicalProblemRemark" ColumnName="MedicalProblemRemark" />
+                <ScalarProperty Name="Heigth" ColumnName="Heigth" />
+                <ScalarProperty Name="WhoMoneyGive" ColumnName="WhoMoneyGive" />
+                <ScalarProperty Name="WhoMoneyAnother" ColumnName="WhoMoneyAnother" />
+                <ScalarProperty Name="KeepOn" ColumnName="KeepOn" />
+                <ScalarProperty Name="TellFather" ColumnName="TellFather" />
+                <ScalarProperty Name="TellMother" ColumnName="TellMother" />
+                <ScalarProperty Name="ReasonCubeA" ColumnName="ReasonCubeA" />
+                <ScalarProperty Name="ReasonCube" ColumnName="ReasonCube" />
+                <ScalarProperty Name="IsCube" ColumnName="IsCube" />
                 <ScalarProperty Name="ChasidutId" ColumnName="ChasidutId" />
                 <ScalarProperty Name="SectorId" ColumnName="SectorId" />
                 <ScalarProperty Name="MatchmarkerId" ColumnName="MatchmarkerId" />
@@ -2503,6 +2873,19 @@
                 <ScalarProperty Name="IsPayFood" ColumnName="IsPayFood" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="BornDate" ColumnName="BornDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marrieds">
+            <EntityTypeMapping TypeName="MazalTovModel1.married">
+              <MappingFragment StoreEntitySet="married">
+                <ScalarProperty Name="PlaceLearn" ColumnName="PlaceLearn" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

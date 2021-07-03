@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { UserRoutingModule } from './user.routing.module';
 import { CandidateRegisterComponent } from './candidate-register/candidate-register.component';
 import { LawComponent } from './law/law.component';
+import { CandidateInfoComponent } from './candidate-info/candidate-info.component';
+import { RegisterMessageComponent } from './register-message/register-message.component';
 
 
 
@@ -13,11 +15,16 @@ import { LawComponent } from './law/law.component';
     UserComponent,
     CandidateRegisterComponent,
     LawComponent,
+    CandidateInfoComponent,
+    RegisterMessageComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     UserRoutingModule
+  ],
+  entryComponents:[
+    RegisterMessageComponent
   ]
 })
 export class UserModule { }

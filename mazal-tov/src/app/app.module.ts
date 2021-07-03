@@ -18,6 +18,9 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { RegisterComponent } from './shared/components/register/register.component';
 import { ContactUsComponent } from './shared/components/contact-us/contact-us.component';
+import { ShowErrorsComponent } from './shared/components/show-errors/show-errors.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -28,13 +31,14 @@ import { ContactUsComponent } from './shared/components/contact-us/contact-us.co
     HeaderComponent,
     RegisterComponent,
     ContactUsComponent,
-
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    NgbModule,
+    AngularEditorModule
 
   ],
   providers: [authInterceptorProviders],

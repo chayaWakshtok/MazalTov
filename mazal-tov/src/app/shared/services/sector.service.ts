@@ -11,10 +11,14 @@ import { Sector } from 'src/app/classes/sector';
 })
 export class SectorService {
 
-  constructor(public httpClient: HttpClient, private router: Router,) { }
+  url: string;
+
+  constructor(public httpClient: HttpClient, private router: Router,) {
+    this.url = environment.apiUrl + "sector";
+  }
 
   getSector(): Observable<Sector[]> {
-    return this.httpClient.get<Sector[]>(environment.apiUrl + "api/Sector/GetSector");
+    return this.httpClient.get<Sector[]>(this.url+ "/all");
   }
 }
 

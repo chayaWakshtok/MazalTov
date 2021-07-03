@@ -22,6 +22,7 @@ namespace DAL
         public System.DateTime UpdateDate { get; set; }
         public int Status { get; set; }
         public Nullable<int> UserId { get; set; }
+        public string Tell { get; set; }
     
         public virtual user user { get; set; }
     }

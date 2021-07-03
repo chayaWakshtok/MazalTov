@@ -1,97 +1,180 @@
-<p>shadchanit-register works!</p>
-
-
-<div class="jumbotron">
-    <div class="container">
+<div>
+    <div>
         <div class="row">
-            <div class="col-md-8 offset-md-2">
-                <h3>הרשמה שדכנית </h3>
-                <form name="form">
-                    <app-add-worker></app-add-worker>
-                    <div class="form-group">
-                        <label for="Address">כתובת </label>
-                        <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.address" />
+            <div class="mt-5">
+                <h3 class="header-page">טופס בקשת הצטרפות - שדכנית </h3>
+                <p class="text-center">תאריך הצטרפות: - {{date| date: 'dd/MM/yyyy'}}</p>
+                <div class="bar1 font-20">פרטים אישיים</div>
+                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+                    <div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="firstname">שם פרטי</label>
+                                <input type="text" [(ngModel)]="matchmaker.user.firstname" name="firstname"
+                                    id="firstname" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="lastname">שם משפחה</label>
+                                <input type="text" [(ngModel)]="matchmaker.user.lastname" name="lastname" id="lastname"
+                                    required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="address">כתובת</label>
+                                <input type="text" [(ngModel)]="matchmaker.address" name="address" id="address"
+                                    required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="city">עיר</label>
+                                <input type="text" autocomplete="off" list="cities" [(ngModel)]="matchmaker.city"
+                                    name="city" id="city" required>
+                                <datalist id="cities">
+                                    <option *ngFor="let i of cities" [value]="i.cityName">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="tell">טלפון</label>
+                                <input type="tel" [(ngModel)]="matchmaker.tell" name="tell" id="tell" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="phone">פלאפון</label>
+                                <input type="tel" [(ngModel)]="matchmaker.phone" name="phone" id="phone" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="fax">פקס</label>
+                                <input type="tel" [(ngModel)]="matchmaker.fax" name="fax" id="fax">
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="email">דואר אלקטרוני</label>
+                                <input type="email" [(ngModel)]="matchmaker.user.email" name="email" id="email"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="sector">עדה</label>
+                                <select name="sector" id="sector" [(ngModel)]="matchmaker.sector">
+                                    <option *ngFor="let i of sector" [value]="i.name"> {{i.name}} </option>
+                                </select>
+                            </div>
+                            <div class="form-input col-md-3" *ngIf="matchmaker.sector=='חסידי'">
+                                <label for="chasidut">קהילה\חסידות</label>
+                                <select name="chasidut" id="chasidut" [(ngModel)]="matchmaker.chasidut">
+                                    <option *ngFor="let i of chasidut" [value]="i.name"> {{i.name}} </option>
+                                </select>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="bornDate">תאריך לידה</label>
+                                <input type="date" [(ngModel)]="matchmaker.user.bornDate" name="bornDate" id="bornDate"
+                                    required #bornDate="ngModel">
+                                <app-show-errors [control]="bornDate"></app-show-errors>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="tz">תעודת זהות</label>
+                                <input type="text" [(ngModel)]="matchmaker.user.tz" name="tz" id="tz" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="medicalProblem">בעיה רפואית (רשות)</label>
+                                <input type="text" [(ngModel)]="matchmaker.medicalProblem" name="medicalProblem"
+                                    id="medicalProblem" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="pass">מין</label>
+                                <div class="row">
+                                    <div class="col-6 row" style="height: 50px;">
+                                        <input style="margin:auto" class="col-3" type="radio" value="1"
+                                            [(ngModel)]="matchmaker.user.gender" name="זכר" id="pass" required>
+                                        <p class="col-7" style="margin:auto">זכר</p>
+                                    </div>
+                                    <div class="col-6 row" style="height: 50px;">
+                                        <input class="col-3" type="radio" value="2" [(ngModel)]="matchmaker.user.gender"
+                                            name="נקבה" id="pass" required style="margin:auto">
+                                        <p class="col-7" style="margin:auto">נקבה</p>
+                                    </div>
 
-                    </div>
-                    <div class="form-group">
-                        <label for="Address">עיר </label>
-                        <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select name="city" [(ngModel)]="matchmaker.cityId">
-                            <option *ngFor="let i of cities" [value]="i.id"> {{i.name}} </option>
-                        </select>
-                    </div>
+                                </div>
 
-                    <div class="form-group">
-                        <label for="sector">מגזר </label>
-                        <select name="sector" [(ngModel)]="matchmaker.sectorId">
-                            <option *ngFor="let i of sector" [value]="i.id"> {{i.name}} </option>
-                        </select>
-                    </div>
-                    <div class="form-group" *ngIf="matchmaker.sectorId==1">
-                        <label for="chsidut">חסידות </label>
-                        <!-- <input type="text" class="form-control" name="Address" [(ngModel)]="matchmaker.cityId" /> -->
-                        <select name="chasidut" [(ngModel)]="matchmaker.chasidutId">
-                            <option *ngFor="let i of chasidut"> {{i.name}} </option>
-                        </select>
-                    </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label for="NumMatching">?כמה שידוכים בשנה האחרונה</label>
-                        <input type="number" class="form-control" name="NumMatching"
-                            [(ngModel)]=" matchmaker.numMatching" />
-
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="ChildrenMatchmaking">ילדים בשידוכים</label>
-                        <input type="number" class="form-control" name="ChildrenMatchmaking"
-                            [(ngModel)]=" matchmaker.childrenMatchmaking" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="HowSend">אופן שליחת החוברת: </label>
-                        <br>
-                        <!-- <div *ngFor="let item of KindSend">
-                            <label>{{item}}</label>
-                            <input type="radio" name="HowSend" (click)="HowSend(item)"  >
-                        </div> -->
-                        <!-- צריך לסדר לעשות ENUM בC# -->
-
-
-                        <label> מייל</label>
-                        <input type="radio" name="HowSend" value="1" [(ngModel)]="radioSelected"
-                            (change)="onItemChange(1)">
-                        <label> פקס</label>
-                        <input type="radio" name="HowSend" value="2" [(ngModel)]="radioSelected"
-                            (change)="onItemChange(2)">
-                        <label> דואר</label>
-                        <input type="radio" name="HowSend" value="3" [(ngModel)]="radioSelected"
-                            (change)="onItemChange(3)">
-                    </div>
-                    <div class="form-group">
-                        <label for="medicalProblem">
-                            בעיה רפואית</label>
-                        <input type="text" class="form-control" name="MedicalProblem"
-                            [(ngModel)]="matchmaker.medicalProblem" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="IsCommitment">האם קיבלה התחייבות האירגון: </label>
-                        <input type="checkbox" class="form-control" name="IsCommitment"
-                            [(ngModel)]=" matchmaker.isCommitment" />
-
-                    </div>
-                    <div class="form-group">
-                        <label for="IsAgreement">האם חתמה על ההסכם: </label>
-                        <input type="checkbox" class="form-control" name="IsAgreement"
-                            [(ngModel)]="matchmaker.isAgreement" />
-
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" (click)="registerMatchmaker()"> הרשמה</button>
-
-                    </div>
-                    <!-- </div>    -->
                 </form>
+                <div class="bar1 font-20  mt-4">עוד על המקצוע...</div>
+                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+                    <div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="experiance">כמה שנים בתחום השידוכים?</label>
+                                <input type="number" [(ngModel)]="matchmaker.experiance" name="experiance"
+                                    id="experiance" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="numMatching">כמה שידוכים בשנה האחרונה?</label>
+                                <input type="number" [(ngModel)]="matchmaker.numMatching" name="numMatching"
+                                    id="numMatching" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="address">מספר ילדים בשידוכים (או שהיו)</label>
+                                <input type="number" [(ngModel)]="matchmaker.childrenMatchmaking"
+                                    name="childrenMatchmaking" id="childrenMatchmaking" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="confidentComment">מקצוע נוסף</label>
+                                <input type="text" [(ngModel)]="matchmaker.confidentComment" name="confidentComment"
+                                    id="confidentComment">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-input col-md-12">
+                                <label for="remark">הערות</label>
+                                <input type="text" [(ngModel)]="matchmaker.workerRemark" name="remark" id="remark">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="bar1 font-20  mt-5">בחירת סיסמה</div>
+                <form name="form" class="col-md-10 offset-md-2 mt-4" style="margin: auto;">
+                    <div>
+                        <div class="row">
+                            <div class="form-input col-md-3">
+                                <label for="username">שם משתמש</label>
+                                <input type="text" [(ngModel)]="matchmaker.user.username" name="username" id="username"
+                                    required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="lastname">סיסמה</label>
+                                <input type="password" [(ngModel)]="matchmaker.user.password" name="password"
+                                    id="password" required>
+                            </div>
+                            <div class="form-input col-md-3">
+                                <label for="confirmPassword">אימות סיסמה</label>
+                                <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword"
+                                    id="confirmPassword" required>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+                <div class="bar1 font-20  mt-4">הסכם עבודה</div>
+                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+                    <div>
+                        <div class="row">
+                            <div class="form-input col-md-4 row">
+                                <input class="col-1" type="checkbox" [(ngModel)]="matchmaker.isAgreement"
+                                    name="isAgreement" id="isAgreement" required>
+                                <label class="col-10" for="isAgreement">קראתי ואשרתי את הסכם העבודה</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div style="width: 300px; margin: auto;" class="mb-5">
+                    <button class="btn btn-primary" (click)="registerMatchmaker()"> הרשמה</button>
+                </div>
+
+                <!-- </div>    -->
             </div>
         </div>
     </div>

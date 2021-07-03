@@ -19,15 +19,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.getUser();
     if (this.user) {
-      if (this.user.roles.findIndex(p => p.name == RoleEnum.Admin) >= 0)
+      if (this.user.role == RoleEnum.Admin)
         this.router.navigate(["admin"]);
-      else if (this.user.roles.findIndex(p => p.name == RoleEnum.MatchMarker) >= 0)
-        this.router.navigate(["matchMarker"]);
-      else if (this.user.roles.findIndex(p => p.name == RoleEnum.Worker) >= 0)
+      else if (this.user.role == RoleEnum.MatchMarker)
+        this.router.navigate(["matchmaker"]);
+      else if (this.user.role == RoleEnum.Worker)
         this.router.navigate(["worker"]);
-      else if (this.user.roles.findIndex(p => p.name == RoleEnum.User) >= 0)
+      else if (this.user.role == RoleEnum.User)
         this.router.navigate(["user"]);
-      else if (this.user.roles.findIndex(p => p.name == RoleEnum.Secretary) >= 0)
+      else if (this.user.role == RoleEnum.Secretary)
         this.router.navigate(["secretary"]);
     }
   }

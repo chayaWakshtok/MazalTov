@@ -1,0 +1,37 @@
+<div class="form-input col-md-3">
+    <label for="firstname">שם</label>
+    <input type="text" [(ngModel)]="info.name" name="heigth" id="heigth" required>
+</div>
+<div class="form-input col-md-3">
+    <label for="lastname"> טלפון</label>
+    <input type="tel" [(ngModel)]="info.phone" name="clothes" id="clothes" required>
+</div>
+<div class="form-input col-md-3">
+    <label for="address"> הקשר למועמד</label>
+    <div class="row">
+        <div class="col-4 row" style="height: 50px;">
+            <input style="margin:auto;" class="col-3" type="radio" value="חבר" [(ngModel)]="info.connectLevel"
+                name="חבר" id="connectLevel">
+            <p class="col-7" style="margin:auto">חבר</p>
+        </div>
+        <div class="col-4 row" style="height: 50px;">
+            <input class="col-3" type="radio" value="שכן" [(ngModel)]="info.connectLevel" name="שכן" id="connectLevel"
+                style="margin:auto;">
+            <p class="col-7" style="margin:auto">שכן</p>
+        </div>
+        <div class="col-4 row" style="height: 50px;">
+            <input class="col-3" type="radio" value="צוות" [(ngModel)]="info.connectLevel" name="צוות" id="connectLevel"
+                style="margin:auto;">
+            <p class="col-7" style="margin:auto">צוות</p>
+        </div>
+        <div class="col-4 row" style="height: 50px;">
+            <input class="col-3" type="radio" value="מהקהילה" [(ngModel)]="info.connectLevel" name="מהקהילה"
+                id="connectLevel" style="margin:auto;">
+            <p class="col-7" style="margin:auto">מהקהילה</p>
+        </div>
+    </div>
+</div>
+<div class="form-input col-md-3">
+    <label for="item.remark"> אחר</label>
+    <input type="text" [(ngModel)]="info.remark" name="item.remark" id="item.remark" required>
+</div>

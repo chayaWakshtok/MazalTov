@@ -8,5 +8,5 @@ export class Contactus {
   updateDate: Date;
   status: number;
   userId: number;
-
+  tell: string;
 }

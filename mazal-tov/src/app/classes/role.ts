@@ -8,5 +8,5 @@ export enum RoleEnum {
      User = 'User',
      Worker = 'Worker',
      Secretary = 'Secretary',
-     MatchMarker = 'MatchMarker'
+     MatchMarker = 'MatchMaker'
 }

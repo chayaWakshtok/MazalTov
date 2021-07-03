@@ -1,0 +1,93 @@
+<div class="card-top">
+    <p class="font-white">תהליך שידוך</p>
+    <img src="../../../../../assets/steps/step3.png">
+</div>
+<div>
+    <div class="row">
+        <h2 class="col-6 text-center">משה שטרנפלד</h2>
+        <h2 class="col-6 text-center">לאה קורן</h2>
+    </div>
+
+    <div id="table-step3">
+        <p class="font-30 mb-2" id="p1">ברורים</p>
+        <p class="font-30 mb-5">בדיקת התאמת ציפיות</p>
+        <div class="row pt-3 pb-3">
+            <div class="col-1"></div>
+            <div class="col-2 mb-4">
+                <div class="card-circle card-circle-w">
+                    <input type="checkbox" name="money" [(ngModel)]="canStepCurrect.checkeding.money">
+                    <img src="../../../../../assets/Desires/1.png">
+                </div>
+                <p>ענינים כספיים</p>
+            </div>
+            <div class="col-2 mb-4">
+                <div class="card-circle card-circle-w">
+                    <input type="checkbox" name="dress" [(ngModel)]="canStepCurrect.checkeding.dress">
+                    <img src="../../../../../assets/Desires/2.png">
+                </div>
+                <p>פרטי לבוש</p>
+            </div>
+            <div class="col-2 mb-4">
+                <div class="card-circle card-circle-w">
+                    <input type="checkbox" name="style" [(ngModel)]="canStepCurrect.checkeding.style">
+                    <img src="../../../../../assets/Desires/3.png" style="margin-top: 20px;">
+                </div>
+                <p>סגנון</p>
+            </div>
+            <div class="col-2 mb-4">
+                <div class="card-circle card-circle-w">
+                    <input type="checkbox" name="char" [(ngModel)]="canStepCurrect.checkeding.character">
+                    <img src="../../../../../assets/Desires/4.png">
+                </div>
+                <p>אופי</p>
+            </div>
+            <div class="col-2 mb-4">
+                <div class="card-circle card-circle-w">
+                    <input type="checkbox" name="amb" [(ngModel)]="canStepCurrect.checkeding.ambition">
+                    <img src="../../../../../assets/Desires/5.png" style="margin-top: 10px;">
+                </div>
+                <p>שאיפות</p>
+            </div>
+        </div>
+    </div>
+
+    <h5 class="font-30 mt-4 mb-4">טלפונים לברורים</h5>
+    <div class="row" style="margin-right: 15vw !important;
+    margin-left: 15vw !important;">
+        <div class="col-6" style="padding-left: 2vw !important;">
+            <div class="card-tell">
+                <div class="d-tell">
+                    <p class="p-tell">מועמד</p>
+                </div>
+                <div class="row font-20 pt-4 pb-4"
+                    *ngFor="let item of canStepCurrect.male?.infoCandidates;let index=index">
+                    <p class="col p-name-tell">
+                        <span class="number">{{index+1}}. </span>
+                        <b> שם:</b> {{item.name}}</p>
+                    <p class="col p-name-tell"><b>טלפון:</b> {{item.phone}}</p>
+                    <p class="col p-name-tell"><b>הקשר:</b> {{item.connectLevel}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6" style="padding-right: 2vw !important;">
+            <div class="card-tell">
+                <div class="d-tell">
+                    <p class="p-tell">מועמדת</p>
+                </div>
+                <div class="row font-20 pt-4 pb-4"
+                    *ngFor="let item of canStepCurrect.female?.infoCandidates;let index=index">
+                    <p class="col p-name-tell">
+                        <span class="number">{{index+1}}. </span>
+                        <b> שם:</b> {{item.name}}</p>
+                    <p class="col p-name-tell"><b>טלפון:</b> {{item.phone}}</p>
+                    <p class="col p-name-tell"><b>הקשר:</b> {{item.connectLevel}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 mb-5">
+        <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">ביטול הצעה</button>
+        <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">קביעת פגישה</button>
+    </div>
+</div>

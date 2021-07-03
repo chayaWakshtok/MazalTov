@@ -1,27 +1,9 @@
-<form>
-    <div>
-        <label>שם</label>
-        <input type="text" [(ngModel)]="married.name" name="name">
-    </div>
-    <div>
-        <label>טלפון</label>
-        <input type="tel" [(ngModel)]="married.phone" name="phone">
-    </div>
-    <div>
-        <label>כתובת</label>
-        <input type="text" [(ngModel)]="married.address" name="address">
-    </div>
-    <div>
-        <label>עיר</label>
-        <select [(ngModel)]="married.cityId" name="city">
-            <option *ngFor="let city of cities" [value]="city.id">
-                {{city.name}}
-            </option>
-        </select>
-    </div>
-    <div>
-        <label>הערה</label>
-        <input type="text" [(ngModel)]="married.remark" name="remark">
-    </div>
-
-</form>
+<div class="col-3">שם: <input style="width: 66%;" type="text" class="input-family" [name]="index+'m.name'"
+        [(ngModel)]="married.name">
+</div>
+<div class="col-5">כתובת: <input style="width: 70%;" type="text" class="input-family" [name]="index+'m.address'"
+        [(ngModel)]="married.address">
+</div>
+<div class="col-4">טלפון: <input style="width: 67%;" type="tel" class="input-family" [name]="index+'m.phone'"
+        [(ngModel)]="married.phone">
+</div>

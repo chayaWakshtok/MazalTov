@@ -1,0 +1,42 @@
+<div id="body">
+    <div>
+        <img src="../../../../../assets/add-halach.png">
+    </div>
+    <div class="add-card mt-4 mb-5">
+        <div class="card-top">כתיבת הלכה או מאמר</div>
+        <div class="card-body pt-5">
+            <form name="form">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-input">
+                            <label for="firstname">סוג</label>
+                            <select [(ngModel)]="halacha.type" name="type">
+                                <option value="1">הלכה</option>
+                                <option value="2">מאמר</option>
+                            </select>
+                        </div>
+                        <div class="form-input">
+                            <label for="firstname">נושא</label>
+                            <input type="text" [(ngModel)]="halacha.subject" name="subject" id="subject" required>
+                        </div>
+                        <div class="form-input">
+                            <label for="firstname">תוכן</label>
+                            <!-- <textarea rows="3" [(ngModel)]="halacha.content" name="content" id="content"
+                                required></textarea> -->
+                            <angular-editor style="direction:rtl;" [placeholder]="" [(ngModel)]="halacha.content" [config]="config" name="content" id="content">
+                            </angular-editor>
+
+                        </div>
+                    </div>
+                    <div class="col-6" id="half">
+                        <p class="header-page font-30">תזכורת:</p>
+                        <p class="font-30" id="middle">התוכן צריך להיות קצר,<br> קליל וקליט</p>
+                    </div>
+                </div>
+            </form>
+            <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+                <button class="btn btn-primary" (click)="send()"> שלח</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,9 +20,8 @@ namespace DAL
         public string Address { get; set; }
         public string Remark { get; set; }
         public int CandidateId { get; set; }
-        public int CityId { get; set; }
+        public string PlaceLearn { get; set; }
     
-        public virtual city city { get; set; }
         public virtual candidate candidate { get; set; }
     }
 }

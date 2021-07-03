@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-   public class Candidate
+    public class Candidate
     {
         public int Id { get; set; }
         public DateTime BornDate { get; set; }
@@ -26,7 +26,7 @@ namespace DTO
         public string CandidateWork { get; set; }
         public int LastPlaceLearn { get; set; }
         public string Show { get; set; }
-        public int Clothes { get; set; }
+        public string Clothes { get; set; }
         public string Tell { get; set; }
         public string Phone { get; set; }
         public string Fax { get; set; }
@@ -44,23 +44,35 @@ namespace DTO
         public int ChasidutId { get; set; }
         public int ChasidutMother { get; set; }
         public int ChasidutFather { get; set; }
-        public float Heigth { get; set; }
-        public int WhoMoneyGive { get; set; }
-        public int WhoMoneyAnother { get; set; }
-        public string KeepOn { get; set; }
-        public string TellFather { get; set; }
-        public string TellMother { get; set; }
-        public string ReasonCubeA { get; set; }
+        public bool IsCube { get; set; }
         public int ReasonCube { get; set; }
-        public bool IsCube  { get; set; }
-  
-
-
-
+        public string ReasonCubeA { get; set; }
+        public string TellMother { get; set; }
+        public string TellFather { get; set; }
+        public string KeepOn { get; set; }
+        public int WhoMoneyAnother { get; set; }
+        public int WhoMoneyGive { get; set; }
+        public double Heigth { get; set; }
+        public string MedicalProblemRemark { get; set; }
+        public int EntryByUser { get; set; }
+        public string RemarkSecure { get; set; }
+        //public  List<req> requests { get; set; }
+        //public virtual List<request> requests1 { get; set; }
+        //public  List<image> images { get; set; }
         public User User { get; set; }
-        public Nullable<bool> IsPay { get; set; }
-
-        public  List<Married> Marrieds { get; set; }
+        public  User user1 { get; set; }
+        //public  city city { get; set; }
+        public List<Married> Marrieds { get; set; }
+        public Sector Sector { get; set; }
+        public Chasidut Chasidut { get; set; }
+        //public  chasidut chasidut1 { get; set; }
+        //public virtual chasidut chasidut2 { get; set; }
+        public List<CandidateComment> CandidateComments { get; set; }
+        public List<InfoCandidate> InfoCandidates { get; set; }
+        public List<Matching> Matchings { get; set; }
+        public List<Matching> Matchings1 { get; set; }
+        public Matchmaker Matchmaker { get; set; }
+        public List<CandidateFamily> CandidateFamilies { get; set; }
 
 
 

@@ -23,7 +23,12 @@ namespace DAL
             this.matchingComments = new HashSet<matchingComment>();
             this.workers = new HashSet<worker>();
             this.roles = new HashSet<role>();
+            this.halachots = new HashSet<halachot>();
+            this.remarks = new HashSet<remark>();
+            this.requests = new HashSet<request>();
+            this.requests1 = new HashSet<request>();
             this.candidates = new HashSet<candidate>();
+            this.candidates1 = new HashSet<candidate>();
         }
     
         public int Id { get; set; }
@@ -33,6 +38,9 @@ namespace DAL
         public byte[] PasswordHash { get; set; }
         public string Tz { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public Nullable<bool> IsOk { get; set; }
+        public Nullable<int> Classification { get; set; }
+        public Nullable<System.DateTime> CreationDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<askPermssion> askPermssions { get; set; }
@@ -47,6 +55,16 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<role> roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<halachot> halachots { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<remark> remarks { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<request> requests { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<request> requests1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<candidate> candidates { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<candidate> candidates1 { get; set; }
     }
 }

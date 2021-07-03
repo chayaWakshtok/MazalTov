@@ -1,0 +1,52 @@
+<div>
+    <div>
+        <div class="mt-5">
+            <h3 class="header-page">עבודת השדכנית</h3>
+            <h5 class="sub-header mb-5">הצגת פרטי מועמדים</h5>
+            <div class="row">
+                <div class="col-6">
+                    <h2>{{candidateMale.user.firstname}} {{candidateMale.user.lastname}}</h2>
+                    <div class="can-card" id="card1">
+                        <app-can-card [candidate]="canStep.male"></app-can-card>
+                    </div>
+                    <div id="card1" class="form-input col-md-11 mt-4">
+                        <label for="remarkmale">הערת השדכנית </label>
+                        <input type="text" style="max-width: 85%;" [(ngModel)]="canStep.remarkmale" name="remarkmale"
+                            id="remarkmale" required>
+                    </div>
+                    <div id="card1" class="form-input col-md-11">
+                        <label for="remarkSecuremale">הערה ברמת חסוי </label>
+                        <input type="text" style="max-width: 85%;" [(ngModel)]="canStep.remarkSecuremale"
+                            name="remarkSecuremale" id="remarkSecuremale" required>
+                    </div>
+                    <div id="card1">
+                        <button class="btn-black" (click)="updateStep()">עדכן</button>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h2 style="margin-left: 8vw;">{{candidateFemale.user.firstname}} {{candidateFemale.user.lastname}}</h2>
+                    <div class="can-card" id="card2">
+                        <app-can-card [candidate]="canStep.female"></app-can-card>
+                    </div>
+                    <div id="card2" class="form-input col-md-11 mt-4">
+                        <label for="remarkFemale">הערת השדכנית </label>
+                        <input type="text" style="max-width: 85%;" [(ngModel)]="canStep.remarkFemale"
+                            name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                    <div id="card2" class="form-input col-md-11">
+                        <label for="remarkSecureFemale">הערה ברמת חסוי </label>
+                        <input type="text" style="max-width: 85%;" [(ngModel)]="canStep.remarkSecureFemale"
+                            name="remarkSecureFemale" id="remarkSecureFemale" required>
+                    </div>
+                    <div id="card2">
+                        <button class="btn-black" (click)="updateStep()">עדכן</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 mb-5">
+                <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">חזרה</button>
+                <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">המשך</button>
+            </div>
+        </div>
+    </div>
+</div>

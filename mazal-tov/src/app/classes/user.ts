@@ -1,11 +1,18 @@
 import { Role } from './role';
 
 export class User {
-    id: number;
+    _id: string;
     firstname: string;
     lastname: string;
     username: string;
     password: string;
+    email: string;
     tz: string;
-    roles:Role[]=[];
+    role: any;
+    accessToken: string;
+    bornDate: Date;
+    gender: number;
+    status: number;
+    createdAt: Date;
+    updatedAt: Date
 }

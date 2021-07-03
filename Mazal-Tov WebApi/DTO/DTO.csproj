@@ -91,11 +91,12 @@
     <Compile Include="Bank.cs" />
     <Compile Include="Candidate.cs" />
     <Compile Include="CandidateComment.cs" />
+    <Compile Include="CandidateFamily.cs" />
     <Compile Include="Chasidut.cs" />
     <Compile Include="City.cs" />
     <Compile Include="Contactus.cs" />
     <Compile Include="EndMatching.cs" />
-    <Compile Include="halachot.cs" />
+    <Compile Include="Halachot.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="InfoCandidate.cs" />

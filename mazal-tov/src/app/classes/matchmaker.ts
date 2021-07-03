@@ -3,19 +3,23 @@ import { Worker } from './worker';
 
 
 export class Matchmaker {
-      id: number;
+      _id: string;
       address: string;
       medicalProblem: string;
-      chasidutId: number;
+      chasidut: string;
       numMatching: number;
       childrenMatchmaking: number;
       howSend: number;
       isCommitment: boolean;
       isAgreement: boolean;
-      status: number;
-      cityId: number;
-      sectorId: number;
-      workerId: number;
+      city: string;
+      sector: string;
       user: User = new User();
-      worker: Worker = new Worker();
+      tell: string;
+      phone: string;
+      fax: string;
+      experiance:number;
+      confidentComment:string;
+      workerRemark:string;
+
 }

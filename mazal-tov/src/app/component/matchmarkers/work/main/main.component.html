@@ -1,0 +1,124 @@
+<div>
+    <div>
+        <div class="mt-5">
+            <h3 class="header-page mb-5">עבודת השדכנית</h3>
+            <div class="bar1 font-20 mt-4">רשימת מועמדים</div>
+            <div class="row mb-5" style="margin-right:8vw !important;margin-left: 8vw !important;">
+                <div class="col-1">
+                    <!-- <div>סינונים</div>
+                    <div>סינונים</div> -->
+                </div>
+                <div class="col-10">
+                    <div class="row col-12 mt-5 mb-2">
+                        <div class="col-8"></div>
+                        <div class="col-2">
+                            <label style="width: 10vw;">מספר שורות</label>
+                            <select style="width: 4vw">
+                                <option>15</option>
+                                <option>30</option>
+                                <option>45</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <label>מיין לפי</label>
+                            <select style="width: inherit;">
+                                <option>חדש במאגר</option>
+                                <option>ישן במאגר</option>
+                                <option>לפי מין</option>
+                                <option>לפי גיל-מבוגר לצעיר</option>
+                            </select>
+                        </div>
+                    </div>
+                    <table style="width: inherit;">
+                        <tr>
+                            <th>מין</th>
+                            <th>שם פרטי</th>
+                            <th>שם משפחה</th>
+                            <th>גיל</th>
+                            <th>מצב</th>
+                            <th>קהילה/עדה</th>
+                            <th>שם האב</th>
+                            <th>שם האם</th>
+                        </tr>
+                        <tr *ngFor="let item of candidateList" (click)="chooseRow(item)"
+                            [class.choose]="this.candidateFemale==item||this.candidateMale==item">
+                            <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
+                            <td>{{item.user.firstname}}</td>
+                            <td>{{item.user.lastname}}</td>
+                            <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
+                            <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
+                            <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
+                            <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
+                            <td>{{item.nameFather}}</td>
+                            <td>{{item.nameMother}}</td>
+                        </tr>
+                        <tr *ngIf="candidateList&&candidateList.length==0||!candidateList">
+                            <td colspan="8"> אין נתונים להצגה</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="background-color: #5A5A5A0F;" class="pb-5">
+                <div class="font-20 pt-5 font-header-color pb-4" style="text-align: center;"> מועמדים בטיפול אישי</div>
+                <div>
+                    <table style="width: 55vw;">
+                        <tr>
+                            <th>מין</th>
+                            <th>שם פרטי</th>
+                            <th>שם משפחה</th>
+                            <th>גיל</th>
+                            <th>מצב</th>
+                            <th>קהילה/עדה</th>
+                            <th>שם האב</th>
+                            <th>שם האם</th>
+                        </tr>
+                        <tr *ngFor="let item of canTreated">
+                            <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
+                            <td>{{item.user.firstname}}</td>
+                            <td>{{item.user.lastname}}</td>
+                            <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
+                            <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
+                            <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
+                            <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
+                            <td>{{item.nameFather}}</td>
+                            <td>{{item.nameMother}}</td>
+                        </tr>
+                        <tr *ngIf="canTreated&&canTreated.length==0||!canTreated">
+                            <td colspan="8"> אין נתונים להצגה</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+                    <button class="btn btn-primary" (click)="treatChoose()"> התחל שידוך חדש</button>
+                </div>
+            </div>
+            <div class="bar1 font-20 mt-4">שידוכים בתהליך</div>
+            <div class="row mb-5" style="margin-right:14vw !important;margin-left: 14vw !important;">
+                <div class="col-10 mt-5">
+                    <table style="width: 73vw;">
+                        <tr>
+                            <th>שם הבחור</th>
+                            <th>שם הבחורה</th>
+                            <th>שלב</th>
+                            <th>תאריך טיפול אחרון</th>
+                            <th>הערות</th>
+                        </tr>
+                        <tr *ngFor="let item of canInStep" [class.choose]="this.canStepChoose==item" (click)="chooseStepRow(item)">
+                            <td>{{item.male.user.firstname}} {{item.male.user.lastname}}</td>
+                            <td>{{item.female.user.firstname}} {{item.female.user.lastname}}</td>
+                            <td>{{item.step}}</td>
+                            <td>{{item.updatedAt|date :'dd/MM/yyyy hh:mm:ss'}}</td>
+                            <td>{{item.remark}}</td>
+                        </tr>
+                        <tr *ngIf="canInStep&&canInStep.length==0||!canInStep">
+                            <td colspan="5"> אין נתונים להצגה</td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+                    <button class="btn btn-primary" (click)="treatChooseStep()"> המשך שידוך</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

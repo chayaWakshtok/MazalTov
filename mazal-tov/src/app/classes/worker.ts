@@ -17,7 +17,7 @@ export class Worker {
     hourPrice: DecimalPipe;
     monthPrice: DecimalPipe;
     //לברר אם זה סוג טוב
-    numHourWork: Float32Array;
+    numHourWork: number;
     userId: number;
     bankId: number;
     user: User = new User();

@@ -9,6 +9,8 @@ import { City } from 'src/app/classes/city';
 import { Matchmaker } from 'src/app/classes/matchmaker';
 import { Sector } from 'src/app/classes/sector';
 import { MatchmakerService } from 'src/app/shared/services/matchmaker.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterMessageComponent } from '../register-message/register-message.component';
 
 @Component({
   selector: 'app-matchmarker-register',
@@ -21,34 +23,39 @@ export class MatchmarkerRegisterComponent implements OnInit {
   cities: City[] = [];
   sector: Sector[] = [];
   chasidut: Chasidut[] = [];
-  HowSend: any[] = ["דואר", "פקס", "מייל"];
-  radioSelected:number=1;
+  date: Date = new Date();
+  confirmPassword: string = "";
 
   constructor(public router: Router, public userService: UserService, public cityService: CityService
-    , public chasidutService: ChasidutService, public sectorService: SectorService, public matchmakerService: MatchmakerService) { }
+    , public chasidutService: ChasidutService, public sectorService: SectorService,
+    public matchmakerService: MatchmakerService,
+    private modalService: NgbModal,) { }
 
   ngOnInit(): void {
+
     this.cityService.getCity().subscribe(l => { this.cities = l });
     this.sectorService.getSector().subscribe(l => { this.sector = l });
     this.chasidutService.getChasiut().subscribe(l => { this.chasidut = l });
   }
 
   registerMatchmaker(): void {
-    this.matchmaker.status=1;
+    this.matchmaker.user.status = 1;
+    this.matchmaker.user.bornDate = new Date(this.matchmaker.user.bornDate);
+
     this.matchmakerService.registerMatchmaker(this.matchmaker).subscribe(res => {
       if (res == null)
         alert("error");
       else {
-        //  this.router.navigate(['app-muamad-register']);
+        const modalRef = this.modalService.open(RegisterMessageComponent,
+          {
+            size: 'xl'
+          });
+        this.router.navigate(["login"]);
       }
     }, err => {
       alert("error")
     }
     )
-  }
-
-  onItemChange(index){
-    this.matchmaker.howSend=index;
   }
 
 }

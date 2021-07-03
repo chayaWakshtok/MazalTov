@@ -18,11 +18,10 @@ import { LoginComponent } from './shared/components/login/login.component';
 import { RegisterComponent } from './shared/components/register/register.component';
 
 const routes: Routes = [
- {
+  {
     path: "",
     component: HomeComponent,
-    
-  }, 
+  },
   {
     path: "login",
     component: LoginComponent
@@ -40,7 +39,7 @@ const routes: Routes = [
     loadChildren: () => AdminModule,
   },
   {
-    path: "matchmarker",
+    path: "matchmaker",
     loadChildren: () => MatchMarkerModule,
   },
   {

@@ -37,6 +37,7 @@ namespace DAL
         public int CandidateId { get; set; }
         public int CandidateFemaleId { get; set; }
         public int MatchmarkerId { get; set; }
+        public string ReasonMatchmarker { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<endMatching> endMatchings { get; set; }

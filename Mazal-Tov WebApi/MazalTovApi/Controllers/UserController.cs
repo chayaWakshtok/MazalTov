@@ -22,6 +22,12 @@ namespace Mazal_Tov.Controllers
             return BL.UserBL.GetInfoById(identity.Name);
         }
 
+        [Authorize]
+        [Route("GetUsersToCommit")]
+        public List< User> GetUsersToCommit()
+        {
+            return BL.UserBL.GetUserCommitment();
+        }
 
         // GET: api/User
         public IEnumerable<string> Get()

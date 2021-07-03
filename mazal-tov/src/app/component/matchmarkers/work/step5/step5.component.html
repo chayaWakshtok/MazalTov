@@ -1,0 +1,82 @@
+<div class="card-top" style="height: 48vh;">
+    <p class="font-white">תהליך שידוך</p>
+    <img style="margin-left: 0px;" src="../../../../../assets/steps/step4.png">
+</div>
+<div>
+    <div class="row">
+        <h2 class="col-6 text-center">משה שטרנפלד</h2>
+        <h2 class="col-6 text-center">לאה קורן</h2>
+    </div>
+    <div id="table-step3">
+        <p class="font-30 mb-2" id="p1">פגישות</p>
+        <p class="font-30 mb-5">קביעת פגישה</p>
+        <div class="row">
+            <div class="col-6 form">
+                <div class="row" style="margin:auto">
+                    <div class="col-1"></div>
+                    <div id="card2" class="form-input  mt-5 col-3">
+                        <label for="remarkFemale">פגישה מספר?</label>
+                        <input type="text" style="max-width: 80%;" name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                    <div id="card2" class="form-input mt-5 col-8">
+                        <label for="remarkFemale">איפה?</label>
+                        <input type="text" style="max-width: 87%;" name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                </div>
+                <div class="row" style="margin:auto">
+                    <div class="col-1"></div>
+                    <div id="card2" class="form-input  col-4">
+                        <label for="remarkFemale">מתי?</label>
+                        <input type="text" style="max-width: 80%;" name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                    <div id="card2" class="form-input col-7">
+                        <label for="remarkFemale">משך הפגישה (משוער)?</label>
+                        <input type="text" style="max-width: 85%;" name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                </div>
+                <div class="row" style="margin:auto">
+                    <div class="col-1"></div>
+                    <div id="card2" class="form-input  col-10">
+                        <label for="remarkFemale">הערה:</label>
+                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required>
+                    </div>
+                </div>
+                <div class="row mt-4 mb-5">
+                    <button class="btn-steps col-6" style="margin: auto;">עדכן</button>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6" style="margin: auto;">
+                <button class="btn-black col-12 mb-4" style="margin: auto;">שאלת רב</button>
+                <button class="btn-black col-12" style="margin: auto;">הפניה ליעוץ</button>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5">
+        <p class="font-30 mb-4 mt-4" id="p1">פגישות קודמות</p>
+        <table style="width: 68vw;">
+            <tr>
+                <th>מספר פגישה</th>
+                <th>תאריך</th>
+                <th>מקום הפגישה</th>
+                <th>משך הפגישה</th>
+                <th>הערות</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>12/12/12</td>
+                <td>כדגכ</td>
+                <td>גדכג</td>
+                <td>כככ</td>
+            </tr>
+            <!-- <tr *ngIf="candidatesStep&&candidatesStep.length==0||!candidatesStep">
+                <td colspan="5"> אין נתונים להצגה</td>
+            </tr> -->
+        </table>
+    </div>
+    <div class="row mt-5 mb-5">
+        <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">ביטול הצעה</button>
+        <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">רוצים לסגור</button>
+    </div>
+</div>

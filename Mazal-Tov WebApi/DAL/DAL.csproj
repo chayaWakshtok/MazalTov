@@ -101,6 +101,9 @@
     <Compile Include="candidateComment.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
+    <Compile Include="candidateFamily.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="chasidut.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
@@ -112,6 +115,9 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="endMatching.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="halachot.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="helper.cs">
@@ -166,6 +172,12 @@
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remark.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="request.cs">
+      <DependentUpon>Model2.tt</DependentUpon>
+    </Compile>
     <Compile Include="role.cs">
       <DependentUpon>Model2.tt</DependentUpon>
     </Compile>

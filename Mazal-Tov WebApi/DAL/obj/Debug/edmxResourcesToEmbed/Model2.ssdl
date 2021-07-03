@@ -45,8 +45,8 @@
     <Property Name="CandidateWork" Type="nvarchar" MaxLength="50" />
     <Property Name="LastPlaceLearn" Type="int" Nullable="false" />
     <Property Name="Show" Type="nvarchar" MaxLength="200" />
-    <Property Name="Clothes" Type="int" Nullable="false" />
-    <Property Name="Tell" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Clothes" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tell" Type="nvarchar" MaxLength="10" />
     <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Fax" Type="nvarchar" MaxLength="10" />
     <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -61,8 +61,18 @@
     <Property Name="MatchmarkerId" Type="int" />
     <Property Name="SectorId" Type="int" Nullable="false" />
     <Property Name="ChasidutId" Type="int" />
-    <Property Name="ChasidutMother" Type="int" />
-    <Property Name="ChasidutFather" Type="int" />
+    <Property Name="IsCube" Type="bit" />
+    <Property Name="ReasonCube" Type="int" />
+    <Property Name="ReasonCubeA" Type="nvarchar(max)" />
+    <Property Name="TellMother" Type="nvarchar" MaxLength="12" />
+    <Property Name="TellFather" Type="nvarchar" MaxLength="12" />
+    <Property Name="KeepOn" Type="nvarchar(max)" />
+    <Property Name="WhoMoneyAnother" Type="int" />
+    <Property Name="WhoMoneyGive" Type="int" />
+    <Property Name="Heigth" Type="float" />
+    <Property Name="MedicalProblemRemark" Type="nvarchar(max)" />
+    <Property Name="EntryByUser" Type="int" />
+    <Property Name="RemarkSecure" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="candidateComment">
     <Key>
@@ -75,6 +85,17 @@
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
     <Property Name="WriteUserId" Type="int" Nullable="false" />
     <Property Name="CandidateId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="candidateFamily">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="PlaceLearn" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreationDate" Type="datetime" />
+    <Property Name="CandidateId" Type="int" />
   </EntityType>
   <EntityType Name="chasidut">
     <Key>
@@ -102,6 +123,7 @@
     <Property Name="UpdateDate" Type="datetime" Nullable="false" />
     <Property Name="Status" Type="int" Nullable="false" />
     <Property Name="UserId" Type="int" />
+    <Property Name="Tell" Type="nvarchar" MaxLength="11" />
   </EntityType>
   <EntityType Name="endMatching">
     <Key>
@@ -117,6 +139,20 @@
     <Property Name="IsCare" Type="bit" Nullable="false" />
     <Property Name="EndPlace" Type="nvarchar" MaxLength="50" />
     <Property Name="MatchingId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="halachot">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Halacha" Type="nvarchar(max)" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+    <Property Name="Category" Type="int" />
+    <Property Name="IsOk" Type="bit" />
+    <Property Name="IsTaken" Type="bit" />
   </EntityType>
   <EntityType Name="helper">
     <Key>
@@ -144,8 +180,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ConnectLevel" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Phone" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ConnectLevel" Type="nvarchar" MaxLength="20" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="10" />
     <Property Name="Remark" Type="nvarchar" MaxLength="200" />
     <Property Name="CandidateId" Type="int" Nullable="false" />
   </EntityType>
@@ -159,7 +195,7 @@
     <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Remark" Type="nvarchar" MaxLength="200" />
     <Property Name="CandidateId" Type="int" Nullable="false" />
-    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="PlaceLearn" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="matching">
     <Key>
@@ -179,6 +215,7 @@
     <Property Name="CandidateId" Type="int" Nullable="false" />
     <Property Name="CandidateFemaleId" Type="int" Nullable="false" />
     <Property Name="MatchmarkerId" Type="int" Nullable="false" />
+    <Property Name="ReasonMatchmarker" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="matchingComment">
     <Key>
@@ -227,6 +264,7 @@
     <Property Name="CityId" Type="int" Nullable="false" />
     <Property Name="SectorId" Type="int" Nullable="false" />
     <Property Name="WorkerId" Type="int" Nullable="false" />
+    <Property Name="AnotherWorker" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="meeting">
     <Key>
@@ -275,6 +313,32 @@
     <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="WorkerId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="remark">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="request">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ToUserId" Type="int" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CandidateId" Type="int" />
+    <Property Name="CandidateFeId" Type="int" />
+    <Property Name="IsCanWithMark" Type="bit" />
+    <Property Name="IsCanFeWithMark" Type="bit" />
+    <Property Name="IsCanSecretMark" Type="bit" />
+    <Property Name="IsCanFeSecretMark" Type="bit" />
+    <Property Name="Answer" Type="nvarchar(max)" />
+    <Property Name="DateAnswer" Type="datetime" />
+  </EntityType>
   <EntityType Name="role">
     <Key>
       <PropertyRef Name="Id" />
@@ -305,10 +369,13 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Firstname" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Lastname" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="20" />
     <Property Name="PasswordHash" Type="varbinary(max)" Nullable="false" />
-    <Property Name="Tz" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tz" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="PasswordSalt" Type="varbinary(max)" />
+    <Property Name="IsOk" Type="bit" />
+    <Property Name="Classification" Type="int" />
+    <Property Name="CreationDate" Type="datetime" />
   </EntityType>
   <EntityType Name="userRole">
     <Key>
@@ -350,6 +417,78 @@
     <Property Name="Remark" Type="nvarchar" MaxLength="200" />
     <Property Name="WorkerId" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK__halachot__UserId__4F47C5E3">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="halachot" Type="Self.halachot" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="halachot">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__remark__UserId__57DD0BE4">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="remark" Type="Self.remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="remark">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__request__Candida__55F4C372">
+    <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+    <End Role="request" Type="Self.request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="candidate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request">
+        <PropertyRef Name="CandidateFeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__request__Candida__56E8E7AB">
+    <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+    <End Role="request" Type="Self.request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="candidate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__request__ToUserI__55009F39">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="request" Type="Self.request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request">
+        <PropertyRef Name="ToUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__request__UserId__540C7B00">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="request" Type="Self.request" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="request">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_102">
     <End Role="city" Type="Self.city" Multiplicity="1" />
     <End Role="matchmaker" Type="Self.matchmaker" Multiplicity="*" />
@@ -410,18 +549,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_160">
-    <End Role="city" Type="Self.city" Multiplicity="1" />
-    <End Role="married" Type="Self.married" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="city">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="married">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_174">
     <End Role="sector" Type="Self.sector" Multiplicity="1" />
     <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
@@ -455,30 +582,6 @@
       </Principal>
       <Dependent Role="candidate">
         <PropertyRef Name="ChasidutId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_187">
-    <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
-    <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="chasidut">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="candidate">
-        <PropertyRef Name="ChasidutMother" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_190">
-    <End Role="chasidut" Type="Self.chasidut" Multiplicity="0..1" />
-    <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="chasidut">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="candidate">
-        <PropertyRef Name="ChasidutFather" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -806,6 +909,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_candidate_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="candidate" Type="Self.candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="candidate">
+        <PropertyRef Name="EntryByUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_candidateFamily_candidate">
+    <End Role="candidate" Type="Self.candidate" Multiplicity="0..1" />
+    <End Role="candidateFamily" Type="Self.candidateFamily" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="candidate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="candidateFamily">
+        <PropertyRef Name="CandidateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_userRole_role">
     <End Role="role" Type="Self.role" Multiplicity="1" />
     <End Role="userRole" Type="Self.userRole" Multiplicity="*" />
@@ -847,10 +974,12 @@
     <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="candidate" EntityType="Self.candidate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="candidateComment" EntityType="Self.candidateComment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="candidateFamily" EntityType="Self.candidateFamily" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="chasidut" EntityType="Self.chasidut" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contactus" EntityType="Self.contactus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="endMatching" EntityType="Self.endMatching" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="halachot" EntityType="Self.halachot" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="helper" EntityType="Self.helper" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="image" EntityType="Self.image" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="infoCandidate" EntityType="Self.infoCandidate" Schema="dbo" store:Type="Tables" />
@@ -863,6 +992,8 @@
     <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="permssion" EntityType="Self.permssion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Present" EntityType="Self.Present" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="remark" EntityType="Self.remark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="roleAction" EntityType="Self.roleAction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sector" EntityType="Self.sector" Schema="dbo" store:Type="Tables" />
@@ -870,6 +1001,30 @@
     <EntitySet Name="userRole" EntityType="Self.userRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="worker" EntityType="Self.worker" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="workerAction" EntityType="Self.workerAction" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__halachot__UserId__4F47C5E3" Association="Self.FK__halachot__UserId__4F47C5E3">
+      <End Role="user" EntitySet="user" />
+      <End Role="halachot" EntitySet="halachot" />
+    </AssociationSet>
+    <AssociationSet Name="FK__remark__UserId__57DD0BE4" Association="Self.FK__remark__UserId__57DD0BE4">
+      <End Role="user" EntitySet="user" />
+      <End Role="remark" EntitySet="remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__request__Candida__55F4C372" Association="Self.FK__request__Candida__55F4C372">
+      <End Role="candidate" EntitySet="candidate" />
+      <End Role="request" EntitySet="request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__request__Candida__56E8E7AB" Association="Self.FK__request__Candida__56E8E7AB">
+      <End Role="candidate" EntitySet="candidate" />
+      <End Role="request" EntitySet="request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__request__ToUserI__55009F39" Association="Self.FK__request__ToUserI__55009F39">
+      <End Role="user" EntitySet="user" />
+      <End Role="request" EntitySet="request" />
+    </AssociationSet>
+    <AssociationSet Name="FK__request__UserId__540C7B00" Association="Self.FK__request__UserId__540C7B00">
+      <End Role="user" EntitySet="user" />
+      <End Role="request" EntitySet="request" />
+    </AssociationSet>
     <AssociationSet Name="FK_102" Association="Self.FK_102">
       <End Role="city" EntitySet="city" />
       <End Role="matchmaker" EntitySet="matchmaker" />
@@ -890,10 +1045,6 @@
       <End Role="candidate" EntitySet="candidate" />
       <End Role="married" EntitySet="married" />
     </AssociationSet>
-    <AssociationSet Name="FK_160" Association="Self.FK_160">
-      <End Role="city" EntitySet="city" />
-      <End Role="married" EntitySet="married" />
-    </AssociationSet>
     <AssociationSet Name="FK_174" Association="Self.FK_174">
       <End Role="sector" EntitySet="sector" />
       <End Role="candidate" EntitySet="candidate" />
@@ -903,14 +1054,6 @@
       <End Role="matchmaker" EntitySet="matchmaker" />
     </AssociationSet>
     <AssociationSet Name="FK_184" Association="Self.FK_184">
-      <End Role="chasidut" EntitySet="chasidut" />
-      <End Role="candidate" EntitySet="candidate" />
-    </AssociationSet>
-    <AssociationSet Name="FK_187" Association="Self.FK_187">
-      <End Role="chasidut" EntitySet="chasidut" />
-      <End Role="candidate" EntitySet="candidate" />
-    </AssociationSet>
-    <AssociationSet Name="FK_190" Association="Self.FK_190">
       <End Role="chasidut" EntitySet="chasidut" />
       <End Role="candidate" EntitySet="candidate" />
     </AssociationSet>
@@ -1021,6 +1164,14 @@
     <AssociationSet Name="FK_90" Association="Self.FK_90">
       <End Role="user" EntitySet="user" />
       <End Role="askPermssion" EntitySet="askPermssion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_candidate_user" Association="Self.FK_candidate_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="candidate" EntitySet="candidate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_candidateFamily_candidate" Association="Self.FK_candidateFamily_candidate">
+      <End Role="candidate" EntitySet="candidate" />
+      <End Role="candidateFamily" EntitySet="candidateFamily" />
     </AssociationSet>
     <AssociationSet Name="FK_userRole_role" Association="Self.FK_userRole_role">
       <End Role="role" EntitySet="role" />

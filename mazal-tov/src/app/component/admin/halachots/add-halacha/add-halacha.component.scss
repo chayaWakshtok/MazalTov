@@ -1,0 +1,45 @@
+#body {
+    background-color: #5a5a5a0f;
+    height: 100vh;
+}
+img {
+    margin: auto;
+    display: block;
+    padding-top: 3vh;
+}
+.card-top {
+    background-color: black;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 5px solid #750F2F;
+}
+.add-card {
+    width: 70vw;
+    margin: auto;
+    background-color: white;
+}
+textarea {
+    height: 90px;
+}
+#middle {
+    text-align: center;
+}
+#half {
+    margin-top: 7vh;
+}
+button {
+    width: 311px;
+    height: 58px;
+    border-radius: 5px;
+    background-color: #750f2f;
+    margin: auto;
+    color: white;
+}
+.form-input input,
+.form-input select,
+.form-input textarea {
+    max-width: 100%;
+}

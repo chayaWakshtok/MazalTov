@@ -14,10 +14,10 @@ const routes: Routes = [
             role: RoleEnum.User
         }
     },
-    {
-        path: "new",
-        component: AddWorkerComponent,
-    }
+    // {
+    //     path: "new",
+    //     component: AddWorkerComponent,
+    // }
 ];
 
 @NgModule({

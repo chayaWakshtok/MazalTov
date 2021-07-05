@@ -39,7 +39,7 @@ export class Step3Component implements OnInit {
   }
 
   updateStep() {
-    this.canStepCurrect.step = 3;
+    this.canStepCurrect.step = 4;
     this.canStepService.updateStep(this.canStepCurrect).subscribe(res => {
       this.router.navigate(["matchmaker/step4", this.canStepCurrect._id]);
     })

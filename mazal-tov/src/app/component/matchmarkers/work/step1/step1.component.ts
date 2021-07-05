@@ -41,6 +41,7 @@ export class Step1Component implements OnInit {
   }
 
   updateStep(nav: boolean = false) {
+    this.canStep.step = 2;
     if (this.canStep._id) {
       this.candidateStepService.updateStep(this.canStep).subscribe(res => {
         this.candidateStepService.canStepCurrent = this.canStep;

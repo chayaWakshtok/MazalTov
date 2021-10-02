@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="candidate&&candidate._id">
     <div class="col">
         <label>שם פרטי</label>
         <p>{{candidate.user?.firstname}}</p>
@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col">
         <label>פלאפון</label>
-        <p>{{candidate.phone}}</p>
+        <p>{{candidate?.phone}}</p>
     </div>
     <div class="col">
         <label>ת.ז</label>

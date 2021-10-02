@@ -11,14 +11,13 @@ import { WorkerRoutingModule } from './worker.routing.module';
   declarations: [
     WorkerHomeComponent,
     AddWorkerComponent,
-    WorkerHomeComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     WorkerRoutingModule
   ],
-  exports:[
+  exports: [
     WorkerHomeComponent,
     AddWorkerComponent
   ]

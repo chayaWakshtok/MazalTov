@@ -13,6 +13,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class LoginComponent implements OnInit {
 
   user: User = new User();
+  errorMessage: string = "";
 
   constructor(public userService: UserService,
     private router: Router,
@@ -43,7 +44,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(["user"]);
           else if (res.role == RoleEnum.Secretary)
             this.router.navigate(["secretary"]);
+          else if (res.role == RoleEnum.Rav)
+            this.router.navigate(["rav"]);
         }
+      }, err => {
+        this.errorMessage = "שם משתמש או סיסמה שגוים"
       })
   }
 

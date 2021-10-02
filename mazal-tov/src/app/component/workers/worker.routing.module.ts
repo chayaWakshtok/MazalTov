@@ -6,22 +6,22 @@ import { AddWorkerComponent } from './add-worker/add-worker.component';
 import { WorkerHomeComponent } from './worker-home/worker-home.component';
 
 const routes: Routes = [
-    {
-        path: "",
-        component: WorkerHomeComponent,
-        canActivate: [AuthGuard],
-        data: {
-            role: RoleEnum.User
-        }
-    },
-    // {
-    //     path: "new",
-    //     component: AddWorkerComponent,
-    // }
+  {
+    path: "",
+    component: WorkerHomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: RoleEnum.Worker
+    }
+  },
+  {
+    path: "new",
+    component: AddWorkerComponent,
+  },
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class WorkerRoutingModule { }

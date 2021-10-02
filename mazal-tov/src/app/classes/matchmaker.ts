@@ -21,5 +21,6 @@ export class Matchmaker {
       experiance:number;
       confidentComment:string;
       workerRemark:string;
+      point:number;
 
 }

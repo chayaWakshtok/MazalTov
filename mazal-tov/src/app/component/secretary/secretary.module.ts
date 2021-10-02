@@ -16,6 +16,10 @@ import { AddSecretaryComponent } from './add-secretary/add-secretary.component';
     CommonModule,
     FormsModule,
     SecretaryRoutingModule
+  ],
+  exports: [
+    SecretaryHomeComponent,
+    AddSecretaryComponent,
   ]
 })
 export class SecretaryModule { }

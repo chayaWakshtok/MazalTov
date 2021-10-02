@@ -4,8 +4,10 @@
 </div>
 <div>
     <div class="row">
-        <h2 class="col-6 text-center">משה שטרנפלד</h2>
-        <h2 class="col-6 text-center">לאה קורן</h2>
+        <h2 class="col-6 text-center">{{canStepCurrect?.male?.user.firstname}} {{canStepCurrect?.male?.user.lastname}}
+        </h2>
+        <h2 class="col-6 text-center">{{canStepCurrect?.female?.user.firstname}}
+            {{canStepCurrect?.female?.user.lastname}}</h2>
     </div>
     <div id="table-step3">
         <p class="font-30 mb-2" id="p1">פגישות</p>
@@ -16,33 +18,38 @@
                     <div class="col-1"></div>
                     <div id="card2" class="form-input  mt-5 col-3">
                         <label for="remarkFemale">פגישה מספר?</label>
-                        <input type="text" style="max-width: 80%;" name="remarkFemale" id="remarkFemale" required>
+                        <input type="number" style="max-width: 80%;" [(ngModel)]="newMeeting.numMeeting"
+                            name="remarkFemale" id="remarkFemale" required>
                     </div>
                     <div id="card2" class="form-input mt-5 col-8">
                         <label for="remarkFemale">איפה?</label>
-                        <input type="text" style="max-width: 87%;" name="remarkFemale" id="remarkFemale" required>
+                        <input type="text" style="max-width: 87%;" [(ngModel)]="newMeeting.place" name="remarkFemale"
+                            id="remarkFemale" required>
                     </div>
                 </div>
                 <div class="row" style="margin:auto">
                     <div class="col-1"></div>
                     <div id="card2" class="form-input  col-4">
                         <label for="remarkFemale">מתי?</label>
-                        <input type="text" style="max-width: 80%;" name="remarkFemale" id="remarkFemale" required>
+                        <input type="date" style="max-width: 80%;" name="remarkFemale" id="remarkFemale" required
+                            [(ngModel)]="newMeeting.when">
                     </div>
                     <div id="card2" class="form-input col-7">
                         <label for="remarkFemale">משך הפגישה (משוער)?</label>
-                        <input type="text" style="max-width: 85%;" name="remarkFemale" id="remarkFemale" required>
+                        <input type="number" style="max-width: 85%;" name="remarkFemale" id="remarkFemale"
+                            [(ngModel)]="newMeeting.longHour" required>
                     </div>
                 </div>
                 <div class="row" style="margin:auto">
                     <div class="col-1"></div>
                     <div id="card2" class="form-input  col-10">
                         <label for="remarkFemale">הערה:</label>
-                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required>
+                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale"
+                            [(ngModel)]="newMeeting.remark" required>
                     </div>
                 </div>
                 <div class="row mt-4 mb-5">
-                    <button class="btn-steps col-6" style="margin: auto;">עדכן</button>
+                    <button class="btn-steps col-6" style="margin: auto;" (click)="updateMeeting()">עדכן</button>
                 </div>
             </div>
         </div>
@@ -63,20 +70,20 @@
                 <th>משך הפגישה</th>
                 <th>הערות</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>12/12/12</td>
-                <td>כדגכ</td>
-                <td>גדכג</td>
-                <td>כככ</td>
+            <tr *ngFor="let item of canStepCurrect.meeting">
+                <td>{{item.numMeeting}}</td>
+                <td>{{item.when|date :'dd/MM/yyyy'}}</td>
+                <td>{{item.place}}</td>
+                <td>{{item.longHour}}</td>
+                <td>{{item.remark}}</td>
             </tr>
-            <!-- <tr *ngIf="candidatesStep&&candidatesStep.length==0||!candidatesStep">
+            <tr *ngIf="canStepCurrect&&canStepCurrect.meeting.length==0||!canStepCurrect.meeting">
                 <td colspan="5"> אין נתונים להצגה</td>
-            </tr> -->
+            </tr>
         </table>
     </div>
     <div class="row mt-5 mb-5">
-        <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">ביטול הצעה</button>
-        <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">רוצים לסגור</button>
+        <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="cancel()">ביטול הצעה</button>
+        <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="updateStep()">רוצים לסגור</button>
     </div>
 </div>

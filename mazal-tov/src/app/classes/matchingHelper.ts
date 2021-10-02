@@ -6,7 +6,7 @@ export class MatchingHelper {
     status: number;
     updateDate: Date;
     isPaid: boolean;
-    numHour: Float32Array;
+    numHour: number;
     level: number;
     type: number;
     matchingId: number;

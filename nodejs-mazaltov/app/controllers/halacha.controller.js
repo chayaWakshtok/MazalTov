@@ -99,3 +99,27 @@ exports.delete = (req, res) => {
             });
         });
 };
+
+
+exports.updateStatus = (req, res) => {
+    Halach.findByIdAndUpdate(req.body._id, {
+      status: req.body.status,
+    }, { new: true })
+      .then(note => {
+        if (!note) {
+          return res.status(404).send({
+            message: "Halach not found with id " + req.body._id
+          });
+        }
+        res.send(note);
+      }).catch(err => {
+        if (err.kind === 'ObjectId') {
+          return res.status(404).send({
+            message: "Halach not found with id " + req.body._id
+          });
+        }
+        return res.status(500).send({
+          message: "Error updating Halach with id " + req.body._id
+        });
+      });
+  };

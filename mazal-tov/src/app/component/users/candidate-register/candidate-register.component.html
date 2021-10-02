@@ -1,332 +1,324 @@
 <div class="mb-5">
-    <div>
-        <div class="row">
-            <div class="mt-5">
-                <h3 class="header-page">טופס רישום מועמד</h3>
-                <p class="text-center">תאריך הצטרפות: - {{date| date: 'dd/MM/yyyy'}}</p>
-                <div class="bar1 font-20">פרטים אישיים</div>
-                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
-                    <div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="firstname">שם פרטי</label>
-                                <input type="text" [(ngModel)]="model.user.firstname" name="firstname" id="firstname"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">שם משפחה</label>
-                                <input type="text" [(ngModel)]="model.user.lastname" name="lastname" id="lastname"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="address">כתובת</label>
-                                <input type="text" [(ngModel)]="model.address" name="address" id="address" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="city">עיר</label>
+  <div>
+    <div class="row">
+      <div class="mt-5">
+        <h3 class="header-page">טופס רישום מועמד</h3>
+        <p class="text-center">תאריך הצטרפות: - {{date| date: 'dd/MM/yyyy'}}</p>
+        <p class="text-center" *ngIf="user">
+          <span class="pay-text">דמי רישום:</span>
+          <input type="radio" id="in" name="pay" value="true" [(ngModel)]="model.payMoney"><span class="pay-text">שולם</span>
+          <input type="radio" id="in" name="pay" value="false" [(ngModel)]="model.payMoney"><span class="pay-text">לא שולם</span>
+        </p>
+        <div class="bar1 font-20">פרטים אישיים</div>
+        <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+          <div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="firstname">שם פרטי</label>
+                <input type="text" [(ngModel)]="model.user.firstname" name="firstname" id="firstname" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">שם משפחה</label>
+                <input type="text" [(ngModel)]="model.user.lastname" name="lastname" id="lastname" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="address">כתובת</label>
+                <input type="text" [(ngModel)]="model.address" name="address" id="address" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="city">עיר</label>
 
-                                <input type="text" autocomplete="off" list="cities" [(ngModel)]="model.city" name="city"
-                                    id="city" required>
-                                <datalist id="cities">
-                                    <option *ngFor="let i of cities" [value]="i.cityName">
-                                </datalist>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="phone">פלאפון</label>
-                                <input type="tel" [(ngModel)]="model.phone" name="phone" id="phone" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="tz">ת.ז</label>
-                                <input type="text" [(ngModel)]="model.user.tz" name="tz" id="tz">
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="bornDate">תאריך לידה</label>
-                                <input type="date" [(ngModel)]="model.user.bornDate" name="bornDate" id="bornDate"
-                                    required #bornDate="ngModel">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="sector">עדה</label>
-                                <select name="sector" id="sector" [(ngModel)]="model.sector">
-                                    <option *ngFor="let i of sector" [value]="i.name"> {{i.name}} </option>
-                                </select>
-                            </div>
-                            <div class="form-input col-md-3" *ngIf="model.sector=='חסידי'">
-                                <label for="chasidut">קהילה\חסידות</label>
-                                <select name="chasidut" id="chasidut" [(ngModel)]="model.chasidut">
-                                    <option *ngFor="let i of chasidut"> {{i.name}} </option>
-                                </select>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="pass">מין</label>
-                                <div class="row">
-                                    <div class="col-4 row" style="height: 50px;">
-                                        <input style="margin:auto" class="col-3" type="radio" value="1"
-                                            [(ngModel)]="model.user.gender" name="זכר" id="pass" required>
-                                        <p class="col-7" style="margin:auto">זכר</p>
-                                    </div>
-                                    <div class="col-4 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="2" [(ngModel)]="model.user.gender"
-                                            name="נקבה" id="pass" required style="margin:auto">
-                                        <p class="col-7" style="margin:auto">נקבה</p>
-                                    </div>
-                                </div>
-                            </div>
+                <input type="text" autocomplete="off" list="cities" [(ngModel)]="model.city" name="city" id="city"
+                  required>
+                <datalist id="cities">
+                  <option *ngFor="let i of cities" [value]="i.cityName">
+                </datalist>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="phone">פלאפון</label>
+                <input type="tel" [(ngModel)]="model.phone" name="phone" id="phone" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="tz">ת.ז</label>
+                <input type="text" [(ngModel)]="model.user.tz" name="tz" id="tz">
+              </div>
+              <div class="form-input col-md-3">
+                <label for="bornDate">תאריך לידה</label>
+                <input type="date" [(ngModel)]="model.user.bornDate" name="bornDate" id="bornDate" required
+                  #bornDate="ngModel">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="sector">עדה</label>
+                <select name="sector" id="sector" [(ngModel)]="model.sector">
+                  <option *ngFor="let i of sector" [value]="i.name"> {{i.name}} </option>
+                </select>
+              </div>
+              <div class="form-input col-md-3" *ngIf="model.sector=='חסידי'">
+                <label for="chasidut">קהילה\חסידות</label>
+                <select name="chasidut" id="chasidut" [(ngModel)]="model.chasidut">
+                  <option *ngFor="let i of chasidut"> {{i.name}} </option>
+                </select>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="pass">מין</label>
+                <div class="row">
+                  <div class="col-4 row" style="height: 50px;">
+                    <input style="margin:auto" class="col-3" type="radio" value="1" [(ngModel)]="model.user.gender"
+                      name="זכר" id="pass" required>
+                    <p class="col-7" style="margin:auto">זכר</p>
+                  </div>
+                  <div class="col-4 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="2" [(ngModel)]="model.user.gender" name="נקבה" id="pass"
+                      required style="margin:auto">
+                    <p class="col-7" style="margin:auto">נקבה</p>
+                  </div>
+                </div>
+              </div>
 
-                            <div class="form-input col-md-3">
-                                <label for="pass">בעיה רפואית</label>
-                                <div class="row">
-                                    <div class="col-4 row" style="height: 50px;">
-                                        <input style="margin:auto" class="col-3" type="radio" value="1"
-                                            [(ngModel)]="model.medicalProblem" name="כן" id="pass" required>
-                                        <p class="col-7" style="margin:auto">כן</p>
-                                    </div>
-                                    <div class="col-4 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="2" [(ngModel)]="model.medicalProblem"
-                                            name="לא" id="pass" required style="margin:auto">
-                                        <p class="col-7" style="margin:auto">לא</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" *ngIf="model.medicalProblem==1">
-                            <div class="form-input col-md-12">
-                                <label for="medicalProblemRemark">תאור</label>
-                                <input type="text" style="max-width: 96%;" [(ngModel)]="model.medicalProblemRemark"
-                                    name="medicalProblemRemark" id="medicalProblemRemark" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="pass">מצב אישי</label>
-                                <div class="row">
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input style="margin:auto" class="col-3" type="radio" value="1"
-                                            [(ngModel)]="model.status" name="רווקה" id="st" required>
-                                        <p class="col-7" style="margin:auto">רווק/ה</p>
-                                    </div>
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="2" [(ngModel)]="model.status"
-                                            name="גרושה" id="st" required style="margin:auto">
-                                        <p class="col-7" style="margin:auto">גרוש/ה</p>
-                                    </div>
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="3" [(ngModel)]="model.status"
-                                            name="אלמנה" id="st" required style="margin:auto">
-                                        <p class="col-7" style="margin:auto">אלמנ/ה</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="pass"> מעוקב/ת שידוך</label>
-                                <div class="row">
-                                    <div class="col-5 row" style="height: 50px;">
-                                        <input style="margin:auto" class="col-3" type="radio" value="true"
-                                            [(ngModel)]="model.isCube" name="true" id="cub" required>
-                                        <p class="col-7" style="margin:auto" (input)="changeCube(true)">כן</p>
-                                    </div>
-                                    <div class="col-5 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="false" [(ngModel)]="model.isCube"
-                                            name="false" id="cub" required style="margin:auto">
-                                        <p class="col-7" style="margin:auto" (input)="changeCube(false)">לא</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="pass"> סיבת העיכוב</label>
-                                <div class="row">
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input style="margin:auto;" class="col-3" type="radio" value="1"
-                                            [(ngModel)]="model.reasonCube" name="אחות" id="res">
-                                        <p class="col-7" style="margin:auto">אחות</p>
-                                    </div>
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="2" [(ngModel)]="model.reasonCube"
-                                            name="כלכלי" id="res" style="margin:auto;">
-                                        <p class="col-7" style="margin:auto">כלכלי</p>
-                                    </div>
-                                    <div class="col-3 row" style="height: 50px;">
-                                        <input class="col-3" type="radio" value="3" [(ngModel)]="model.reasonCube"
-                                            name="רפואי" id="res" style="margin:auto;">
-                                        <p class="col-7" style="margin:auto">רפואי</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="desc">אחר</label>
-                                <input type="text" [(ngModel)]="model.reasonCubeA" name="reasonCubeA" id="reasonCubeA">
-                            </div>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="form-input col-md-3">
-                                <label for="lastPlaceLearn">מסגרת (תיכון,ישיבה,עבודה)</label>
-                                <select name="lastPlaceLearn" id="lastPlaceLearn" [(ngModel)]="model.lastPlaceLearn">
-                                    <option value="'ישיבה גדולה'"> ישיבה גדולה </option>
-                                    <option value="'סמינר'"> סמינר </option>
-                                    <option value="'עבודה'"> עבודה </option>
-                                    <option value="'מכללה'"> מכללה </option>
-                                </select>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="candidateWork">שם המקום</label>
-                                <input type="text" [(ngModel)]="model.candidateWork" name="candidateWork" id="lastname"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="whoMoneyAnother">דרישות כספיות</label>
-                                <input type="text" [(ngModel)]="model.whoMoneyAnother" name="whoMoneyAnother"
-                                    id="whoMoneyAnother" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="whoMoneyGive">התחיביות כספיות</label>
-                                <input type="text" [(ngModel)]="model.whoMoneyGive" name="whoMoneyGive"
-                                    id="whoMoneyGive" required>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="bar1 font-20">מראה חיצוני</div>
-                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
-                    <div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="firstname">גובה</label>
-                                <input type="text" [(ngModel)]="model.heigth" name="heigth" id="heigth" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">סגנון לבוש</label>
-                                <input type="text" [(ngModel)]="model.clothes" name="clothes" id="clothes" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="address">מקפידים על</label>
-                                <input type="text" [(ngModel)]="model.keepOn" name="keepOn" id="keepOn" required>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-12">
-                                <label for="city">תאור</label>
-                                <input type="text" style="max-width: 96%;" [(ngModel)]="model.show" name="show"
-                                    id="show" required>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="bar1 font-20">משפחה</div>
-                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
-                    <div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="firstname">שם האב</label>
-                                <input type="text" [(ngModel)]="model.nameFather" name="nameFather" id="nameFather"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">פלאפון</label>
-                                <input type="text" [(ngModel)]="model.tellFather" name="tellFather" id="tellFather"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="address">שם האם</label>
-                                <input type="text" [(ngModel)]="model.nameMother" name="nameMother" id="nameMother"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">פלאפון</label>
-                                <input type="text" [(ngModel)]="model.tellMother" name="tellMother" id="tellMother"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-3">
-                                <label for="firstname">משפחת האם</label>
-                                <input type="text" [(ngModel)]="model.familyMother" name="familyMother"
-                                    id="familyMother" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">מייל</label>
-                                <input type="text" [(ngModel)]="model.user.email" name="email" id="email" required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="address">עיסוק האם</label>
-                                <input type="text" [(ngModel)]="model.motherWork" name="motherWork" id="motherWork"
-                                    required>
-                            </div>
-                            <div class="form-input col-md-3">
-                                <label for="lastname">עיסוק האב</label>
-                                <input type="text" [(ngModel)]="model.fatherWork" name="fatherWork" id="fatherWork"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-input col-md-1">
-                                <label for="firstname">אחים בבית</label>
-                                <input type="number" (input)="changeNumChildren()" [(ngModel)]="model.numChildren"
-                                    name="numChildren" id="numChildren" required>
-                            </div>
-                            <div class="col-md-5 p-4">
-                                <div class="box" *ngIf="model.numChildren>0">
-                                    <div class="row m-3" *ngFor="let c of model.candidateFamilies;let index=index">
-                                        <div class="col-4">שם: <input style="width: 71%;" type="text"
-                                                class="input-family" [(ngModel)]="c.name" [name]="index+'c.name'">
-                                        </div>
-                                        <div class="col-3">גיל: <input style="width: 72%;" type="number"
-                                                class="input-family" [(ngModel)]="c.age" [name]="index+'c.age'"></div>
-                                        <div class="col-5">מקום לימודים: <input style="width: 45%;" type="text"
-                                                class="input-family" [(ngModel)]="c.placeLearn"
-                                                [name]="index+'c.placeLearn'"></div>
-                                    </div>
-                                    <span class="plus" (click)="addChild()">+</span>
-                                </div>
-
-                            </div>
-                            <div class="form-input col-md-1">
-                                <label for="lastname">נשואים</label>
-                                <input type="number" (input)="changeNumMarried()" [(ngModel)]="model.numMarried"
-                                    name="numMarried" id="numMarried" required>
-                            </div>
-                            <div class="col-md-5 p-4">
-                                <div class="box" *ngIf="model.numMarried>0">
-                                    <app-law class="row m-3" *ngFor="let m of model.marrieds;let index=index"
-                                        [index]="index" [married]="model.marrieds[index]"></app-law>
-                                    <span class="plus" (click)="addMarried()">+</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <div class="bar1 font-20">טלפונים לבירורים</div>
-                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
-                    <div>
-                        <app-candidate-info [info]="item" class="row" *ngFor="let item of model.infoCandidates">
-                        </app-candidate-info>
-                        <div class="row">
-                            <p style="margin: auto;" class="btn-plus" (click)="addInfoCan()">+</p>
-                        </div>
-                    </div>
-                </form>
-                <div class="bar1 font-20">הערות</div>
-                <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
-                    <div>
-                        <div class="form-input col-md-12">
-                            <label for="firstname"> </label>
-                            <input type="text" style="max-width: 96%;" [(ngModel)]="model.remark" name="remark"
-                                id="remark" required>
-                        </div>
-                        <div class="form-input col-md-12">
-                            <label for="remarkSecure">חסוי </label>
-                            <input type="text" style="max-width: 96%;" [(ngModel)]="model.remarkSecure"
-                                name="remarkSecure" id="remarkSecure" required>
-                        </div>
-                    </div>
-                </form>
+              <div class="form-input col-md-3">
+                <label for="pass">בעיה רפואית</label>
+                <div class="row">
+                  <div class="col-4 row" style="height: 50px;">
+                    <input style="margin:auto" class="col-3" type="radio" value="1" [(ngModel)]="model.medicalProblem"
+                      name="כן" id="pass" required>
+                    <p class="col-7" style="margin:auto">כן</p>
+                  </div>
+                  <div class="col-4 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="2" [(ngModel)]="model.medicalProblem" name="לא" id="pass"
+                      required style="margin:auto">
+                    <p class="col-7" style="margin:auto">לא</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" *ngIf="model.medicalProblem==1">
+              <div class="form-input col-md-12">
+                <label for="medicalProblemRemark">תאור</label>
+                <input type="text" style="max-width: 96%;" [(ngModel)]="model.medicalProblemRemark"
+                  name="medicalProblemRemark" id="medicalProblemRemark" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="pass">מצב אישי</label>
+                <div class="row">
+                  <div class="col-3 row" style="height: 50px;">
+                    <input style="margin:auto" class="col-3" type="radio" value="1" [(ngModel)]="model.status"
+                      name="רווקה" id="st" required>
+                    <p class="col-7" style="margin:auto">רווק/ה</p>
+                  </div>
+                  <div class="col-3 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="2" [(ngModel)]="model.status" name="גרושה" id="st" required
+                      style="margin:auto">
+                    <p class="col-7" style="margin:auto">גרוש/ה</p>
+                  </div>
+                  <div class="col-3 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="3" [(ngModel)]="model.status" name="אלמנה" id="st" required
+                      style="margin:auto">
+                    <p class="col-7" style="margin:auto">אלמנ/ה</p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="pass"> מעוקב/ת שידוך</label>
+                <div class="row">
+                  <div class="col-5 row" style="height: 50px;">
+                    <input style="margin:auto" class="col-3" type="radio" value="true" [(ngModel)]="model.isCube"
+                      name="true" id="cub" required>
+                    <p class="col-7" style="margin:auto" (input)="changeCube(true)">כן</p>
+                  </div>
+                  <div class="col-5 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="false" [(ngModel)]="model.isCube" name="false" id="cub"
+                      required style="margin:auto">
+                    <p class="col-7" style="margin:auto" (input)="changeCube(false)">לא</p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="pass"> סיבת העיכוב</label>
+                <div class="row">
+                  <div class="col-3 row" style="height: 50px;">
+                    <input style="margin:auto;" class="col-3" type="radio" value="1" [(ngModel)]="model.reasonCube"
+                      name="אחות" id="res">
+                    <p class="col-7" style="margin:auto">אחות</p>
+                  </div>
+                  <div class="col-3 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="2" [(ngModel)]="model.reasonCube" name="כלכלי" id="res"
+                      style="margin:auto;">
+                    <p class="col-7" style="margin:auto">כלכלי</p>
+                  </div>
+                  <div class="col-3 row" style="height: 50px;">
+                    <input class="col-3" type="radio" value="3" [(ngModel)]="model.reasonCube" name="רפואי" id="res"
+                      style="margin:auto;">
+                    <p class="col-7" style="margin:auto">רפואי</p>
+                  </div>
+                </div>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="desc">אחר</label>
+                <input type="text" [(ngModel)]="model.reasonCubeA" name="reasonCubeA" id="reasonCubeA">
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="form-input col-md-3">
+                <label for="lastPlaceLearn">מסגרת (תיכון,ישיבה,עבודה)</label>
+                <select name="lastPlaceLearn" id="lastPlaceLearn" [(ngModel)]="model.lastPlaceLearn">
+                  <option value="'ישיבה גדולה'"> ישיבה גדולה </option>
+                  <option value="'סמינר'"> סמינר </option>
+                  <option value="'עבודה'"> עבודה </option>
+                  <option value="'מכללה'"> מכללה </option>
+                </select>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="candidateWork">שם המקום</label>
+                <input type="text" [(ngModel)]="model.candidateWork" name="candidateWork" id="lastname" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="whoMoneyAnother">דרישות כספיות</label>
+                <input type="text" [(ngModel)]="model.whoMoneyAnother" name="whoMoneyAnother" id="whoMoneyAnother"
+                  required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="whoMoneyGive">התחיביות כספיות</label>
+                <input type="text" [(ngModel)]="model.whoMoneyGive" name="whoMoneyGive" id="whoMoneyGive" required>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="bar1 font-20">מראה חיצוני</div>
+        <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+          <div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="firstname">גובה</label>
+                <input type="text" [(ngModel)]="model.heigth" name="heigth" id="heigth" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">סגנון לבוש</label>
+                <input type="text" [(ngModel)]="model.clothes" name="clothes" id="clothes" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="address">מקפידים על</label>
+                <input type="text" [(ngModel)]="model.keepOn" name="keepOn" id="keepOn" required>
+              </div>
 
             </div>
-        </div>
+            <div class="row">
+              <div class="form-input col-md-12">
+                <label for="city">תאור</label>
+                <input type="text" style="max-width: 96%;" [(ngModel)]="model.show" name="show" id="show" required>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="bar1 font-20">משפחה</div>
+        <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+          <div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="firstname">שם האב</label>
+                <input type="text" [(ngModel)]="model.nameFather" name="nameFather" id="nameFather" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">פלאפון</label>
+                <input type="text" [(ngModel)]="model.tellFather" name="tellFather" id="tellFather" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="address">שם האם</label>
+                <input type="text" [(ngModel)]="model.nameMother" name="nameMother" id="nameMother" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">פלאפון</label>
+                <input type="text" [(ngModel)]="model.tellMother" name="tellMother" id="tellMother" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-input col-md-3">
+                <label for="firstname">משפחת האם</label>
+                <input type="text" [(ngModel)]="model.familyMother" name="familyMother" id="familyMother" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">מייל</label>
+                <input type="text" [(ngModel)]="model.user.email" name="email" id="email" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="address">עיסוק האם</label>
+                <input type="text" [(ngModel)]="model.motherWork" name="motherWork" id="motherWork" required>
+              </div>
+              <div class="form-input col-md-3">
+                <label for="lastname">עיסוק האב</label>
+                <input type="text" [(ngModel)]="model.fatherWork" name="fatherWork" id="fatherWork" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-input col-md-1">
+                <label for="firstname">אחים בבית</label>
+                <input type="number" (input)="changeNumChildren()" [(ngModel)]="model.numChildren" name="numChildren"
+                  id="numChildren" required>
+              </div>
+              <div class="col-md-5 p-4">
+                <div class="box" *ngIf="model.numChildren>0">
+                  <div class="row m-3" *ngFor="let c of model.candidateFamilies;let index=index">
+                    <div class="col-4">שם: <input style="width: 71%;" type="text" class="input-family"
+                        [(ngModel)]="c.name" [name]="index+'c.name'">
+                    </div>
+                    <div class="col-3">גיל: <input style="width: 72%;" type="number" class="input-family"
+                        [(ngModel)]="c.age" [name]="index+'c.age'"></div>
+                    <div class="col-5">מקום לימודים: <input style="width: 45%;" type="text" class="input-family"
+                        [(ngModel)]="c.placeLearn" [name]="index+'c.placeLearn'"></div>
+                  </div>
+                  <span class="plus" (click)="addChild()">+</span>
+                </div>
+
+              </div>
+              <div class="form-input col-md-1">
+                <label for="lastname">נשואים</label>
+                <input type="number" (input)="changeNumMarried()" [(ngModel)]="model.numMarried" name="numMarried"
+                  id="numMarried" required>
+              </div>
+              <div class="col-md-5 p-4">
+                <div class="box" *ngIf="model.numMarried>0">
+                  <app-law class="row m-3" *ngFor="let m of model.marrieds;let index=index" [index]="index"
+                    [married]="model.marrieds[index]"></app-law>
+                  <span class="plus" (click)="addMarried()">+</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="bar1 font-20">טלפונים לבירורים</div>
+        <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+          <div>
+            <app-candidate-info [info]="item" [index]="index" class="row"
+              *ngFor="let item of model.infoCandidates;let index=index">
+            </app-candidate-info>
+            <div class="row">
+              <p style="margin: auto;" class="btn-plus" (click)="addInfoCan()">+</p>
+            </div>
+          </div>
+        </form>
+        <div class="bar1 font-20">הערות</div>
+        <form name="form" class="col-md-10 offset-md-2 mt-5" style="margin: auto;">
+          <div>
+            <div class="form-input col-md-12">
+              <label for="firstname"> </label>
+              <input type="text" style="max-width: 96%;" [(ngModel)]="model.remark" name="remark" id="remark" required>
+            </div>
+            <div class="form-input col-md-12">
+              <label for="remarkSecure">חסוי </label>
+              <input type="text" style="max-width: 96%;" [(ngModel)]="model.remarkSecure" name="remarkSecure"
+                id="remarkSecure" required>
+            </div>
+          </div>
+        </form>
+
+      </div>
     </div>
-    <button style="margin: auto;
+  </div>
+  <button style="margin: auto;
     display: block;" (click)="registerCandidate()">שלח</button>
 </div>

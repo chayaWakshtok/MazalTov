@@ -1,86 +1,91 @@
 <div class="card-top" style="height: 52vh;">
-    <p class="font-white">מזל טוב</p>
-    <img style="margin-left: 0px;margin-top: 2vh;" src="../../../../../assets/steps/step5.png">
+  <p class="font-white">מזל טוב</p>
+  <img style="margin-left: 0px;margin-top: 2vh;" src="../../../../../assets/steps/step5.png">
 </div>
 <div>
-    <div class="row">
-        <h2 class="col-6 text-center">משה שטרנפלד</h2>
-        <h2 class="col-6 text-center">לאה קורן</h2>
+  <div class="row">
+    <h2 class="col-6 text-center">{{canStepCurrect?.male?.user.firstname}} {{canStepCurrect?.male?.user.lastname}}</h2>
+    <h2 class="col-6 text-center">{{canStepCurrect?.female?.user.firstname}}
+      {{canStepCurrect?.female?.user.lastname}}</h2>
+  </div>
+  <div id="table-step3">
+    <div class="d-black font-30 mb-5">
+      <p style="padding-top: 9px;">עדכון פרטים</p>
     </div>
-    <div id="table-step3">
-        <div class="d-black font-30 mb-5">
-            <p style="padding-top: 9px;">עדכון פרטים</p>
-        </div>
-        <div class="row mt-5">
-            <div class="col-6 card-w">
-                <div class="card-w2">
-                    <div id="card2" class="form-input  mt-5 col-12">
-                        <label for="remarkFemale">תאריך סגירת וורט</label>
-                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required>
-                    </div>
-                    <div class="row">
+    <div class="row mt-5">
+      <div class="col-6 card-w">
+        <div class="card-w2">
+          <div id="card2" class="form-input  mt-5 col-12">
+            <label for="remarkFemale">תאריך סגירת וורט</label>
+            <input type="date" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required
+              [(ngModel)]="canStepCurrect.endDetails.date">
+          </div>
+          <div class="row">
 
-                        <div id="card2" class="form-input col-6">
-                            <label for="remarkFemale">קיבלת דמי שדכנות?</label>
-                            <div class="row">
-                                <div class="col-6 row" style="height: 50px;">
-                                    <input style="margin:auto;visibility: hidden;" class="col-3" type="radio" value="1"
-                                        name="pass" id="pass" required>
-                                    <p class="col-7" style="margin:auto">כן</p>
-                                </div>
-                                <div class="col-6 row" style="height: 50px;">
-                                    <input class="col-3" type="radio" value="2" name="pass" id="pass" required
-                                        style="margin:auto;visibility: hidden;">
-                                    <p class="col-7" style="margin:auto">לא</p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div id="card2" class="form-input col-6">
-                            <div class="form-input col-12 row">
-                                <input class="col-1 ml-2" type="checkbox" name="isAgreement" id="isAgreement" required
-                                    style="height: auto;">
-                                <label class="col-10" for="isAgreement">אני רוצה לגבות את התשלום</label>
-                            </div>
-                            <div class="form-input col-12 row">
-                                <input class="col-1 ml-2" type="checkbox" name="isAgreement" id="isAgreement" required
-                                    style="height: auto;">
-                                <label class="col-10" for="isAgreement">מעדיפה שהמזכירה תגבה</label>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div id="card2" class="form-input col-12">
-                        <label for="remarkFemale">מסקנות ותובנות</label>
-                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required>
-                    </div>
-                    <div class="row mt-4 mb-5">
-                        <button class="btn-steps col-6" style="margin: auto;">עדכן</button>
-                    </div>
+            <div id="card2" class="form-input col-6">
+              <label for="remarkFemale">קיבלת דמי שדכנות?</label>
+              <div class="row">
+                <div class="col-6 row" style="height: 50px;">
+                  <input style="margin:auto;visibility: hidden;" class="col-3" type="radio" value="1" name="pass"
+                    id="pass" required [(ngModel)]="canStepCurrect.endDetails.statusPay">
+                  <p class="col-7" style="margin:auto">כן</p>
+                </div>
+                <div class="col-6 row" style="height: 50px;">
+                  <input class="col-3" type="radio" value="2" name="pass" id="pass" required
+                    style="margin:auto;visibility: hidden;">
+                  <p class="col-7" style="margin:auto" [(ngModel)]="canStepCurrect.endDetails.statusPay">לא</p>
                 </div>
 
+              </div>
             </div>
-            <div class="col-6 card-w">
-                <div class="card-w2">
-                    <div id="card2" class="form-input col-12 mt-5">
-                        <label for="remarkFemale">הערות למערכת</label>
-                        <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required>
-                    </div>
-                    <div id="card2" class="form-input col-12">
-                        <label for="remarkFemale">הערות לשיפור ויעול</label>
-                        <textarea type="text" style="max-width: 100%;height: 140px;" name="remarkFemale"
-                            id="remarkFemale" required></textarea>
-                    </div>
-                    <div class="row mt-4 mb-5">
-                        <button class="btn-steps col-6" style="margin: auto;">שלח</button>
-                    </div>
-                </div>
+            <div id="card2" class="form-input col-6">
+              <div class="form-input col-12 row">
+                <input class="col-1 ml-2" type="checkbox" name="isAgreement" id="isAgreement" required
+                  style="height: auto;" [(ngModel)]="canStepCurrect.endDetails.iTakeMoney">
+                <label class="col-10" for="isAgreement">אני רוצה לגבות את התשלום</label>
+              </div>
+              <div class="form-input col-12 row">
+                <input class="col-1 ml-2" type="checkbox" name="isAgreement" id="isAgreement" required
+                  style="height: auto;">
+                <label class="col-10" for="isAgreement"
+                  [(ngModel)]="canStepCurrect.endDetails.secretaryTakeMoney">מעדיפה שהמזכירה תגבה</label>
+              </div>
             </div>
+
+          </div>
+          <div id="card2" class="form-input col-12">
+            <label for="remarkFemale">מסקנות ותובנות</label>
+            <input type="text" [(ngModel)]="canStepCurrect.endDetails.remark" style="max-width: 100%;"
+              name="remarkFemale" id="remarkFemale" required>
+          </div>
+          <div class="row mt-4 mb-5">
+            <button class="btn-steps col-6" style="margin: auto;" (click)="updateStep()">עדכן</button>
+          </div>
         </div>
-        <div class="row mt-5 mb-5 pb-5">
-            <button class="btn-steps col-2" style="margin-right: 23.7vw;" (click)="back()">לאזור אישי</button>
-            <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">לעבודת השדכנית</button>
+
+      </div>
+      <div class="col-6 card-w">
+        <div class="card-w2">
+          <div id="card2" class="form-input col-12 mt-5">
+            <label for="remarkFemale">הערות למערכת</label>
+            <input type="text" style="max-width: 100%;" name="remarkFemale" id="remarkFemale" required
+              [(ngModel)]="remarkPogram.remark">
+          </div>
+          <div id="card2" class="form-input col-12">
+            <label for="remarkFemale">הערות לשיפור ויעול</label>
+            <textarea type="text" style="max-width: 100%;height: 140px;" name="remarkFemale" id="remarkFemale" required
+              [(ngModel)]="remarkPogram.toFix"></textarea>
+          </div>
+          <div class="row mt-4 mb-5">
+            <button class="btn-steps col-6" style="margin: auto;" (click)="addRemark()">שלח</button>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="row mt-5 mb-5 pb-5">
+      <button class="btn-steps col-2" style="margin-right: 23.7vw;" (click)="back()">לאזור אישי</button>
+      <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">לעבודת השדכנית</button>
+    </div>
+  </div>
 
 </div>

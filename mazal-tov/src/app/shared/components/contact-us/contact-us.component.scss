@@ -1,54 +1,69 @@
 .form-input {
-    input,
-    textarea {
-        width: 35vw;
-    }
-    textarea {
-        height: 150px;
-    }
+  input,
+  textarea {
+    width: 35vw;
+  }
+  textarea {
+    height: 150px;
+  }
 }
 
 .container {
-    text-align: center;
-    margin-top: 26vh;
+  text-align: center;
+  margin-top: 26vh;
 }
 .part {
-    display: inline-flex;
-    vertical-align: top;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    text-decoration: none;     vertical-align: top;
-    justify-content: center;
-     display: inline-flex;
+  display: inline-flex;
+  vertical-align: top;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-decoration: none;
+  vertical-align: top;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .circle {
-    margin: 4vw;
-    position: relative;
-    height: 103px;
-    width: 103px;
-    border-radius: 50%;
-    align-items: center;
-    overflow: hidden;
-    text-decoration: none;
-    border: 0;
-    margin: 10px;
+  margin: 4vw;
+  position: relative;
+  height: 103px;
+  width: 103px;
+  border-radius: 50%;
+  align-items: center;
+  overflow: hidden;
+  text-decoration: none;
+  border: 0;
+  margin: 10px;
 }
 
 .circle .image {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .ccont {
-    display: inline-block;
-    margin: 10px;
+  display: inline-block;
+  margin: 10px;
+}
+#form-contant {
+  padding-right: 10vw;
+  padding-top: 8vh;
+}
+input,
+textarea {
+  border-color: black !important;
+}
+.red-button {
+  padding-right: 5vw;
+  padding-left: 5vw;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
 }

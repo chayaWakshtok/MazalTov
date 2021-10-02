@@ -3,6 +3,7 @@ const db = require("../models");
 const Matchmaker = db.matchmaker;
 const User = db.user;
 const Role = db.role;
+const CandidateStep=db.candidateStep;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
@@ -66,6 +67,40 @@ exports.findAll = (req, res) => {
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Some error occurred while retrieving city."
+            });
+        });
+};
+
+exports.getCloseCount = (req, res) => {
+    CandidateStep.find({ step: 7, treatedByUser: req.userId, isFail: false }).count()
+        .then(notes => {
+            res.status(200).send({count:notes});
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving count finish."
+            });
+        });
+};
+
+exports.getMatchCount = (req, res) => {
+    CandidateStep.find({ treatedByUser: req.userId }).count()
+        .then(notes => {
+            res.status(200).send({count:notes});
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving count finish."
+            });
+        });
+};
+
+exports.getMatchmaker = (req, res) => {
+    Matchmaker.findById(req.userId)
+        .then(notes => {
+            console.log(notes)
+            res.status(200).send(notes);
+        }).catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving count finish."
             });
         });
 };

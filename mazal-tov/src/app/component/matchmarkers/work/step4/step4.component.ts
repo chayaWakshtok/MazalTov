@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CandidateStep } from 'src/app/classes/candidateStep';
 import { CandidateStepService } from 'src/app/shared/services/candidateStep.service';
+import { CancelMatchComponent } from '../cancel-match/cancel-match.component';
 
 @Component({
   selector: 'app-step4',
@@ -14,7 +16,8 @@ export class Step4Component implements OnInit {
 
   constructor(public router: Router,
     public activatedRoute: ActivatedRoute,
-    public canStepService: CandidateStepService) { }
+    public canStepService: CandidateStepService,
+    private modalService: NgbModal,) { }
 
 
   ngOnInit(): void {
@@ -46,7 +49,18 @@ export class Step4Component implements OnInit {
   }
 
   back() {
-    this.router.navigate(["matchmaker/main"]);
+    const modalRef = this.modalService.open(CancelMatchComponent,
+      {
+        size: 'xl'
+      });
+    modalRef.result.then((result) => {
+      debugger;
+      if (result) {
+        this.router.navigate(["matchmaker/main"]);
+      }
+    });
+    this.canStepCurrect.fail = { reasonMale: "", remarkMatcher: "", resonFemale: "", whoFail: '' };
+    modalRef.componentInstance.canStepCurrect = this.canStepCurrect;
   }
 
   next() {

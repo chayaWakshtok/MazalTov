@@ -56,4 +56,5 @@ export class Candidate {
   status:number;
   treatedByUser:any;
   step:number=0;
+  payMoney:boolean;
 }

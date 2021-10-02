@@ -14,6 +14,10 @@ db.matchmaker = require("./matchmaker.model");
 db.candidate = require("./candidate.model");
 db.halach = require("./halacha.model");
 db.candidateStep = require("./candidateStep.model");
+db.worker = require("./worker.model");
+db.rav=require("./rav.model");
+db.secretary=require("./secretary.model");
+db.contactus=require("./contactus.model");
 
 db.ROLES = ["Admin", "User", "Worker", "Rav", "Secretary", "BigAdmin", "MatchMarker"];
 

@@ -1,35 +1,36 @@
 <div>
-    <div class="top-main-black">
-    </div>
-    <div></div>
-    <img class="top-main-image" src="../../../../assets/key-top.png">
-    <h3 class="header-page">עמוד מנהל</h3>
-    <p class="text-center">{{date| date: 'dd/MM/yyyy hh:mm'}}</p>
-    <div class="bar1 font-20 mt-4">אישורים</div>
-    <div class="row col-md-10 offset-md-2 mb-4 div-box">
-        <app-box-main class="col-3" [text]="'רישום חדש וסיווג'" (click)="routePage('admin/classification')"
-            [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'כל הפניות למערכת'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'פניה חדשה מההנלה'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'סיווג הערת שדכנית'" [number]="3"></app-box-main>
-    </div>
-    <div class="bar1 font-20 mt-4">סטטיסטיקות</div>
-    <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
-        <app-box-main class="col-3" [text]="'מועמדים רשומים'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'זוגות מאורסים'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'שאלות רב'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'שאלות יועצים'" [number]="3"></app-box-main>
-    </div>
-    <div class="row col-md-10 offset-md-2 div-box" style="margin-top: 0vh !important;">
-        <app-box-main class="col-3" [text]="'שאלות מטפלים'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'שידוכים נסגרו החודש'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'נרשמים בתשלום'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'שעות עבודה במערכת'" [number]="3"></app-box-main>
-    </div>
-    <div class="bar1 font-20 mt-4">פניות למערכת</div>
-    <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
-        <app-box-main class="col-3" [text]="'פניות שלא נענו'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" [text]="'פניות שנענו'" [number]="3"></app-box-main>
-        <app-box-main class="col-3" (click)="routePage('admin/halachots')" [text]="'הכנסת הלכות וטיפים'" [number]="3" ></app-box-main>
-    </div>
+  <div class="top-main-black">
+  </div>
+  <div></div>
+  <img class="top-main-image" src="../../../../assets/key-top.png">
+  <h3 class="header-page">עמוד מנהל</h3>
+  <p class="text-center">{{date| date: 'dd/MM/yyyy hh:mm'}}</p>
+  <div class="bar1 font-20 mt-4">אישורים</div>
+  <div class="row col-md-10 offset-md-2 mb-4 div-box">
+    <app-box-main class="col-3" [text]="'רישום חדש וסיווג'" (click)="routePage('admin/classification')"
+      [number]="data1[0]"></app-box-main>
+    <app-box-main class="col-3" [text]="'כל הפניות למערכת'" [number]="data1[1]"></app-box-main>
+    <app-box-main class="col-3" [text]="'פניה חדשה מההנלה'" [number]="data1[2]"></app-box-main>
+    <app-box-main class="col-3" [text]="'סיווג הערת שדכנית'" [number]="data1[3]"></app-box-main>
+  </div>
+  <div class="bar1 font-20 mt-4">סטטיסטיקות</div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
+    <app-box-main class="col-3" [text]="'מועמדים רשומים'" [number]="data2[0]"></app-box-main>
+    <app-box-main class="col-3" [text]="'זוגות מאורסים'" [number]="data2[1]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שאלות רב'" [number]="data2[2]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שאלות יועצים'" [number]="data2[3]"></app-box-main>
+  </div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-top: 0vh !important;">
+    <app-box-main class="col-3" [text]="'שאלות מטפלים'" [number]="data2[4]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שידוכים נסגרו החודש'" [number]="data2[5]"></app-box-main>
+    <app-box-main class="col-3" [text]="'נרשמים בתשלום'" [number]="data2[6]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שעות עבודה במערכת'" [number]="data2[7]"></app-box-main>
+  </div>
+  <div class="bar1 font-20 mt-4">פניות למערכת</div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
+    <app-box-main class="col-3" [text]="'פניות שלא נענו'" [number]="data3[0]"></app-box-main>
+    <app-box-main class="col-3" [text]="'פניות שנענו'" [number]="data3[1]"></app-box-main>
+    <app-box-main class="col-3" (click)="routePage('admin/halachots')" [text]="'הכנסת הלכות וטיפים'"
+      [number]="data3[2]"></app-box-main>
+  </div>
 </div>

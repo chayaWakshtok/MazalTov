@@ -8,6 +8,7 @@ const Matchmaker = mongoose.model(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
+        chasidut: String,
         city: String,
         address: String,
         tell: String,

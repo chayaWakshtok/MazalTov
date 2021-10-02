@@ -26,7 +26,19 @@ export class MatchmakerService {
   getTodayHebrow() {
     var date = new Date();
     return this.httpClient.get(`https://www.hebcal.com/converter?cfg=json&gy=${date.getFullYear()}
-    &gm=${date.getMonth()+1}&gd=${date.getDate()}&g2h=1`);
+    &gm=${date.getMonth() + 1}&gd=${date.getDate()}&g2h=1`);
+  }
+
+  getCloseCount() {
+    return this.httpClient.get(this.baseApi + "countFinish");
+  }
+
+  findMatchmaker():Observable<Matchmaker> {
+    return this.httpClient.get<Matchmaker>(this.baseApi + "findMatchmaker");
+  }
+
+  getTryMatchCount() {
+    return this.httpClient.get(this.baseApi + "countTryMatch");
   }
 
 }

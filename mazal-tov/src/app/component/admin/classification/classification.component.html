@@ -1,13 +1,13 @@
 <!-- <div>
     <h1>רישום חדש וסיווג</h1>
-   
+
 </div> -->
 
 <div>
     <div>
         <div class="mt-5">
             <h3 class="header-page mb-5">רישום חדש וסיווג</h3>
-            <table class="m-5">
+            <table style="margin: auto;">
                 <tr>
                     <th>תאריך</th>
                     <th>שם משפחה</th>
@@ -25,7 +25,7 @@
                         <span *ngIf="item.role.name=='MatchMaker'">שדכנ\ית</span>
                         <span *ngIf="item.role.name=='User'">מועמד\ת</span>
                         <span *ngIf="item.role.name=='Admin'">מנהל\ת</span>
-                        <span *ngIf="item.role.name=='Worker'">עובד\ת</span>
+                        <span *ngIf="item.role.name=='Worker'">יועץ\ת -מטפל\ת</span>
                         <span *ngIf="item.role.name=='Rav'">רב\נית</span>
                         <span *ngIf="item.role.name=='Secretary'">מזכיר\ה</span>
                     </td>
@@ -37,10 +37,10 @@
                     <!-- <td>אישור</td> -->
                 </tr>
             </table>
-            <div class="row mt-5" >
-                <button class="col-2 mr-4 ml-4 red-button" style="margin-right: 22vw !important;">רישום עובד</button>
-                <button class="col-2 mr-4 ml-4 red-button">רישום רב/נית</button>
-                <button class="col-2 mr-4 ml-4 red-button">רישום יועץ או מטפל</button>
+            <div class="row mt-5">
+                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('secretary/new')" style="margin-right: 22vw !important;">רישום רשמ/ת</button>
+                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('rav/new')">רישום רב/נית</button>
+                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('worker/new')">רישום יועץ או מטפל</button>
             </div>
         </div>
     </div>

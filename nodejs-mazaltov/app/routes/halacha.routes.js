@@ -1,4 +1,6 @@
 const controller = require("../controllers/halacha.controller");
+const { authJwt } = require("../middlewares");
+
 
 module.exports = function (app) {
   app.use(function (req, res, next) {
@@ -10,9 +12,10 @@ module.exports = function (app) {
   });
 
   app.get("/api/halacha/all", controller.findAll);
-  app.post("/api/halacha/create", controller.create);
-  app.get("/api/halacha/find", controller.findOne);
-  app.put("/api/halacha/update", controller.update);
-  app.get("/api/halacha/delete", controller.delete);
+  app.post("/api/halacha/create",[authJwt.verifyToken], controller.create);
+  app.get("/api/halacha/find",[authJwt.verifyToken], controller.findOne);
+  app.put("/api/halacha/update",[authJwt.verifyToken], controller.update);
+  app.put("/api/halacha/updateStatus",[authJwt.verifyToken], controller.updateStatus);
+  app.get("/api/halacha/delete",[authJwt.verifyToken], controller.delete);
 
 };

@@ -16,13 +16,20 @@ export class HalachotsComponent implements OnInit {
     public halachaService: HalachaService) { }
 
   ngOnInit(): void {
+    this.getHalachot();
+  }
+
+  getHalachot() {
     this.halachaService.getHalachots().subscribe(res => {
       this.halachotsList = res;
     })
   }
 
-  okStatus(h) {
-
+  okStatus(h: Halacha) {
+    h.status = 2;
+    this.halachaService.updateStatus(h).subscribe(res => {
+      this.getHalachot();
+    })
   }
 
   addHalacha() {

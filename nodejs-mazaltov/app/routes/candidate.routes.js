@@ -18,6 +18,7 @@ module.exports = function (app) {
   app.post("/api/candidate/updateStep", [authJwt.verifyToken], controller.updateStep);
   app.get("/api/candidate/find", [authJwt.verifyToken], controller.findOne);
   app.put("/api/candidate/update", [authJwt.verifyToken], controller.update);
+  app.put("/api/candidate/updateMarry", [authJwt.verifyToken], controller.updateMarry);
   app.get("/api/candidate/delete", [authJwt.verifyToken], controller.delete);
 
 };

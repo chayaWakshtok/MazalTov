@@ -98,7 +98,7 @@ exports.treatedBy = (req, res) => {
 };
 
 exports.treatedByInStep = (req, res) => {
-    CandidateStep.find({ treatedByUser: req.userId, step: { $ne: 7 } })
+    CandidateStep.find({ treatedByUser: req.userId, step: { $ne: 7 }, isFail: { $ne: true } })
         .populate({
             path: 'male',
             populate: { path: 'user' }
@@ -182,6 +182,27 @@ exports.update = (req, res) => {
             }
             return res.status(500).send({
                 message: "Error updating city with id " + req.params.id
+            });
+        });
+};
+
+exports.updateMarry = (req, res) => {
+    Candidate.findOneAndUpdate({ _id: req.query.id }, { isMarry: true })
+        .then(note => {
+            if (!note) {
+                return res.status(404).send({
+                    message: "updateMarry not found with id " + req.params.id
+                });
+            }
+            res.send(note);
+        }).catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "updateMarry not found with id " + req.params.id
+                });
+            }
+            return res.status(500).send({
+                message: "Error updating updateMarry with id " + req.params.id
             });
         });
 };

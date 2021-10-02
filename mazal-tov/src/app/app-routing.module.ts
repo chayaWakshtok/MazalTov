@@ -5,6 +5,7 @@ import { AdminHomeComponent } from './component/admin/admin-home/admin-home.comp
 import { AdminModule } from './component/admin/admin.module';
 import { MatchmarkerHomeComponent } from './component/matchmarkers/matchmarker-home/matchmarker-home.component';
 import { MatchMarkerModule } from './component/matchmarkers/matchmarker.module';
+import { RavRoutingModule } from './component/ravs/rav.routing.module';
 import { SecretaryHomeComponent } from './component/secretary/secretary-home/secretary-home.component';
 import { SecretaryRoutingModule } from './component/secretary/secretary.routing.module';
 import { UserModule } from './component/users/user.module';
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: "secretary",
     loadChildren: () => SecretaryRoutingModule,
+  },
+  {
+    path: "rav",
+    loadChildren: () => RavRoutingModule,
   },
 ];
 

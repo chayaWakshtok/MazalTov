@@ -28,4 +28,7 @@ export class HalachaService {
     return this.httpClient.put(this.url + "/update",halacha);
   }
 
+  updateStatus(halacha: Halacha) {
+    return this.httpClient.put(this.url + "/updateStatus",halacha);
+  }
 }

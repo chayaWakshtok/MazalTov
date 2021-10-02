@@ -1,13 +1,10 @@
 export class Meeting {
-
-  id: number;
-  dateMeeting: Date;
+  _id: number;
+  when: Date;
   createDate: Date;
   updateDate: Date;
   place: string;
-  //לבדוק שזה סוג נכון 
-  duringTime: TimeRanges;
+  longHour: number;
   numMeeting: number;
   remark: string;
-  matchingId: number;
 }

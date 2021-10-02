@@ -7,6 +7,6 @@ export class Contactus {
   createDate: Date;
   updateDate: Date;
   status: number;
-  userId: number;
+  userId: string;
   tell: string;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import { User } from 'src/app/classes/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-classification',
@@ -11,7 +12,8 @@ export class ClassificationComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService,
+    public router:Router) { }
 
   ngOnInit(): void {
     this.userService.getAll().subscribe(res => {
@@ -28,6 +30,11 @@ export class ClassificationComponent implements OnInit {
     this.userService.updateStatus(u).subscribe(res => {
       item.status = 2;
     })
+  }
+
+  createNew(path:string)
+  {
+    this.router.navigate([path]);
   }
 
 }

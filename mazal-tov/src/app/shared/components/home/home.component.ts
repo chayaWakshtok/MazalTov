@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RoleEnum } from 'src/app/classes/role';
 import { User } from 'src/app/classes/user';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,12 @@ import { TokenStorageService } from '../../auth/token-storage.service';
 export class HomeComponent implements OnInit {
 
   user: User = new User();
+  data: number[] = [0, 0, 0, 0, 0];
+  marrys: string[] = [];
 
   constructor(public router: Router,
-    public authService: TokenStorageService) { }
+    public authService: TokenStorageService,
+    public userService: UserService) { }
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
@@ -30,5 +34,10 @@ export class HomeComponent implements OnInit {
       else if (this.user.role == RoleEnum.Secretary)
         this.router.navigate(["secretary"]);
     }
+
+    this.userService.getDataHome().subscribe(res => {
+      this.data = res.data;
+      this.marrys = res.marrys;
+    })
   }
 }

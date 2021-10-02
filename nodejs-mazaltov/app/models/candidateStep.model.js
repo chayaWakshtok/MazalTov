@@ -20,7 +20,9 @@ const CandidateStep = mongoose.model(
         checkeding: {
             dress: Boolean,
             money: Boolean,
-
+            style: Boolean,
+            character: Boolean,
+            ambition: Boolean
         },
         meeting: [
             {
@@ -31,11 +33,11 @@ const CandidateStep = mongoose.model(
                 remark: String
             }
         ],
-        questionRav:[
+        questionRav: [
             {}
         ],
-        questionClever:[{
-            
+        questionClever: [{
+
         }],
         precent: { type: Number, default: 0 },
         remark: String,
@@ -44,7 +46,13 @@ const CandidateStep = mongoose.model(
         remarkmale: String,
         remarkSecureFemale: String,
         remarkSecuremale: String,
-        reasonFail: String,
+        isFail: Boolean,
+        fail: {
+            reasonMale: String,
+            remark: String,
+            resonFemale: String,
+            whoFail: String
+        }
     }, {
         timestamps: true
     })

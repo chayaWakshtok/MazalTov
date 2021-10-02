@@ -20,6 +20,8 @@ import { Step3Component } from './work/step3/step3.component';
 import { Step4Component } from './work/step4/step4.component';
 import { Step5Component } from './work/step5/step5.component';
 import { Step6Component } from './work/step6/step6.component';
+import { CancelMatchComponent } from './work/cancel-match/cancel-match.component';
+import { SendRequestComponent } from './send-request/send-request.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { Step6Component } from './work/step6/step6.component';
     Step3Component,
     Step4Component,
     Step5Component,
-    Step6Component
+    Step6Component,
+    CancelMatchComponent,
+    SendRequestComponent
   ],
   imports: [
     CommonModule,

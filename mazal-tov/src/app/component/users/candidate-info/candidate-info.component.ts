@@ -8,6 +8,7 @@ import { InfoCandidate } from 'src/app/classes/infoCandidate';
 })
 export class CandidateInfoComponent implements OnInit {
 
+  @Input() index:number=0;
   @Input() info: InfoCandidate = new InfoCandidate();
   constructor() { }
 

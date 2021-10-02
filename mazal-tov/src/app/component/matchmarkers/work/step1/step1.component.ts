@@ -26,7 +26,7 @@ export class Step1Component implements OnInit {
     this.candidateMale = this.candidateStepService.canMale;
     if (!this.candidateMale._id || !this.candidateFemale._id)
       this.router.navigate(["matchmaker/main"]);
-    else if (this.candidateStepService.canStepCurrent) {
+    else if (this.candidateStepService.canStepCurrent&&this.candidateStepService.canStepCurrent._id) {
       this.canStep = this.candidateStepService.canStepCurrent;
     }
     else {

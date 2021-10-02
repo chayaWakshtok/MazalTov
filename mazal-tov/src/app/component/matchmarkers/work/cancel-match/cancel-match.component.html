@@ -1,0 +1,54 @@
+<div id="div">
+    <h2>ביטול הצעה</h2>
+    <p>תאריך: {{dateNow| date :'dd/MM/yyyy'}}</p>
+    <p><span>משה שטרנפלד</span>&nbsp;&nbsp;&nbsp;&nbsp; <span>לאה קורן</span></p>
+    <div class="card-body pt-5">
+        <form name="form">
+            <div>
+                <div class="form-input">
+                    <label for="firstname">הערת השדכנית</label>
+                    <input type="text" name="remark" id="subject" required
+                        [(ngModel)]="canStepCurrect.fail.remarkMatcher">
+                </div>
+            </div>
+            <div>
+                <div class="form-input">
+                    <label for="firstname">סיבת ההורדה מצד המועמד</label>
+                    <input type="text" name="subject" id="subject" required
+                        [(ngModel)]="canStepCurrect.fail.reasonMale">
+                </div>
+            </div>
+            <div>
+                <div class="form-input">
+                    <label for="firstname">סיבת ההורדה מצד המועמדת</label>
+                    <input type="text" name="subject" id="subject" required
+                        [(ngModel)]="canStepCurrect.fail.resonFemale">
+                </div>
+            </div>
+            <div class="form-input select-radio">
+                <label for="address" style="max-width: 76%;">מי הורד?</label>
+                <div class="row select-radio">
+                    <div class="col-3 row" style="height: 50px;">
+                        <input style="margin:auto;" class="col-1" type="radio" value="המועמד"
+                            [(ngModel)]="canStepCurrect.fail.whoFail" name="המועמד" id="whoFail">
+                        <p class="col-8" style="margin:auto">המועמד</p>
+                    </div>
+                    <div class="col-3 row" style="height: 50px;">
+                        <input class="col-1" type="radio" value="המועמדת" [(ngModel)]="canStepCurrect.fail.whoFail"
+                            name="המועמדת" id="whoFail" style="margin:auto;">
+                        <p class="col-9" style="margin:auto">המועמדת</p>
+                    </div>
+                    <div class="col-3 row" style="height: 50px;">
+                        <input class="col-1" type="radio" value="שתיהם" [(ngModel)]="canStepCurrect.fail.whoFail"
+                            name="שתיהם" id="whoFail" style="margin:auto;">
+                        <p class="col-8" style="margin:auto">שתיהם</p>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+            <button class="btn btn-primary" (click)="send()"> שמור</button>
+        </div>
+    </div>
+</div>

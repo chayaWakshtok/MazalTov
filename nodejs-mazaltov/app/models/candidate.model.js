@@ -30,6 +30,7 @@ const Candidate = mongoose.model(
     fatherWork: String,
     motherWork: String,
     numChildren: Number,
+    payMoney:Boolean,
     candidateFamilies: [
       {
         age: Number,

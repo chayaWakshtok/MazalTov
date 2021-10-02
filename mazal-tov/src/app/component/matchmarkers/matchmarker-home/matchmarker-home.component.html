@@ -19,7 +19,7 @@
         <div class="col-3">
             <div class="circle">
                 <p class="color-bordo font-20">
-                    <span style="font-weight: bold;" class="font-25">16 נקודות</span>
+                    <span style="font-weight: bold;" class="font-25">{{matchmaker.point}} נקודות</span>
                     <br>
                     <span style="font-weight: 500;">הדרוג שלי החודש</span>
                 </p>
@@ -28,7 +28,7 @@
         <div class="col-3">
             <div class="circle">
                 <p class="color-bordo font-20">
-                    <span style="font-weight: bold;" class="font-25">30</span>
+                    <span style="font-weight: bold;" class="font-25">{{countTryMatch}}</span>
                     <br>
                     <span style="font-weight: 500;">הצעות הצעתי</span>
                 </p>
@@ -37,7 +37,7 @@
         <div class="col-3">
             <div class="circle">
                 <p class="color-bordo font-20">
-                    <span style="font-weight: bold;" class="font-25">19</span>
+                    <span style="font-weight: bold;" class="font-25">{{countClose}}</span>
                     <br>
                     <span style="font-weight: 500;">שידוכים נסגרו בטיפולי</span>
                 </p>
@@ -47,7 +47,7 @@
     <div class="bar1 font-20 mt-4">פניות מהמערכת</div>
     <div class="row col-md-10 offset-md-2 div-box mt-5" style="margin-bottom: 2vh !important;">
         <button class="col-2 mr-4 ml-4 red-button" style="margin-right: 15.5vw !important;">פניות מהמערכת</button>
-        <button class="col-2 mr-4 ml-4 red-button">פניה למערכת</button>
+        <button class="col-2 mr-4 ml-4 red-button" (click)="routePage('matchmaker/send-request')">פניה למערכת</button>
         <button class="col-2 mr-4 ml-4 red-button">תשובת רב</button>
         <button class="col-2 mr-4 ml-4 red-button">תשובת יועץ</button>
     </div>

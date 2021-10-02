@@ -15,6 +15,7 @@ import { InfoCandidate } from 'src/app/classes/infoCandidate';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RegisterMessageComponent } from '../register-message/register-message.component';
 import { TokenStorageService } from 'src/app/shared/auth/token-storage.service';
+import { User } from 'src/app/classes/user';
 
 
 
@@ -32,6 +33,7 @@ export class CandidateRegisterComponent implements OnInit {
   chasidut: Chasidut[] = [];
   date = new Date();
   entryBy = 1;
+  user: User = null;
 
   constructor(public router: Router,
     public userService: UserService,
@@ -48,6 +50,7 @@ export class CandidateRegisterComponent implements OnInit {
     this.sectorService.getSector().subscribe(l => { this.sector = l });
     this.chasidutService.getChasiut().subscribe(l => { this.chasidut = l });
     this.model.infoCandidates = [new InfoCandidate()];
+    this.user = this.tokenService.getUser();
   }
 
   changeNumMarried() {

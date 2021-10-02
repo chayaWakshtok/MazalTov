@@ -8,12 +8,13 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { LoginComponent } from './shared/components/login/login.component';
 import { UserComponent } from './component/users/user/user.component';
 import { SecretaryModule } from './component/secretary/secretary.module';
+import { RavModule } from './component/ravs/rav.module';
+
 import { MatchMarkerModule } from './component/matchmarkers/matchmarker.module';
 import { WorkerModule } from './component/workers/worker.module';
 import { UserModule } from './component/users/user.module';
 import { AdminModule } from './component/admin/admin.module';
 import { AddWorkerComponent } from './component/workers/add-worker/add-worker.component';
-import { TreatmentConsultantComponent } from './component/workers/treatment-consultant/treatment-consultant.component';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { RegisterComponent } from './shared/components/register/register.component';
@@ -21,16 +22,17 @@ import { ContactUsComponent } from './shared/components/contact-us/contact-us.co
 import { ShowErrorsComponent } from './shared/components/show-errors/show-errors.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MessageOkComponent } from './shared/components/contact-us/message-ok/message-ok.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    TreatmentConsultantComponent,
     HeaderComponent,
     RegisterComponent,
     ContactUsComponent,
+    MessageOkComponent,
   ],
   imports: [
     FormsModule,
@@ -42,6 +44,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
   ],
   providers: [authInterceptorProviders],
+  entryComponents: [
+    MessageOkComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

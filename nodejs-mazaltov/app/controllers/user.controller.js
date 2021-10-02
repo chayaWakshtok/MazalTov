@@ -3,7 +3,11 @@ const db = require("../models");
 const { v4: uuidv4 } = require('uuid');
 var nodemailer = require('nodemailer');
 var bcrypt = require("bcryptjs");
-
+const Candidate = require("../models/candidate.model");
+const CandidateStep = require("../models/candidateStep.model");
+const Halachot = require("../models/halacha.model");
+const Role = require("../models/role.model");
+const Matchmaker = require("../models/matchmaker.model");
 const User = db.user;
 
 
@@ -130,3 +134,74 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+exports.getDataAdminHome1 = (async (req, res) => {
+  var userRole = await Role.findOne({ name: "User" });
+  var users = await User.find({ role: { $ne: userRole._id } }).count();
+  var questions = 0;
+  var askAdmin = 0;
+  var askMatchmarker = 0;
+
+  res.status(201).json({
+    data: [users, questions, askAdmin, askMatchmarker]
+  });
+});
+
+exports.getDataAdminHome2 = (async (req, res) => {
+
+  var users = await Candidate.find({ isMarry: false }).count();
+  var getMarry = await CandidateStep.find({ step: { $gte: 7 } }).count();
+  var ravQuestion = 0;
+  var worker1Question = 0;
+  var worker2Question = 0;
+  var marryMonth = await CandidateStep.find({ step: { $gte: 7 }, updatedAt: { $gte: new Date().setMonth(-1) } }).count();;
+  var canPay = await Candidate.find({ payMoney: true }).count();
+  var numWork = 0;
+  res.status(201).json({
+    data: [users, getMarry, ravQuestion, worker1Question, worker2Question, marryMonth, canPay, numWork]
+  });
+});
+
+exports.getDataAdminHome3 = (async (req, res) => {
+
+  var questions = 0;
+  var questionsAnswer = 0;
+  var halachots = await Halachot.find().count();
+
+  res.status(201).json({
+    data: [questions, questionsAnswer, halachots]
+  });
+});
+
+
+
+exports.getDataHome = (async (req, res) => {
+
+  var users = await Candidate.find().count();
+  var matchmarkers = await Matchmaker.find().count();
+  var helps = 0;
+  var marryMonth = await CandidateStep.find({ step: { $gte: 7 }, updatedAt: { $gte: new Date().setMonth(-1) } }).count();
+  var marrys = await CandidateStep.find({ step: { $gte: 7 } }).populate({
+    path: 'male',
+    populate: { path: 'user' }
+  }).populate({
+    path: 'female',
+    populate: { path: 'user' }
+  }).exec();
+
+  var marrysCount = marrys.length;
+  var marrNames = [];
+
+  for (let index = 0; index < marrys.length && index < 6; index++) {
+    const element = marrys[index];
+    marrNames.push(
+      element.male.user.firstname + " " + element.male.user.lastname + " ו" + element.female.user.firstname + " " + element.female.user.lastname
+    );
+  }
+
+  res.status(201).json({
+    data: [users, matchmarkers, helps, marryMonth, marrysCount],
+    marrys: marrNames
+  });
+});
+

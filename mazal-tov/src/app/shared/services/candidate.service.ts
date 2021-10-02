@@ -43,5 +43,9 @@ export class CandidateService {
     return this.httpClient.post(url + "updateStep", candidateStep);
   }
 
+  updateMarry(num: string) {
+    return this.httpClient.put(url + "updateMarry?id=" + num, {});
+  }
+
 
 }

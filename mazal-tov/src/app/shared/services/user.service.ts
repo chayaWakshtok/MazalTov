@@ -47,7 +47,23 @@ export class UserService {
     return this.httpClient.get<User[]>(URL + "all");
   }
 
-  updateStatus(item: User): Observable<User> {
-    return this.httpClient.put<User>(URL + "updateStats", item);
+  getDataAdminHome3(): Observable<any> {
+    return this.httpClient.get<any>(URL + "getDataAdminHome3");
+  }
+
+  getDataAdminHome2(): Observable<any> {
+    return this.httpClient.get<any>(URL + "getDataAdminHome2");
+  }
+
+  getDataAdminHome1(): Observable<any> {
+    return this.httpClient.get<any>(URL + "getDataAdminHome1");
+  }
+
+  updateStatus(item: User): Observable<any> {
+    return this.httpClient.put<any>(URL + "updateStats", item);
+  }
+
+  getDataHome(): Observable<any> {
+    return this.httpClient.get<any>(URL + "getDataHome");
   }
 }

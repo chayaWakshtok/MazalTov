@@ -13,7 +13,7 @@ export class HalachaService {
   url: string;
 
   constructor(public httpClient: HttpClient, private router: Router,) {
-    this.url = environment.apiUrl + "halacha";
+    this.url = environment.apiUrl + "api/halacha";
   }
 
   getHalachots(): Observable<Halacha[]> {

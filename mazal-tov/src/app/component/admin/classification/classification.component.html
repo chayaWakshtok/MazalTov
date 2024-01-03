@@ -4,44 +4,50 @@
 </div> -->
 
 <div>
-    <div>
-        <div class="mt-5">
-            <h3 class="header-page mb-5">רישום חדש וסיווג</h3>
-            <table style="margin: auto;">
-                <tr>
-                    <th>תאריך</th>
-                    <th>שם משפחה</th>
-                    <th>שם פרטי</th>
-                    <th>מהות הרישום</th>
-                    <!-- <th>סיווג</th> -->
-                    <th>אישור מנהל</th>
-                    <!-- <th>טופל</th> -->
-                </tr>
-                <tr *ngFor="let item of users">
-                    <td>{{item.createdAt| date :"d/MM/yyyy"}}</td>
-                    <td>{{item.lastname}}</td>
-                    <td>{{item.firstname}}</td>
-                    <td>
-                        <span *ngIf="item.role.name=='MatchMaker'">שדכנ\ית</span>
-                        <span *ngIf="item.role.name=='User'">מועמד\ת</span>
-                        <span *ngIf="item.role.name=='Admin'">מנהל\ת</span>
-                        <span *ngIf="item.role.name=='Worker'">יועץ\ת -מטפל\ת</span>
-                        <span *ngIf="item.role.name=='Rav'">רב\נית</span>
-                        <span *ngIf="item.role.name=='Secretary'">מזכיר\ה</span>
-                    </td>
-                    <!-- <td>3</td> -->
-                    <td>
-                        <span *ngIf="item.status==1" class="ok" (click)="okStatus(item)"> אישור</span>
-                        <span *ngIf="item.status==2">v</span>
-                    </td>
-                    <!-- <td>אישור</td> -->
-                </tr>
-            </table>
-            <div class="row mt-5">
-                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('secretary/new')" style="margin-right: 22vw !important;">רישום רשמ/ת</button>
-                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('rav/new')">רישום רב/נית</button>
-                <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('worker/new')">רישום יועץ או מטפל</button>
-            </div>
-        </div>
+  <div>
+    <div class="mt-5">
+      <h3 class="header-page mb-5">רישום חדש וסיווג</h3>
+      <table style="margin: auto;">
+        <tr>
+          <th>תאריך</th>
+          <th>שם משפחה</th>
+          <th>שם פרטי</th>
+          <th>מהות הרישום</th>
+          <!-- <th>סיווג</th> -->
+          <th>אישור</th>
+          <th *ngIf="isAdmin">אישור מנהל</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let item of users">
+          <td>{{item.createdAt| date :"d/MM/yyyy"}}</td>
+          <td>{{item.lastname}}</td>
+          <td>{{item.firstname}}</td>
+          <td>
+            <span *ngIf="item.role.name=='MatchMaker'">שדכנ\ית</span>
+            <span *ngIf="item.role.name=='User'">מועמד\ת</span>
+            <span *ngIf="item.role.name=='Admin'">מנהל\ת</span>
+            <span *ngIf="item.role.name=='Worker'">יועץ\ת -מטפל\ת</span>
+            <span *ngIf="item.role.name=='Rav'">רב\נית</span>
+            <span *ngIf="item.role.name=='Secretary'">עובד\ת</span>
+          </td>
+          <!-- <td>3</td> -->
+          <td>
+            <span *ngIf="item.status==1" class="ok" (click)="okStatus(item,2)"> אישור</span>
+            <span *ngIf="item.status==2">v</span>
+          </td>
+          <td *ngIf="isAdmin">
+            <span *ngIf="item.status!=3" class="ok" (click)="okStatus(item,3)"> אישור</span>
+            <span *ngIf="item.status==3">v</span>
+          </td>
+          <td><i class="bi bi-search" (click)="showUser(item)"></i></td>
+        </tr>
+      </table>
+      <div class="row mt-5">
+        <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('secretary/new')"
+          style="margin-right: 22vw !important;">רישום עובד\ת</button>
+        <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('rav/new')">רישום רב/נית</button>
+        <button class="col-2 mr-4 ml-4 red-button" (click)="createNew('worker/new')">רישום יועץ או מטפל</button>
+      </div>
     </div>
+  </div>
 </div>

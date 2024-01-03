@@ -14,4 +14,5 @@ module.exports = function (app) {
   app.post("/api/candidateStep/create",[authJwt.verifyToken], controller.create);
   app.put("/api/candidateStep/update",[authJwt.verifyToken], controller.updateStep);
   app.get("/api/candidateStep/findOne",[authJwt.verifyToken], controller.findOne);
+  app.delete("/api/candidateStep/deleteTreatedByInStep", [authJwt.verifyToken], controller.deleteTreatedByInStep);
 };

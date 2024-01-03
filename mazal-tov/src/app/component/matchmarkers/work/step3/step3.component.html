@@ -1,25 +1,37 @@
 <div class="card-top">
-    <p class="font-white">תהליך שידוך</p>
-    <img src="../../../../../assets/steps/step2.pn{{canStepCurrect?.male?.user.firstname}} {{canStepCurrect?.male?.user.lastname}}g">
+  <p class="font-white">תהליך שידוך</p>
+  <img src="../../../../../assets/steps/step2.png">
 </div>
 <div>
-    <div class="row">
-        <h2 class="col-6 text-center">
-        </h2>
-        <h2 class="col-6 text-center">{{canStepCurrect?.female?.user.firstname}}
-            {{canStepCurrect?.female?.user.lastname}}</h2>
-    </div>
-
-    <div id="table-step3">
-        <p class="font-30 mb-2" id="p1">כמה אחוזי התאמה את נותנת להם?</p>
-        <input type="number" style="font-size: 50px;font-weight: 900;" name="pre" max="100"
-            [(ngModel)]="canStepCurrect.precent">
-        <h5 class="font-30">הערה</h5>
-        <input type="text" id="in-txt" class="mt-4 mb-5" name="remark" [(ngModel)]="canStepCurrect.remark">
-    </div>
-
-    <div class="row mt-5 mb-5">
-        <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">ביטול הצעה</button>
-        <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">המשך</button>
-    </div>
+  <div class="row">
+    <h2 class="col-6 text-center">{{canStepCurrect?.male?.user.firstname}} {{canStepCurrect?.male?.user.lastname}}</h2>
+    <h2 class="col-6 text-center">{{canStepCurrect?.female?.user.firstname}} {{canStepCurrect?.female?.user.lastname}}
+    </h2>
+  </div>
+  <div id="table-step2">
+    <h5 class="font-25 pt-2 pr-5 font-header-color">מישהו כבר חשב על הרעיון הזה...</h5>
+    <table style="width: 68vw;">
+      <tr>
+        <th>מי?</th>
+        <th>מתי?</th>
+        <th>כמה אחוזים נתנה לפני ההצעה</th>
+        <th>סיבת ביטול</th>
+        <th>הערת השדכנית</th>
+      </tr>
+      <tr *ngFor="let item of candidatesSteps">
+        <td>{{item.treatedByUser?.user?.firstname}}</td>
+        <td>{{item.createdAt| date:'short'}}</td>
+        <td>{{item.precent}}</td>
+        <td>{{item.reasonFail}}</td>
+        <td>{{item.remark}}</td>
+      </tr>
+      <tr *ngIf="candidatesSteps&&candidatesSteps.length==0||!candidatesSteps">
+        <td colspan="5"> אין נתונים להצגה</td>
+      </tr>
+    </table>
+  </div>
+  <div class="row mt-5 mb-5">
+    <button class="btn-steps col-2" style="margin-right: 30vw;" (click)="back()">חזרה</button>
+    <button class="btn-steps col-2" style="margin-right: 6.2vw;" (click)="next()">המשך</button>
+  </div>
 </div>

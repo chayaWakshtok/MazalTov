@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl:'http://localhost:8070/api/'
+  //apiUrl:'https://mazal-tov-web.herokuapp.com/'
+  apiUrl:"http://localhost:8070/"
 };
 
 /*

@@ -1,0 +1,31 @@
+<div>
+  <div>
+      <div class="mt-5">
+          <h3 class="header-page mb-5">יצירת קשר</h3>
+          <table class="m-5">
+              <tr>
+                  <th>תאריך</th>
+                  <th>שם</th>
+                  <th>טלפון</th>
+                  <th>מייל</th>
+                  <th>הודעה</th>
+                  <th>טופל</th>
+              </tr>
+              <tr *ngFor="let item of contactsList">
+                  <td>{{item.createdAt| date :"d/MM/yyyy hh:mm"}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.tell}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.message}}</td>
+                  <td>
+                      <a *ngIf="item.status!=2" class="ok curser-pointer" (click)="okStatus(item)"> טופל</a>
+                  </td>
+                  <!-- <td>אישור</td> -->
+              </tr>
+              <tr *ngIf="contactsList&&contactsList.length==0||!contactsList">
+                  <td colspan="5"> אין נתונים להצגה</td>
+              </tr>
+          </table>
+      </div>
+  </div>
+</div>

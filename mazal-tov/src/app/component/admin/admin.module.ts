@@ -8,6 +8,9 @@ import { ClassificationComponent } from './classification/classification.compone
 import { HalachotsComponent } from './halachots/halachots.component';
 import { AddHalachaComponent } from './halachots/add-halacha/add-halacha.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ContactusListComponent } from './contactus-list/contactus-list.component';
+import { ShowUserComponent } from './classification/show-user/show-user.component';
+import { EditUserComponent } from './classification/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -16,13 +19,25 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     BoxMainComponent,
     ClassificationComponent,
     HalachotsComponent,
-    AddHalachaComponent
+    AddHalachaComponent,
+    ContactusListComponent,
+    ShowUserComponent,
+    EditUserComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     AdminRoutingModule,
     AngularEditorModule
+  ],
+  exports:[
+    ContactusListComponent,
+    ClassificationComponent,
+    HalachotsComponent,
+    AddHalachaComponent,
+    BoxMainComponent,
+    ShowUserComponent,
+    EditUserComponent
   ]
 })
 export class AdminModule { }

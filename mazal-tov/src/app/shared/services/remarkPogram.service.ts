@@ -15,7 +15,7 @@ export class RemarkPogramService {
   url: string;
 
   constructor(public httpClient: HttpClient, private router: Router,) {
-    this.url = environment.apiUrl + "remarkPogram";
+    this.url = environment.apiUrl + "api/remarkPogram";
   }
 
   getRemark(): Observable<City[]> {

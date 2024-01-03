@@ -9,7 +9,7 @@ import { Matchmaker } from 'src/app/classes/matchmaker';
 import { environment } from 'src/environments/environment';
 import { CandidateStep } from 'src/app/classes/candidateStep';
 
-const url = environment.apiUrl + "candidate/"
+const url = environment.apiUrl + "api/candidate/"
 
 @Injectable({
   providedIn: 'root'
@@ -47,5 +47,12 @@ export class CandidateService {
     return this.httpClient.put(url + "updateMarry?id=" + num, {});
   }
 
+  getById(id: string):Observable<Candidate> {
+    return this.httpClient.get<Candidate>(url + "find?id=" + id)
+  }
+
+  getByUserId(id: string):Observable<Candidate> {
+    return this.httpClient.get<Candidate>(url + "findByUser?id=" + id)
+  }
 
 }

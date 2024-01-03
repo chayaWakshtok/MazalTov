@@ -23,6 +23,7 @@ import { ShowErrorsComponent } from './shared/components/show-errors/show-errors
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MessageOkComponent } from './shared/components/contact-us/message-ok/message-ok.component';
+import { BoxMainComponent } from './shared/components/box-main/box-main.component';
 
 @NgModule({
   declarations: [

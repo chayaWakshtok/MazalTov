@@ -1,1 +1,27 @@
-<p>rav-home works!</p>
+<div>
+  <div class="top-main-black">
+  </div>
+  <div></div>
+  <img class="top-main-image" src="../../../../assets/secretary-top.png">
+  <h3 class="header-page">עמוד רב</h3>
+  <p class="text-center">{{date| date: 'dd/MM/yyyy hh:mm'}}</p>
+  <div class="bar1 font-20 mt-4">אזור אישי</div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
+    <!-- <button class="col-2 mr-4 ml-4 red-button" style="margin-right: 22vw !important;">רישום רשמ/ת</button>
+    <button class="col-2 mr-4 ml-4 red-button">רישום רב/נית</button>
+    <button class="col-2 mr-4 ml-4 red-button">רישום יועץ או מטפל</button> -->
+  </div>
+  <div class="bar1 font-20 mt-4">נתונים מהשטח</div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
+    <app-box-main class="col-3" [text]="'מועמדים רשומים'" [number]="data2[0]"></app-box-main>
+    <app-box-main class="col-3" [text]="'זוגות מאורסים'" [number]="data2[1]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שאלות רב'" [number]="data2[2]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שאלות יועצים'" [number]="data2[3]"></app-box-main>
+  </div>
+  <div class="row col-md-10 offset-md-2 div-box" style="margin-top: 0vh !important;">
+    <app-box-main class="col-3" [text]="'שאלות מטפלים'" [number]="data2[4]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שידוכים נסגרו החודש'" [number]="data2[5]"></app-box-main>
+    <app-box-main class="col-3" [text]="'נרשמים בתשלום'" [number]="data2[6]"></app-box-main>
+    <app-box-main class="col-3" [text]="'שעות עבודה במערכת'" [number]="data2[7]"></app-box-main>
+  </div>
+</div>

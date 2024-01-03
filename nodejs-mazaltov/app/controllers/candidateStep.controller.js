@@ -93,7 +93,12 @@ exports.updateStep = (req, res) => {
                     message: "CandidateStep not found with id " + req.body.id
                 });
             }
-            res.send(note);
+            Candidate.findByIdAndUpdate(req.body.female._id, { step: req.body.step }).then(r => {
+                Candidate.findByIdAndUpdate(req.body.male._id, { step: req.body.step }).then(r => {
+                    res.send(note);
+                })
+            })
+
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
@@ -102,6 +107,32 @@ exports.updateStep = (req, res) => {
             }
             return res.status(500).send({
                 message: "Error updating CandidateStep with id " + req.params.id
+            });
+        });
+};
+
+exports.deleteTreatedByInStep = (req, res) => {
+    CandidateStep.findByIdAndRemove(req.query.id)
+        .then(note => {
+            if (!note) {
+                return res.status(404).send({
+                    message: "CandidateStep not found with id " + req.query.id
+                });
+            }
+            Candidate.findByIdAndUpdate(note.female._id, { step: 0 }).then(r => {
+                Candidate.findByIdAndUpdate(note.male._id, { step: 0 }).then(r => {
+                    res.send({ message: "CandidateStep deleted successfully!" });
+                })
+            })
+
+        }).catch(err => {
+            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
+                return res.status(404).send({
+                    message: "CandidateStep not found with id " + req.query.id
+                });
+            }
+            return res.status(500).send({
+                message: "Could not delete CandidateStep with id " + req.query.id
             });
         });
 };

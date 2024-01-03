@@ -14,10 +14,10 @@ export class ContactusService {
   url: string;
 
   constructor(public httpClient: HttpClient, private router: Router,) {
-    this.url = environment.apiUrl + "contactus";
+    this.url = environment.apiUrl + "api/contactus";
   }
 
-  getHalachots(): Observable<Contactus[]> {
+  getContactus(): Observable<Contactus[]> {
     return this.httpClient.get<Contactus[]>(this.url + "/all");
   }
 

@@ -15,7 +15,7 @@ import { Rav } from 'src/app/classes/rav';
 })
 export class RavService {
 
-  baseApi = environment.apiUrl + "rav/";
+  baseApi = environment.apiUrl + "api/rav/";
 
   constructor(public httpClient: HttpClient, private router: Router,) { }
 
@@ -27,6 +27,14 @@ export class RavService {
     var date = new Date();
     return this.httpClient.get(`https://www.hebcal.com/converter?cfg=json&gy=${date.getFullYear()}
     &gm=${date.getMonth() + 1}&gd=${date.getDate()}&g2h=1`);
+  }
+
+  getById(id: string):Observable<Rav> {
+    return this.httpClient.get<Rav>(this.baseApi + "find?id=" + id)
+  }
+
+  getByUserId(id: string):Observable<Rav> {
+    return this.httpClient.get<Rav>(this.baseApi + "findByUser?id=" + id)
   }
 
 }

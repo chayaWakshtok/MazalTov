@@ -22,6 +22,7 @@ import { Step5Component } from './work/step5/step5.component';
 import { Step6Component } from './work/step6/step6.component';
 import { CancelMatchComponent } from './work/cancel-match/cancel-match.component';
 import { SendRequestComponent } from './send-request/send-request.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SendRequestComponent } from './send-request/send-request.component';
   imports: [
     CommonModule,
     FormsModule,
-    MatchMarkerRoutingModule
+    MatchMarkerRoutingModule,
+    NgxSliderModule
   ],
   entryComponents: [
     RegisterMessageComponent

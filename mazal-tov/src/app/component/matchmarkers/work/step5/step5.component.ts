@@ -70,8 +70,10 @@ export class Step5Component implements OnInit {
     });
     this.canStepCurrect.fail = { reasonMale: "", remarkMatcher: "", resonFemale: "", whoFail: '' };
     modalRef.componentInstance.canStepCurrect = this.canStepCurrect;
+  }
 
-
+  backStep() {
+    this.router.navigate(["matchmaker/step4", this.canStepCurrect._id]);
   }
 
 

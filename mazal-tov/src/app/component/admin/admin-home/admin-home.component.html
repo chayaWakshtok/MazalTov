@@ -28,9 +28,11 @@
   </div>
   <div class="bar1 font-20 mt-4">פניות למערכת</div>
   <div class="row col-md-10 offset-md-2 div-box" style="margin-bottom: 4vh !important;">
+    <app-box-main class="col-3" [text]="'יצירת קשר'" [number]="data3[3]" (click)="routePage('admin/contactus')">
+    </app-box-main>
     <app-box-main class="col-3" [text]="'פניות שלא נענו'" [number]="data3[0]"></app-box-main>
     <app-box-main class="col-3" [text]="'פניות שנענו'" [number]="data3[1]"></app-box-main>
-    <app-box-main class="col-3" (click)="routePage('admin/halachots')" [text]="'הכנסת הלכות וטיפים'"
+    <app-box-main class="col-3" (click)="routePage('admin/halachots')" [text]="'הלכות וטיפים'"
       [number]="data3[2]"></app-box-main>
   </div>
 </div>

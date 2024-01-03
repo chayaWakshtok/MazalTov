@@ -1,124 +1,250 @@
 <div>
-    <div>
-        <div class="mt-5">
-            <h3 class="header-page mb-5">עבודת השדכנית</h3>
-            <div class="bar1 font-20 mt-4">רשימת מועמדים</div>
-            <div class="row mb-5" style="margin-right:8vw !important;margin-left: 8vw !important;">
-                <div class="col-1">
-                    <!-- <div>סינונים</div>
-                    <div>סינונים</div> -->
-                </div>
-                <div class="col-10">
-                    <div class="row col-12 mt-5 mb-2">
-                        <div class="col-8"></div>
-                        <div class="col-2">
-                            <label style="width: 10vw;">מספר שורות</label>
-                            <select style="width: 4vw">
-                                <option>15</option>
-                                <option>30</option>
-                                <option>45</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <label>מיין לפי</label>
-                            <select style="width: inherit;">
-                                <option>חדש במאגר</option>
-                                <option>ישן במאגר</option>
-                                <option>לפי מין</option>
-                                <option>לפי גיל-מבוגר לצעיר</option>
-                            </select>
-                        </div>
-                    </div>
-                    <table style="width: inherit;">
-                        <tr>
-                            <th>מין</th>
-                            <th>שם פרטי</th>
-                            <th>שם משפחה</th>
-                            <th>גיל</th>
-                            <th>מצב</th>
-                            <th>קהילה/עדה</th>
-                            <th>שם האב</th>
-                            <th>שם האם</th>
-                        </tr>
-                        <tr *ngFor="let item of candidateList" (click)="chooseRow(item)"
-                            [class.choose]="this.candidateFemale==item||this.candidateMale==item">
-                            <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
-                            <td>{{item.user.firstname}}</td>
-                            <td>{{item.user.lastname}}</td>
-                            <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
-                            <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
-                            <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
-                            <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
-                            <td>{{item.nameFather}}</td>
-                            <td>{{item.nameMother}}</td>
-                        </tr>
-                        <tr *ngIf="candidateList&&candidateList.length==0||!candidateList">
-                            <td colspan="8"> אין נתונים להצגה</td>
-                        </tr>
-                    </table>
-                </div>
+  <div>
+    <div class="mt-5">
+      <h3 class="header-page mb-5">עבודת השדכנית</h3>
+      <div class="bar1 font-20 mt-4">רשימת מועמדים</div>
+      <div class="row mb-5" style="margin-right:8vw !important;margin-left: 8vw !important;">
+        <div class="col-2">
+          <div class="filter-box">
+            <div class="row bb1" style="margin-top: 32px !important;">
+              <p class="col-7 weight-600" style="padding-right: 18px !important;">סינונים</p>
+              <a class="col-5" href="javascript:void(1)" id="cleanAll">נקה הכל</a>
             </div>
-            <div style="background-color: #5A5A5A0F;" class="pb-5">
-                <div class="font-20 pt-5 font-header-color pb-4" style="text-align: center;"> מועמדים בטיפול אישי</div>
-                <div>
-                    <table style="width: 55vw;">
-                        <tr>
-                            <th>מין</th>
-                            <th>שם פרטי</th>
-                            <th>שם משפחה</th>
-                            <th>גיל</th>
-                            <th>מצב</th>
-                            <th>קהילה/עדה</th>
-                            <th>שם האב</th>
-                            <th>שם האם</th>
-                        </tr>
-                        <tr *ngFor="let item of canTreated">
-                            <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
-                            <td>{{item.user.firstname}}</td>
-                            <td>{{item.user.lastname}}</td>
-                            <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
-                            <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
-                            <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
-                            <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
-                            <td>{{item.nameFather}}</td>
-                            <td>{{item.nameMother}}</td>
-                        </tr>
-                        <tr *ngIf="canTreated&&canTreated.length==0||!canTreated">
-                            <td colspan="8"> אין נתונים להצגה</td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
-                    <button class="btn btn-primary" (click)="treatChoose()"> התחל שידוך חדש</button>
-                </div>
+            <div class="div-filter bb1">
+              <p class="font-15" style="margin-bottom: 18px;">מועמדים (23451)</p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="checkbox" name="man" id="man">
+                <label class="col-5 font-15 weight-400" for="man">זכר</label>
+              </div>
+              <div class="form-input row">
+                <input class="col-1" type="checkbox" name="female" id="female">
+                <label class="col-5 font-15 weight-400" for="female">נקבה</label>
+              </div>
             </div>
-            <div class="bar1 font-20 mt-4">שידוכים בתהליך</div>
-            <div class="row mb-5" style="margin-right:14vw !important;margin-left: 14vw !important;">
-                <div class="col-10 mt-5">
-                    <table style="width: 73vw;">
-                        <tr>
-                            <th>שם הבחור</th>
-                            <th>שם הבחורה</th>
-                            <th>שלב</th>
-                            <th>תאריך טיפול אחרון</th>
-                            <th>הערות</th>
-                        </tr>
-                        <tr *ngFor="let item of canInStep" [class.choose]="this.canStepChoose==item" (click)="chooseStepRow(item)">
-                            <td>{{item.male.user.firstname}} {{item.male.user.lastname}}</td>
-                            <td>{{item.female.user.firstname}} {{item.female.user.lastname}}</td>
-                            <td>{{item.step}}</td>
-                            <td>{{item.updatedAt|date :'dd/MM/yyyy hh:mm:ss'}}</td>
-                            <td>{{item.remark}}</td>
-                        </tr>
-                        <tr *ngIf="canInStep&&canInStep.length==0||!canInStep">
-                            <td colspan="5"> אין נתונים להצגה</td>
-                        </tr>
-                    </table>
-                </div>
-                <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
-                    <button class="btn btn-primary" (click)="treatChooseStep()"> המשך שידוך</button>
-                </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p class="pb0"><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">גיל</span> </p>
+              <p class="font-14" style="margin-right: 20px;">טווח גילאים: 0-120</p>
+              <div class="custom-ngx-slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+              </div>
             </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">עדה</span> </p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="checkbox" name="man" id="man">
+                <label class="col-5 font-15 weight-400" for="man">זכר</label>
+              </div>
+              <div class="form-input row">
+                <input class="col-1" type="checkbox" name="female" id="female">
+                <label class="col-5 font-15 weight-400" for="female">נקבה</label>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">קהילה/חסידות</span> </p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="checkbox" name="man" id="man">
+                <label class="col-5 font-15 weight-400" for="man">זכר</label>
+              </div>
+              <div class="form-input row">
+                <input class="col-1" type="checkbox" name="female" id="female">
+                <label class="col-5 font-15 weight-400" for="female">נקבה</label>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">מצב אישי</span> </p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="status" id="1">
+                <label class="col-5 font-15 weight-400" for="1">רווק</label>
+              </div>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="status" id="2">
+                <label class="col-5 font-15 weight-400" for="2">גרוש</label>
+              </div>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="status" id="3">
+                <label class="col-5 font-15 weight-400" for="3">אלמן</label>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">בעיה רפואית</span> </p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="prob" id="1">
+                <label class="col-5 font-15 weight-400" for="1">כן</label>
+              </div>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="prob" id="2">
+                <label class="col-5 font-15 weight-400" for="2">לא</label>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">מעוכב שידוך</span> </p>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="plater" id="1">
+                <label class="col-5 font-15 weight-400" for="1">כן</label>
+              </div>
+              <div class="form-input row" style="height: 25px;">
+                <input class="col-1" type="radio" name="plater" id="2">
+                <label class="col-5 font-15 weight-400" for="2">לא</label>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p ><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">גובה</span> </p>
+              <div class="custom-ngx-slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p ><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">דרישות כספיות</span> </p>
+              <div class="custom-ngx-slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+              </div>
+            </div>
+            <div class="div-filter bb1" style="padding-bottom: 20px;">
+              <!-- <i class="bi bi-chevron-down"></i> -->
+              <p ><i style="font-size:13px" class="bi bi-chevron-left"></i><span class="weight-600 font-15"
+                  style="padding-right: 10px;">התחיבויות כספיות</span> </p>
+              <div class="custom-ngx-slider">
+                <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+              </div>
+            </div>
+          </div>
+
         </div>
+        <div class="col-10">
+          <div class="row col-12 mt-4 mb-2">
+            <div class="col-8"></div>
+            <div class="col-2">
+              <label style="width: 10vw;">מספר שורות</label>
+              <select style="width: 4vw">
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+              </select>
+            </div>
+            <div class="col-2">
+              <label>מיין לפי</label>
+              <select style="width: inherit;">
+                <option>חדש במאגר</option>
+                <option>ישן במאגר</option>
+                <option>לפי מין</option>
+                <option>לפי גיל-מבוגר לצעיר</option>
+              </select>
+            </div>
+          </div>
+          <table style="width: inherit;">
+            <tr>
+              <th>מין</th>
+              <th>שם פרטי</th>
+              <th>שם משפחה</th>
+              <th>גיל</th>
+              <th>מצב</th>
+              <th>קהילה/עדה</th>
+              <th>שם האב</th>
+              <th>שם האם</th>
+              <th></th>
+            </tr>
+            <tr *ngFor="let item of candidateList" (click)="chooseRow(item)"
+              [class.choose]="this.candidateFemale==item||this.candidateMale==item"
+              [class.catch]="item.step>0&&item.step<8">
+              <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
+              <td>{{item.user.firstname}}</td>
+              <td>{{item.user.lastname}}</td>
+              <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
+              <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
+              <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
+              <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
+              <td>{{item.nameFather}}</td>
+              <td>{{item.nameMother}}</td>
+              <td><i class="bi bi-search" (click)="showUser(item)"></i></td>
+            </tr>
+            <tr *ngIf="candidateList&&candidateList.length==0||!candidateList">
+              <td colspan="8"> אין נתונים להצגה</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div style="background-color: #5A5A5A0F;" class="pb-5">
+        <div class="font-20 pt-5 font-header-color pb-4" style="text-align: center;"> מועמדים בטיפול אישי</div>
+        <div>
+          <table style="width: 55vw;">
+            <tr>
+              <th>מין</th>
+              <th>שם פרטי</th>
+              <th>שם משפחה</th>
+              <th>גיל</th>
+              <th>מצב</th>
+              <th>קהילה/עדה</th>
+              <th>שם האב</th>
+              <th>שם האם</th>
+            </tr>
+            <tr *ngFor="let item of canTreated" (click)="chooseRow(item)"
+              [class.choose]="this.candidateFemale==item||this.candidateMale==item"
+              [class.catch]="item.step>0&&item.step<8">
+              <td>{{item.user.gender==1?'זכר':'נקבה'}}</td>
+              <td>{{item.user.firstname}}</td>
+              <td>{{item.user.lastname}}</td>
+              <td>{{yearNow-item.user.bornDate?.getFullYear()}}</td>
+              <td>{{item.status==1?'רווקה':item.status==3?'אלמן\ה':'גרוש\ה'}}</td>
+              <td *ngIf="item.sector!='חסידי'">{{item.sector}}</td>
+              <td *ngIf="item.sector=='חסידי'">{{item.chasidut}}</td>
+              <td>{{item.nameFather}}</td>
+              <td>{{item.nameMother}}</td>
+            </tr>
+            <tr *ngIf="canTreated&&canTreated.length==0||!canTreated">
+              <td colspan="8"> אין נתונים להצגה</td>
+            </tr>
+          </table>
+        </div>
+        <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+          <button class="btn btn-primary" (click)="treatChoose()"> התחל שידוך חדש</button>
+        </div>
+      </div>
+      <div class="bar1 font-20 mt-4">שידוכים בתהליך</div>
+      <div class="row mb-5" style="margin-right:14vw !important;margin-left: 14vw !important;">
+        <div class="col-10 mt-5">
+          <table style="width: 73vw;">
+            <tr>
+              <th>שם הבחור</th>
+              <th>שם הבחורה</th>
+              <th>שלב</th>
+              <th>תאריך טיפול אחרון</th>
+              <th>הערות</th>
+              <th>פעולות</th>
+            </tr>
+            <tr *ngFor="let item of canInStep" [class.choose]="this.canStepChoose==item" (click)="chooseStepRow(item)">
+              <td>{{item.male.user.firstname}} {{item.male.user.lastname}}</td>
+              <td>{{item.female.user.firstname}} {{item.female.user.lastname}}</td>
+              <td>{{item.step}}</td>
+              <td>{{item.updatedAt|date :'dd/MM/yyyy hh:mm:ss'}}</td>
+              <td>{{item.remark}}</td>
+              <td><img src="../../../../../assets/remove.png" style="cursor: pointer;"
+                  (click)="deleteTreatedByInStep(item._id)"></td>
+            </tr>
+            <tr *ngIf="canInStep&&canInStep.length==0||!canInStep">
+              <td colspan="5"> אין נתונים להצגה</td>
+            </tr>
+          </table>
+        </div>
+        <div style="width: 300px; margin: auto;" class="mb-3 mt-5">
+          <button class="btn btn-primary" (click)="treatChooseStep()"> המשך שידוך</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

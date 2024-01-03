@@ -13,7 +13,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class Step2Component implements OnInit {
 
-  candidatesSteps: CandidateStep[] = [];
+
   canStepCurrect: CandidateStep = new CandidateStep();
 
   constructor(public router: Router,
@@ -21,19 +21,18 @@ export class Step2Component implements OnInit {
     public canStepService: CandidateStepService,
     private modalService: NgbModal,) { }
 
+
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
       (params: Params) => {
         if (params.id) {
           if (this.canStepService.canStepCurrent._id && this.canStepService.canStepCurrent._id == params.id) {
             this.canStepCurrect = this.canStepService.canStepCurrent;
-            this.getAllData();
           }
           else {
             this.canStepService.findById(params.id).subscribe((res: CandidateStep) => {
               this.canStepCurrect = res;
               this.canStepService.canStepCurrent = res;
-              this.getAllData();
             })
           }
         }
@@ -51,25 +50,20 @@ export class Step2Component implements OnInit {
     })
   }
 
-  getAllData() {
-    this.canStepService.getSameSteps(this.canStepCurrect).subscribe((res: CandidateStep[]) => {
-      this.candidatesSteps = res;
-      this.candidatesSteps = this.candidatesSteps.filter(p => p._id != this.canStepCurrect._id);
-    })
-  }
-
   back() {
-    const modalRef = this.modalService.open(CancelMatchComponent,
-      {
-        size: 'xl'
-      });
-    modalRef.result.then((result) => {
-      if (result) {
-        this.router.navigate(["matchmaker/main"]);
-      }
-    });
-    this.canStepCurrect.fail = { reasonMale: "", remarkMatcher: "", resonFemale: "", whoFail: '' };
-    modalRef.componentInstance.canStepCurrect = this.canStepCurrect;
+    // const modalRef = this.modalService.open(CancelMatchComponent,
+    //   {
+    //     size: 'xl'
+    //   });
+    // modalRef.result.then((result) => {
+    //   debugger;
+    //   if (result) {
+    //     this.router.navigate(["matchmaker/main"]);
+    //   }
+    // });
+    // this.canStepCurrect.fail = { reasonMale: "", remarkMatcher: "", resonFemale: "", whoFail: '' };
+    // modalRef.componentInstance.canStepCurrect = this.canStepCurrect;
+    this.router.navigate(["matchmaker/step1", this.canStepCurrect._id]);
   }
 
   next() {

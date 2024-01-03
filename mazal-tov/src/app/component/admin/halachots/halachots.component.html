@@ -1,39 +1,43 @@
 <div>
-    <div>
-        <div class="mt-5">
-            <h3 class="header-page mb-5">הלכות ומאמרים</h3>
-            <table class="m-5">
-                <tr>
-                    <th>תאריך</th>
-                    <th>שם הכותב</th>
-                    <th>נושא</th>
-                    <th>קטגוריה</th>
-                    <th>אישור מנהל</th>
-                    <!-- <th>טופל</th> -->
-                </tr>
-                <tr *ngFor="let item of halachotsList">
-                    <td>{{item.createdAt| date :"d/MM/yyyy"}}</td>
-                    <td>{{item.entryByUser.firstname}}</td>
-                    <td>{{item.subject}}</td>
-                    <td>
-                        <span *ngIf="item.type==1">הלכה</span>
-                        <span *ngIf="item.type==2">מאמר</span>
-                    </td>
-                    <td>
-                        <span *ngIf="item.status==1" class="ok curser-pointer" (click)="okStatus(item)"> אישור</span>
-                        <span *ngIf="item.status==2">v</span>
-                    </td>
-                    <!-- <td>אישור</td> -->
-                </tr>
-                <tr *ngIf="halachotsList&&halachotsList.length==0||!halachotsList">
-                    <td colspan="5"> אין נתונים להצגה</td>
-                </tr>
-            </table>
-            <div class="mt-5 row">
-                <div class="col-5"> </div>
-                <button class="mr-4 ml-4 red-button" (click)="addHalacha()">כתיבת הלכה או מאמר</button>
-                <div class="col-5"> </div>
-            </div>
-        </div>
+  <div>
+    <div class="mt-5">
+      <h3 class="header-page mb-5">הלכות ומאמרים</h3>
+      <table class="m-5">
+        <tr>
+          <th>תאריך</th>
+          <th>שם הכותב</th>
+          <th>נושא</th>
+          <th>קטגוריה</th>
+          <th>אישור</th>
+          <th *ngIf="isAdmin">אישור מנהל</th>
+        </tr>
+        <tr *ngFor="let item of halachotsList">
+          <td>{{item.createdAt| date :"d/MM/yyyy"}}</td>
+          <td>{{item.entryByUser.firstname}}</td>
+          <td>{{item.subject}}</td>
+          <td>
+            <span *ngIf="item.type==1">הלכה</span>
+            <span *ngIf="item.type==2">מאמר</span>
+          </td>
+          <td>
+            <span *ngIf="item.status==1" class="ok curser-pointer" (click)="okStatus(item,2)"> אישור</span>
+            <span *ngIf="item.status==2">v</span>
+          </td>
+          <td *ngIf="isAdmin">
+            <span *ngIf="item.status!=3" class="ok curser-pointer" (click)="okStatus(item,3)">
+              אישור</span>
+            <span *ngIf="item.status==3">v</span>
+          </td>
+        </tr>
+        <tr *ngIf="halachotsList&&halachotsList.length==0||!halachotsList">
+          <td colspan="5"> אין נתונים להצגה</td>
+        </tr>
+      </table>
+      <div class="mt-5 row">
+        <div class="col-5"> </div>
+        <button class="mr-4 ml-4 red-button" (click)="addHalacha()">כתיבת הלכה או מאמר</button>
+        <div class="col-5"> </div>
+      </div>
     </div>
+  </div>
 </div>

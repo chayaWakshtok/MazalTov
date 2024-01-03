@@ -16,7 +16,7 @@ import { Worker } from 'src/app/classes/worker';
 })
 export class WorkerService {
 
-  baseApi = environment.apiUrl + "worker/";
+  baseApi = environment.apiUrl + "api/worker/";
 
   constructor(public httpClient: HttpClient, private router: Router,) { }
 
@@ -28,6 +28,14 @@ export class WorkerService {
     var date = new Date();
     return this.httpClient.get(`https://www.hebcal.com/converter?cfg=json&gy=${date.getFullYear()}
     &gm=${date.getMonth() + 1}&gd=${date.getDate()}&g2h=1`);
+  }
+
+  getById(id: string):Observable<Worker> {
+    return this.httpClient.get<Worker>(this.baseApi + "find?id=" + id)
+  }
+
+  getByUserId(id: string):Observable<Worker> {
+    return this.httpClient.get<Worker>(this.baseApi + "findByUser?id=" + id)
   }
 
 }

@@ -13,8 +13,8 @@ export class CityService {
 
   url: string;
 
-  constructor(public httpClient: HttpClient, private router: Router,) {                                                                                                                                                                                                                                                                                       
-    this.url = environment.apiUrl + "city";
+  constructor(public httpClient: HttpClient, private router: Router,) {
+    this.url = environment.apiUrl + "api/city";
   }
 
   getCity(): Observable<City[]> {

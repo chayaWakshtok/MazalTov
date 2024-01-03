@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RavHomeComponent } from './rav-home/rav-home.component';
 import { AddRavComponent } from './add-rav/add-rav.component';
 import { RavRoutingModule } from './rav.routing.module';
+import { AdminModule } from '../admin/admin.module';
 
 
 
@@ -15,7 +16,8 @@ import { RavRoutingModule } from './rav.routing.module';
   imports: [
     CommonModule,
     FormsModule,
-    RavRoutingModule
+    RavRoutingModule,
+    AdminModule
   ],
   exports: [
     RavHomeComponent,

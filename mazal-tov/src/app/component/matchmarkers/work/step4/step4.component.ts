@@ -63,8 +63,16 @@ export class Step4Component implements OnInit {
     modalRef.componentInstance.canStepCurrect = this.canStepCurrect;
   }
 
+  backStep() {
+    this.router.navigate(["matchmaker/step3", this.canStepCurrect._id]);
+  }
+
   next() {
-    this.updateStep();
+    if (this.canStepCurrect.checkeding.ambition && this.canStepCurrect.checkeding.character
+      && this.canStepCurrect.checkeding.dress && this.canStepCurrect.checkeding.money
+      && this.canStepCurrect.checkeding.style)
+      this.updateStep();
+    else alert("חובה לסמן אישור על כל ההתאמות");
   }
 
 }

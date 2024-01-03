@@ -4,9 +4,9 @@ export class Contactus {
   name: string;
   email: string;
   message: string;
-  createDate: Date;
-  updateDate: Date;
-  status: number;
+  createdAt: Date;
+  updatedAt: Date;
+  status: number = 1;
   userId: string;
   tell: string;
 }

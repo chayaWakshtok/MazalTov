@@ -9,7 +9,7 @@ import { Matchmaker } from 'src/app/classes/matchmaker';
 import { environment } from 'src/environments/environment';
 import { CandidateStep } from 'src/app/classes/candidateStep';
 
-const url = environment.apiUrl + "candidateStep/"
+const url = environment.apiUrl + "api/candidateStep/"
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +36,11 @@ export class CandidateStepService {
 
   findById(id: string) {
     return this.httpClient.get(url + 'findOne?id=' + id);
+  }
+
+  deleteTreatedByInStep(id: string)
+  {
+    return this.httpClient.delete(url+"deleteTreatedByInStep?id="+id);
   }
 
 }

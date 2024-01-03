@@ -11,7 +11,7 @@ import { User } from 'src/app/classes/user';
 import { Helper } from 'src/app/classes/helper';
 
 
-const URL = environment.apiUrl + "user/"
+const URL = environment.apiUrl + "api/user/"
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,14 @@ export class UserService {
   public currentUser: Observable<User>;
 
   constructor(public httpClient: HttpClient, private router: Router,
-    public tokenStorage: TokenStorageService) { }
+    public tokenStorage: TokenStorageService) {
+      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+      this.currentUser = this.currentUserSubject.asObservable();
+    }
 
 
   getToken(data: User): Observable<any> {
-    return this.httpClient.post<User>(`${environment.apiUrl}token`, { username: data.username, password: data.password })
+    return this.httpClient.post<User>(`${environment.apiUrl}api/token`, { username: data.username, password: data.password })
       .pipe(map(user => {
         this.tokenStorage.saveToken(user.accessToken);
         this.tokenStorage.saveUser(user);

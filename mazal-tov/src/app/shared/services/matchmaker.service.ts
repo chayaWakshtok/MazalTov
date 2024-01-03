@@ -15,7 +15,7 @@ import { Matchmaker } from 'src/app/classes/matchmaker';
 })
 export class MatchmakerService {
 
-  baseApi = environment.apiUrl + "matchmaker/";
+  baseApi = environment.apiUrl + "api/matchmaker/";
 
   constructor(public httpClient: HttpClient, private router: Router,) { }
 
@@ -39,6 +39,10 @@ export class MatchmakerService {
 
   getTryMatchCount() {
     return this.httpClient.get(this.baseApi + "countTryMatch");
+  }
+
+  getByUserId(id: string):Observable<Matchmaker> {
+    return this.httpClient.get<Matchmaker>(this.baseApi + "findByUser?id=" + id)
   }
 
 }

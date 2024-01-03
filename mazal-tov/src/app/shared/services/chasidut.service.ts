@@ -14,7 +14,7 @@ export class ChasidutService {
   url: string;
 
   constructor(public httpClient: HttpClient, private router: Router,) {
-    this.url = environment.apiUrl + "chasidut";
+    this.url = environment.apiUrl + "api/chasidut";
   }
 
   getChasiut(): Observable<Chasidut[]> {
